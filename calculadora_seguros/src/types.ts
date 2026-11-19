@@ -69,6 +69,11 @@ export interface DamagesCalculatorInput {
   effectiveAnnualMoratoryRate: number;
 
   customNotes?: string;
+
+  /** Opcional: SMLMV de referencia editable (por defecto CURRENT_SMLMV). */
+  smlmvCop?: number;
+  /** Opcional: factor de indexación IPC editable (por defecto 1.085). */
+  ipcIndexFactor?: number;
 }
 
 export interface DamagesCalculationBreakdown {

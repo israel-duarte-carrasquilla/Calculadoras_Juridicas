@@ -1,4 +1,5 @@
 import { DamagesCalculatorInput } from './types';
+import { todayIso } from './utils/dates';
 
 export const CURRENT_SMLMV = 1300000;
 export const LEGAL_INTEREST_RATE_MONTHLY = 0.004867; // Tasa mensual pura equivalente al 6% E.A.
@@ -18,7 +19,7 @@ export const INITIAL_CALCULATOR_INPUT: DamagesCalculatorInput = {
   policyType: 'RCE_Vehiculos',
 
   incidentDate: '2023-05-15',
-  calculationDate: new Date().toISOString().split('T')[0],
+  calculationDate: todayIso(),
   claimFilingDate: '2023-11-20',
 
   victimAgeAtIncident: 34,
@@ -107,7 +108,7 @@ export const PRESET_CASES: Record<string, { label: string; description: string; 
       policyNumber: 'MED-MAL-2023-4902',
       policyType: 'RCE_Clinica_Medica',
       incidentDate: '2023-02-10',
-      calculationDate: new Date().toISOString().split('T')[0],
+      calculationDate: todayIso(),
       claimFilingDate: '2023-09-01',
       victimAgeAtIncident: 45,
       victimGender: 'F',
@@ -167,7 +168,7 @@ export const PRESET_CASES: Record<string, { label: string; description: string; 
       policyNumber: 'CUMP-9948201-2023',
       policyType: 'Cumplimiento_Contratos',
       incidentDate: '2023-08-15',
-      calculationDate: new Date().toISOString().split('T')[0],
+      calculationDate: todayIso(),
       claimFilingDate: '2023-10-10',
       victimAgeAtIncident: 40,
       victimGender: 'M',
@@ -203,7 +204,7 @@ export const PRESET_CASES: Record<string, { label: string; description: string; 
       policyNumber: 'RCE-COLECTIVO-77301',
       policyType: 'RCE_Vehiculos',
       incidentDate: '2023-03-20',
-      calculationDate: new Date().toISOString().split('T')[0],
+      calculationDate: todayIso(),
       claimFilingDate: '2023-07-15',
       victimAgeAtIncident: 38,
       victimGender: 'M',

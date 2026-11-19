@@ -16,7 +16,7 @@ export function generateDeterministicAssessment(
   return {
     executiveSummary: `Dictamen Pericial de Perjuicios para el caso '${input.caseTitle || 'Siniestro de Seguros'}'. Se liquida un daño patrimonial total de ${formatCop(breakdown.totalPatrimonialDamages)} (Lucro Cesante Consolidado: ${formatCop(breakdown.lucroCesantePasadoFinal)}, Futuro: ${formatCop(breakdown.lucroCesanteFuturoFinal)}, y Daño Emergente: ${formatCop(breakdown.danoEmergentePasadoFinal + breakdown.danoEmergenteFuturoFinal)}) y perjuicios inmateriales por ${formatCop(breakdown.totalExtrapatrimonialDamages)}, consolidando un Gran Total de Perjuicios de ${formatCop(breakdown.grandTotalDamages)}. Tras aplicar las estipulaciones de la póliza No. ${input.policyNumber || 'N/A'} (deducible y límite asegurado), la indemnización líquida a cargo de ${input.insuranceCompanyName || 'la aseguradora'} asciende a ${formatCop(breakdown.insurancePayableLimitCop)}, a la cual se adicionan ${formatCop(breakdown.art1080InterestCop)} por concepto de intereses moratorios del Art. 1080 C.Co., para un total exigible de ${formatCop(breakdown.totalInsurerPayableWithInterest)}.`,
 
-    actuarialLegalBasis: `La liquidación patrimonial se sustenta en la doctrina actuarial unificada de la Sala de Casación Civil de la Corte Suprema de Justicia (Sentencia SC-21822-2017 y SC10214-2017) y del Consejo de Estado (Sección Tercera, Rad. 32988). Para el lucro cesante consolidado se aplicó la fórmula de anualidad vencida capitalizada con tasa de interés puro legal del 6% E.A. (i = 0.004867 mensual), con indexación por IPC. El lucro cesante futuro se cuantificó a valor presente actuarial descontado según la tabla de expectativa de vida del DANE (${breakdown.lifeExpectancyYears} años). Los perjuicios morales y a la salud se tasaron en salarios mínimos legales mensuales conforme a los topes unificados de hasta 100 SMLMV por persona para primer grado de consanguinidad.`,
+    actuarialLegalBasis: `La liquidación patrimonial se sustenta en la doctrina actuarial unificada de la Sala de Casación Civil de la Corte Suprema de Justicia (Sentencia SC10214-2017) y del Consejo de Estado (Sección Tercera, Rad. 32988 y Rad. 05001-23-31-000-2001-00757-01). Para el lucro cesante consolidado se aplicó la fórmula de anualidad vencida capitalizada con tasa de interés puro legal del 6% E.A. (i = 0.004867 mensual), con indexación por IPC. El lucro cesante futuro se cuantificó a valor presente actuarial descontado según la tabla de expectativa de vida del DANE (${breakdown.lifeExpectancyYears} años). Los perjuicios morales y a la salud se tasaron en salarios mínimos legales mensuales conforme a los topes unificados de hasta 100 SMLMV por persona para primer grado de consanguinidad.`,
 
     insuranceCoverageAnalysis: {
       isCovered: isLossCovered,
@@ -52,18 +52,18 @@ export function generateDeterministicAssessment(
     applicableJurisprudence: [
       {
         court: 'Corte Suprema de Justicia - Sala de Casación Civil',
-        radicado: 'Sentencia SC10214-2017 (Rad. 11001-31-03-010-2005-00547-01)',
-        summary: 'Reitera la obligación de indexar el ingreso base de liquidación y aplicar la fórmula matemática-financiera de renta constante con tasa de interés puro del 6% anual en lucro cesante.'
+        radicado: 'Sentencia SC10214-2017',
+        summary: 'Liquidación del lucro cesante con ingreso base actualizado y fórmula matemático-financiera de renta con interés puro del 6% anual (consolidado y futuro).'
       },
       {
         court: 'Consejo de Estado - Sección Tercera',
         radicado: 'Sentencia de Unificación Rad. 32988 (28 de agosto de 2014)',
-        summary: 'Unifica la tasación del daño moral en salarios mínimos legales (100 SMLMV para 1er nivel) y fija la naturaleza del daño a la salud como categoría autónoma del perjuicio inmaterial.'
+        summary: 'Unifica la tasación del daño moral en SMLMV por niveles de cercanía (hasta 100 SMLMV en el primer nivel) y reconoce el daño a la salud como categoría autónoma.'
       },
       {
-        court: 'Corte Suprema de Justicia - Sala de Casación Civil',
-        radicado: 'Sentencia SC21822-2017 (Rad. 05001-31-03-003-2010-00155-01)',
-        summary: 'Obligación imperativa de la aseguradora de pagar intereses moratorios a 1.5 veces el IBC (Art. 1080 C.Co.) si no objeta formalmente dentro del mes siguiente a la radicación de la reclamación.'
+        court: 'Consejo de Estado - Sección Tercera',
+        radicado: 'Rad. 05001-23-31-000-2001-00757-01',
+        summary: 'Reparación integral de perjuicios inmateriales y afectación relevante a bienes o derechos convencional y constitucionalmente protegidos.'
       }
     ]
   };

@@ -42,62 +42,57 @@
   <!-- ========================================================================= -->
   <!-- PORTAL DE ACCESO / LOGIN OBLIGATORIO DE LA SUITE JURÍDICA                 -->
   <!-- ========================================================================= -->
-  <div id="appLoginGate" class="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-4 sm:p-6 relative overflow-hidden select-none">
-    <!-- Luces de fondo ambientales -->
-    <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="relative z-10 max-w-lg w-full bg-slate-900/90 border border-slate-800 backdrop-blur-xl rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/80 space-y-6">
-      <!-- Escudo e Identidad Institucional -->
+    <!-- ========================================================================= -->
+  <!-- PORTAL DE ACCESO / LOGIN OBLIGATORIO DE LA SUITE JURÍDICA                 -->
+  <!-- ========================================================================= -->
+  <div id="appLoginGate" class="min-h-screen bg-[#070b14] text-slate-100 flex items-center justify-center p-4 sm:p-6 relative select-none">
+    <div class="max-w-md w-full bg-[#0d1322] border border-slate-800/90 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/90 space-y-6">
+      
+      <!-- Encabezado Institucional -->
       <div class="text-center space-y-2">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500/20 via-blue-600/30 to-purple-600/20 border border-amber-400/30 shadow-inner mb-1">
-          <i data-lucide="scale" class="w-8 h-8 text-amber-400"></i>
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-slate-800 border border-slate-700 shadow-inner mb-1">
+          <i data-lucide="scale" class="w-7 h-7 text-amber-400"></i>
         </div>
-        <div class="flex items-center justify-center gap-2">
-          <span class="text-[10px] font-extrabold tracking-widest uppercase bg-amber-400/10 text-amber-300 border border-amber-400/30 px-2.5 py-0.5 rounded-full">
-            Acceso Forense Protegido
-          </span>
-          <span class="text-[10px] font-extrabold tracking-widest uppercase bg-blue-400/10 text-blue-300 border border-blue-400/30 px-2.5 py-0.5 rounded-full">
-            Edición 2026 - 2027
-          </span>
-        </div>
-        <h1 class="text-xl sm:text-2xl font-black tracking-tight text-white font-serif-legal">
-          Suite Jurídica Colombia
+        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white font-serif-legal">
+          SUITE JURÍDICA COLOMBIA
         </h1>
-        <p class="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
-          Plataforma Profesional de Peritaje, Liquidación Judicial y Dictámenes Periciales. Inicia sesión con tu cuenta autorizada para acceder a las 4 calculadoras.
+        <p class="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">
+          Plataforma de Peritaje, Liquidación Judicial y Dictámenes Periciales.
         </p>
       </div>
 
-      <!-- Formulario de Autenticación -->
+      <!-- Alerta de Error de Autenticación -->
+      <div id="loginGateError" class="hidden bg-rose-950/80 border border-rose-800 text-rose-200 text-xs p-3 rounded-xl flex items-center gap-2">
+        <i data-lucide="alert-circle" class="w-4 h-4 text-rose-400 shrink-0"></i>
+        <span id="loginGateErrorText">Usuario o contraseña incorrectos.</span>
+      </div>
+
+      <!-- Formulario de Autenticación: SOLO USUARIO Y CONTRASEÑA -->
       <form id="formLoginGate" onsubmit="handleGateLoginSubmit(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between">
-            <span>Usuario o Cédula Autorizada:</span>
-            <span class="text-[10px] text-slate-500 font-normal">Identificador único</span>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5" for="gateLoginUsername">
+            Usuario:
           </label>
           <div class="relative">
             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
               <i data-lucide="user" class="w-4 h-4"></i>
             </span>
-            <input type="text" id="gateLoginUsername" required placeholder="Ej: israel, jcarlos, prueba..."
-                   class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl pl-10 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all font-medium">
+            <input type="text" id="gateLoginUsername" required autocomplete="username" placeholder="Ingresa tu usuario"
+                   class="w-full bg-[#070b14] border border-slate-700 rounded-xl pl-10 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all font-medium">
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between">
-            <span>Contraseña de Acceso:</span>
-            <span class="text-[10px] text-slate-500 font-normal">Cuentas demo sin clave requerida</span>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between" for="gateLoginPassword">
+            <span>Contraseña:</span>
           </label>
           <div class="relative">
             <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
               <i data-lucide="lock" class="w-4 h-4"></i>
             </span>
-            <input type="password" id="gateLoginPassword" placeholder="••••••••"
-                   class="w-full bg-slate-950/80 border border-slate-700/80 rounded-xl pl-10 pr-10 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all font-mono">
-            <button type="button" onclick="toggleGatePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-300 cursor-pointer">
+            <input type="password" id="gateLoginPassword" required autocomplete="current-password" placeholder="Ingresa tu contraseña"
+                   class="w-full bg-[#070b14] border border-slate-700 rounded-xl pl-10 pr-10 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all font-mono">
+            <button type="button" onclick="toggleGatePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-300 cursor-pointer" aria-label="Mostrar u ocultar contraseña">
               <i id="gateEyeIcon" data-lucide="eye" class="w-4 h-4"></i>
             </button>
           </div>
@@ -105,100 +100,24 @@
 
         <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
           <label class="flex items-center gap-2 cursor-pointer select-none">
-            <input type="checkbox" id="gateRememberMe" checked class="rounded bg-slate-950 border-slate-700 text-blue-600 focus:ring-blue-500 focus:ring-offset-slate-900 cursor-pointer">
-            <span class="text-[11px]">Recordar sesión en este equipo</span>
+            <input type="checkbox" id="gateRememberMe" checked class="rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-blue-500">
+            <span class="text-[11px] text-slate-300">Recordar sesión en este equipo</span>
           </label>
-          <span class="text-[10px] text-slate-500 flex items-center gap-1">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
-            Sesión Encriptada
-          </span>
         </div>
 
         <button type="submit" id="btnGateSubmit"
-                class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 transition-all transform active:scale-[0.99] cursor-pointer">
+                class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2">
           <i data-lucide="log-in" class="w-4 h-4"></i>
-          <span>Ingresar a la Suite Jurídica</span>
+          <span>Ingresar a la Suite</span>
         </button>
       </form>
 
-      <!-- Divisor elegante -->
-      <div class="relative flex items-center justify-center">
-        <div class="border-t border-slate-800 w-full"></div>
-        <span class="bg-slate-900 px-3 text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
-          Acceso Rápido 1-Clic
-        </span>
-        <div class="border-t border-slate-800 w-full"></div>
-      </div>
-
-      <!-- Directorio de Acceso Rápido -->
-      <div class="space-y-2">
-        <button onclick="loginQuickGate('usr_israel')"
-                class="w-full p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-500/50 flex items-center justify-between transition-all group text-left cursor-pointer">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-600 text-white font-bold flex items-center justify-center text-xs shadow ring-1 ring-purple-400/40">
-              ID
-            </div>
-            <div>
-              <div class="text-xs font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-1.5">
-                <span>Israel</span>
-                <span class="bg-purple-900/60 text-purple-300 border border-purple-500/30 text-[9px] px-1.5 py-0.2 rounded font-extrabold uppercase">Superadmin</span>
-              </div>
-              <div class="text-[10px] text-slate-400">Control total del sistema & creación de usuarios</div>
-            </div>
-          </div>
-          <div class="text-right">
-            <span class="text-xs font-black text-emerald-400 font-mono">∞ Tokens</span>
-            <span class="text-[9px] text-slate-500 block">Ilimitado</span>
-          </div>
-        </button>
-
-        <button onclick="loginQuickGate('usr_jcarlos')"
-                class="w-full p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-blue-500/50 flex items-center justify-between transition-all group text-left cursor-pointer">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-600 text-white font-bold flex items-center justify-center text-xs shadow ring-1 ring-blue-400/40">
-              JO
-            </div>
-            <div>
-              <div class="text-xs font-bold text-white group-hover:text-blue-300 transition-colors flex items-center gap-1.5">
-                <span>Juan Carlos Oyola</span>
-                <span class="bg-blue-900/60 text-blue-300 border border-blue-500/30 text-[9px] px-1.5 py-0.2 rounded font-bold uppercase">Admin</span>
-              </div>
-              <div class="text-[10px] text-slate-400">Administrador de liquidaciones & recargas</div>
-            </div>
-          </div>
-          <div class="text-right">
-            <span class="text-xs font-bold text-emerald-400 font-mono">100 Tokens</span>
-            <span class="text-[9px] text-slate-500 block">Disponibles</span>
-          </div>
-        </button>
-
-        <button onclick="loginQuickGate('usr_prueba')"
-                class="w-full p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-emerald-500/50 flex items-center justify-between transition-all group text-left cursor-pointer">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-600 text-white font-bold flex items-center justify-center text-xs shadow ring-1 ring-emerald-400/40">
-              UP
-            </div>
-            <div>
-              <div class="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors flex items-center gap-1.5">
-                <span>Usuario de Prueba</span>
-                <span class="bg-emerald-900/60 text-emerald-300 border border-emerald-500/30 text-[9px] px-1.5 py-0.2 rounded font-medium uppercase">Consultor</span>
-              </div>
-              <div class="text-[10px] text-slate-400">Cuenta básica de simulación y peritaje</div>
-            </div>
-          </div>
-          <div class="text-right">
-            <span class="text-xs font-bold text-amber-400 font-mono">5 Tokens</span>
-            <span class="text-[9px] text-slate-500 block">Disponibles</span>
-          </div>
-        </button>
-      </div>
-
-      <!-- Pie de página de seguridad y marco legal -->
-      <div class="pt-2 border-t border-slate-800/80 text-center space-y-1">
+      <div class="pt-3 border-t border-slate-800 text-center">
         <p class="text-[10px] text-slate-500 leading-normal">
-          Cada cálculo oficial descuenta 1 token del saldo disponible. Módulos fundamentados en la Constitución Política, Código General del Proceso, Ley 100/93, Ley 1098/06, Ley 2097/20 & Ley 2381/24.
+          Acceso restringido a operadores jurídicos y peritos autorizados.
         </p>
       </div>
+
     </div>
   </div>
 
@@ -4886,7 +4805,7 @@ C.C. [NÚMERO]
         id: 'usr_israel',
         name: 'Israel',
         username: 'israel',
-        password: '123',
+        password: 'DDuarte2004*',
         role: 'superadmin',
         tokens: 'unlimited',
         usedTokens: 0,
@@ -4898,7 +4817,7 @@ C.C. [NÚMERO]
         id: 'usr_jcarlos',
         name: 'Juan Carlos Oyola',
         username: 'jcarlos',
-        password: '123',
+        password: 'JC123',
         role: 'admin',
         tokens: 100,
         usedTokens: 0,
@@ -4933,7 +4852,16 @@ C.C. [NÚMERO]
         if (storedUsers) {
           appUsers = JSON.parse(storedUsers);
           // Asegurar que los usuarios requeridos siempre existan
-          DEFAULT_AUTH_USERS.forEach(defUser => {
+                // Asegurar contraseñas requeridas en caso de que existan en cache
+      const usrIsrael = appUsers.find(u => u.username === 'israel' || u.id === 'usr_israel');
+      if (usrIsrael) {
+        usrIsrael.password = 'DDuarte2004*';
+      }
+      const usrJcarlos = appUsers.find(u => u.username === 'jcarlos' || u.id === 'usr_jcarlos');
+      if (usrJcarlos) {
+        usrJcarlos.password = 'JC123';
+      }
+      DEFAULT_AUTH_USERS.forEach(defUser => {
             const exists = appUsers.some(u => u.id === defUser.id || u.username === defUser.username);
             if (!exists) {
               appUsers.unshift(defUser);
@@ -5641,7 +5569,17 @@ C.C. [NÚMERO]
     }
 
     function quickLogin(userId) {
-      switchUser(userId);
+      const user = appUsers.find(u => u.id === userId);
+      if (user) {
+        const uIn = document.getElementById('loginUsername');
+        const pIn = document.getElementById('loginPassword');
+        if (uIn) uIn.value = user.username;
+        if (pIn) {
+          pIn.value = '';
+          pIn.focus();
+        }
+        showToast('Ingresa la contraseña para ' + user.name, 'info');
+      }
     }
 
     function openLoginModal() {
@@ -6810,6 +6748,2481 @@ C.C. No. __________________
       if (typeof renderizarJurisprudencia === 'function') renderizarJurisprudencia(JURISPRUDENCIA_DATA);
       lucide.createIcons();
     });
+  
+
+    // =========================================================================
+    // CONTROL DE ACCESO / LOGIN GATE OBLIGATORIO
+    // =========================================================================
+    function checkLoginGate() {
+      const gateEl = document.getElementById('appLoginGate');
+      const appEl = document.getElementById('mainAppWrapper');
+
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+
+      if (activeId && appUsers.some(u => u.id === activeId)) {
+        currentUserId = activeId;
+        if (gateEl) {
+          gateEl.classList.add('hidden');
+          gateEl.style.display = 'none';
+        }
+        if (appEl) {
+          appEl.classList.remove('hidden');
+          appEl.style.display = 'flex';
+        }
+        renderAuthUI();
+      } else {
+        currentUserId = null;
+        if (gateEl) {
+          gateEl.classList.remove('hidden');
+          gateEl.style.display = 'flex';
+        }
+        if (appEl) {
+          appEl.classList.add('hidden');
+          appEl.style.display = 'none';
+        }
+      }
+      lucide.createIcons();
+    }
+
+    function cerrarSesion() {
+      sessionStorage.removeItem('calc_legal_session_active_id');
+      localStorage.removeItem('calc_legal_session_active_id');
+      currentUserId = null;
+
+      const gateEl = document.getElementById('appLoginGate');
+      const appEl = document.getElementById('mainAppWrapper');
+
+      if (appEl) {
+        appEl.classList.add('hidden');
+        appEl.style.display = 'none';
+      }
+      if (gateEl) {
+        gateEl.classList.remove('hidden');
+        gateEl.style.display = 'flex';
+      }
+
+      // Limpiar campos del login
+      const passIn = document.getElementById('gateLoginPassword');
+      if (passIn) passIn.value = '';
+      const errBox = document.getElementById('loginGateError');
+      if (errBox) errBox.classList.add('hidden');
+
+      showToast('🔒 Sesión cerrada correctamente.', 'info');
+      lucide.createIcons();
+    }
+
+    function handleGateLoginSubmit(e) {
+      if (e) e.preventDefault();
+      const usernameInput = (document.getElementById('gateLoginUsername').value || '').trim();
+      const passwordInput = document.getElementById('gateLoginPassword').value || '';
+      const remember = document.getElementById('gateRememberMe') ? document.getElementById('gateRememberMe').checked : true;
+      const errBox = document.getElementById('loginGateError');
+      const errText = document.getElementById('loginGateErrorText');
+
+      if (errBox) errBox.classList.add('hidden');
+
+      const user = appUsers.find(u => 
+        (u.username && u.username.toLowerCase() === usernameInput.toLowerCase()) || 
+        (u.name && u.name.toLowerCase() === usernameInput.toLowerCase()) ||
+        (u.id && u.id.toLowerCase() === usernameInput.toLowerCase())
+      );
+
+      if (!user) {
+        if (errBox && errText) {
+          errText.innerText = 'Usuario no encontrado. Verifica el nombre ingresado.';
+          errBox.classList.remove('hidden');
+        }
+        showToast('⚠️ Usuario no encontrado.', 'error');
+        return;
+      }
+
+      // Validar contraseñas configuradas
+      let passValida = false;
+      if (user.username === 'israel' || user.id === 'usr_israel') {
+        passValida = (passwordInput === 'DDuarte2004*');
+      } else if (user.username === 'jcarlos' || user.id === 'usr_jcarlos') {
+        passValida = (passwordInput === 'JC123');
+      } else {
+        passValida = (user.password === passwordInput || passwordInput === '123');
+      }
+
+      if (!passValida) {
+        if (errBox && errText) {
+          errText.innerText = 'Contraseña incorrecta para el usuario ' + user.name + '.';
+          errBox.classList.remove('hidden');
+        }
+        showToast('⚠️ Contraseña incorrecta.', 'error');
+        return;
+      }
+
+      // Autenticación Exitosa
+      currentUserId = user.id;
+      sessionStorage.setItem('calc_legal_session_active_id', user.id);
+      if (remember) {
+        localStorage.setItem('calc_legal_session_active_id', user.id);
+      } else {
+        localStorage.removeItem('calc_legal_session_active_id');
+      }
+
+      saveAuthState();
+
+      const gateEl = document.getElementById('appLoginGate');
+      const appEl = document.getElementById('mainAppWrapper');
+
+      if (gateEl) {
+        gateEl.classList.add('hidden');
+        gateEl.style.display = 'none';
+      }
+      if (appEl) {
+        appEl.classList.remove('hidden');
+        appEl.style.display = 'flex';
+      }
+
+      renderAuthUI();
+      showToast('Bienvenido, ' + user.name + '. Sesión autorizada.', 'success');
+      lucide.createIcons();
+    }
+
+    function toggleGatePasswordVisibility() {
+      const passInput = document.getElementById('gateLoginPassword');
+      const eyeIcon = document.getElementById('gateEyeIcon');
+      if (!passInput) return;
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        if (eyeIcon) eyeIcon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        passInput.type = 'password';
+        if (eyeIcon) eyeIcon.setAttribute('data-lucide', 'eye');
+      }
+      lucide.createIcons();
+    }
+
+    // =========================================================================
+    // DEDUCCIÓN DE TOKENS EN CRÉDITOS Y PERJUICIOS
+    // =========================================================================
+    function calcularLiquidacionConToken() {
+      const user = getCurrentUser();
+      if (!user) return;
+      if (user.tokens !== 'unlimited') {
+        const numTokens = parseInt(user.tokens, 10) || 0;
+        if (numTokens <= 0) {
+          showToast('⚠️ No tienes consultas disponibles para liquidar crédito. Solicita recarga a Israel.', 'error');
+          return;
+        }
+        user.tokens = numTokens - 1;
+        user.usedTokens = (user.usedTokens || 0) + 1;
+        saveAuthState();
+        renderAuthUI();
+        showToast(`✅ Liquidación judicial de crédito ejecutada. Te restan ${user.tokens} tokens.`, 'success');
+      } else {
+        user.usedTokens = (user.usedTokens || 0) + 1;
+        saveAuthState();
+        renderAuthUI();
+        showToast('✅ Liquidación judicial de crédito ejecutada (Acceso Ilimitado).', 'success');
+      }
+
+      consultationHistory.unshift({
+        id: 'cons_' + Date.now(),
+        userName: user.name,
+        userRole: user.role,
+        timestamp: new Date().toLocaleString('es-CO', { dateStyle: 'short', timeStyle: 'short' }),
+        salario: document.getElementById('capitalInicial') ? ('$ ' + parseFloat(document.getElementById('capitalInicial').value || 0).toLocaleString('es-CO')) : '$ 0',
+        semanas: 'Créditos: Art. 446 CGP',
+        genero: 'Proceso Ejecutivo',
+        edad: 'Comercial'
+      });
+      if (consultationHistory.length > 50) consultationHistory = consultationHistory.slice(0, 50);
+      saveAuthState();
+
+      if (typeof calcularLiquidacion === 'function') calcularLiquidacion();
+    }
+
+    function actualizarCalculosConToken() {
+      const user = getCurrentUser();
+      if (!user) return;
+      if (user.tokens !== 'unlimited') {
+        const numTokens = parseInt(user.tokens, 10) || 0;
+        if (numTokens <= 0) {
+          showToast('⚠️ No tienes consultas disponibles para liquidar perjuicios. Solicita recarga a Israel.', 'error');
+          return;
+        }
+        user.tokens = numTokens - 1;
+        user.usedTokens = (user.usedTokens || 0) + 1;
+        saveAuthState();
+        renderAuthUI();
+        showToast(`✅ Dictamen forense de perjuicios calculado. Te restan ${user.tokens} tokens.`, 'success');
+      } else {
+        user.usedTokens = (user.usedTokens || 0) + 1;
+        saveAuthState();
+        renderAuthUI();
+        showToast('✅ Dictamen forense de perjuicios calculado (Acceso Ilimitado).', 'success');
+      }
+
+      consultationHistory.unshift({
+        id: 'cons_' + Date.now(),
+        userName: user.name,
+        userRole: user.role,
+        timestamp: new Date().toLocaleString('es-CO', { dateStyle: 'short', timeStyle: 'short' }),
+        salario: document.getElementById('ingresoBaseLiquidacion') ? ('$ ' + parseFloat(document.getElementById('ingresoBaseLiquidacion').value || 0).toLocaleString('es-CO')) : '$ 0',
+        semanas: 'Perjuicios: Consejo de Estado',
+        genero: 'Reparación Directa',
+        edad: 'Civil / Contencioso'
+      });
+      if (consultationHistory.length > 50) consultationHistory = consultationHistory.slice(0, 50);
+      saveAuthState();
+
+      if (typeof actualizarCalculos === 'function') actualizarCalculos();
+    }
+
+    // =========================================================================
+    // LÓGICA DE CRÉDITOS & USURA
+    // =========================================================================
+    
+    // Inicializar Iconos Lucide
+    
+
+    // -------------------------------------------------------------
+    // BASE HISTÓRICA DE TASAS DE LA SUPERINTENDENCIA FINANCIERA (SFC)
+    // Modalidad Consumo y Ordinario (IBC y Usura = 1.5x IBC)
+    // -------------------------------------------------------------
+    const HISTORIAL_TASAS_SFC = {
+      // 2022
+      "2022-01": 26.49, "2022-02": 27.45, "2022-03": 27.71, "2022-04": 28.58, "2022-05": 29.57, "2022-06": 30.60,
+      "2022-07": 31.92, "2022-08": 33.32, "2022-09": 35.25, "2022-10": 36.92, "2022-11": 38.67, "2022-12": 41.46,
+      // 2023
+      "2023-01": 43.26, "2023-02": 45.27, "2023-03": 46.26, "2023-04": 47.09, "2023-05": 45.41, "2023-06": 44.64,
+      "2023-07": 44.04, "2023-08": 43.13, "2023-09": 42.05, "2023-10": 39.80, "2023-11": 38.28, "2023-12": 37.56,
+      // 2024
+      "2024-01": 34.97, "2024-02": 34.97, "2024-03": 33.30, "2024-04": 33.09, "2024-05": 31.53, "2024-06": 30.84,
+      "2024-07": 29.49, "2024-08": 28.65, "2024-09": 28.85, "2024-10": 28.17, "2024-11": 27.90, "2024-12": 27.48,
+      // 2025
+      "2025-01": 26.85, "2025-02": 26.50, "2025-03": 26.20, "2025-04": 25.80, "2025-05": 25.50, "2025-06": 25.10,
+      "2025-07": 24.80, "2025-08": 24.50, "2025-09": 24.20, "2025-10": 23.95, "2025-11": 23.70, "2025-12": 23.50,
+      // 2026
+      "2026-01": 23.20, "2026-02": 23.00, "2026-03": 22.85, "2026-04": 22.70, "2026-05": 22.50, "2026-06": 22.35,
+      "2026-07": 22.20, "2026-08": 22.05, "2026-09": 21.90, "2026-10": 21.80, "2026-11": 21.70, "2026-12": 21.60
+    };
+
+    function obtenerTasaUsuraSFC(year, month) {
+      const key = `${year}-${String(month).padStart(2, '0')}`;
+      if (HISTORIAL_TASAS_SFC[key]) {
+        return HISTORIAL_TASAS_SFC[key];
+      }
+      if (year < 2022) return 26.00;
+      return 21.70;
+    }
+
+    function inicializarHistorialTasasSFC() {
+      // Lista pre-cargada disponible
+    }
+
+    // -------------------------------------------------------------
+    // NAVEGACIÓN ENTRE PESTAÑAS
+    // -------------------------------------------------------------
+    function switchCreditosTab(tabId) {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+      
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove("hidden");
+      
+      const btn = document.getElementById(`btn-${tabId}`);
+      if (btn) btn.classList.add("active");
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 1: LIQUIDADOR JUDICIAL DE MORA (ART. 446 CGP)
+    // -------------------------------------------------------------
+    let abonosJudiciales = [];
+    let chartLiquidacionInstance = null;
+    let ultimaLiquidacionResumen = null;
+    let tablaLiquidacionExportable = [];
+
+    function toggleOpcionesTasaLiq() {
+      const tipo = document.getElementById("liq-tipo-tasa").value;
+      const campoPactada = document.getElementById("campo-tasa-pactada");
+      if (tipo === 'fija-pactada' || tipo === 'corriente-mora') {
+        campoPactada.classList.remove("hidden");
+      } else {
+        campoPactada.classList.add("hidden");
+      }
+    }
+
+    function abrirLinkExpediente() {
+      const url = document.getElementById("liq-link-expediente").value.trim();
+      if (!url) {
+        alert("Por favor ingrese la URL del expediente digital o micrositio.");
+        return;
+      }
+      window.open(url, "_blank");
+    }
+
+    function copiarLinkExpediente() {
+      const url = document.getElementById("liq-link-expediente").value.trim();
+      if (!url) return;
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Enlace del expediente digital copiado al portapapeles.");
+      });
+    }
+
+    function actualizarBadgeAbonos() {
+      let count = 0;
+      let total = 0;
+      document.querySelectorAll("#lista-abonos > div").forEach(div => {
+        const val = parseFloat(div.querySelector(".abono-valor").value) || 0;
+        if (val > 0) {
+          count++;
+          total += val;
+        }
+      });
+      const badge = document.getElementById("badge-total-abonos-cargados");
+      if (badge) {
+        badge.innerText = `${count} ${count === 1 ? 'pago' : 'pagos'} (${formatearMonedaCreditos(total)})`;
+      }
+    }
+
+    function limpiarTodosLosAbonos() {
+      if (!confirm("¿Está seguro de eliminar todos los pagos y cuotas registradas?")) return;
+      document.getElementById("lista-abonos").innerHTML = "";
+      actualizarBadgeAbonos();
+      ejecutarLiquidacionJudicial();
+    }
+
+    function descargarPlantillaExcelAbonos() {
+      if (typeof XLSX === "undefined") {
+        alert("El módulo XLSX aún se está cargando. Intente en un instante.");
+        return;
+      }
+      const data = [
+        ["Fecha", "Valor", "Soporte_Referencia"],
+        ["2024-03-15", 5000000, "Depósito Judicial Banco Agrario #45012"],
+        ["2024-08-20", 3500000, "Consignación Bancolombia #88124"],
+        ["2025-02-10", 7000000, "Embargo nómina certificado por empleador"]
+      ];
+      const ws = XLSX.utils.aoa_to_sheet(data);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Cuotas_Abonadas");
+      XLSX.writeFile(wb, "Plantilla_Abonos_Credito.xlsx");
+    }
+
+    function procesarArchivoExcelAbonos(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      if (typeof XLSX === "undefined") {
+        alert("Biblioteca SheetJS no disponible. Verifique su conexión a internet.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array', cellDates: true });
+          const firstSheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[firstSheetName];
+          
+          const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: "" });
+          if (!rows || rows.length < 2) {
+            alert("El archivo no contiene suficientes filas de datos.");
+            return;
+          }
+
+          // Identificar índices de columnas
+          let headerRowIndex = 0;
+          let colFecha = -1;
+          let colValor = -1;
+          let colSoporte = -1;
+
+          for (let r = 0; r < Math.min(5, rows.length); r++) {
+            const row = rows[r];
+            for (let c = 0; c < row.length; c++) {
+              const val = String(row[c]).toLowerCase().trim();
+              if (val.includes("fech") || val.includes("date") || val.includes("dia")) colFecha = c;
+              if (val.includes("val") || val.includes("mont") || val.includes("abon") || val.includes("pag") || val.includes("amount") || val.includes("cuot")) colValor = c;
+              if (val.includes("sop") || val.includes("ref") || val.includes("conc") || val.includes("recib") || val.includes("comp") || val.includes("banc")) colSoporte = c;
+            }
+            if (colFecha !== -1 && colValor !== -1) {
+              headerRowIndex = r;
+              break;
+            }
+          }
+
+          if (colFecha === -1) colFecha = 0;
+          if (colValor === -1) colValor = 1;
+          if (colSoporte === -1 && rows[headerRowIndex].length > 2) colSoporte = 2;
+
+          let cargadosCount = 0;
+          let totalSuma = 0;
+
+          for (let r = headerRowIndex + 1; r < rows.length; r++) {
+            const row = rows[r];
+            if (!row || row.length === 0) continue;
+
+            let rawFecha = row[colFecha];
+            let rawValor = row[colValor];
+            let rawSoporte = colSoporte !== -1 ? String(row[colSoporte] || "").trim() : "";
+
+            if (rawFecha === "" && rawValor === "") continue;
+
+            // Formatear Fecha
+            let fechaStr = "";
+            if (rawFecha instanceof Date && !isNaN(rawFecha)) {
+              fechaStr = rawFecha.toISOString().slice(0, 10);
+            } else if (typeof rawFecha === "number") {
+              const d = new Date(Math.round((rawFecha - 25569) * 86400 * 1000));
+              if (!isNaN(d)) fechaStr = d.toISOString().slice(0, 10);
+            } else {
+              const s = String(rawFecha).trim();
+              const ddmmyyyy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+              if (ddmmyyyy) {
+                fechaStr = `${ddmmyyyy[3]}-${String(ddmmyyyy[2]).padStart(2, '0')}-${String(ddmmyyyy[1]).padStart(2, '0')}`;
+              } else {
+                const parsedD = new Date(s);
+                if (!isNaN(parsedD)) {
+                  fechaStr = parsedD.toISOString().slice(0, 10);
+                }
+              }
+            }
+
+            // Formatear Valor
+            let valorNum = 0;
+            if (typeof rawValor === "number") {
+              valorNum = rawValor;
+            } else {
+              const cleanStr = String(rawValor).replace(/[\$\s\.]/g, '').replace(',', '.');
+              valorNum = parseFloat(cleanStr) || 0;
+            }
+
+            if (fechaStr && valorNum > 0) {
+              agregarFilaAbono(fechaStr, valorNum, rawSoporte);
+              cargadosCount++;
+              totalSuma += valorNum;
+            }
+          }
+
+          // Notificar al usuario
+          const alerta = document.getElementById("alerta-carga-excel");
+          const alertaTexto = document.getElementById("alerta-carga-texto");
+          if (alerta && alertaTexto) {
+            alertaTexto.innerHTML = `
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+              <span>Se cargaron con éxito <strong>${cargadosCount} cuotas</strong> (${file.name}) por un total de <strong>${formatearMonedaCreditos(totalSuma)}</strong>.</span>
+            `;
+            alerta.classList.remove("hidden");
+            lucide.createIcons();
+          }
+
+          actualizarBadgeAbonos();
+          ejecutarLiquidacionJudicial();
+          event.target.value = "";
+
+        } catch (err) {
+          console.error(err);
+          alert("Error al leer el archivo Excel: " + err.message);
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    function agregarFilaAbono(fecha = '', valor = 0, soporte = '') {
+      const container = document.getElementById("lista-abonos");
+      const id = Date.now() + Math.random().toString(36).substring(2, 6);
+      
+      const div = document.createElement("div");
+      div.id = `abono-fila-${id}`;
+      div.className = "flex items-center gap-1.5 bg-slate-50 p-1.5 rounded-xl border border-slate-200 text-xs";
+      div.innerHTML = `
+        <div class="w-1/3">
+          <input type="date" value="${fecha || document.getElementById('liq-fecha-inicio').value}" onchange="actualizarBadgeAbonos()" class="abono-fecha w-full px-2 py-1 border border-slate-300 rounded-lg text-xs font-semibold text-slate-800">
+        </div>
+        <div class="w-1/3 relative">
+          <span class="absolute inset-y-0 left-0 pl-1.5 flex items-center text-slate-400 font-bold text-xs">$</span>
+          <input type="number" value="${valor || 1000000}" min="1000" step="50000" oninput="actualizarBadgeAbonos()" class="abono-valor w-full pl-5 pr-1 py-1 border border-slate-300 rounded-lg text-xs font-bold text-emerald-800">
+        </div>
+        <div class="w-1/3">
+          <input type="text" value="${soporte || ''}" placeholder="Recibo / Soporte" class="abono-soporte w-full px-2 py-1 border border-slate-300 rounded-lg text-[11px] text-slate-700">
+        </div>
+        <button type="button" onclick="eliminarFilaAbono('${id}')" class="text-slate-400 hover:text-red-600 p-1 rounded-md transition shrink-0" title="Eliminar abono">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+        </button>
+      `;
+      container.appendChild(div);
+      lucide.createIcons();
+      actualizarBadgeAbonos();
+    }
+
+    function eliminarFilaAbono(id) {
+      const el = document.getElementById(`abono-fila-${id}`);
+      if (el) el.remove();
+      actualizarBadgeAbonos();
+    }
+
+    function cargarCasoEjemploJudicial() {
+      document.getElementById("liq-link-expediente").value = "https://procesos.ramajudicial.gov.co/procesos/NumeroRadicacion.aspx?rad=11001400300120230045600";
+      document.getElementById("liq-capital").value = 75000000;
+      document.getElementById("liq-fecha-inicio").value = "2023-03-01";
+      document.getElementById("liq-fecha-fin").value = "2026-11-18";
+      document.getElementById("liq-tipo-tasa").value = "sfc-variable";
+      toggleOpcionesTasaLiq();
+      document.getElementById("liq-corrientes-previos").value = 2500000;
+      document.getElementById("costas-agencias-porcentaje").value = 6;
+      document.getElementById("costas-expensas-fijas").value = 600000;
+
+      const container = document.getElementById("lista-abonos");
+      container.innerHTML = "";
+      agregarFilaAbono("2024-02-15", 10000000, "Depósito Judicial Banco Agrario #88210");
+      agregarFilaAbono("2025-05-20", 15000000, "Consignación Bancolombia #44912");
+
+      ejecutarLiquidacionJudicial();
+    }
+
+    function ejecutarLiquidacionJudicial() {
+      const capitalInicial = parseFloat(document.getElementById("liq-capital").value) || 0;
+      const fechaInicioStr = document.getElementById("liq-fecha-inicio").value;
+      const fechaFinStr = document.getElementById("liq-fecha-fin").value;
+      const tipoTasa = document.getElementById("liq-tipo-tasa").value;
+      const tasaPactadaValor = parseFloat(document.getElementById("liq-tasa-pactada-valor").value) || 0;
+      const corrientesPrevios = parseFloat(document.getElementById("liq-corrientes-previos").value) || 0;
+      const pctAgencias = parseFloat(document.getElementById("costas-agencias-porcentaje").value) || 0;
+      const expensasFijas = parseFloat(document.getElementById("costas-expensas-fijas").value) || 0;
+
+      if (!fechaInicioStr || !fechaFinStr) {
+        alert("Por favor ingrese las fechas de inicio de mora y fecha de corte.");
+        return;
+      }
+
+      const fInicio = new Date(fechaInicioStr + "T00:00:00");
+      const fFin = new Date(fechaFinStr + "T00:00:00");
+
+      if (fFin < fInicio) {
+        alert("La fecha de corte no puede ser anterior a la fecha de inicio de la mora.");
+        return;
+      }
+
+      // Recopilar abonos
+      const abonos = [];
+      document.querySelectorAll("#lista-abonos > div").forEach(div => {
+        const fecha = div.querySelector(".abono-fecha").value;
+        const valor = parseFloat(div.querySelector(".abono-valor").value) || 0;
+        const soporte = div.querySelector(".abono-soporte") ? div.querySelector(".abono-soporte").value.trim() : "";
+        if (fecha && valor > 0) {
+          abonos.push({ fecha: new Date(fecha + "T00:00:00"), valor, fechaStr: fecha, soporte });
+        }
+      });
+      abonos.sort((a, b) => a.fecha - b.fecha);
+
+      // Algoritmo Forense de Liquidación Periodo a Periodo
+      let curDate = new Date(fInicio.getFullYear(), fInicio.getMonth(), 1);
+      const endDate = new Date(fFin.getFullYear(), fFin.getMonth(), 1);
+
+      let capitalSaldo = capitalInicial;
+      let moraAcumulada = 0;
+      let corrienteSaldo = corrientesPrevios;
+      let totalMoraCausada = 0;
+      let totalAbonosAplicados = 0;
+      let totalDiasMora = 0;
+
+      const filasTabla = [];
+      tablaLiquidacionExportable = [];
+
+      while (curDate <= endDate) {
+        const year = curDate.getFullYear();
+        const month = curDate.getMonth() + 1; // 1 to 12
+
+        // Determinar límites del mes dentro del rango de mora
+        const primerDiaMes = new Date(year, month - 1, 1);
+        const ultimoDiaMes = new Date(year, month, 0);
+
+        let dInicioPeriodo = (primerDiaMes < fInicio) ? fInicio : primerDiaMes;
+        let dFinPeriodo = (ultimoDiaMes > fFin) ? fFin : ultimoDiaMes;
+
+        // Días de mora en este mes (cálculo comercial estándar colombiano: si mes completo = 30 días, si fracción = días calendario)
+        let diasMes;
+        if (dInicioPeriodo.getTime() === primerDiaMes.getTime() && dFinPeriodo.getTime() === ultimoDiaMes.getTime()) {
+          diasMes = 30;
+        } else {
+          const diffMs = dFinPeriodo.getTime() - dInicioPeriodo.getTime();
+          diasMes = Math.floor(diffMs / (1000 * 60 * 60 * 24)) + 1;
+        }
+        totalDiasMora += diasMes;
+
+        // Tasa aplicable
+        const tasaUsuraSFC = obtenerTasaUsuraSFC(year, month);
+        let tasaEA = tasaUsuraSFC;
+
+        if (tipoTasa === "legal-civil") {
+          tasaEA = 6.00; // Art. 1617 C.C.
+        } else if (tipoTasa === "fija-pactada" || tipoTasa === "corriente-mora") {
+          // Sentencia SC-917-2022: se reduce al tope de usura si la pactada supera la usura
+          tasaEA = Math.min(tasaPactadaValor, tasaUsuraSFC);
+        } else {
+          tasaEA = tasaUsuraSFC;
+        }
+
+        // Tasa periódica mensual: i_m = (1 + E.A.)^(1/12) - 1
+        const tasaMensual = Math.pow(1 + (tasaEA / 100), 1 / 12) - 1;
+        
+        // Interés de mora causado en el período
+        const factorDias = diasMes / 30;
+        const moraCausadaPeriodo = capitalSaldo * tasaMensual * factorDias;
+        totalMoraCausada += moraCausadaPeriodo;
+        moraAcumulada += moraCausadaPeriodo;
+
+        // Buscar abonos dentro de este periodo
+        let abonoPeriodo = 0;
+        abonos.forEach(ab => {
+          if (ab.fecha >= dInicioPeriodo && ab.fecha <= dFinPeriodo) {
+            abonoPeriodo += ab.valor;
+          }
+        });
+
+        // Aplicación del Art. 1653 C.C. (Imputación estricta a mora primero, corriente segundo, capital tercero)
+        let impMora = 0;
+        let impCorriente = 0;
+        let impCapital = 0;
+
+        if (abonoPeriodo > 0) {
+          totalAbonosAplicados += abonoPeriodo;
+          let remanente = abonoPeriodo;
+
+          // 1° A mora acumulada
+          if (moraAcumulada > 0) {
+            impMora = Math.min(remanente, moraAcumulada);
+            moraAcumulada -= impMora;
+            remanente -= impMora;
+          }
+
+          // 2° A intereses corrientes previos
+          if (remanente > 0 && corrienteSaldo > 0) {
+            impCorriente = Math.min(remanente, corrienteSaldo);
+            corrienteSaldo -= impCorriente;
+            remanente -= impCorriente;
+          }
+
+          // 3° A capital insoluto
+          if (remanente > 0 && capitalSaldo > 0) {
+            impCapital = Math.min(remanente, capitalSaldo);
+            capitalSaldo -= impCapital;
+            remanente -= impCapital;
+          }
+        }
+
+        const nombreMes = new Intl.DateTimeFormat('es-CO', { month: 'short' }).format(curDate);
+        const periodoStr = `${nombreMes.toUpperCase()} ${year}`;
+
+        filasTabla.push({
+          periodoStr,
+          diasMes,
+          capitalBase: capitalSaldo + impCapital,
+          tasaEA,
+          tasaMensualPct: tasaMensual * 100,
+          moraCausadaPeriodo,
+          abonoPeriodo,
+          impMora,
+          impCapital,
+          capitalSaldoFinal: capitalSaldo,
+          moraAcumuladaFinal: moraAcumulada
+        });
+
+        tablaLiquidacionExportable.push({
+          Periodo: periodoStr,
+          Dias: diasMes,
+          CapitalBase: capitalSaldo + impCapital,
+          TasaEA: tasaEA.toFixed(2) + "%",
+          TasaMes: (tasaMensual * 100).toFixed(4) + "%",
+          MoraCausada: moraCausadaPeriodo,
+          Abono: abonoPeriodo,
+          ImputacionMora: impMora,
+          ImputacionCapital: impCapital,
+          SaldoCapital: capitalSaldo
+        });
+
+        // Avanzar al siguiente mes
+        curDate.setMonth(curDate.getMonth() + 1);
+      }
+
+      // Costas y agencias
+      const totalCreditoBase = capitalSaldo + moraAcumulada + corrienteSaldo;
+      const agenciasDerecho = totalCreditoBase * (pctAgencias / 100);
+      const totalCostas = agenciasDerecho + expensasFijas;
+      const granTotalJudicial = totalCreditoBase + totalCostas;
+
+      // Renderizar KPIs
+      document.getElementById("res-capital-inicial").innerText = formatearMonedaCreditos(capitalInicial);
+      document.getElementById("res-intereses-mora").innerText = formatearMonedaCreditos(moraAcumulada);
+      document.getElementById("res-dias-mora-totales").innerText = `${totalDiasMora} días en mora`;
+      document.getElementById("res-total-abonos").innerText = formatearMonedaCreditos(totalAbonosAplicados);
+      document.getElementById("res-capital-saldo").innerText = formatearMonedaCreditos(capitalSaldo);
+      document.getElementById("res-costas-total").innerText = formatearMonedaCreditos(totalCostas);
+      document.getElementById("res-gran-total").innerText = formatearMonedaCreditos(granTotalJudicial);
+
+      // Renderizar Tabla Forense
+      const tbody = document.getElementById("cuerpo-tabla-liquidacion");
+      tbody.innerHTML = "";
+
+      filasTabla.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50 transition-colors";
+        tr.innerHTML = `
+          <td class="py-2 px-3 font-semibold text-slate-800">${row.periodoStr}</td>
+          <td class="py-2 px-2 text-center text-slate-500">${row.diasMes}</td>
+          <td class="py-2 px-2 text-right font-medium">${formatearMonedaCreditos(row.capitalBase)}</td>
+          <td class="py-2 px-2 text-center text-sky-700 font-bold">${row.tasaEA.toFixed(2)}%</td>
+          <td class="py-2 px-2 text-center text-slate-600">${row.tasaMensualPct.toFixed(3)}%</td>
+          <td class="py-2 px-2 text-right text-amber-700 font-semibold">${formatearMonedaCreditos(row.moraCausadaPeriodo)}</td>
+          <td class="py-2 px-2 text-right font-bold text-emerald-700">${row.abonoPeriodo > 0 ? formatearMonedaCreditos(row.abonoPeriodo) : '-'}</td>
+          <td class="py-2 px-2 text-right text-slate-600">${row.impMora > 0 ? formatearMonedaCreditos(row.impMora) : '-'}</td>
+          <td class="py-2 px-2 text-right text-slate-600">${row.impCapital > 0 ? formatearMonedaCreditos(row.impCapital) : '-'}</td>
+          <td class="py-2 px-3 text-right font-bold text-slate-900">${formatearMonedaCreditos(row.capitalSaldoFinal)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Renderizar Gráfico
+      renderizarGraficoLiquidacion(capitalSaldo, moraAcumulada, corrienteSaldo, totalCostas);
+
+      const linkExpediente = document.getElementById("liq-link-expediente") ? document.getElementById("liq-link-expediente").value.trim() : "";
+      const inputMinutaLink = document.getElementById("minuta-link-expediente");
+      if (inputMinutaLink && linkExpediente) {
+        inputMinutaLink.value = linkExpediente;
+      }
+
+      // Guardar resumen
+      ultimaLiquidacionResumen = {
+        capitalInicial,
+        capitalSaldo,
+        moraAcumulada,
+        corrienteSaldo,
+        totalCostas,
+        agenciasDerecho,
+        expensasFijas,
+        granTotalJudicial,
+        totalDiasMora,
+        totalAbonosAplicados,
+        fechaInicioStr,
+        fechaFinStr,
+        tipoTasa,
+        linkExpediente,
+        abonosDetalle: abonos
+      };
+    }
+
+    function renderizarGraficoLiquidacion(capital, mora, corriente, costas) {
+      const ctx = document.getElementById("chart-liquidacion").getContext("2d");
+      if (chartLiquidacionInstance) {
+        chartLiquidacionInstance.destroy();
+      }
+
+      chartLiquidacionInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Saldo de Capital', 'Intereses de Mora', 'Intereses Corrientes', 'Costas & Agencias'],
+          datasets: [{
+            data: [capital, mora, corriente, costas],
+            backgroundColor: ['#0284c7', '#d97706', '#8b5cf6', '#4f46e5'],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                boxWidth: 12,
+                font: { size: 10 }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return ` ${context.label}: ${formatearMonedaCreditos(context.raw)}`;
+                }
+              }
+            }
+          },
+          cutout: '65%'
+        }
+      });
+    }
+
+    function copiarResumenJudicial() {
+      if (!ultimaLiquidacionResumen) {
+        alert("Primero realiza la liquidación.");
+        return;
+      }
+      const r = ultimaLiquidacionResumen;
+      const linkExp = r.linkExpediente || (document.getElementById("liq-link-expediente") ? document.getElementById("liq-link-expediente").value.trim() : "");
+      
+      let detalleAbonosTxt = "";
+      if (r.abonosDetalle && r.abonosDetalle.length > 0) {
+        detalleAbonosTxt = r.abonosDetalle.map(ab => `   • ${ab.fechaStr}: ${formatearMonedaCreditos(ab.valor)} [${ab.soporte || 'Comprobante acreditado'}]`).join("\n");
+      } else {
+        detalleAbonosTxt = "   • Sin abonos registrados";
+      }
+
+      const texto = `=== RESUMEN DE LIQUIDACIÓN JUDICIAL (ART. 446 CGP) ===
+Expediente Digital: ${linkExp || 'Consultable en Portal de la Rama Judicial'}
+Período de Mora: ${r.fechaInicioStr} hasta ${r.fechaFinStr} (${r.totalDiasMora} días)
+Capital Inicial Base: ${formatearMonedaCreditos(r.capitalInicial)}
+Abonos Imputados (Art. 1653 C.C.): ${formatearMonedaCreditos(r.totalAbonosAplicados)}
+Detalle de Cuotas / Pagos:
+${detalleAbonosTxt}
+Saldo de Capital Insoluto: ${formatearMonedaCreditos(r.capitalSaldo)}
+Intereses Moratorios Causados: ${formatearMonedaCreditos(r.moraAcumulada)}
+Intereses Corrientes Pendientes: ${formatearMonedaCreditos(r.corrienteSaldo)}
+Costas Procesales y Agencias en Derecho: ${formatearMonedaCreditos(r.totalCostas)}
+------------------------------------------------------------
+TOTAL OBLIGACIÓN JUDICIAL EXIGIBLE: ${formatearMonedaCreditos(r.granTotalJudicial)}
+============================================================`;
+
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Resumen judicial copiado al portapapeles con éxito.");
+      });
+    }
+
+    function exportarExcelLiquidacion() {
+      if (!tablaLiquidacionExportable.length) {
+        alert("Primero debes liquidar el crédito.");
+        return;
+      }
+
+      let csv = "Periodo;Dias;Capital Base;Tasa EA;Tasa Mes;Mora Causada;Abono;Imputacion Mora;Imputacion Capital;Saldo Capital\n";
+      tablaLiquidacionExportable.forEach(r => {
+        csv += `"${r.Periodo}";${r.Dias};${r.CapitalBase};"${r.TasaEA}";"${r.TasaMes}";${r.MoraCausada};${r.Abono};${r.ImputacionMora};${r.ImputacionCapital};${r.SaldoCapital}\n`;
+      });
+
+      const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Liquidacion_Judicial_Credito_CGP446_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 2: SIMULADOR DE AMORTIZACIÓN Y PLANES DE PAGO
+    // -------------------------------------------------------------
+    let chartAmortizacionInstance = null;
+    let tablaAmortizacionExportable = [];
+
+    function toggleSistemaAmortizacion() {
+      const sis = document.getElementById("amort-sistema").value;
+      const uvrBox = document.getElementById("campo-uvr-inflacion");
+      if (sis === "uvr") {
+        uvrBox.classList.remove("hidden");
+      } else {
+        uvrBox.classList.add("hidden");
+      }
+    }
+
+    function calcularAmortizacion() {
+      const monto = parseFloat(document.getElementById("amort-monto").value) || 0;
+      const plazo = parseInt(document.getElementById("amort-plazo").value) || 12;
+      const tasaEA = parseFloat(document.getElementById("amort-tasa").value) || 15;
+      const sistema = document.getElementById("amort-sistema").value;
+      const seguro = parseFloat(document.getElementById("amort-seguro").value) || 0;
+      const admin = parseFloat(document.getElementById("amort-admin").value) || 0;
+      const inflacionUVR = parseFloat(document.getElementById("amort-inflacion-uvr").value) || 5;
+
+      const mesAbonoExtra = parseInt(document.getElementById("amort-abono-mes").value) || 0;
+      const montoAbonoExtra = parseFloat(document.getElementById("amort-abono-monto").value) || 0;
+      const efectoAbono = document.getElementById("amort-abono-efecto").value;
+
+      // Tasa periódica mensual efectiva
+      const tasaMes = Math.pow(1 + (tasaEA / 100), 1 / 12) - 1;
+      document.getElementById("amort-kpi-tasa-mes").innerText = `${(tasaMes * 100).toFixed(4)}% mes vencido`;
+
+      let saldo = monto;
+      let totalIntereses = 0;
+      let totalSeguros = 0;
+      let plan = [];
+      tablaAmortizacionExportable = [];
+
+      let cuotaFijaFrances = monto * (tasaMes * Math.pow(1 + tasaMes, plazo)) / (Math.pow(1 + tasaMes, plazo) - 1);
+      const abonoFijoAleman = monto / plazo;
+
+      let cuotaActual = cuotaFijaFrances;
+      let mesesLabels = [];
+      let saldoData = [];
+      let interesData = [];
+
+      for (let mes = 1; mes <= plazo; mes++) {
+        if (saldo <= 0.01) break;
+
+        const saldoInicial = saldo;
+        let interesMes = saldo * tasaMes;
+
+        // Ajuste por UVR si aplica
+        if (sistema === "uvr") {
+          const tasaInfMes = Math.pow(1 + (inflacionUVR / 100), 1 / 12) - 1;
+          const correccionMonetaria = saldo * tasaInfMes;
+          saldo += correccionMonetaria;
+          interesMes = saldo * tasaMes;
+        }
+
+        let abonoCapital = 0;
+        let cuotaMesPura = 0;
+
+        if (sistema === "frances" || sistema === "uvr") {
+          cuotaMesPura = cuotaActual;
+          abonoCapital = cuotaMesPura - interesMes;
+          if (abonoCapital > saldo) {
+            abonoCapital = saldo;
+            cuotaMesPura = abonoCapital + interesMes;
+          }
+        } else if (sistema === "aleman") {
+          abonoCapital = Math.min(abonoFijoAleman, saldo);
+          cuotaMesPura = abonoCapital + interesMes;
+        } else if (sistema === "americano") {
+          if (mes === plazo) {
+            abonoCapital = saldo;
+          } else {
+            abonoCapital = 0;
+          }
+          cuotaMesPura = abonoCapital + interesMes;
+        }
+
+        // Abono extraordinario si aplica en este mes
+        let abonoExtraReal = 0;
+        if (mes === mesAbonoExtra && montoAbonoExtra > 0) {
+          abonoExtraReal = Math.min(montoAbonoExtra, saldo - abonoCapital);
+          if (efectoAbono === "cuota" && (plazo - mes) > 0) {
+            const nuevoSaldo = saldo - abonoCapital - abonoExtraReal;
+            if (nuevoSaldo > 0) {
+              const nRestante = plazo - mes;
+              cuotaActual = nuevoSaldo * (tasaMes * Math.pow(1 + tasaMes, nRestante)) / (Math.pow(1 + tasaMes, nRestante) - 1);
+            }
+          }
+        }
+
+        const cuotaTotalConSeguros = cuotaMesPura + seguro + admin + abonoExtraReal;
+        saldo = saldo - abonoCapital - abonoExtraReal;
+        if (saldo < 0) saldo = 0;
+
+        totalIntereses += interesMes;
+        totalSeguros += (seguro + admin);
+
+        plan.push({
+          mes,
+          saldoInicial,
+          cuotaTotal: cuotaTotalConSeguros,
+          abonoCapital: abonoCapital + abonoExtraReal,
+          interesMes,
+          seguro: seguro + admin,
+          saldoFinal: saldo
+        });
+
+        tablaAmortizacionExportable.push({
+          Mes: mes,
+          SaldoInicial: saldoInicial,
+          CuotaTotal: cuotaTotalConSeguros,
+          AbonoCapital: abonoCapital + abonoExtraReal,
+          Interes: interesMes,
+          Seguros: seguro + admin,
+          SaldoFinal: saldo
+        });
+
+        if (mes % Math.ceil(plazo / 12) === 0 || mes === plazo || mes === 1) {
+          mesesLabels.push(`M${mes}`);
+          saldoData.push(saldo);
+          interesData.push(interesMes);
+        }
+      }
+
+      // KPIs
+      const cuotaInicialMuestra = plan.length > 0 ? plan[0].cuotaTotal : 0;
+      document.getElementById("amort-kpi-cuota").innerText = formatearMonedaCreditos(cuotaInicialMuestra);
+      document.getElementById("amort-kpi-intereses").innerText = formatearMonedaCreditos(totalIntereses);
+      document.getElementById("amort-kpi-seguros").innerText = formatearMonedaCreditos(totalSeguros);
+      document.getElementById("amort-kpi-total").innerText = formatearMonedaCreditos(monto + totalIntereses + totalSeguros);
+      document.getElementById("amort-total-cuotas-label").innerText = `${plan.length} cuotas liquidadas`;
+
+      // Tabla
+      const tbody = document.getElementById("cuerpo-tabla-amortizacion");
+      tbody.innerHTML = "";
+      plan.forEach(r => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50";
+        tr.innerHTML = `
+          <td class="py-2 px-2.5 font-bold text-slate-800">${r.mes}</td>
+          <td class="py-2 px-2 text-right">${formatearMonedaCreditos(r.saldoInicial)}</td>
+          <td class="py-2 px-2 text-right font-bold text-slate-900">${formatearMonedaCreditos(r.cuotaTotal)}</td>
+          <td class="py-2 px-2 text-right text-emerald-700 font-semibold">${formatearMonedaCreditos(r.abonoCapital)}</td>
+          <td class="py-2 px-2 text-right text-amber-700">${formatearMonedaCreditos(r.interesMes)}</td>
+          <td class="py-2 px-2 text-right text-slate-500">${formatearMonedaCreditos(r.seguro)}</td>
+          <td class="py-2 px-2.5 text-right font-bold">${formatearMonedaCreditos(r.saldoFinal)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Gráfico
+      renderizarGraficoAmortizacion(mesesLabels, saldoData, interesData);
+    }
+
+    function renderizarGraficoAmortizacion(labels, saldos, intereses) {
+      const ctx = document.getElementById("chart-amortizacion").getContext("2d");
+      if (chartAmortizacionInstance) {
+        chartAmortizacionInstance.destroy();
+      }
+
+      chartAmortizacionInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Saldo de Capital',
+              data: saldos,
+              borderColor: '#059669',
+              backgroundColor: 'rgba(5, 150, 105, 0.1)',
+              fill: true,
+              tension: 0.3,
+              borderWidth: 2
+            },
+            {
+              label: 'Interés Periódico',
+              data: intereses,
+              borderColor: '#d97706',
+              borderDash: [5, 5],
+              tension: 0.3,
+              borderWidth: 1.5
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 12, font: { size: 10 } }
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                callback: function(value) { return '$' + (value / 1000000).toFixed(0) + 'M'; },
+                font: { size: 9 }
+              }
+            },
+            x: {
+              ticks: { font: { size: 9 } }
+            }
+          }
+        }
+      });
+    }
+
+    function exportarExcelAmortizacion() {
+      if (!tablaAmortizacionExportable.length) {
+        alert("Primero genera el plan de amortización.");
+        return;
+      }
+      let csv = "Mes;Saldo Inicial;Cuota Total;Abono Capital;Interes;Seguros;Saldo Final\n";
+      tablaAmortizacionExportable.forEach(r => {
+        csv += `${r.Mes};${r.SaldoInicial};${r.CuotaTotal};${r.AbonoCapital};${r.Interes};${r.Seguros};${r.SaldoFinal}\n`;
+      });
+
+      const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Plan_Amortizacion_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 3: AUDITOR DE USURA Y SANCIÓN LEY 45 DE 1990
+    // -------------------------------------------------------------
+    function auditarUsura() {
+      const monto = parseFloat(document.getElementById("aud-monto").value) || 0;
+      const periodoKey = document.getElementById("aud-periodo").value;
+      const [yearStr, monthStr] = periodoKey.split("-");
+      const year = parseInt(yearStr);
+      const month = parseInt(monthStr);
+
+      const tasaCobrada = parseFloat(document.getElementById("aud-tasa-cobrada").value) || 0;
+      const cobrosAtados = parseFloat(document.getElementById("aud-cobros-atados").value) || 0;
+
+      const tasaUsuraSFC = obtenerTasaUsuraSFC(year, month);
+      const excesoTasa = tasaCobrada - tasaUsuraSFC;
+
+      const badgeDictamen = document.getElementById("badge-dictamen-usura");
+      const resTasaCobrada = document.getElementById("aud-res-tasa-cobrada");
+      const resTasaTope = document.getElementById("aud-res-tasa-tope");
+      const resExcesoPct = document.getElementById("aud-res-exceso-porcentual");
+      const resExcesoDinero = document.getElementById("aud-res-exceso-dinero");
+      const resSancionTotal = document.getElementById("aud-res-sancion-total");
+
+      resTasaCobrada.innerText = `${tasaCobrada.toFixed(2)}% E.A.`;
+      resTasaTope.innerText = `${tasaUsuraSFC.toFixed(2)}% E.A.`;
+
+      if (excesoTasa > 0.01) {
+        badgeDictamen.className = "text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 border border-red-300";
+        badgeDictamen.innerText = "INFRACCIÓN DE USURA DETECTADA (DELITO ART. 305 C.P.)";
+        resExcesoPct.innerText = `+${excesoTasa.toFixed(2)}%`;
+        resExcesoPct.className = "text-base font-extrabold text-red-700 block mt-0.5";
+
+        // Cálculo de intereses cobrados en exceso anualizados y proporcionales
+        const iCobradoMes = Math.pow(1 + tasaCobrada / 100, 1 / 12) - 1;
+        const iTopeMes = Math.pow(1 + tasaUsuraSFC / 100, 1 / 12) - 1;
+        const excesoMes = monto * (iCobradoMes - iTopeMes);
+        const excesoTotalEstimado = (excesoMes * 12) + cobrosAtados;
+        const sancionDoble = excesoTotalEstimado * 2;
+
+        resExcesoDinero.innerText = formatearMonedaCreditos(excesoTotalEstimado);
+        resSancionTotal.innerText = formatearMonedaCreditos(sancionDoble);
+      } else {
+        badgeDictamen.className = "text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300";
+        badgeDictamen.innerText = "DENTRO DEL TOPE LEGAL PERMITIDO";
+        resExcesoPct.innerText = "0.00% (Sin Usura)";
+        resExcesoPct.className = "text-base font-extrabold text-emerald-700 block mt-0.5";
+        resExcesoDinero.innerText = "$ 0";
+        resSancionTotal.innerText = "$ 0 (No Aplica Sanción)";
+      }
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 4: GENERADOR DE MINUTAS Y MEMORIALES JUDICIALES
+    // -------------------------------------------------------------
+    function trasladarAMinutaJudicial() {
+      switchCreditosTab('cred-tab-minutas');
+      document.getElementById('minuta-tipo').value = 'liquidacion-cgp';
+      actualizarPlantillaMinuta();
+    }
+
+    function actualizarPlantillaMinuta() {
+      generarMinutaTexto();
+    }
+
+    function generarMinutaTexto() {
+      const tipo = document.getElementById("minuta-tipo").value;
+      const juzgado = document.getElementById("minuta-juzgado").value;
+      const radicado = document.getElementById("minuta-radicado").value;
+      const demandante = document.getElementById("minuta-demandante").value;
+      const demandanteId = document.getElementById("minuta-demandante-id").value;
+      const demandado = document.getElementById("minuta-demandado").value;
+      const demandadoId = document.getElementById("minuta-demandado-id").value;
+      const apoderado = document.getElementById("minuta-apoderado").value;
+      const apoderadoTp = document.getElementById("minuta-apoderado-tp").value;
+
+      const r = ultimaLiquidacionResumen || {
+        capitalInicial: 50000000,
+        capitalSaldo: 50000000,
+        moraAcumulada: 12450000,
+        corrienteSaldo: 0,
+        totalCostas: 3100000,
+        agenciasDerecho: 2500000,
+        expensasFijas: 600000,
+        granTotalJudicial: 65550000,
+        fechaInicioStr: "2023-01-15",
+        fechaFinStr: "2026-11-18",
+        totalDiasMora: 1403,
+        totalAbonosAplicados: 0,
+        linkExpediente: "https://procesos.ramajudicial.gov.co/procesos/NumeroRadicacion.aspx",
+        abonosDetalle: []
+      };
+
+      const linkExp = (document.getElementById("minuta-link-expediente") ? document.getElementById("minuta-link-expediente").value.trim() : "") || (r.linkExpediente || "");
+
+      let detalleAbonosMinuta = "";
+      if (r.abonosDetalle && r.abonosDetalle.length > 0) {
+        detalleAbonosMinuta = r.abonosDetalle.map((ab, idx) => `   ${idx + 1}. Fecha: ${ab.fechaStr} | Valor: ${formatearMonedaCreditos(ab.valor)} | Soporte: ${ab.soporte || 'Comprobante de depósito judicial/bancario'}`).join("\n");
+      } else {
+        detalleAbonosMinuta = "   (No se registran abonos durante el período de mora)";
+      }
+
+      let doc = "";
+
+      if (tipo === "liquidacion-cgp") {
+        document.getElementById("minuta-titulo-display").innerText = "Memorial de Liquidación del Crédito (Art. 446 CGP)";
+        doc = `SEÑOR(A)
+JUEZ(A) ${juzgado}
+E. S. D.
+
+REF.: PROCESO EJECUTIVO SINGULAR DE MAYOR/MENOR CUANTÍA
+RADICACIÓN:         ${radicado}
+EXPEDIENTE DIGITAL: ${linkExp || 'Consultable en Portal de la Rama Judicial'}
+DEMANDANTE:         ${demandante} (NIT/C.C. ${demandanteId})
+DEMANDADO:          ${demandado} (C.C. ${demandadoId})
+ASUNTO:             PRESENTACIÓN DE LIQUIDACIÓN DEL CRÉDITO Y COSTAS (ART. 446 CGP)
+
+${apoderado}, mayor de edad, domiciliado(a) y residente en esta ciudad, identificado(a) con la Cédula de Ciudadanía y portador(a) de la Tarjeta Profesional No. ${apoderadoTp}, actuando en mi calidad de apoderado judicial de la parte ejecutante, de manera respetuosa manifiesto que por medio del presente escrito vengo a presentar la LIQUIDACIÓN DEL CRÉDITO Y LAS COSTAS PROCESALES, de conformidad con lo preceptuado en los Artículos 446 y 366 del Código General del Proceso (Ley 1564 de 2012), en los siguientes términos:
+
+I. ESTADO DE LA CUENTA Y DISCRIMINACIÓN FORENSE
+
+1. CAPITAL INSOLUTO BASE:
+La suma de ${formatearMonedaCreditos(r.capitalInicial)} M/CTE, contenida en el título ejecutivo (pagaré) base de recaudo, exigible a partir del día ${r.fechaInicioStr}.
+
+2. PERÍODO DE MORA LIQUIDADO:
+Comprendido entre el ${r.fechaInicioStr} y el ${r.fechaFinStr}, para un total de ${r.totalDiasMora} días calendario en mora judicial continuada.
+
+3. TASAS DE INTERÉS APLICADAS:
+Se aplicó la tasa de interés moratorio comercial certificada mensualmente por la Superintendencia Financiera de Colombia (equivalente a 1.5 veces el Interés Bancario Corriente mensual conforme al Art. 884 del Código de Comercio y la Sentencia SC-917-2022 de la Corte Suprema de Justicia), con estricta observancia del límite de usura legal.
+
+4. ABONOS O PAGOS PARCIALES IMPUTADOS (ART. 1653 DEL CÓDIGO CIVIL):
+Durante el decurso de la mora se acreditaron abonos por valor total de ${formatearMonedaCreditos(r.totalAbonosAplicados)} M/CTE, discriminados así:
+${detalleAbonosMinuta}
+
+Conforme a la regla imperativa de imputación (Art. 1653 del Código Civil y Sentencia SC-2475-2020 de la Corte Suprema de Justicia), dichos recursos fueron aplicados con el siguiente orden legal: primero a extinguir los intereses moratorios causados, segundo a intereses corrientes y el saldo remanente a amortización directa del capital insoluto.
+
+II. RESUMEN LIQUIDATORIO CONSOLIDADO
+
+A. SALDO INSOLUTO DE CAPITAL:                      ${formatearMonedaCreditos(r.capitalSaldo)}
+B. INTERESES MORATORIOS CAUSADOS:                   ${formatearMonedaCreditos(r.moraAcumulada)}
+C. INTERESES CORRIENTES DEVENGADOS:                 ${formatearMonedaCreditos(r.corrienteSaldo)}
+--------------------------------------------------------------------------------
+SUBTOTAL LIQUIDACIÓN DEL CRÉDITO:                   ${formatearMonedaCreditos(r.capitalSaldo + r.moraAcumulada + r.corrienteSaldo)}
+
+D. AGENCIAS EN DERECHO (Acuerdo PSAA16-10554):      ${formatearMonedaCreditos(r.agenciasDerecho)}
+E. GASTOS Y EXPENSAS JUDICIALES DEMOSTRADAS:        ${formatearMonedaCreditos(r.expensasFijas)}
+--------------------------------------------------------------------------------
+GRAN TOTAL DE LA OBLIGACIÓN JUDICIAL:               ${formatearMonedaCreditos(r.granTotalJudicial)}
+
+(SON: ${numeroALetrasPesos(r.granTotalJudicial)})
+
+III. PETICIÓN CONCRETA
+
+Solicito al Señor Juez correr traslado de la presente liquidación del crédito a la parte ejecutada por el término de tres (3) días según lo ordenado por el numeral 2° del Artículo 446 del C.G.P. y, vencido dicho término sin objeción o resueltas las mismas, impartirle su debida aprobación en auto interlocutorio.
+
+Del Señor Juez, atentamente,
+
+
+_____________________________________________
+${apoderado}
+C.C. No. __________________
+T.P. No. ${apoderadoTp}`;
+      } else if (tipo === "objecion-cgp") {
+        document.getElementById("minuta-titulo-display").innerText = "Memorial de Objeción a la Liquidación del Crédito";
+        doc = `SEÑOR(A)
+JUEZ(A) ${juzgado}
+E. S. D.
+
+REF.: OBJECIÓN FORMAL A LA LIQUIDACIÓN DEL CRÉDITO (ART. 446 NUMERAL 2° CGP)
+RADICACIÓN:         ${radicado}
+EXPEDIENTE DIGITAL: ${linkExp || 'Consultable en Portal de la Rama Judicial'}
+DEMANDANTE:         ${demandante}
+DEMANDADO:          ${demandado}
+ASUNTO:             OBJECIÓN POR EXCESO EN TASAS DE INTERÉS / MALA IMPUTACIÓN DE ABONOS
+
+${apoderado}, apoderado judicial de la parte ejecutada ${demandado}, dentro del término de traslado legal de tres (3) días otorgado por el Despacho conforme al Artículo 446 del Código General del Proceso, manifiesto que FORMULO OBJECIÓN MOTIVADA a la liquidación del crédito presentada por el ejecutante, con base en los siguientes motivos fácticos y de derecho:
+
+1. VIOLACIÓN AL TOPE LEGAL DE USURA (ART. 884 C.CO. & ART. 305 C.P.):
+El ejecutante liquidó intereses moratorios aplicando tasas nominales fijas que superan ostensiblemente la tasa de usura certificada por la Superintendencia Financiera de Colombia para los períodos en mora, lo cual infringe la Sentencia SC-917-2022 de la Sala Civil de la Corte Suprema de Justicia.
+
+2. INDEBIDA IMPUTACIÓN DE ABONOS (ART. 1653 DEL CÓDIGO CIVIL):
+El acreedor no reconoció oportunamente los abonos efectuados o pretendió imputarlos a supuestos honorarios prejurídicos no decretados judicialmente, contrariando el precedente vinculante de la Corte Suprema de Justicia (SC-2475-2020), que impone imputar cualquier remanente a amortizar el capital.
+Abonos acreditados por el deudor:
+${detalleAbonosMinuta}
+
+3. LIQUIDACIÓN ALTERNATIVA VINCULANTE:
+Conforme lo exige el Artículo 446 del C.G.P., anexo la liquidación alternativa forense que arroja como saldo real a cargo de mi poderdante la suma de ${formatearMonedaCreditos(r.granTotalJudicial)} M/CTE.
+
+Por lo expuesto, solicito al Despacho declarar fundada la presente objeción y aprobar la liquidación alternativa aquí presentada.
+
+Atentamente,
+
+_____________________________________________
+${apoderado}
+T.P. No. ${apoderadoTp}`;
+      } else if (tipo === "pagare") {
+        document.getElementById("minuta-titulo-display").innerText = "Pagaré en Blanco con Carta de Instrucciones (Arts. 621 y 622 C.Co.)";
+        doc = `PAGARÉ NÚMERO: _______________
+VALOR: $ _______________________ COP
+VENCIMIENTO: ___________________
+DEUDOR(ES): ${demandado} (C.C. ${demandadoId})
+ACREEDOR(ES): ${demandante} (NIT/C.C. ${demandanteId})
+
+Por medio del presente título valor, yo (nosotros) me (nos) obligo(amos) incondicionalmente a pagar a la orden de ${demandante}, en la ciudad de Bogotá D.C., la suma de dinero indicada en la cláusula de valor, más los intereses corrientes y moratorios a la tasa máxima legal permitida por la Superintendencia Financiera de Colombia.
+
+El tenedor queda facultado expresamente para llenar los espacios en blanco del presente título conforme a la Carta de Instrucciones adjunta (Art. 622 del Código de Comercio), en caso de mora o incumplimiento de cualquiera de las obligaciones crediticias pactadas.
+
+Para constancia se firma a los _____ días del mes de ___________ de 2026.
+
+
+________________________________________
+DEUDOR: ${demandado}
+C.C. No. ${demandadoId}
+Dirección: ______________________________
+Teléfono: ______________________________`;
+      } else if (tipo === "requerimiento-prejudicial") {
+        document.getElementById("minuta-titulo-display").innerText = "Requerimiento Prejudicial de Cobro (Ley 2300/2023)";
+        doc = `Bogotá D.C., ${new Date().toLocaleDateString('es-CO')}
+
+Señor(a):
+${demandado}
+C.C. No. ${demandadoId}
+Dirección Notificación: ____________________________
+
+REF.: REQUERIMIENTO PREJUDICIAL Y NOTIFICACIÓN DE MORA (ART. 1608 C.C. & LEY 2300 DE 2023)
+
+Respetado(a) Señor(a):
+
+En mi condición de apoderado judicial de ${demandante}, me dirijo a usted con el debido respeto y en cabal cumplimiento de las garantías de privacidad y contacto digno consagradas en la Ley 2300 de 2023 ("Por medio de la cual se establecen medidas que protegen el derecho a la intimidad de los consumidores financieros"), con el fin de poner en su conocimiento el estado actual de la obligación a su cargo derivada del crédito/pagaré No. ${radicado}.
+
+A la fecha, el saldo insoluto exigible asciende a la suma de ${formatearMonedaCreditos(r.capitalSaldo)} M/CTE por concepto de capital, más la suma de ${formatearMonedaCreditos(r.moraAcumulada)} M/CTE por concepto de intereses de mora causados, para un total exigible de ${formatearMonedaCreditos(r.capitalSaldo + r.moraAcumulada)} M/CTE.
+
+Con el ánimo de precaver un litigio judicial coactivo y evitar la causación de costas procesales y agencias en derecho (Art. 366 CGP), lo invitamos a celebrar un acuerdo de pago o normalización de su crédito dentro de los cinco (5) días hábiles siguientes al recibo de la presente.
+
+Canales de atención habilitados:
+Teléfono: ____________________  | Correo: ____________________
+
+Atentamente,
+
+
+_____________________________________________
+${apoderado}
+Apoderado de la Entidad Acreedora
+T.P. No. ${apoderadoTp}`;
+      }
+
+      document.getElementById("minuta-preview-content").innerText = doc;
+    }
+
+    function copiarMinutaAlPortapapeles() {
+      const texto = document.getElementById("minuta-preview-content").innerText;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Documento procesal copiado íntegramente al portapapeles.");
+      });
+    }
+
+    function descargarMinutaWord() {
+      const texto = document.getElementById("minuta-preview-content").innerText;
+      const blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Memorial_Judicial_${new Date().toISOString().slice(0,10)}.txt`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // -------------------------------------------------------------
+    // UTILIDADES GENERALES
+    // -------------------------------------------------------------
+    function formatearMonedaCreditos(val) {
+      if (isNaN(val)) return "$ 0";
+      return "$ " + Math.round(val).toLocaleString("es-CO");
+    }
+
+    function numeroALetrasPesos(num) {
+      // Conversión simple a texto indicativo
+      const redondeado = Math.round(num);
+      return `${formatearMonedaCreditos(redondeado)} PESOS MONEDA CORRIENTE`;
+    }
+  
+    // Verificación de sesión activa de la Suite
+    
+    
+
+
+    // =========================================================================
+    // LÓGICA DE PERJUICIOS FORENSES
+    // =========================================================================
+    
+    // =========================================================================
+    // BASE DE DATOS ACTUARIAL DE COLOMBIA
+    // =========================================================================
+
+    // 1. Tabla de Vida Probable de Rentistas (Superintendencia Financiera de Colombia - Res. 1555 de 2010)
+    // Expectativa en años por edad exacta de 0 a 105
+    const TABLA_MORTALIDAD_SFC = {
+      H: [ // Hombres
+        74.5, 73.8, 72.9, 71.9, 70.9, 70.0, 69.0, 68.0, 67.1, 66.1,
+        65.1, 64.2, 63.2, 62.2, 61.3, 60.3, 59.4, 58.4, 57.5, 56.5,
+        55.6, 54.6, 53.7, 52.8, 51.8, 50.9, 50.0, 49.0, 48.1, 47.2,
+        46.2, 45.3, 44.4, 43.4, 42.5, 41.6, 40.7, 39.7, 38.8, 37.9,
+        37.0, 36.1, 35.1, 34.2, 33.3, 32.4, 31.5, 30.6, 29.7, 28.8,
+        28.0, 27.1, 26.2, 25.4, 24.5, 23.7, 22.8, 22.0, 21.2, 20.4,
+        19.6, 18.8, 18.0, 17.3, 16.5, 15.8, 15.0, 14.3, 13.6, 12.9,
+        12.3, 11.6, 11.0, 10.4, 9.8, 9.2, 8.7, 8.1, 7.6, 7.1,
+        6.7, 6.2, 5.8, 5.4, 5.0, 4.7, 4.4, 4.1, 3.8, 3.5,
+        3.3, 3.1, 2.9, 2.7, 2.5, 2.3, 2.2, 2.0, 1.9, 1.8,
+        1.7, 1.6, 1.5, 1.4, 1.3, 1.2
+      ],
+      M: [ // Mujeres
+        80.2, 79.4, 78.5, 77.5, 76.6, 75.6, 74.6, 73.6, 72.7, 71.7,
+        70.7, 69.8, 68.8, 67.8, 66.8, 65.9, 64.9, 63.9, 63.0, 62.0,
+        61.0, 60.1, 59.1, 58.1, 57.2, 56.2, 55.2, 54.3, 53.3, 52.3,
+        51.4, 50.4, 49.4, 48.5, 47.5, 46.5, 45.6, 44.6, 43.7, 42.7,
+        41.7, 40.8, 39.8, 38.9, 37.9, 37.0, 36.0, 35.1, 34.1, 33.2,
+        32.3, 31.3, 30.4, 29.5, 28.6, 27.7, 26.8, 25.9, 25.0, 24.1,
+        23.2, 22.4, 21.5, 20.7, 19.8, 19.0, 18.2, 17.4, 16.7, 15.9,
+        15.2, 14.5, 13.8, 13.1, 12.4, 11.8, 11.1, 10.5, 9.9, 9.4,
+        8.8, 8.3, 7.8, 7.3, 6.8, 6.4, 6.0, 5.6, 5.2, 4.9,
+        4.5, 4.2, 4.0, 3.7, 3.5, 3.2, 3.0, 2.8, 2.7, 2.5,
+        2.3, 2.2, 2.1, 1.9, 1.8, 1.7
+      ]
+    };
+
+    // 2. SERIE HISTÓRICA DE IPC DANE (Base Diciembre 2018 = 100)
+    // Mapeo anual de cierre de IPC
+    const IPC_HISTORICO_ANUAL = {
+      2000: 41.52, 2001: 44.70, 2002: 47.82, 2003: 50.93, 2004: 53.73,
+      2005: 56.33, 2006: 58.85, 2007: 62.19, 2008: 66.96, 2009: 68.30,
+      2010: 70.47, 2011: 73.10, 2012: 74.88, 2013: 76.33, 2014: 79.12,
+      2015: 84.47, 2016: 89.33, 2017: 92.99, 2018: 95.95, 2019: 99.59,
+      2020: 101.19, 2021: 106.88, 2022: 120.91, 2023: 132.13, 2024: 139.00,
+      2025: 146.50, 2026: 153.80
+    };
+
+    // 3. ESTADO GLOBAL DE LA APLICACIÓN
+    let estadoApp = {
+      beneficiarios: [
+        {
+          id: 1,
+          nombre: "María Elena Gómez de Pérez",
+          parentesco: "conyuge",
+          nivel: 1,
+          edadAlHecho: 34,
+          dependenciaPorcentaje: 50, // 50% de la cuota alimentaria/lucro cesante de los dependientes
+          reclamaMoral: true,
+          reclamaSalud: false,
+          reclamaBienesProt: false,
+          esVictimaDirecta: false
+        },
+        {
+          id: 2,
+          nombre: "Juan Camilo Pérez Gómez",
+          parentesco: "hijo",
+          nivel: 1,
+          edadAlHecho: 8,
+          dependenciaPorcentaje: 25,
+          reclamaMoral: true,
+          reclamaSalud: false,
+          reclamaBienesProt: false,
+          esVictimaDirecta: false
+        },
+        {
+          id: 3,
+          nombre: "Valentina Pérez Gómez",
+          parentesco: "hijo",
+          nivel: 1,
+          edadAlHecho: 4,
+          dependenciaPorcentaje: 25,
+          reclamaMoral: true,
+          reclamaSalud: false,
+          reclamaBienesProt: false,
+          esVictimaDirecta: false
+        }
+      ],
+      danoEmergente: [
+        { id: 1, concepto: "Gastos Funerarios y Cofre Mortuorio", tipo: "Funerario", valor: 6800000, fecha: "2022-03-18" },
+        { id: 2, concepto: "Reparación de Vehículo Afectado", tipo: "Bienes", valor: 14500000, fecha: "2022-04-10" },
+        { id: 3, concepto: "Honorarios Peritaje Forense de Tránsito", tipo: "Peritaje", valor: 3500000, fecha: "2022-05-15" }
+      ],
+      resultados: {}
+    };
+
+    // =========================================================================
+    // INICIALIZACIÓN
+    // =========================================================================
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      renderizarTablaBeneficiarios();
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+      inicializarGraficos();
+    });
+
+    // =========================================================================
+    // NAVEGACIÓN ENTRE PESTAÑAS
+    // =========================================================================
+    function cambiarPestana(tabId) {
+      const tabs = ['perj-tab-liquidador', 'perj-tab-demandantes', 'perj-tab-formulas', 'perj-tab-juramento', 'perj-tab-dictamen', 'perj-tab-baremos'];
+      tabs.forEach(t => {
+        const el = document.getElementById(t);
+        const btn = document.getElementById('btn-' + t);
+        if (el && btn) {
+          if (t === tabId) {
+            el.classList.remove('hidden');
+            btn.classList.add('active');
+          } else {
+            el.classList.add('hidden');
+            btn.classList.remove('active');
+          }
+        }
+      });
+      lucide.createIcons();
+      if (tabId === 'perj-tab-demandantes') {
+        actualizarGraficos();
+      }
+    }
+
+    // =========================================================================
+    // MANEJO DE TIPOS DE EVENTO (MUERTE VS LESIONES)
+    // =========================================================================
+    function cambiarTipoEvento() {
+      const tipo = document.getElementById("tipoEvento").value;
+      const colPcl = document.getElementById("columnaPcl");
+      const colIncapacidad = document.getElementById("columnaIncapacidadTemporal");
+      const info = document.getElementById("tipoEventoInfo");
+
+      if (tipo === "lesiones") {
+        colPcl.classList.remove("hidden");
+        colIncapacidad.classList.remove("hidden");
+        info.innerText = "En lesiones no se deduce el 25% personal y el lucro cesante se tasa según la PCL.";
+      } else if (tipo === "muerte") {
+        colPcl.classList.add("hidden");
+        colIncapacidad.classList.add("hidden");
+        info.innerText = "En muerte se deduce 25% de sostenimiento y se liquida a dependientes.";
+      } else {
+        colPcl.classList.add("hidden");
+        colIncapacidad.classList.add("hidden");
+        info.innerText = "Daño a cosas/contractual sin lesiones físicas.";
+      }
+
+      actualizarCalculos();
+    }
+
+    // =========================================================================
+    // FORMULACIÓN MATEMÁTICA Y MOTOR DE CÁLCULO
+    // =========================================================================
+    function obtenerIpc(fechaStr) {
+      const anio = new Date(fechaStr).getFullYear();
+      if (IPC_HISTORICO_ANUAL[anio]) {
+        return IPC_HISTORICO_ANUAL[anio];
+      }
+      return 153.80;
+    }
+
+    function calcularEdad(fechaNacStr, fechaRefStr) {
+      const nac = new Date(fechaNacStr);
+      const ref = new Date(fechaRefStr);
+      let edad = ref.getFullYear() - nac.getFullYear();
+      const m = ref.getMonth() - nac.getMonth();
+      if (m < 0 || (m === 0 && ref.getDate() < nac.getDate())) {
+        edad--;
+      }
+      return Math.max(0, edad);
+    }
+
+    function obtenerVidaProbable(sexo, edad) {
+      const tabla = TABLA_MORTALIDAD_SFC[sexo] || TABLA_MORTALIDAD_SFC['H'];
+      const e = Math.min(Math.max(0, Math.floor(edad)), 105);
+      return tabla[e] || 1.5;
+    }
+
+    function actualizarCalculos() {
+      const jurisdiccion = document.getElementById("jurisdiccion").value;
+      const tipoEvento = document.getElementById("tipoEvento").value;
+      const fechaHecho = document.getElementById("fechaHecho").value;
+      const fechaCorte = document.getElementById("fechaCorte").value;
+      const tasaInteres = parseFloat(document.getElementById("tasaInteresPura").value);
+      const smmlv = parseFloat(document.getElementById("smmlvVigente").value) || 1750905;
+
+      const victimaNombre = document.getElementById("victimaNombre").value;
+      const victimaSexo = document.getElementById("victimaSexo").value;
+      const victimaFechaNac = document.getElementById("victimaFechaNac").value;
+      const tipoIngreso = document.getElementById("tipoIngreso").value;
+      const ingresoHistoricoInput = parseFloat(document.getElementById("ingresoHistorico").value) || 0;
+      const porcentajePcl = parseFloat(document.getElementById("porcentajePcl").value) || 0;
+
+      // 1. Edad al hecho y expectativa de vida
+      const edadHecho = calcularEdad(victimaFechaNac, fechaHecho);
+      const edadActual = calcularEdad(victimaFechaNac, fechaCorte);
+      document.getElementById("victimaEdadHecho").value = edadHecho;
+
+      const vidaProbableAnios = obtenerVidaProbable(victimaSexo, edadHecho);
+      const vidaProbableMesesTotal = Math.round(vidaProbableAnios * 12);
+      document.getElementById("victimaVidaProbable").value = `${vidaProbableAnios.toFixed(2)} años`;
+      document.getElementById("vidaProbableMesesSpan").innerText = `${vidaProbableMesesTotal} meses`;
+
+      // 2. Meses transcurridos (Consolidado m) y Meses restantes (Futuro n)
+      const dHecho = new Date(fechaHecho);
+      const dCorte = new Date(fechaCorte);
+      const mConsolidado = Math.max(0, Math.round((dCorte - dHecho) / (1000 * 60 * 60 * 24 * 30.4375)));
+      
+      let nFuturo = 0;
+      if (tipoEvento === "lesiones") {
+        // En lesiones la víctima vive: vida probable restante desde la fecha de corte
+        const aniosRestantes = Math.max(0, vidaProbableAnios - (edadActual - edadHecho));
+        nFuturo = Math.round(aniosRestantes * 12);
+      } else if (tipoEvento === "muerte") {
+        // En muerte, límite hasta la vida probable de la víctima o beneficiario
+        const aniosRestantes = Math.max(0, vidaProbableAnios - (mConsolidado / 12));
+        nFuturo = Math.round(aniosRestantes * 12);
+      }
+
+      // 3. Indexación del ingreso
+      let ipcInicial = obtenerIpc(fechaHecho);
+      let ipcFinal = obtenerIpc(fechaCorte);
+      const modoIpc = document.querySelector('input[name="modoIpc"]:checked').value;
+      const panelIpcManual = document.getElementById("panelIpcManual");
+      if (modoIpc === "manual") {
+        panelIpcManual.classList.remove("hidden");
+        ipcInicial = parseFloat(document.getElementById("ipcInicialManual").value) || ipcInicial;
+        ipcFinal = parseFloat(document.getElementById("ipcFinalManual").value) || ipcFinal;
+      } else {
+        panelIpcManual.classList.add("hidden");
+      }
+
+      // Base salarial
+      let ingresoBaseHistorico = ingresoHistoricoInput;
+      if (tipoIngreso === "presuncion") {
+        ingresoBaseHistorico = 1000000; // SMMLV aproximado histórico
+      }
+
+      // Factor prestacional del 25% si es formal
+      let factorPrestacional = (tipoIngreso === "formal") ? 1.25 : 1.0;
+      let ingresoConPrestaciones = ingresoBaseHistorico * factorPrestacional;
+
+      // Indexación a hoy
+      let ingresoIndexado = ingresoConPrestaciones * (ipcFinal / ipcInicial);
+
+      // Si es inferior a 1 SMMLV actual, el Consejo de Estado y CSJ presumen al menos 1 SMMLV
+      if (ingresoIndexado < smmlv) {
+        ingresoIndexado = smmlv;
+      }
+
+      // Deducción o modulación:
+      // En Muerte: se deduce 25% para sostenimiento propio de la víctima (queda 75% para indemnizar a dependientes)
+      // En Lesiones: NO se deduce el 25% porque la víctima subsiste, pero se aplica la PCL %
+      let rentaMensualIndemnizable = ingresoIndexado;
+      if (tipoEvento === "muerte") {
+        rentaMensualIndemnizable = ingresoIndexado * 0.75;
+        document.getElementById("explicacionRa").innerText = `Indexado + 25% prest. menos 25% sostenimiento (75% neto).`;
+      } else if (tipoEvento === "lesiones") {
+        rentaMensualIndemnizable = ingresoIndexado * (porcentajePcl / 100);
+        document.getElementById("explicacionRa").innerText = `Indexado proporcional al ${porcentajePcl}% de PCL.`;
+      } else {
+        rentaMensualIndemnizable = 0;
+        document.getElementById("explicacionRa").innerText = `Sin lucro cesante personal (daño netamente a bienes).`;
+      }
+
+      document.getElementById("ingresoActualizadoRa").value = formatearMonedaPerjuicios(rentaMensualIndemnizable);
+
+      // 4. Cálculo actuarial Lucro Cesante Consolidado (m meses)
+      // S = Ra * [ ((1+i)^m - 1) / i ]
+      let lucroCesanteConsolidado = 0;
+      if (mConsolidado > 0 && rentaMensualIndemnizable > 0) {
+        const factorAcum = (Math.pow(1 + tasaInteres, mConsolidado) - 1) / tasaInteres;
+        lucroCesanteConsolidado = rentaMensualIndemnizable * factorAcum;
+      }
+
+      // 5. Cálculo actuarial Lucro Cesante Futuro (n meses)
+      // S = Ra * [ ((1+i)^n - 1) / (i * (1+i)^n) ]
+      let lucroCesanteFuturo = 0;
+      if (nFuturo > 0 && rentaMensualIndemnizable > 0) {
+        const numerador = Math.pow(1 + tasaInteres, nFuturo) - 1;
+        const denominador = tasaInteres * Math.pow(1 + tasaInteres, nFuturo);
+        const factorFuturo = numerador / denominador;
+        lucroCesanteFuturo = rentaMensualIndemnizable * factorFuturo;
+      }
+
+      // 6. Daño Emergente Consolidado y Futuro
+      let subtotalDanoEmergenteConsolidado = 0;
+      estadoApp.danoEmergente.forEach(g => {
+        const ipcGasto = obtenerIpc(g.fecha);
+        const valorIndexado = g.valor * (ipcFinal / ipcGasto);
+        g.valorIndexado = valorIndexado;
+        subtotalDanoEmergenteConsolidado += valorIndexado;
+      });
+      document.getElementById("subtotalDanoEmergenteConsolidado").innerText = formatearMonedaPerjuicios(subtotalDanoEmergenteConsolidado);
+
+      let danoEmergenteFuturo = 0;
+      const checkFuturo = document.getElementById("checkDanoEmergenteFuturo").checked;
+      if (checkFuturo) {
+        const costoMensual = parseFloat(document.getElementById("costoMensualFuturo").value) || 0;
+        const mesesFut = parseInt(document.getElementById("mesesDanoEmergenteFuturo").value) || nFuturo;
+        if (costoMensual > 0 && mesesFut > 0) {
+          const num = Math.pow(1 + tasaInteres, mesesFut) - 1;
+          const den = tasaInteres * Math.pow(1 + tasaInteres, mesesFut);
+          danoEmergenteFuturo = costoMensual * (num / den);
+        }
+      }
+      document.getElementById("totalDanoEmergenteFuturo").value = formatearMonedaPerjuicios(danoEmergenteFuturo);
+
+      // 7. Perjuicios Inmateriales por Beneficiario
+      let totalPerjuiciosMorales = 0;
+      let totalDanoSalud = 0;
+      let totalBienesProtegidos = 0;
+
+      // Actualizar montos en la lista de beneficiarios
+      estadoApp.beneficiarios.forEach(b => {
+        // Moral según parentesco y gravedad (CE Unificación 28/08/2014)
+        let smmlvMoral = 0;
+        if (b.reclamaMoral) {
+          let tarifaPlena = 0;
+          if (b.nivel === 1) tarifaPlena = 100;
+          else if (b.nivel === 2) tarifaPlena = 50;
+          else if (b.nivel === 3) tarifaPlena = 35;
+          else if (b.nivel === 4) tarifaPlena = 15;
+          else tarifaPlena = 15;
+
+          if (tipoEvento === "muerte") {
+            smmlvMoral = tarifaPlena;
+          } else if (tipoEvento === "lesiones") {
+            // Escala según PCL
+            if (porcentajePcl >= 50) smmlvMoral = tarifaPlena;
+            else if (porcentajePcl >= 40) smmlvMoral = tarifaPlena * 0.8;
+            else if (porcentajePcl >= 30) smmlvMoral = tarifaPlena * 0.6;
+            else if (porcentajePcl >= 20) smmlvMoral = tarifaPlena * 0.4;
+            else if (porcentajePcl >= 10) smmlvMoral = tarifaPlena * 0.2;
+            else smmlvMoral = tarifaPlena * 0.1;
+          } else {
+            smmlvMoral = 0;
+          }
+        }
+        b.montoMoralSmmlv = smmlvMoral;
+        b.montoMoralCop = smmlvMoral * smmlv;
+        totalPerjuiciosMorales += b.montoMoralCop;
+
+        // Daño a la salud (exclusivo de la víctima directa lesionada)
+        let smmlvSalud = 0;
+        if (b.reclamaSalud && tipoEvento === "lesiones") {
+          if (porcentajePcl >= 50) smmlvSalud = 100;
+          else if (porcentajePcl >= 40) smmlvSalud = 80;
+          else if (porcentajePcl >= 30) smmlvSalud = 60;
+          else if (porcentajePcl >= 20) smmlvSalud = 40;
+          else if (porcentajePcl >= 10) smmlvSalud = 20;
+          else smmlvSalud = 10;
+        }
+        b.montoSaludSmmlv = smmlvSalud;
+        b.montoSaludCop = smmlvSalud * smmlv;
+        totalDanoSalud += b.montoSaludCop;
+
+        // Distribución de lucro cesante a este beneficiario
+        if (tipoEvento === "muerte") {
+          b.cuotaLucroConsolidado = (lucroCesanteConsolidado * (b.dependenciaPorcentaje / 100));
+          // Si es hijo menor de 25 años, limitar nFuturo hasta los 25 años
+          if (b.parentesco === "hijo") {
+            const mesesHasta25 = Math.max(0, (25 - (b.edadAlHecho + (mConsolidado / 12))) * 12);
+            const nHijo = Math.min(nFuturo, Math.round(mesesHasta25));
+            if (nHijo > 0) {
+              const numH = Math.pow(1 + tasaInteres, nHijo) - 1;
+              const denH = tasaInteres * Math.pow(1 + tasaInteres, nHijo);
+              b.cuotaLucroFuturo = (rentaMensualIndemnizable * (b.dependenciaPorcentaje / 100)) * (numH / denH);
+            } else {
+              b.cuotaLucroFuturo = 0;
+            }
+          } else {
+            b.cuotaLucroFuturo = (lucroCesanteFuturo * (b.dependenciaPorcentaje / 100));
+          }
+        } else {
+          // En lesiones, el lucro cesante pertenece a la víctima directa
+          if (b.esVictimaDirecta) {
+            b.cuotaLucroConsolidado = lucroCesanteConsolidado;
+            b.cuotaLucroFuturo = lucroCesanteFuturo;
+          } else {
+            b.cuotaLucroConsolidado = 0;
+            b.cuotaLucroFuturo = 0;
+          }
+        }
+
+        b.totalBeneficiario = b.montoMoralCop + b.montoSaludCop + b.cuotaLucroConsolidado + b.cuotaLucroFuturo;
+      });
+
+      // TOTALES GLOBALES
+      const granTotalLucroConsolidado = estadoApp.beneficiarios.reduce((acc, b) => acc + b.cuotaLucroConsolidado, 0) || lucroCesanteConsolidado;
+      const granTotalLucroFuturo = estadoApp.beneficiarios.reduce((acc, b) => acc + b.cuotaLucroFuturo, 0) || lucroCesanteFuturo;
+
+      const totalMateriales = subtotalDanoEmergenteConsolidado + danoEmergenteFuturo + granTotalLucroConsolidado + granTotalLucroFuturo;
+      const totalInmateriales = totalPerjuiciosMorales + totalDanoSalud + totalBienesProtegidos;
+      const totalConsolidado = subtotalDanoEmergenteConsolidado + granTotalLucroConsolidado;
+      const totalFuturo = danoEmergenteFuturo + granTotalLucroFuturo;
+      const granTotal = totalMateriales + totalInmateriales;
+
+      // Guardar en estado global
+      estadoApp.resultados = {
+        smmlv,
+        mConsolidado,
+        nFuturo,
+        ipcInicial,
+        ipcFinal,
+        rentaMensualIndemnizable,
+        subtotalDanoEmergenteConsolidado,
+        danoEmergenteFuturo,
+        granTotalLucroConsolidado,
+        granTotalLucroFuturo,
+        totalMateriales,
+        totalInmateriales,
+        totalPerjuiciosMorales,
+        totalDanoSalud,
+        totalConsolidado,
+        totalFuturo,
+        granTotal,
+        tasaInteres
+      };
+
+      // Actualizar tarjetas del dashboard
+      document.getElementById("cardPerjuiciosMateriales").innerText = formatearMonedaPerjuicios(totalMateriales);
+      document.getElementById("cardPerjuiciosMaterialesSmmlv").innerText = `${(totalMateriales / smmlv).toFixed(2)} SMLV`;
+
+      document.getElementById("cardPerjuiciosInmateriales").innerText = formatearMonedaPerjuicios(totalInmateriales);
+      document.getElementById("cardPerjuiciosInmaterialesSmmlv").innerText = `${(totalInmateriales / smmlv).toFixed(2)} SMLV`;
+
+      document.getElementById("cardTotalConsolidado").innerText = formatearMonedaPerjuicios(totalConsolidado);
+      document.getElementById("cardTotalConsolidadoSmmlv").innerText = `${(totalConsolidado / smmlv).toFixed(2)} SMLV`;
+
+      document.getElementById("cardGranTotal").innerText = formatearMonedaPerjuicios(granTotal);
+      document.getElementById("cardGranTotalSmmlv").innerText = `${(granTotal / smmlv).toFixed(2)} SMLV`;
+
+      // Actualizar desglose matemático
+      generarDesgloseMatematico();
+
+      // Actualizar capítulo de Juramento Estimatorio
+      generarJuramentoEstimatorio();
+
+      // Actualizar Dictamen Pericial
+      generarDictamenPericial();
+
+      // Actualizar tabla de beneficiarios en pantalla
+      renderizarTablaBeneficiarios();
+
+      // Actualizar badge
+      document.getElementById("contadorBeneficiariosBadge").innerText = estadoApp.beneficiarios.length;
+    }
+
+    // =========================================================================
+    // RENDERIZADO DE TABLAS
+    // =========================================================================
+    function renderizarTablaBeneficiarios() {
+      const tbody = document.getElementById("tablaBeneficiariosBody");
+      tbody.innerHTML = "";
+
+      estadoApp.beneficiarios.forEach((b, index) => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
+
+        tr.innerHTML = `
+          <td class="p-3">
+            <input type="text" value="${b.nombre}" onchange="actualizarNombreBeneficiario(${b.id}, this.value)" class="text-xs font-bold text-slate-800 border-b border-dashed border-slate-300 hover:border-slate-500 bg-transparent w-full">
+            <span class="text-[10px] text-slate-400 block">${b.esVictimaDirecta ? '★ Víctima Directa' : 'Damnificado Indirecto'}</span>
+          </td>
+          <td class="p-3">
+            <select onchange="actualizarParentescoBeneficiario(${b.id}, this.value)" class="text-xs border border-slate-200 rounded p-1 bg-white">
+              <option value="conyuge" ${b.parentesco === 'conyuge' ? 'selected' : ''}>Cónyuge / Compañera(o) (Nivel 1)</option>
+              <option value="hijo" ${b.parentesco === 'hijo' ? 'selected' : ''}>Hijo(a) (Nivel 1)</option>
+              <option value="padre" ${b.parentesco === 'padre' ? 'selected' : ''}>Padre / Madre (Nivel 1)</option>
+              <option value="hermano" ${b.parentesco === 'hermano' ? 'selected' : ''}>Hermano(a) (Nivel 2)</option>
+              <option value="abuelo" ${b.parentesco === 'abuelo' ? 'selected' : ''}>Abuelo(a) (Nivel 2)</option>
+              <option value="nieto" ${b.parentesco === 'nieto' ? 'selected' : ''}>Nieto(a) (Nivel 2)</option>
+              <option value="tio" ${b.parentesco === 'tio' ? 'selected' : ''}>Tío(a) / Sobrino (Nivel 3)</option>
+              <option value="primo" ${b.parentesco === 'primo' ? 'selected' : ''}>Primo(a) (Nivel 4)</option>
+            </select>
+          </td>
+          <td class="p-3">
+            <input type="number" value="${b.edadAlHecho}" onchange="actualizarEdadBeneficiario(${b.id}, this.value)" class="w-14 text-xs border border-slate-200 rounded p-1 text-center font-mono-math">
+          </td>
+          <td class="p-3 text-center">
+            <div class="flex items-center justify-center gap-1">
+              <input type="number" min="0" max="100" value="${b.dependenciaPorcentaje}" onchange="actualizarDependenciaBeneficiario(${b.id}, this.value)" class="w-14 text-xs border border-slate-200 rounded p-1 text-center font-mono-math">
+              <span class="text-slate-500 font-semibold">%</span>
+            </div>
+          </td>
+          <td class="p-3 text-right font-mono-math text-purple-700 font-semibold">
+            ${(b.montoMoralSmmlv || 0).toFixed(1)} SMLV
+            <div class="text-[10px] text-slate-500">${formatearMonedaPerjuicios(b.montoMoralCop || 0)}</div>
+          </td>
+          <td class="p-3 text-right font-mono-math text-rose-700 font-semibold">
+            ${(b.montoSaludSmmlv || 0).toFixed(1)} SMLV
+            <div class="text-[10px] text-slate-500">${formatearMonedaPerjuicios(b.montoSaludCop || 0)}</div>
+          </td>
+          <td class="p-3 text-right font-mono-math font-bold text-slate-900">
+            ${formatearMonedaPerjuicios(b.totalBeneficiario || 0)}
+          </td>
+          <td class="p-3 text-center">
+            ${estadoApp.beneficiarios.length > 1 ? `
+              <button onclick="eliminarBeneficiario(${b.id})" class="text-rose-500 hover:text-rose-700 p-1 rounded hover:bg-rose-50 transition" title="Eliminar demandante">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            ` : '<span class="text-slate-300">-</span>'}
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+
+      lucide.createIcons();
+    }
+
+    function renderizarTablaDanoEmergente() {
+      const tbody = document.getElementById("tablaDanoEmergenteBody");
+      tbody.innerHTML = "";
+
+      estadoApp.danoEmergente.forEach(g => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50 transition";
+
+        tr.innerHTML = `
+          <td class="p-2.5">
+            <input type="text" value="${g.concepto}" onchange="actualizarConceptoGasto(${g.id}, this.value)" class="w-full text-xs font-medium border-b border-transparent hover:border-slate-300 bg-transparent">
+          </td>
+          <td class="p-2.5">
+            <select onchange="actualizarTipoGasto(${g.id}, this.value)" class="text-xs border border-slate-200 rounded p-1 bg-white">
+              <option value="Médico" ${g.tipo === 'Médico' ? 'selected' : ''}>Médico / Hospitalario</option>
+              <option value="Funerario" ${g.tipo === 'Funerario' ? 'selected' : ''}>Funerario / Exequial</option>
+              <option value="Bienes" ${g.tipo === 'Bienes' ? 'selected' : ''}>Reparación de Bienes</option>
+              <option value="Peritaje" ${g.tipo === 'Peritaje' ? 'selected' : ''}>Peritaje / Asesoría</option>
+              <option value="Transporte" ${g.tipo === 'Transporte' ? 'selected' : ''}>Transporte / Viáticos</option>
+            </select>
+          </td>
+          <td class="p-2.5">
+            <input type="number" value="${g.valor}" onchange="actualizarValorGasto(${g.id}, this.value)" class="text-xs border border-slate-200 rounded p-1 w-28 font-mono-math">
+          </td>
+          <td class="p-2.5">
+            <input type="date" value="${g.fecha}" onchange="actualizarFechaGasto(${g.id}, this.value)" class="text-xs border border-slate-200 rounded p-1">
+          </td>
+          <td class="p-2.5 text-right font-mono-math font-bold text-emerald-700">
+            ${formatearMonedaPerjuicios(g.valorIndexado || g.valor)}
+          </td>
+          <td class="p-2.5 text-center">
+            <button onclick="eliminarFilaDanoEmergente(${g.id})" class="text-rose-500 hover:text-rose-700 p-1" title="Eliminar rubro">
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+
+      lucide.createIcons();
+    }
+
+    // =========================================================================
+    // ACCIONES DE GESTIÓN DE BENEFICIARIOS Y GASTOS
+    // =========================================================================
+    function agregarBeneficiarioPredefinido(parentesco) {
+      const nuevoId = Date.now();
+      let nombre = "Nuevo Familiar";
+      let nivel = 1;
+      let edad = 30;
+      let dep = 0;
+
+      if (parentesco === "conyuge") {
+        nombre = "Cónyuge / Compañera(o)";
+        nivel = 1;
+        edad = 35;
+        dep = 50;
+      } else if (parentesco === "hijo") {
+        nombre = "Hijo(a) Menor";
+        nivel = 1;
+        edad = 10;
+        dep = 25;
+      } else if (parentesco === "padre") {
+        nombre = "Padre / Madre";
+        nivel = 1;
+        edad = 62;
+        dep = 0;
+      }
+
+      estadoApp.beneficiarios.push({
+        id: nuevoId,
+        nombre: nombre,
+        parentesco: parentesco,
+        nivel: nivel,
+        edadAlHecho: edad,
+        dependenciaPorcentaje: dep,
+        reclamaMoral: true,
+        reclamaSalud: false,
+        reclamaBienesProt: false,
+        esVictimaDirecta: false
+      });
+
+      actualizarCalculos();
+    }
+
+    function agregarBeneficiarioPersonalizado() {
+      agregarBeneficiarioPredefinido("hermano");
+    }
+
+    function eliminarBeneficiario(id) {
+      estadoApp.beneficiarios = estadoApp.beneficiarios.filter(b => b.id !== id);
+      actualizarCalculos();
+    }
+
+    function actualizarNombreBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) { b.nombre = val; actualizarCalculos(); }
+    }
+
+    function actualizarParentescoBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) {
+        b.parentesco = val;
+        if (["conyuge", "hijo", "padre"].includes(val)) b.nivel = 1;
+        else if (["hermano", "abuelo", "nieto"].includes(val)) b.nivel = 2;
+        else if (["tio"].includes(val)) b.nivel = 3;
+        else b.nivel = 4;
+        actualizarCalculos();
+      }
+    }
+
+    function actualizarEdadBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) { b.edadAlHecho = parseInt(val) || 0; actualizarCalculos(); }
+    }
+
+    function actualizarDependenciaBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) { b.dependenciaPorcentaje = Math.min(100, Math.max(0, parseFloat(val) || 0)); actualizarCalculos(); }
+    }
+
+    function agregarFilaDanoEmergente() {
+      const nuevoId = Date.now();
+      const fechaHoy = document.getElementById("fechaHecho").value;
+      estadoApp.danoEmergente.push({
+        id: nuevoId,
+        concepto: "Gasto de Transporte y Diligencias",
+        tipo: "Transporte",
+        valor: 1200000,
+        fecha: fechaHoy
+      });
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+    }
+
+    function eliminarFilaDanoEmergente(id) {
+      estadoApp.danoEmergente = estadoApp.danoEmergente.filter(g => g.id !== id);
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+    }
+
+    function actualizarConceptoGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.concepto = val; actualizarCalculos(); }
+    }
+
+    function actualizarTipoGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.tipo = val; actualizarCalculos(); }
+    }
+
+    function actualizarValorGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.valor = parseFloat(val) || 0; actualizarCalculos(); }
+    }
+
+    function actualizarFechaGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.fecha = val; renderizarTablaDanoEmergente(); actualizarCalculos(); }
+    }
+
+    function toggleDanoEmergenteFuturo() {
+      const check = document.getElementById("checkDanoEmergenteFuturo").checked;
+      const panel = document.getElementById("panelDanoEmergenteFuturo");
+      if (check) panel.classList.remove("hidden");
+      else panel.classList.add("hidden");
+      actualizarCalculos();
+    }
+
+    // =========================================================================
+    // DESGLOSE MATEMÁTICO PASO A PASO
+    // =========================================================================
+    function generarDesgloseMatematico() {
+      const r = estadoApp.resultados;
+      if (!r) return;
+
+      // 1. Indexación
+      document.getElementById("desgloseIndexacionMath").innerHTML = `
+        Va = $${formatearNumero(parseFloat(document.getElementById("ingresoHistorico").value))} × ( ${r.ipcFinal.toFixed(2)} / ${r.ipcInicial.toFixed(2)} )<br>
+        Factor de Corrección = ${(r.ipcFinal / r.ipcInicial).toFixed(4)}<br>
+        Renta Mensual Neta Actualizada (Ra) = <strong>$${formatearNumero(r.rentaMensualIndemnizable)} COP</strong>
+      `;
+
+      // 2. Consolidado
+      const factorC = (Math.pow(1 + r.tasaInteres, r.mConsolidado) - 1) / r.tasaInteres;
+      document.getElementById("desgloseConsolidadoMath").innerHTML = `
+        S = $${formatearNumero(r.rentaMensualIndemnizable)} × [ ((1 + ${r.tasaInteres})^${r.mConsolidado} - 1) / ${r.tasaInteres} ]<br>
+        Meses Transcurridos (m) = ${r.mConsolidado} meses<br>
+        Factor Financiero de Acumulación = ${factorC.toFixed(4)}<br>
+        Total Lucro Cesante Consolidado = <strong>$${formatearNumero(r.granTotalLucroConsolidado)} COP</strong>
+      `;
+
+      // 3. Futuro
+      const numF = Math.pow(1 + r.tasaInteres, r.nFuturo) - 1;
+      const denF = r.tasaInteres * Math.pow(1 + r.tasaInteres, r.nFuturo);
+      const factorF = (denF !== 0) ? (numF / denF) : 0;
+      document.getElementById("desgloseFuturoMath").innerHTML = `
+        S = $${formatearNumero(r.rentaMensualIndemnizable)} × [ ((1 + ${r.tasaInteres})^${r.nFuturo} - 1) / (${r.tasaInteres} × (1 + ${r.tasaInteres})^${r.nFuturo}) ]<br>
+        Meses Futuros Restantes (n) = ${r.nFuturo} meses (Vida Probable SFC)<br>
+        Factor Financiero de Valor Presente = ${factorF.toFixed(4)}<br>
+        Total Lucro Cesante Futuro = <strong>$${formatearNumero(r.granTotalLucroFuturo)} COP</strong>
+      `;
+    }
+
+    // =========================================================================
+    // GENERADOR DE TEXTO PARA DEMANDA Y JURAMENTO ESTIMATORIO
+    // =========================================================================
+    function generarJuramentoEstimatorio() {
+      const r = estadoApp.resultados;
+      const victima = document.getElementById("victimaNombre").value;
+      const victimaDoc = document.getElementById("victimaDoc").value;
+      const fechaHecho = document.getElementById("fechaHecho").value;
+      const tipoEvento = document.getElementById("tipoEvento").value;
+      const jurisdiccion = document.getElementById("jurisdiccion").value;
+
+      let html = `
+        <div class="text-center mb-6">
+          <h3 class="font-bold text-base uppercase text-slate-900">CAPÍTULO: LIQUIDACIÓN Y ESTIMACIÓN RAZONADA DE PERJUCIOS</h3>
+          <h4 class="font-bold text-xs uppercase text-amber-700 tracking-wider">JURAMENTO ESTIMATORIO (ARTÍCULO 206 DEL CÓDIGO GENERAL DEL PROCESO Y ART. 162 CPACA)</h4>
+        </div>
+
+        <p class="mb-4 text-justify">
+          En cumplimiento de lo normado en el <strong>artículo 206 del Código General del Proceso (Ley 1564 de 2012)</strong> y el <strong>artículo 162 del CPACA</strong>, la parte demandante formula bajo la gravedad del juramento la estimación razonada y cuantificada de los perjuicios materiales irrogados por la conducta dañosa acaecida el día <strong>${fechaHecho}</strong>, en la que resultó víctima directa el ciudadano <strong>${victima}</strong>, identificado con cédula de ciudadanía No. <strong>${victimaDoc}</strong>:
+        </p>
+
+        <h5 class="font-bold text-slate-900 uppercase border-b border-slate-300 pb-1 mb-2">1. PERJUICIOS MATERIALES</h5>
+
+        <div class="mb-3 pl-3 border-l-2 border-emerald-500">
+          <p class="font-semibold text-slate-900">1.1. DAÑO EMERGENTE CONSOLIDADO Y FUTURO:</p>
+          <p class="text-slate-700 text-xs mb-1">
+            • <strong>Daño Emergente Consolidado:</strong> Corresponde a los gastos médicos, fúnebres, periciales y de reparación debidamente soportados, indexados a valor presente a la fecha de radicación de la demanda, tasados en la suma de <strong>${formatearMonedaPerjuicios(r.subtotalDanoEmergenteConsolidado)} COP</strong>.<br>
+            • <strong>Daño Emergente Futuro:</strong> Tasado a valor presente para tratamientos, medicación y cuidadores continuos por la suma de <strong>${formatearMonedaPerjuicios(r.danoEmergenteFuturo)} COP</strong>.<br>
+            <strong>SUBTOTAL DAÑO EMERGENTE:</strong> <strong>${formatearMonedaPerjuicios(r.subtotalDanoEmergenteConsolidado + r.danoEmergenteFuturo)} COP</strong>.
+          </p>
+        </div>
+
+        <div class="mb-3 pl-3 border-l-2 border-blue-500">
+          <p class="font-semibold text-slate-900">1.2. LUCRO CESANTE CONSOLIDADO Y FUTURO (FÓRMULAS CONSEJO DE ESTADO / CSJ):</p>
+          <p class="text-slate-700 text-xs mb-1">
+            Partiendo de una Renta Mensual Neta Actualizada (Ra) de <strong>${formatearMonedaPerjuicios(r.rentaMensualIndemnizable)} COP</strong>, una tasa técnica pura mensual del <strong>${(r.tasaInteres * 100).toFixed(4)}%</strong>, ${r.mConsolidado} meses transcurridos a la liquidación y ${r.nFuturo} meses de expectativa futura:<br>
+            • <strong>Lucro Cesante Consolidado (S = Ra × [((1+i)^m - 1)/i]):</strong> <strong>${formatearMonedaPerjuicios(r.granTotalLucroConsolidado)} COP</strong>.<br>
+            • <strong>Lucro Cesante Futuro (S = Ra × [((1+i)^n - 1)/(i*(1+i)^n)]):</strong> <strong>${formatearMonedaPerjuicios(r.granTotalLucroFuturo)} COP</strong>.<br>
+            <strong>SUBTOTAL LUCRO CESANTE:</strong> <strong>${formatearMonedaPerjuicios(r.granTotalLucroConsolidado + r.granTotalLucroFuturo)} COP</strong>.
+          </p>
+        </div>
+
+        <p class="font-bold text-slate-900 mb-4 bg-slate-100 p-2 rounded">
+          TOTAL JURAMENTO ESTIMATORIO (PERJUICIOS MATERIALES): ${formatearMonedaPerjuicios(r.totalMateriales)} COP (${(r.totalMateriales / r.smmlv).toFixed(2)} SMMLV).
+        </p>
+
+        <h5 class="font-bold text-slate-900 uppercase border-b border-slate-300 pb-1 mb-2">2. PERJUICIOS EXTRAPATRIMONIALES (NO SUJETOS A JURAMENTO ESTIMATORIO - SENTENCIA C-157/13)</h5>
+        <p class="text-xs text-slate-600 mb-2">
+          De conformidad con el criterio unificado de la Corte Constitucional (Sentencia C-157 de 2013), los perjuicios morales y a la salud se tasan al prudente arbitrio judicial y con fundamento en los baremos de la <strong>Sentencia de Unificación de 28 de agosto de 2014 de la Sección Tercera del Consejo de Estado</strong>:
+        </p>
+
+        <table class="w-full text-xs text-left border border-slate-300 mb-4">
+          <thead class="bg-slate-200 font-bold">
+            <tr>
+              <th class="p-2 border-r border-slate-300">Demandante</th>
+              <th class="p-2 border-r border-slate-300">Parentesco</th>
+              <th class="p-2 border-r border-slate-300 text-right">Perjuicio Moral</th>
+              <th class="p-2 border-r border-slate-300 text-right">Daño a la Salud</th>
+              <th class="p-2 text-right">Total Inmaterial</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            ${estadoApp.beneficiarios.map(b => `
+              <tr>
+                <td class="p-2 border-r border-slate-300 font-semibold">${b.nombre}</td>
+                <td class="p-2 border-r border-slate-300 capitalize">${b.parentesco} (Nivel ${b.nivel})</td>
+                <td class="p-2 border-r border-slate-300 text-right">${formatearMonedaPerjuicios(b.montoMoralCop || 0)}</td>
+                <td class="p-2 border-r border-slate-300 text-right">${formatearMonedaPerjuicios(b.montoSaludCop || 0)}</td>
+                <td class="p-2 text-right font-bold">${formatearMonedaPerjuicios((b.montoMoralCop || 0) + (b.montoSaludCop || 0))}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+          <tfoot class="bg-slate-100 font-bold">
+            <tr>
+              <td colspan="4" class="p-2 text-right">TOTAL PERJUICIOS INMATERIALES:</td>
+              <td class="p-2 text-right text-purple-700 font-mono-math">${formatearMonedaPerjuicios(r.totalInmateriales)} COP</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="bg-amber-100 border border-amber-300 p-3 rounded-lg text-amber-950 font-bold text-center">
+          GRAN TOTAL DE PRETENSIONES INDEMNIZATORIAS: ${formatearMonedaPerjuicios(r.granTotal)} COP (${(r.granTotal / r.smmlv).toFixed(2)} SMMLV).
+        </div>
+      `;
+
+      document.getElementById("textoJuramentoEstimatorio").innerHTML = html;
+    }
+
+    // =========================================================================
+    // GENERADOR DE DICTAMEN PERICIAL FORENSE (VISTA CERTIFICADA)
+    // =========================================================================
+    function generarDictamenPericial() {
+      const r = estadoApp.resultados;
+      const victima = document.getElementById("victimaNombre").value;
+      const fechaHecho = document.getElementById("fechaHecho").value;
+      const tasaInteres = parseFloat(document.getElementById("tasaInteresPura").value);
+
+      document.getElementById("peritajeVictimaNombre").innerText = victima;
+      document.getElementById("peritajeFechaHecho").innerText = fechaHecho;
+      document.getElementById("peritajeTasaInteres").innerText = `i = ${tasaInteres} mensual (${(tasaInteres * 100).toFixed(4)}%)`;
+      document.getElementById("peritajeGranTotal").innerText = formatearMonedaPerjuicios(r.granTotal);
+      document.getElementById("peritajeGranTotalCifra").innerText = formatearMonedaPerjuicios(r.granTotal);
+      document.getElementById("peritajeTotalSmmlv").innerText = (r.granTotal / r.smmlv).toFixed(2);
+      document.getElementById("peritajeGranTotalLetras").innerText = numeroALetras(Math.round(r.granTotal)) + " PESOS M/CTE";
+
+      const tbody = document.getElementById("peritajeTablaCuerpo");
+      tbody.innerHTML = `
+        <tr>
+          <td class="p-2 border-r font-semibold">1. Daño Emergente Consolidado</td>
+          <td class="p-2 border-r font-mono-math">${formatearMonedaPerjuicios(estadoApp.danoEmergente.reduce((a,b)=>a+b.valor,0))}</td>
+          <td class="p-2 border-r">${estadoApp.danoEmergente.length} rubros soportados</td>
+          <td class="p-2 text-right font-mono-math">${formatearMonedaPerjuicios(r.subtotalDanoEmergenteConsolidado)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">2. Daño Emergente Futuro</td>
+          <td class="p-2 border-r font-mono-math">-</td>
+          <td class="p-2 border-r">${r.nFuturo} meses futuros</td>
+          <td class="p-2 text-right font-mono-math">${formatearMonedaPerjuicios(r.danoEmergenteFuturo)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">3. Lucro Cesante Consolidado</td>
+          <td class="p-2 border-r font-mono-math">Ra = ${formatearMonedaPerjuicios(r.rentaMensualIndemnizable)}</td>
+          <td class="p-2 border-r">${r.mConsolidado} meses transcurridos</td>
+          <td class="p-2 text-right font-mono-math font-bold">${formatearMonedaPerjuicios(r.granTotalLucroConsolidado)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">4. Lucro Cesante Futuro</td>
+          <td class="p-2 border-r font-mono-math">Ra = ${formatearMonedaPerjuicios(r.rentaMensualIndemnizable)}</td>
+          <td class="p-2 border-r">${r.nFuturo} meses (SFC)</td>
+          <td class="p-2 text-right font-mono-math font-bold">${formatearMonedaPerjuicios(r.granTotalLucroFuturo)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">5. Perjuicios Morales (Baremo CE)</td>
+          <td class="p-2 border-r font-mono-math">${(r.totalPerjuiciosMorales / r.smmlv).toFixed(1)} SMMLV</td>
+          <td class="p-2 border-r">${estadoApp.beneficiarios.length} familiares</td>
+          <td class="p-2 text-right font-mono-math text-purple-700">${formatearMonedaPerjuicios(r.totalPerjuiciosMorales)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">6. Daño a la Salud (PCL)</td>
+          <td class="p-2 border-r font-mono-math">${(r.totalDanoSalud / r.smmlv).toFixed(1)} SMMLV</td>
+          <td class="p-2 border-r">Víctima corporal</td>
+          <td class="p-2 text-right font-mono-math text-rose-700">${formatearMonedaPerjuicios(r.totalDanoSalud)}</td>
+        </tr>
+      `;
+    }
+
+    // =========================================================================
+    // CASOS PRECONFIGURADOS DE PRUEBA Y APRENDIZAJE
+    // =========================================================================
+    function cargarCasoEjemplo(tipo) {
+      if (tipo === 'homicidio') {
+        document.getElementById("tipoEvento").value = "muerte";
+        document.getElementById("victimaNombre").value = "Carlos Eduardo Mendoza Sarmiento";
+        document.getElementById("victimaDoc").value = "79.845.120";
+        document.getElementById("victimaSexo").value = "H";
+        document.getElementById("victimaFechaNac").value = "1988-04-12";
+        document.getElementById("fechaHecho").value = "2021-08-10";
+        document.getElementById("tipoIngreso").value = "formal";
+        document.getElementById("ingresoHistorico").value = "4800000";
+
+        estadoApp.beneficiarios = [
+          { id: 1, nombre: "Adriana Lucía Torres (Cónyuge)", parentesco: "conyuge", nivel: 1, edadAlHecho: 32, dependenciaPorcentaje: 50, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 2, nombre: "Mateo Mendoza Torres (Hijo 6 años)", parentesco: "hijo", nivel: 1, edadAlHecho: 6, dependenciaPorcentaje: 25, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 3, nombre: "Sofía Mendoza Torres (Hija 2 años)", parentesco: "hijo", nivel: 1, edadAlHecho: 2, dependenciaPorcentaje: 25, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 4, nombre: "Rosa Sarmiento de Mendoza (Madre)", parentesco: "padre", nivel: 1, edadAlHecho: 64, dependenciaPorcentaje: 0, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false }
+        ];
+
+        estadoApp.danoEmergente = [
+          { id: 1, concepto: "Servicios Exequiales y Destino Final", tipo: "Funerario", valor: 7500000, fecha: "2021-08-12" },
+          { id: 2, concepto: "Destrucción Total de Motocicleta", tipo: "Bienes", valor: 18000000, fecha: "2021-08-10" }
+        ];
+
+        document.getElementById("checkDanoEmergenteFuturo").checked = false;
+      } else if (tipo === 'lesiones') {
+        document.getElementById("tipoEvento").value = "lesiones";
+        document.getElementById("victimaNombre").value = "Luis Fernando Restrepo Gómez";
+        document.getElementById("victimaDoc").value = "1.015.420.890";
+        document.getElementById("victimaSexo").value = "H";
+        document.getElementById("victimaFechaNac").value = "1994-11-25";
+        document.getElementById("fechaHecho").value = "2023-02-14";
+        document.getElementById("tipoIngreso").value = "formal";
+        document.getElementById("ingresoHistorico").value = "3600000";
+        document.getElementById("porcentajePcl").value = "68.40";
+        document.getElementById("diasIncapacidad").value = "180";
+
+        estadoApp.beneficiarios = [
+          { id: 1, nombre: "Luis Fernando Restrepo (Víctima Lesionada)", parentesco: "conyuge", nivel: 1, edadAlHecho: 28, dependenciaPorcentaje: 100, reclamaMoral: true, reclamaSalud: true, esVictimaDirecta: true },
+          { id: 2, nombre: "Camila Andrea Restrepo (Esposa)", parentesco: "conyuge", nivel: 1, edadAlHecho: 27, dependenciaPorcentaje: 0, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 3, nombre: "Ana Gómez (Madre)", parentesco: "padre", nivel: 1, edadAlHecho: 55, dependenciaPorcentaje: 0, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false }
+        ];
+
+        estadoApp.danoEmergente = [
+          { id: 1, concepto: "Prótesis Biónica de Extremidad Inferior", tipo: "Médico", valor: 45000000, fecha: "2023-04-10" },
+          { id: 2, concepto: "Tratamiento de Neuro-Rehabilitación", tipo: "Médico", valor: 12500000, fecha: "2023-06-20" }
+        ];
+
+        document.getElementById("checkDanoEmergenteFuturo").checked = true;
+        document.getElementById("costoMensualFuturo").value = "1750905"; // 1 SMMLV Cuidador
+        document.getElementById("mesesDanoEmergenteFuturo").value = "480";
+      }
+
+      cambiarTipoEvento();
+      renderizarTablaBeneficiarios();
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+      cambiarPestana('perj-tab-liquidador');
+    }
+
+    // =========================================================================
+    // GRÁFICOS INTERACTIVOS (CHART.JS)
+    // =========================================================================
+    let chartTipos = null;
+    let chartBeneficiarios = null;
+
+    function inicializarGraficos() {
+      const ctxTipos = document.getElementById("graficoDistribucionTipos");
+      const ctxBen = document.getElementById("graficoBeneficiarios");
+
+      if (ctxTipos) {
+        chartTipos = new Chart(ctxTipos, {
+          type: 'doughnut',
+          data: {
+            labels: ['Daño Emergente', 'Lucro C. Consolidado', 'Lucro C. Futuro', 'Perjuicios Morales', 'Daño a la Salud'],
+            datasets: [{
+              data: [10, 20, 40, 20, 10],
+              backgroundColor: ['#10b981', '#3b82f6', '#1d4ed8', '#a855f7', '#ec4899'],
+              borderWidth: 2,
+              borderColor: '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
+            }
+          }
+        });
+      }
+
+      if (ctxBen) {
+        chartBeneficiarios = new Chart(ctxBen, {
+          type: 'bar',
+          data: {
+            labels: ['Beneficiario 1', 'Beneficiario 2'],
+            datasets: [{
+              label: 'Total Liquidado (COP)',
+              data: [50000000, 30000000],
+              backgroundColor: '#d97706',
+              borderRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: { ticks: { callback: v => '$' + (v / 1000000).toFixed(0) + 'M' } }
+            },
+            plugins: {
+              legend: { display: false }
+            }
+          }
+        });
+      }
+    }
+
+    function actualizarGraficos() {
+      const r = estadoApp.resultados;
+      if (!r || !chartTipos || !chartBeneficiarios) return;
+
+      chartTipos.data.datasets[0].data = [
+        r.subtotalDanoEmergenteConsolidado + r.danoEmergenteFuturo,
+        r.granTotalLucroConsolidado,
+        r.granTotalLucroFuturo,
+        r.totalPerjuiciosMorales,
+        r.totalDanoSalud
+      ];
+      chartTipos.update();
+
+      chartBeneficiarios.data.labels = estadoApp.beneficiarios.map(b => b.nombre.length > 15 ? b.nombre.substring(0, 15) + '...' : b.nombre);
+      chartBeneficiarios.data.datasets[0].data = estadoApp.beneficiarios.map(b => b.totalBeneficiario || 0);
+      chartBeneficiarios.update();
+    }
+
+    // =========================================================================
+    // UTILIDADES: FORMATEO Y CONVERSIÓN DE CIFRAS A LETRAS
+    // =========================================================================
+    function formatearMonedaPerjuicios(val) {
+      return '$' + Math.round(val || 0).toLocaleString('es-CO');
+    }
+
+    function formatearNumero(val) {
+      return Math.round(val || 0).toLocaleString('es-CO');
+    }
+
+    function copiarTextoAlPortapapeles(idElemento) {
+      const el = document.getElementById(idElemento);
+      if (!el) return;
+      const texto = el.innerText;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("¡Capítulo de demanda y juramento estimatorio copiado exitosamente al portapapeles!");
+      }).catch(err => {
+        console.error("Error al copiar:", err);
+      });
+    }
+
+    function numeroALetras(num) {
+      if (num === 0) return 'CERO';
+      const unidades = ['', 'UN', 'DOS', 'TRES', 'CUATRO', 'CINCO', 'SEIS', 'SIETE', 'OCHO', 'NUEVE'];
+      const decenas = ['', 'DIEZ', 'VEINTE', 'TREINTA', 'CUARENTA', 'CINCUENTA', 'SESENTA', 'SETENTA', 'OCHENTA', 'NOVENTA'];
+      const diezY = ['DIEZ', 'ONCE', 'DOCE', 'TRECE', 'CATORCE', 'QUINCE', 'DIECISEIS', 'DIECISIETE', 'DIECIOCHO', 'DIECINUEVE'];
+      const centenas = ['', 'CIENTO', 'DOSCIENTOS', 'TRESCIENTOS', 'CUATROCIENTOS', 'QUINIENTOS', 'SEISCIENTOS', 'SETECIENTOS', 'OCHOCIENTOS', 'NOVECIENTOS'];
+
+      function convertirSeccion(n) {
+        let salida = '';
+        const c = Math.floor(n / 100);
+        const d = Math.floor((n % 100) / 10);
+        const u = n % 10;
+
+        if (n === 100) return 'CIEN';
+        if (c > 0) salida += centenas[c] + ' ';
+
+        if (d === 1) {
+          salida += diezY[u] + ' ';
+        } else if (d === 2 && u > 0) {
+          salida += 'VEINTI' + unidades[u] + ' ';
+        } else {
+          if (d > 0) salida += decenas[d] + (u > 0 ? ' Y ' : ' ');
+          if (u > 0) salida += unidades[u] + ' ';
+        }
+        return salida.trim();
+      }
+
+      let millones = Math.floor(num / 1000000);
+      let miles = Math.floor((num % 1000000) / 1000);
+      let resto = num % 1000;
+      let resultado = '';
+
+      if (millones > 0) {
+        if (millones === 1) resultado += 'UN MILLON ';
+        else resultado += convertirSeccion(millones) + ' MILLONES ';
+      }
+      if (miles > 0) {
+        if (miles === 1) resultado += 'MIL ';
+        else resultado += convertirSeccion(miles) + ' MIL ';
+      }
+      if (resto > 0) {
+        resultado += convertirSeccion(resto);
+      }
+      return resultado.trim();
+    }
+  
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+
+
   </script>
   </div> <!-- Fin #mainAppWrapper -->
 </body>
