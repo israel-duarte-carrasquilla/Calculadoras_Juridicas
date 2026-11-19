@@ -3,41 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora Pensional de Colombia 2026 | Ley 100 vs. Ley 2381 & Guía Jurídica</title>
+  <title>Suite Jurídica Colombia 2026 | Liquidación Forense & Dictámenes Periciales</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-canvas: #F5F3EE;
+      --bg-surface: #FFFFFF;
+      --navy-judicial: #0F1D32;
+      --navy-hover: #1B365D;
+      --brass-accent: #9A6E23;
+      --ink-primary: #111827;
+      --ink-secondary: #4B5563;
+      --border-hairline: #E2DDD5;
+    }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
     }
-    input[type=range]::-webkit-slider-thumb {
-      background: #1e40af;
-    }
-    .tab-btn.active {
-      border-bottom: 2px solid #2563eb;
-      color: #1d4ed8;
-      font-weight: 700;
-    }
-  </style>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
-  <style>
     .font-serif-legal {
       font-family: 'Cinzel', serif;
     }
+    .font-mono, input[type="number"] {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      background: var(--navy-judicial);
+    }
+    .tab-btn.active {
+      border-bottom: 2px solid var(--navy-judicial);
+      color: var(--navy-judicial);
+      font-weight: 700;
+    }
     .badge-congruo {
-      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      background-color: #1B365D;
     }
     .badge-necesario {
-      background: linear-gradient(135deg, #831843 0%, #ec4899 100%);
+      background-color: #7F1D1D;
     }
-</style>
+    /* WCAG 2.1 AA Focus Visibility */
+    :focus-visible {
+      outline: 2px solid #1B365D !important;
+      outline-offset: 2px !important;
+    }
+    #appLoginGate :focus-visible {
+      outline: 2px solid #D4A853 !important;
+      outline-offset: 2px !important;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #FFFFFF !important; color: #000000 !important; }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+<body class="bg-[#F5F3EE] text-[#111827] antialiased min-h-screen flex flex-col">
 
   <!-- ========================================================================= -->
   <!-- PORTAL DE ACCESO / LOGIN OBLIGATORIO DE LA SUITE JURÍDICA                 -->
@@ -45,80 +71,146 @@
     <!-- ========================================================================= -->
   <!-- PORTAL DE ACCESO / LOGIN OBLIGATORIO DE LA SUITE JURÍDICA                 -->
   <!-- ========================================================================= -->
-  <div id="appLoginGate" class="min-h-screen bg-[#070b14] text-slate-100 flex items-center justify-center p-4 sm:p-6 relative select-none">
-    <div class="max-w-md w-full bg-[#0d1322] border border-slate-800/90 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/90 space-y-6">
-      
-      <!-- Encabezado Institucional -->
-      <div class="text-center space-y-2">
-        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-slate-800 border border-slate-700 shadow-inner mb-1">
-          <i data-lucide="scale" class="w-7 h-7 text-amber-400"></i>
-        </div>
-        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white font-serif-legal">
-          SUITE JURÍDICA COLOMBIA
-        </h1>
-        <p class="text-xs text-slate-400 max-w-xs mx-auto leading-relaxed">
-          Plataforma de Peritaje, Liquidación Judicial y Dictámenes Periciales.
-        </p>
-      </div>
+  <div id="appLoginGate" class="min-h-screen bg-[#EAE6DF] text-[#111827] flex flex-col justify-between p-4 sm:p-8 select-none">
+    <div class="flex-1 flex items-center justify-center">
+      <div class="max-w-4xl w-full bg-white border border-[#D6D0C4] rounded-xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+        
+        <!-- Panel Izquierdo: Identidad Editorial Judicial -->
+        <div class="lg:col-span-5 bg-[#0F1D32] text-white p-7 sm:p-9 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[#1E3250]">
+          <div class="space-y-5">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg border border-[#9A6E23]/70 bg-[#162844] flex items-center justify-center shrink-0">
+                <i data-lucide="scale" class="w-5 h-5 text-[#D4A853]"></i>
+              </div>
+              <div>
+                <span class="block text-[10px] font-mono uppercase tracking-[0.18em] text-[#D4A853]">República de Colombia</span>
+                <span class="block text-xs font-semibold text-slate-300">Vigencia Normativa 2026</span>
+              </div>
+            </div>
 
-      <!-- Alerta de Error de Autenticación -->
-      <div id="loginGateError" class="hidden bg-rose-950/80 border border-rose-800 text-rose-200 text-xs p-3 rounded-xl flex items-center gap-2">
-        <i data-lucide="alert-circle" class="w-4 h-4 text-rose-400 shrink-0"></i>
-        <span id="loginGateErrorText">Usuario o contraseña incorrectos.</span>
-      </div>
+            <div class="pt-2 border-t border-[#1E3250]">
+              <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white font-serif-legal leading-tight">
+                Suite Jurídica Colombia
+              </h1>
+              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                Sistema técnico de liquidación judicial, tasación actuarial y generación de dictámenes periciales para operadores del derecho.
+              </p>
+            </div>
 
-      <!-- Formulario de Autenticación: SOLO USUARIO Y CONTRASEÑA -->
-      <form id="formLoginGate" onsubmit="handleGateLoginSubmit(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1.5" for="gateLoginUsername">
-            Usuario:
-          </label>
-          <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
-              <i data-lucide="user" class="w-4 h-4"></i>
-            </span>
-            <input type="text" id="gateLoginUsername" required autocomplete="username" placeholder="Ingresa tu usuario"
-                   class="w-full bg-[#070b14] border border-slate-700 rounded-xl pl-10 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all font-medium">
+            <div class="space-y-2 pt-2 text-xs text-slate-300 border-t border-[#1E3250]">
+              <div class="flex items-center justify-between py-1 border-b border-[#1E3250]/60">
+                <span>1. Pensional</span>
+                <span class="font-mono text-[11px] text-slate-400">Ley 100 / Ley 2381</span>
+              </div>
+              <div class="flex items-center justify-between py-1 border-b border-[#1E3250]/60">
+                <span>2. Alimentos & REDAM</span>
+                <span class="font-mono text-[11px] text-slate-400">Art. 1617 C.C. / L. 2097</span>
+              </div>
+              <div class="flex items-center justify-between py-1 border-b border-[#1E3250]/60">
+                <span>3. Créditos & Usura</span>
+                <span class="font-mono text-[11px] text-slate-400">Art. 446 CGP / SFC</span>
+              </div>
+              <div class="flex items-center justify-between py-1 border-b border-[#1E3250]/60">
+                <span>4. Perjuicios Forenses</span>
+                <span class="font-mono text-[11px] text-slate-400">Consejo de Estado / CSJ</span>
+              </div>
+              <div class="flex items-center justify-between py-1">
+                <span>5. Seguros & Actuarial</span>
+                <span class="font-mono text-[11px] text-slate-400">Art. 1080 C.Co.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-[#1E3250] flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span>SMMLV: $1.750.905</span>
+            <span>Mora Civil: 6% E.A.</span>
           </div>
         </div>
 
-        <div>
-          <label class="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between" for="gateLoginPassword">
-            <span>Contraseña:</span>
-          </label>
-          <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
-              <i data-lucide="lock" class="w-4 h-4"></i>
-            </span>
-            <input type="password" id="gateLoginPassword" required autocomplete="current-password" placeholder="Ingresa tu contraseña"
-                   class="w-full bg-[#070b14] border border-slate-700 rounded-xl pl-10 pr-10 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all font-mono">
-            <button type="button" onclick="toggleGatePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-slate-300 cursor-pointer" aria-label="Mostrar u ocultar contraseña">
-              <i id="gateEyeIcon" data-lucide="eye" class="w-4 h-4"></i>
+        <!-- Panel Derecho: Autenticación Estricta (Solo Usuario y Contraseña) -->
+        <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-center space-y-6 bg-white">
+          <div>
+            <h2 class="text-xl font-bold text-[#111827] tracking-tight">Acceso Autorizado</h2>
+            <p class="text-xs text-[#4B5563] mt-1">
+              Ingresa tu usuario y contraseña asignados para habilitar los módulos de cálculo.
+            </p>
+          </div>
+
+          <!-- Alerta de Error de Autenticación (WCAG role="alert") -->
+          <div id="loginGateError" role="alert" aria-live="assertive" class="hidden bg-red-50 border border-red-300 text-red-900 text-xs p-3.5 rounded-lg flex items-center gap-2.5">
+            <i data-lucide="alert-circle" class="w-4 h-4 text-red-700 shrink-0"></i>
+            <span id="loginGateErrorText" class="font-medium">Usuario o contraseña incorrectos.</span>
+          </div>
+
+          <form id="formLoginGate" onsubmit="handleGateLoginSubmit(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-[#111827] mb-1.5" for="gateLoginUsername">
+                Usuario
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+                  <i data-lucide="user" class="w-4 h-4"></i>
+                </span>
+                <input type="text" id="gateLoginUsername" required autocomplete="username" placeholder="Ingresa tu usuario"
+                       class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-3 py-2.5 text-sm text-[#111827] placeholder-slate-400 focus:border-[#0F1D32] transition-colors font-medium">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-[#111827] mb-1.5" for="gateLoginPassword">
+                Contraseña
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+                  <i data-lucide="lock" class="w-4 h-4"></i>
+                </span>
+                <input type="password" id="gateLoginPassword" required autocomplete="current-password" placeholder="Ingresa tu contraseña"
+                       class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-10 py-2.5 text-sm text-[#111827] placeholder-slate-400 focus:border-[#0F1D32] transition-colors font-mono">
+                <button type="button" onclick="toggleGatePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-[#111827] cursor-pointer" aria-label="Mostrar u ocultar contraseña">
+                  <i id="gateEyeIcon" data-lucide="eye" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Consentimiento Legal Explícito (Legal Shield: desmarcado por defecto) -->
+            <div class="pt-1 space-y-2.5">
+              <label class="flex items-start gap-2.5 cursor-pointer select-none">
+                <input type="checkbox" id="gateLegalConsent" required class="mt-0.5 rounded border-slate-400 text-[#0F1D32] focus:ring-[#0F1D32] cursor-pointer">
+                <span class="text-[11px] text-[#4B5563] leading-snug">
+                  Acepto la <button type="button" onclick="openLegalModal('privacy')" class="underline font-semibold text-[#0F1D32] hover:text-blue-800 cursor-pointer">Política de Privacidad</button> (Ley 1581/2012), los <button type="button" onclick="openLegalModal('terms')" class="underline font-semibold text-[#0F1D32] hover:text-blue-800 cursor-pointer">Términos de Uso y Descargo de Responsabilidad</button>.
+                </span>
+              </label>
+
+              <label class="flex items-center gap-2.5 cursor-pointer select-none">
+                <input type="checkbox" id="gateRememberMe" class="rounded border-slate-400 text-[#0F1D32] focus:ring-[#0F1D32] cursor-pointer">
+                <span class="text-[11px] text-[#4B5563]">Mantener sesión iniciada en este navegador</span>
+              </label>
+            </div>
+
+            <button type="submit" id="btnGateSubmit"
+                    class="w-full py-3 px-4 rounded-lg bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold text-sm shadow-sm transition-colors cursor-pointer flex items-center justify-center gap-2">
+              <i data-lucide="log-in" class="w-4 h-4"></i>
+              <span>Ingresar a la Suite</span>
             </button>
-          </div>
+          </form>
+
+          <p class="text-[11px] text-[#4B5563] border-t border-slate-200 pt-4 leading-relaxed">
+            <strong>Aviso de Exención:</strong> Las liquidaciones generadas constituyen cálculos técnicos auxiliares para profesionales del derecho y no sustituyen providencias judiciales ni asesoría legal particular.
+          </p>
         </div>
 
-        <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
-          <label class="flex items-center gap-2 cursor-pointer select-none">
-            <input type="checkbox" id="gateRememberMe" checked class="rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-blue-500">
-            <span class="text-[11px] text-slate-300">Recordar sesión en este equipo</span>
-          </label>
-        </div>
-
-        <button type="submit" id="btnGateSubmit"
-                class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer flex items-center justify-center gap-2">
-          <i data-lucide="log-in" class="w-4 h-4"></i>
-          <span>Ingresar a la Suite</span>
-        </button>
-      </form>
-
-      <div class="pt-3 border-t border-slate-800 text-center">
-        <p class="text-[10px] text-slate-500 leading-normal">
-          Acceso restringido a operadores jurídicos y peritos autorizados.
-        </p>
       </div>
-
     </div>
+
+    <!-- Pie de página legal en el Login Gate -->
+    <footer class="max-w-4xl w-full mx-auto pt-4 pb-2 text-center text-[11px] text-[#4B5563] flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+      <span>© 2026 Suite Jurídica Colombia</span>
+      <button type="button" onclick="openLegalModal('privacy')" class="hover:text-[#0F1D32] underline cursor-pointer">Privacidad (Ley 1581/12)</button>
+      <button type="button" onclick="openLegalModal('terms')" class="hover:text-[#0F1D32] underline cursor-pointer">Términos y Descargo Legal</button>
+      <button type="button" onclick="openLegalModal('cookies')" class="hover:text-[#0F1D32] underline cursor-pointer">Cookies</button>
+      <button type="button" onclick="openLegalModal('refunds')" class="hover:text-[#0F1D32] underline cursor-pointer">Reembolsos</button>
+      <button type="button" onclick="openLegalModal('data-deletion')" class="hover:text-[#0F1D32] underline cursor-pointer">Eliminación de Datos</button>
+    </footer>
   </div>
 
   <div id="mainAppWrapper" class="hidden flex-1 flex flex-col">
@@ -126,22 +218,22 @@
   <!-- ========================================================================= -->
   <!-- BARRA SUPERIOR MAESTRA: SUITE DE CALCULADORAS LEGALES DE COLOMBIA         -->
   <!-- ========================================================================= -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md no-print">
+  <header class="bg-[#0F1D32] text-white border-b border-[#1E3250] sticky top-0 z-50 no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
-        <div class="bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 p-2.5 rounded-xl shadow-inner text-white flex items-center justify-center">
-          <i data-lucide="scale" class="w-6 h-6 text-amber-300"></i>
+        <div class="w-10 h-10 rounded-lg border border-[#9A6E23]/70 bg-[#162844] flex items-center justify-center shrink-0">
+          <i data-lucide="scale" class="w-5 h-5 text-[#D4A853]"></i>
         </div>
         <div>
-          <div class="flex items-center gap-2 flex-wrap">
-            <h1 id="suiteHeaderTitle" class="text-base sm:text-lg font-extrabold tracking-tight text-white">
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <h1 id="suiteHeaderTitle" class="text-base sm:text-lg font-bold tracking-tight text-white font-serif-legal">
               Calculadora Pensional de Colombia
             </h1>
-            <span class="bg-emerald-500/20 text-emerald-300 text-xs px-2.5 py-0.5 rounded-full border border-emerald-400/30 font-semibold">
-              Edición 2026 - 2027
+            <span class="text-[10px] font-mono uppercase tracking-wider text-[#D4A853] border border-[#9A6E23]/60 px-2 py-0.5 rounded">
+              Vigencia 2026
             </span>
           </div>
-          <p id="suiteHeaderSubtitle" class="text-xs text-slate-400">
+          <p id="suiteHeaderSubtitle" class="text-xs text-slate-300">
             Régimen Tradicional (Ley 100/93 & 797/03) vs. Nuevo Sistema de Pilares (Ley 2381 de 2024)
           </p>
         </div>
@@ -149,15 +241,15 @@
 
       <!-- Acciones de Cabecera -->
       <div class="flex items-center gap-2 text-xs">
-        <button id="btnSuiteGuiaJuris" onclick="handleSuiteGuiaJurisClick()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium shadow-sm transition-colors cursor-pointer">
-          <i data-lucide="compass" class="w-4 h-4"></i>
+        <button id="btnSuiteGuiaJuris" onclick="handleSuiteGuiaJurisClick()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#162844] hover:bg-[#1E3A5F] text-slate-100 border border-[#2B4870] font-medium transition-colors cursor-pointer">
+          <i data-lucide="compass" class="w-4 h-4 text-[#D4A853]"></i>
           <span id="btnSuiteGuiaJurisText">Guía Paso a Paso & Tutelas</span>
         </button>
-        <button onclick="window.print()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition cursor-pointer">
-          <i data-lucide="printer" class="w-4 h-4 text-emerald-400"></i>
+        <button onclick="window.print()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#162844] hover:bg-[#1E3A5F] text-slate-100 border border-[#2B4870] font-medium transition-colors cursor-pointer">
+          <i data-lucide="printer" class="w-4 h-4 text-slate-300"></i>
           <span>Imprimir / PDF</span>
         </button>
-        <button onclick="openActiveNormativaModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium shadow-sm transition-colors cursor-pointer">
+        <button onclick="openActiveNormativaModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#9A6E23] hover:bg-[#825B1C] text-white font-semibold transition-colors cursor-pointer">
           <i data-lucide="book-open" class="w-4 h-4"></i>
           <span>Marco Legal</span>
         </button>
@@ -165,109 +257,87 @@
     </div>
   </header>
 
-  <!-- ========================================================================= -->
-  <!-- ========================================================================= -->
-  <!-- SELECTOR DE CALCULADORAS (CONMUTADOR DE 4 MÓDULOS DE LA SUITE)            -->
-  <!-- ========================================================================= -->
-  <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white border-b border-slate-800 py-2.5 px-4 shadow-inner no-print">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      
-      <!-- Selector de Calculadora Activa -->
-      <div class="flex items-center gap-2 flex-wrap">
-        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1">Seleccionar Calculadora:</span>
+  <!-- SELECTOR DE MÓDULOS (ESTILO EDITORIAL ARQUITECTÓNICO) -->
+  <nav aria-label="Selector de Calculadoras" class="bg-white border-b border-[#E2DDD5] no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center overflow-x-auto space-x-1">
         <button id="btnModulePension" onclick="switchSuiteModule('pension')" 
-                class="px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-md bg-gradient-to-r from-blue-600 to-indigo-600 text-white ring-2 ring-blue-400/40 cursor-pointer">
-          <i data-lucide="landmark" class="w-4 h-4 text-emerald-300"></i>
-          <span>1. Pensional (Ley 100 vs. 2381)</span>
+                class="px-3.5 py-3 text-xs sm:text-sm font-bold flex items-center gap-2 border-b-2 border-[#0F1D32] text-[#0F1D32] bg-[#F5F3EE]/70 transition-colors whitespace-nowrap cursor-pointer">
+          <i data-lucide="landmark" class="w-4 h-4"></i>
+          <span>1. Pensional</span>
         </button>
 
         <button id="btnModuleAlimentos" onclick="switchSuiteModule('alimentos')" 
-                class="px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 cursor-pointer">
-          <i data-lucide="heart-handshake" class="w-4 h-4 text-pink-400"></i>
-          <span>2. Alimentos & REDAM (Mora 6%)</span>
+                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
+          <i data-lucide="heart-handshake" class="w-4 h-4"></i>
+          <span>2. Alimentos & REDAM</span>
         </button>
 
         <button id="btnModuleCreditos" onclick="switchSuiteModule('creditos')" 
-                class="px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 cursor-pointer">
-          <i data-lucide="credit-card" class="w-4 h-4 text-cyan-400"></i>
-          <span>3. Créditos & Usura (Art. 446 CGP)</span>
+                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
+          <i data-lucide="credit-card" class="w-4 h-4"></i>
+          <span>3. Créditos & Usura</span>
         </button>
 
         <button id="btnModulePerjuicios" onclick="switchSuiteModule('perjuicios')" 
-                class="px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 cursor-pointer">
-          <i data-lucide="scale" class="w-4 h-4 text-amber-400"></i>
-          <span>4. Perjuicios Forenses (Consejo de Estado)</span>
+                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
+          <i data-lucide="scale" class="w-4 h-4"></i>
+          <span>4. Perjuicios Forenses</span>
         </button>
 
         <button id="btnModuleSeguros" onclick="switchSuiteModule('seguros')" 
-                class="px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 cursor-pointer">
-          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
-          <span>5. Seguros & Actuarial (Art. 1080 C.Co.)</span>
+                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>5. Seguros & Actuarial</span>
         </button>
       </div>
 
-      <!-- Indicadores Forenses 2026 -->
-      <div class="flex items-center gap-2 text-xs text-slate-300 flex-wrap">
-        <span class="font-mono bg-slate-800 text-emerald-300 font-bold px-2.5 py-1 rounded border border-slate-700">
-          SMMLV 2026: $1.750.905
-        </span>
-        <span class="font-mono bg-slate-800 text-cyan-300 font-bold px-2.5 py-1 rounded border border-slate-700">
-          Mora Civil: 6% E.A.
-        </span>
-        <span class="font-mono bg-slate-800 text-amber-300 font-bold px-2.5 py-1 rounded border border-slate-700">
-          Tasa Usura: 38.98% E.A.
-        </span>
+      <div class="hidden xl:flex items-center gap-3 text-[11px] font-mono text-[#4B5563] py-2">
+        <span>SMMLV: <strong class="text-[#111827]">$1.750.905</strong></span>
+        <span class="text-[#D6D0C4]">|</span>
+        <span>Mora Civil: <strong class="text-[#111827]">6% E.A.</strong></span>
+        <span class="text-[#D6D0C4]">|</span>
+        <span>Usura: <strong class="text-[#111827]">38.98% E.A.</strong></span>
       </div>
-
     </div>
-  </div>
+  </nav>
 
-  <!-- Barra de Autenticación, Roles y Saldo de Tokens -->
-  <div class="bg-slate-950 text-slate-200 border-b border-slate-800 text-xs py-2 px-4 shadow-sm">
+  <!-- Barra de Sesión, Rol y Saldo de Consultas -->
+  <div class="bg-[#FAF9F6] text-[#111827] border-b border-[#E2DDD5] text-xs py-2 px-4 no-print">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <!-- Usuario Actual -->
       <div class="flex items-center gap-3">
-        <div id="currentUserAvatar" class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-600 text-white font-extrabold flex items-center justify-center shadow-md text-xs ring-2 ring-purple-500/30">
+        <div id="currentUserAvatar" class="w-7 h-7 rounded-full bg-[#0F1D32] text-white font-bold flex items-center justify-center text-[11px]">
           IS
         </div>
         <div>
           <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-slate-400">Sesión activa:</span>
-            <span id="currentUserName" class="font-bold text-white text-sm">Israel</span>
-            <span id="currentUserRoleBadge" class="bg-purple-900/60 text-purple-300 border border-purple-500/40 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
-              <i data-lucide="crown" class="w-3 h-3 text-amber-400"></i> Superadministrador
+            <span class="text-[#4B5563]">Operador:</span>
+            <span id="currentUserName" class="font-bold text-[#111827]">Israel</span>
+            <span id="currentUserRoleBadge" class="bg-slate-200 text-[#0F1D32] text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+              <i data-lucide="crown" class="w-3 h-3 text-[#9A6E23]"></i> Superadministrador
             </span>
           </div>
-          <p id="currentUserMetaText" class="text-[11px] text-slate-400 hidden sm:block">Control total del sistema y consultas ilimitadas</p>
+          <p id="currentUserMetaText" class="text-[11px] text-[#4B5563] hidden sm:block">Control total del sistema y consultas ilimitadas</p>
         </div>
       </div>
 
-      <!-- Saldo de Tokens / Consultas y Acciones -->
-      <div class="flex items-center gap-2 flex-wrap">
-        <!-- Badge de Tokens -->
-        <div id="tokensBadgeContainer" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 shadow-inner">
-          <span class="text-amber-400 text-sm">🪙</span>
-          <div class="flex flex-col">
-            <span class="text-[10px] text-slate-400 uppercase font-semibold tracking-wider">Saldo de Consultas</span>
-            <span id="currentUserTokensDisplay" class="font-black text-emerald-400 font-mono text-xs">∞ Ilimitadas</span>
-          </div>
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <div class="bg-white border border-[#D6D0C4] px-3 py-1 rounded-lg flex items-center gap-2">
+          <i data-lucide="coins" class="w-3.5 h-3.5 text-[#9A6E23]"></i>
+          <span class="text-[#4B5563]">Saldo:</span>
+          <span id="currentUserTokensDisplay" class="font-bold text-emerald-700 font-mono">∞ Ilimitadas</span>
         </div>
 
-        <!-- Botón Panel de Gestión de Usuarios (visible para Superadmin y Admin) -->
         <button onclick="cerrarSesion()" title="Cerrar sesión y proteger el acceso"
-              class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-950/70 hover:bg-red-900 text-red-200 border border-red-800/80 font-semibold shadow-xs transition cursor-pointer">
-        <i data-lucide="log-out" class="w-3.5 h-3.5 text-red-400"></i>
-        <span>Cerrar Sesión</span>
-      </button>
-      <button id="btnOpenUserManagement"  onclick="openUserManagementModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white font-semibold transition-all shadow-sm cursor-pointer">
-          <i data-lucide="users" class="w-4 h-4"></i>
-          <span>Gestión de Usuarios & Tokens</span>
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-red-50 text-red-700 border border-red-200 font-semibold transition-colors cursor-pointer">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span>Cerrar Sesión</span>
         </button>
 
-        <!-- Botón Cambiar / Iniciar Sesión -->
-        <button onclick="openLoginModal()" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors cursor-pointer">
-          <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
-          <span>Cambiar Cuenta</span>
+        <button id="btnOpenUserManagement" onclick="openUserManagementModal()"
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0F1D32] hover:bg-[#1B365D] text-white font-semibold transition-colors cursor-pointer">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i>
+          <span>Administración</span>
         </button>
       </div>
     </div>
@@ -5836,23 +5906,12 @@ C.C. [NÚMERO]
         }
       }
 
-      const activeClasses = {
-        pension: 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white ring-2 ring-blue-400/40 shadow-md',
-        alimentos: 'bg-gradient-to-r from-pink-600 to-rose-600 text-white ring-2 ring-pink-400/40 shadow-md',
-        creditos: 'bg-gradient-to-r from-sky-600 to-cyan-600 text-white ring-2 ring-sky-400/40 shadow-md',
-        perjuicios: 'bg-gradient-to-r from-amber-600 to-orange-600 text-white ring-2 ring-amber-400/40 shadow-md',
-        seguros: 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white ring-2 ring-emerald-400/40 shadow-md'
-      };
-
-      const inactiveClass = 'text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 shadow-xs';
+      const activeClass = 'px-3.5 py-3 text-xs sm:text-sm font-bold flex items-center gap-2 border-b-2 border-[#0F1D32] text-[#0F1D32] bg-[#F5F3EE]/70 transition-colors whitespace-nowrap cursor-pointer';
+      const inactiveClass = 'px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer';
 
       for (const [k, btn] of Object.entries(buttons)) {
         if (btn) {
-          if (k === moduleId) {
-            btn.className = `px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer ${activeClasses[k]}`;
-          } else {
-            btn.className = `px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer ${inactiveClass}`;
-          }
+          btn.className = (k === moduleId) ? activeClass : inactiveClass;
         }
       }
 
@@ -6820,6 +6879,9 @@ C.C. No. __________________
     window.addEventListener('DOMContentLoaded', () => {
       initAuthSystem();
       checkLoginGate();
+      checkCookieConsentBanner();
+      const hashRoute = window.location.hash.replace('#/', '').replace('#', '');
+      if (LEGAL_POLICIES[hashRoute]) openLegalModal(hashRoute);
       handleGenderChange();
       toggleSaldoAFP();
       calcularTodo();
@@ -6909,6 +6971,15 @@ C.C. No. __________________
       if (passIn) passIn.value = '';
       const errBox = document.getElementById('loginGateError');
       if (errBox) errBox.classList.add('hidden');
+      const legalCheckbox = document.getElementById('gateLegalConsent');
+      if (legalCheckbox && !legalCheckbox.checked) {
+        if (errBox && errText) {
+          errText.innerText = 'Debes aceptar la Política de Privacidad y los Términos de Uso para ingresar.';
+          errBox.classList.remove('hidden');
+        }
+        showToast('Debes aceptar las políticas legales para continuar.', 'error');
+        return;
+      }
 
       if (!silent) showToast('🔒 Sesión cerrada correctamente.', 'info');
       lucide.createIcons();
@@ -9391,7 +9462,233 @@ T.P. No. ${apoderadoTp}`;
     
 
 
+  
+
+    // =========================================================================
+    // LEGAL SHIELD: POLÍTICAS ANTI-DEMANDAS, COOKIES Y DERECHOS HABEAS DATA
+    // =========================================================================
+    const LEGAL_POLICIES = {
+      'privacy': {
+        title: 'Política de Privacidad y Tratamiento de Datos (Ley 1581 de 2012)',
+        route: '/privacy',
+        html: `
+          <h4 class="font-bold text-sm text-[#0F1D32]">1. Responsable del Tratamiento</h4>
+          <p>El responsable del tratamiento de los datos de acceso en <strong>Suite Jurídica Colombia</strong> es Israel Duarte Carrasquilla, con correo de contacto oficial <a href="mailto:israel.duarte.carrasquilla@gmail.com" class="underline font-semibold">israel.duarte.carrasquilla@gmail.com</a>.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">2. Minimización de Datos y Finalidad</h4>
+          <p>En cumplimiento de la <strong>Ley Estatutaria 1581 de 2012</strong>, el Decreto 1377 de 2013 y los estándares internacionales GDPR, la plataforma recopila exclusivamente los datos mínimos necesarios: identificador de usuario, rol operativo, saldo de tokens y registro cronológico de cálculos ejecutados para auditoría interna. <strong>No almacenamos historias clínicas, expedientes judiciales completos ni datos sensibles de menores</strong> ingresados en las calculadoras; dichos cálculos se procesan localmente en tu navegador.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">3. Derechos ARCO del Titular</h4>
+          <p>Todo titular tiene derecho a conocer, actualizar, rectificar y solicitar la supresión de sus datos personales, así como revocar la autorización otorgada enviando solicitud al correo de contacto oficial o utilizando la sección de Eliminación de Datos.</p>
+        `
+      },
+      'terms': {
+        title: 'Términos de Uso y Descargo de Responsabilidad Profesional',
+        route: '/terms',
+        html: `
+          <h4 class="font-bold text-sm text-[#0F1D32]">1. Naturaleza Auxiliar de la Herramienta (Cláusula Anti-Demandas)</h4>
+          <p><strong>Suite Jurídica Colombia</strong> provee simuladores matemáticos, actuariales y minutas modelo orientadas a abogados, peritos, conciliadores y estudiantes. Los resultados arrojados tienen carácter <strong>estrictamente orientativo y auxiliar</strong>.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">2. Ausencia de Asesoría Legal Vinculante</h4>
+          <p>El uso de la plataforma no constituye asesoría jurídica particular ni crea relación abogado-cliente. Las liquidaciones definitivas en procesos ejecutivos, de familia, laborales, de responsabilidad civil o de seguros dependen exclusivamente de las pruebas obrantes en el expediente y del criterio del juez o autoridad competente.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">3. Limitación de Responsabilidad</h4>
+          <p>El operador de la Suite no asume responsabilidad por decisiones procesales, errores en la digitación de parámetros (fechas, IPC, SMMLV, tasas pactadas o salarios base) ni por fallos judiciales adversos derivados del uso de las simulaciones.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">4. Propiedad Intelectual y Uso Autorizado</h4>
+          <p>Las credenciales de acceso son personales e intransferibles. Queda prohibida la reproducción comercial no autorizada del código fuente o la extracción automatizada de datos.</p>
+        `
+      },
+      'cookies': {
+        title: 'Política de Cookies y Almacenamiento Local',
+        route: '/cookies',
+        html: `
+          <h4 class="font-bold text-sm text-[#0F1D32]">1. Clasificación Técnica</h4>
+          <p>Utilizamos almacenamiento técnico del navegador (<code>sessionStorage</code> y <code>localStorage</code>) estrictamente necesario para:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li><strong>calc_legal_session_active_id:</strong> Verificar tu sesión autenticada y proteger el acceso a las calculadoras (duración: sesión o hasta cierre voluntario).</li>
+            <li><strong>calc_legal_cookie_consent:</strong> Registrar tu elección de consentimiento de almacenamiento técnico (duración: 12 meses).</li>
+            <li><strong>calc_legal_history_v2:</strong> Respaldo local del historial de auditoría de consultas ejecutadas.</li>
+          </ul>
+          <h4 class="font-bold text-sm text-[#0F1D32]">2. Cero Rastreadores Publicitarios</h4>
+          <p>No instalamos cookies de publicidad comportamental, píxeles de seguimiento comercial ni vendemos perfiles de navegación a terceros.</p>
+        `
+      },
+      'refunds': {
+        title: 'Política de Reembolsos y Vigencia de Tokens (Ley 1480 de 2011)',
+        route: '/refunds',
+        html: `
+          <h4 class="font-bold text-sm text-[#0F1D32]">1. Funcionamiento del Sistema de Tokens</h4>
+          <p>Cada liquidación oficial ejecutada en los módulos consume exactamente <strong>1 token</strong> del saldo asignado a la cuenta del usuario (salvo cuentas con acceso ilimitado). El saldo restante se muestra de forma transparente antes de cada operación.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">2. Derecho de Retracto y Reembolsos</h4>
+          <p>Conforme al artículo 47 del Estatuto del Consumidor (Ley 1480 de 2011), en adquisiciones de paquetes de consultas, el usuario podrá solicitar el retracto dentro de los <strong>cinco (5) días hábiles</strong> siguientes a la asignación, siempre que no haya consumido los tokens asignados.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">3. Plazo de Procesamiento</h4>
+          <p>Las solicitudes aprobadas se procesarán en un plazo máximo de cinco (5) días hábiles mediante el mismo canal de pago o recarga acordado.</p>
+        `
+      },
+      'data-deletion': {
+        title: 'Eliminación de Datos y Derecho al Olvido',
+        route: '/data-deletion',
+        html: `
+          <h4 class="font-bold text-sm text-[#0F1D32]">1. Solicitud de Supresión Definitiva</h4>
+          <p>En cualquier momento puedes solicitar la eliminación permanente de tu cuenta de usuario, credenciales y registro de actividad enviando un correo a <a href="mailto:israel.duarte.carrasquilla@gmail.com?subject=Solicitud%20Eliminacion%20de%20Datos" class="underline font-semibold">israel.duarte.carrasquilla@gmail.com</a> indicando tu nombre de usuario. La supresión se ejecutará en un plazo máximo de 15 días hábiles conforme a la Ley 1581 de 2012.</p>
+          <h4 class="font-bold text-sm text-[#0F1D32]">2. Limpieza Inmediata de Datos Locales</h4>
+          <p>Si deseas borrar ahora mismo los datos en caché almacenados en este navegador (preferencias, historial local y sesión), utiliza el siguiente botón:</p>
+          <button type="button" onclick="borrarDatosLocalesNavegador()" class="mt-2 px-4 py-2 bg-red-700 hover:bg-red-800 text-white font-bold rounded-lg text-xs cursor-pointer">
+            Borrar Caché y Datos Locales de este Navegador
+          </button>
+        `
+      }
+    };
+
+    function openLegalModal(policyKey) {
+      const pol = LEGAL_POLICIES[policyKey] || LEGAL_POLICIES['privacy'];
+      const modal = document.getElementById('legalPolicyModal');
+      const title = document.getElementById('legalModalTitle');
+      const route = document.getElementById('legalModalRoute');
+      const body = document.getElementById('legalModalBody');
+      if (title) title.innerText = pol.title;
+      if (route) route.innerText = pol.route;
+      if (body) body.innerHTML = pol.html;
+      if (modal) modal.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeLegalModal() {
+      const modal = document.getElementById('legalPolicyModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function borrarDatosLocalesNavegador() {
+      localStorage.removeItem('calc_legal_history_v2');
+      localStorage.removeItem('calc_legal_cookie_consent');
+      sessionStorage.clear();
+      showToast('Datos locales e historial del navegador eliminados.', 'info');
+      closeLegalModal();
+    }
+
+    function checkCookieConsentBanner() {
+      const consent = localStorage.getItem('calc_legal_cookie_consent');
+      const banner = document.getElementById('cookieConsentBanner');
+      if (!consent && banner) {
+        banner.classList.remove('hidden');
+      }
+    }
+
+    function acceptCookieConsent(level) {
+      localStorage.setItem('calc_legal_cookie_consent', JSON.stringify({ level: level, date: new Date().toISOString() }));
+      const banner = document.getElementById('cookieConsentBanner');
+      if (banner) banner.classList.add('hidden');
+      showToast('Preferencias de almacenamiento técnico guardadas.', 'success');
+    }
+
+    // Soporte de teclado Escape para cerrar modales (WCAG)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLegalModal();
+        if (typeof closeNormativaModal === 'function') closeNormativaModal();
+        if (typeof closeNormativaModalAlimentos === 'function') closeNormativaModalAlimentos();
+      }
+    });
+
   </script>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER CORPORATIVO Y CUMPLIMIENTO LEGAL (LEGAL SHIELD)                    -->
+  <!-- ========================================================================= -->
+  <footer id="suiteLegalFooter" class="bg-[#0F1D32] text-slate-300 border-t border-[#1E3250] mt-auto py-8 px-4 sm:px-6 lg:px-8 text-xs no-print">
+    <div class="max-w-7xl mx-auto space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-6 border-b border-[#1E3250]">
+        <div class="md:col-span-5 space-y-2">
+          <div class="flex items-center gap-2 text-white font-serif-legal font-bold text-sm">
+            <i data-lucide="scale" class="w-4 h-4 text-[#D4A853]"></i>
+            <span>Suite Jurídica Colombia</span>
+          </div>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            Titular y Operador: Israel Duarte Carrasquilla — Plataforma Técnica de Cálculo Forense.<br>
+            Jurisdicción: República de Colombia • Contacto Legal y Habeas Data: <a href="mailto:israel.duarte.carrasquilla@gmail.com" class="underline text-slate-200 hover:text-white">israel.duarte.carrasquilla@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="md:col-span-7 space-y-2">
+          <h3 class="text-white font-semibold text-xs uppercase tracking-wider">Exención de Responsabilidad Profesional</h3>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            Los cálculos, dictámenes y minutas emitidos por esta plataforma tienen carácter estrictamente auxiliar, matemático e informativo para abogados, peritos y operadores judiciales. No constituyen asesoría jurídica personalizada, no sustituyen el criterio soberano de los jueces de la República ni generan relación abogado-cliente. El usuario es responsable de verificar los parámetros ingresados antes de presentar liquidaciones ante despachos judiciales o administrativos.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 text-[11px] text-slate-400">
+        <span>© 2026 Suite Jurídica Colombia. Todos los derechos reservados.</span>
+        <nav aria-label="Enlaces Legales" class="flex flex-wrap items-center gap-4">
+          <button type="button" onclick="openLegalModal('privacy')" class="hover:text-white underline cursor-pointer">Política de Privacidad (Ley 1581/12)</button>
+          <button type="button" onclick="openLegalModal('terms')" class="hover:text-white underline cursor-pointer">Términos y Descargo Legal</button>
+          <button type="button" onclick="openLegalModal('cookies')" class="hover:text-white underline cursor-pointer">Política de Cookies</button>
+          <button type="button" onclick="openLegalModal('refunds')" class="hover:text-white underline cursor-pointer">Política de Reembolsos</button>
+          <button type="button" onclick="openLegalModal('data-deletion')" class="hover:text-white underline cursor-pointer">Eliminación de Datos</button>
+        </nav>
+      </div>
+    </div>
+  </footer>
   </div> <!-- Fin #mainAppWrapper -->
+
+  <!-- ========================================================================= -->
+  <!-- MODAL DE POLÍTICAS LEGALES (/privacy, /terms, /cookies, /refunds, /data-deletion) -->
+  <!-- ========================================================================= -->
+  <div id="legalPolicyModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" class="fixed inset-0 bg-black/70 z-[70] hidden flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl border border-slate-300 overflow-hidden">
+      <div class="p-5 bg-[#0F1D32] text-white flex items-center justify-between border-b border-[#1E3250]">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="shield-check" class="w-5 h-5 text-[#D4A853]"></i>
+          <div>
+            <h3 id="legalModalTitle" class="text-sm font-bold font-serif-legal">Política Legal</h3>
+            <span id="legalModalRoute" class="text-[11px] font-mono text-slate-300">/privacy</span>
+          </div>
+        </div>
+        <button type="button" onclick="closeLegalModal()" aria-label="Cerrar ventana legal" class="text-slate-300 hover:text-white p-1.5 rounded-lg cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Pestañas rápidas dentro del modal legal -->
+      <div class="bg-[#FAF9F6] border-b border-slate-200 px-4 py-2 flex flex-wrap gap-2 text-[11px]">
+        <button type="button" onclick="openLegalModal('privacy')" class="px-2.5 py-1 rounded border border-slate-300 bg-white hover:bg-slate-100 font-semibold text-[#111827] cursor-pointer">Privacidad</button>
+        <button type="button" onclick="openLegalModal('terms')" class="px-2.5 py-1 rounded border border-slate-300 bg-white hover:bg-slate-100 font-semibold text-[#111827] cursor-pointer">Términos y Descargo</button>
+        <button type="button" onclick="openLegalModal('cookies')" class="px-2.5 py-1 rounded border border-slate-300 bg-white hover:bg-slate-100 font-semibold text-[#111827] cursor-pointer">Cookies</button>
+        <button type="button" onclick="openLegalModal('refunds')" class="px-2.5 py-1 rounded border border-slate-300 bg-white hover:bg-slate-100 font-semibold text-[#111827] cursor-pointer">Reembolsos</button>
+        <button type="button" onclick="openLegalModal('data-deletion')" class="px-2.5 py-1 rounded border border-slate-300 bg-white hover:bg-slate-100 font-semibold text-[#111827] cursor-pointer">Eliminación de Datos</button>
+      </div>
+
+      <div id="legalModalBody" class="p-6 overflow-y-auto space-y-4 text-xs text-[#111827] leading-relaxed">
+      </div>
+
+      <div class="p-4 bg-[#FAF9F6] border-t border-slate-200 flex justify-end">
+        <button type="button" onclick="closeLegalModal()" class="px-4 py-2 bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold rounded-lg text-xs cursor-pointer">
+          Entendido y Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- BANNER DE CONSENTIMIENTO DE COOKIES (OPT-IN SIN PATRONES OSCUROS)         -->
+  <!-- ========================================================================= -->
+  <div id="cookieConsentBanner" role="region" aria-label="Aviso de Cookies" class="fixed bottom-0 inset-x-0 bg-[#0F1D32] text-white border-t border-[#1E3250] p-4 z-[60] hidden shadow-2xl no-print">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs">
+      <div class="space-y-1 max-w-3xl">
+        <p class="font-bold text-white flex items-center gap-2">
+          <i data-lucide="cookie" class="w-4 h-4 text-[#D4A853]"></i>
+          <span>Uso de Almacenamiento Técnico y Cookies</span>
+        </p>
+        <p class="text-slate-300 leading-relaxed">
+          Esta plataforma utiliza almacenamiento local y cookies estrictamente técnicas para mantener tu sesión segura, verificar el saldo de tokens y recordar tus preferencias de visualización. No empleamos cookies publicitarias ni rastreadores de terceros. Consulta nuestra <button type="button" onclick="openLegalModal('cookies')" class="underline text-[#D4A853] hover:text-white cursor-pointer">Política de Cookies</button>.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2 shrink-0">
+        <button type="button" onclick="acceptCookieConsent('essential')" class="px-3.5 py-2 rounded-lg border border-slate-500 text-slate-200 hover:bg-[#162844] font-semibold cursor-pointer">
+          Solo Esenciales
+        </button>
+        <button type="button" onclick="acceptCookieConsent('all')" class="px-4 py-2 rounded-lg bg-[#9A6E23] hover:bg-[#825B1C] text-white font-bold cursor-pointer">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
