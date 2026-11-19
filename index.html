@@ -311,142 +311,179 @@
   <!-- ========================================================================= -->
   <!-- BARRA SUPERIOR MAESTRA: SUITE DE CALCULADORAS LEGALES DE COLOMBIA         -->
   <!-- ========================================================================= -->
-  <header class="bg-[#0F1D32] text-white border-b border-[#1E3250] sticky top-0 z-50 no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg border border-[#9A6E23]/70 bg-[#162844] flex items-center justify-center shrink-0">
-          <i data-lucide="scale" class="w-5 h-5 text-[#D4A853]"></i>
+  <header class="bg-[#0F1D32] text-white border-b border-[#1E3250] sticky top-0 z-50 no-print shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      
+      <!-- Brand + Active Module Title -->
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-9 h-9 rounded-lg border border-[#9A6E23]/70 bg-[#162844] flex items-center justify-center shrink-0">
+          <i data-lucide="scale" class="w-4 h-4 text-[#D4A853]"></i>
         </div>
-        <div>
-          <div class="flex items-center gap-2.5 flex-wrap">
-            <h1 id="suiteHeaderTitle" class="text-base sm:text-lg font-bold tracking-tight text-white font-serif-legal">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <h1 id="suiteHeaderTitle" class="text-sm sm:text-base font-bold tracking-tight text-white font-serif-legal truncate">
               Calculadora Pensional de Colombia
             </h1>
-            <span class="text-[10px] font-mono uppercase tracking-wider text-[#D4A853] border border-[#9A6E23]/60 px-2 py-0.5 rounded">
-              Vigencia 2026
+            <span class="hidden md:inline-block text-[10px] font-mono text-[#D4A853] border border-[#9A6E23]/50 px-1.5 py-0.5 rounded">
+              2026
             </span>
           </div>
-          <p id="suiteHeaderSubtitle" class="text-xs text-slate-300">
-            Régimen Tradicional (Ley 100/93 & 797/03) vs. Nuevo Sistema de Pilares (Ley 2381 de 2024)
+          <p id="suiteHeaderSubtitle" class="text-[11px] text-slate-300 truncate hidden sm:block">
+            Ley 100/93 vs. Ley 2381/24 • SMMLV $1.750.905
           </p>
         </div>
       </div>
 
-      <!-- Acciones de Cabecera -->
-      <div class="flex items-center gap-2 text-xs">
-        <button id="btnSuiteGuiaJuris" onclick="handleSuiteGuiaJurisClick()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#162844] hover:bg-[#1E3A5F] text-slate-100 border border-[#2B4870] font-medium transition-colors cursor-pointer">
-          <i data-lucide="compass" class="w-4 h-4 text-[#D4A853]"></i>
-          <span id="btnSuiteGuiaJurisText">Guía Paso a Paso & Tutelas</span>
-        </button>
-        <button onclick="window.print()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#162844] hover:bg-[#1E3A5F] text-slate-100 border border-[#2B4870] font-medium transition-colors cursor-pointer">
-          <i data-lucide="printer" class="w-4 h-4 text-slate-300"></i>
-          <span>Imprimir / PDF</span>
-        </button>
-        <button onclick="openActiveNormativaModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#9A6E23] hover:bg-[#825B1C] text-white font-semibold transition-colors cursor-pointer">
-          <i data-lucide="book-open" class="w-4 h-4"></i>
-          <span>Marco Legal</span>
-        </button>
+      <!-- Center & Right Dropdown Controls -->
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+        
+        <!-- DROPDOWN 1: CALCULADORAS -->
+        <div class="relative" id="dropdownCalculadorasWrapper">
+          <button type="button" id="btnDropdownCalculadoras" onclick="toggleNavbarDropdown('menuDropdownCalculadoras')"
+                  class="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#162844] hover:bg-[#1E3A5F] border border-[#2B4870] text-xs font-semibold text-white transition-colors cursor-pointer">
+            <i data-lucide="layout-grid" class="w-4 h-4 text-[#D4A853]"></i>
+            <span id="activeModuleDropdownLabel">1. Pensional</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-300"></i>
+          </button>
+
+          <div id="menuDropdownCalculadoras" class="hidden absolute right-0 sm:left-0 mt-2 w-72 bg-white text-[#111827] rounded-xl shadow-xl border border-slate-200 py-1.5 z-50">
+            <div class="px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100">
+              Seleccionar Módulo Forense
+            </div>
+            <button type="button" id="btnModulePension" onclick="switchSuiteModule('pension'); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-start gap-2.5 transition-colors cursor-pointer bg-[#F5F3EE]/80 font-bold text-[#0F1D32]">
+              <i data-lucide="landmark" class="w-4 h-4 mt-0.5 text-[#0F1D32] shrink-0"></i>
+              <div>
+                <div class="text-xs">1. Pensional</div>
+                <div class="text-[10px] text-slate-500 font-normal">Ley 100/93 vs. Pilares Ley 2381/24</div>
+              </div>
+            </button>
+            <button type="button" id="btnModuleAlimentos" onclick="switchSuiteModule('alimentos'); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-start gap-2.5 transition-colors cursor-pointer text-slate-700">
+              <i data-lucide="heart-handshake" class="w-4 h-4 mt-0.5 text-rose-700 shrink-0"></i>
+              <div>
+                <div class="text-xs">2. Alimentos & REDAM</div>
+                <div class="text-[10px] text-slate-500 font-normal">Cuota, Economía Cuidado & Mora 6% E.A.</div>
+              </div>
+            </button>
+            <button type="button" id="btnModuleCreditos" onclick="switchSuiteModule('creditos'); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-start gap-2.5 transition-colors cursor-pointer text-slate-700">
+              <i data-lucide="credit-card" class="w-4 h-4 mt-0.5 text-sky-700 shrink-0"></i>
+              <div>
+                <div class="text-xs">3. Créditos & Usura</div>
+                <div class="text-[10px] text-slate-500 font-normal">Art. 446 CGP, Tasas SFC & Amortización</div>
+              </div>
+            </button>
+            <button type="button" id="btnModulePerjuicios" onclick="switchSuiteModule('perjuicios'); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-start gap-2.5 transition-colors cursor-pointer text-slate-700">
+              <i data-lucide="scale" class="w-4 h-4 mt-0.5 text-amber-700 shrink-0"></i>
+              <div>
+                <div class="text-xs">4. Perjuicios Forenses</div>
+                <div class="text-[10px] text-slate-500 font-normal">Lucro Cesante, Daño Moral & Art. 206 CGP</div>
+              </div>
+            </button>
+            <button type="button" id="btnModuleSeguros" onclick="switchSuiteModule('seguros'); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-start gap-2.5 transition-colors cursor-pointer text-slate-700">
+              <i data-lucide="shield-check" class="w-4 h-4 mt-0.5 text-emerald-700 shrink-0"></i>
+              <div>
+                <div class="text-xs">5. Seguros & Actuarial</div>
+                <div class="text-[10px] text-slate-500 font-normal">Pólizas, Límites & Mora Art. 1080 C.Co.</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- DROPDOWN 2: HERRAMIENTAS -->
+        <div class="relative" id="dropdownToolsWrapper">
+          <button type="button" id="btnDropdownTools" onclick="toggleNavbarDropdown('menuDropdownTools')"
+                  class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#162844] hover:bg-[#1E3A5F] border border-[#2B4870] text-xs font-semibold text-slate-100 transition-colors cursor-pointer">
+            <i data-lucide="briefcase" class="w-4 h-4 text-slate-300"></i>
+            <span class="hidden md:inline">Herramientas</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-300"></i>
+          </button>
+
+          <div id="menuDropdownTools" class="hidden absolute right-0 mt-2 w-60 bg-white text-[#111827] rounded-xl shadow-xl border border-slate-200 py-1.5 z-50 text-xs">
+            <button type="button" id="btnSuiteGuiaJuris" onclick="handleSuiteGuiaJurisClick(); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-center gap-2.5 cursor-pointer font-medium">
+              <i data-lucide="compass" class="w-4 h-4 text-[#9A6E23]"></i>
+              <span id="btnSuiteGuiaJurisText">Guía Paso a Paso & Tutelas</span>
+            </button>
+            <button type="button" onclick="openActiveNormativaModal(); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-center gap-2.5 cursor-pointer font-medium">
+              <i data-lucide="book-open" class="w-4 h-4 text-[#0F1D32]"></i>
+              <span>Marco Legal del Módulo</span>
+            </button>
+            <button type="button" onclick="window.print(); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-center gap-2.5 cursor-pointer font-medium">
+              <i data-lucide="printer" class="w-4 h-4 text-emerald-700"></i>
+              <span>Imprimir / Exportar PDF</span>
+            </button>
+            <div class="border-t border-slate-100 my-1"></div>
+            <button type="button" onclick="openLegalModal('privacy'); closeAllNavbarDropdowns();"
+                    class="w-full text-left px-3.5 py-2 hover:bg-[#F5F3EE] flex items-center gap-2.5 cursor-pointer text-slate-600">
+              <i data-lucide="shield" class="w-4 h-4 text-slate-500"></i>
+              <span>Políticas Legales y Privacidad</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SALDO COMPACTO EN BARRA -->
+        <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#162844] border border-[#2B4870] text-xs">
+          <i data-lucide="coins" class="w-3.5 h-3.5 text-[#D4A853]"></i>
+          <span id="currentUserTokensDisplay" class="font-bold text-emerald-400 font-mono">∞ Ilimitadas</span>
+        </div>
+
+        <!-- DROPDOWN 3: CUENTA DE USUARIO -->
+        <div class="relative" id="dropdownUserWrapper">
+          <button type="button" id="btnDropdownUser" onclick="toggleNavbarDropdown('menuDropdownUser')"
+                  class="flex items-center gap-2 pl-1.5 pr-2.5 py-1 rounded-lg bg-[#162844] hover:bg-[#1E3A5F] border border-[#2B4870] transition-colors cursor-pointer">
+            <div id="currentUserAvatar" class="w-7 h-7 rounded-md bg-[#9A6E23] text-white font-bold flex items-center justify-center text-[11px]">
+              IS
+            </div>
+            <span id="currentUserName" class="text-xs font-semibold text-white hidden sm:inline max-w-[110px] truncate">Israel</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-300"></i>
+          </button>
+
+          <div id="menuDropdownUser" class="hidden absolute right-0 mt-2 w-72 bg-white text-[#111827] rounded-xl shadow-xl border border-slate-200 py-2 z-50 text-xs">
+            <div class="px-4 py-2.5 border-b border-slate-100 space-y-1">
+              <div class="flex items-center justify-between gap-2">
+                <span id="dropdownUserNameFull" class="font-bold text-[#0F1D32] text-sm truncate">Israel</span>
+                <span id="currentUserRoleBadge" class="bg-slate-100 text-[#0F1D32] text-[10px] font-bold px-2 py-0.5 rounded">Superadmin</span>
+              </div>
+              <p id="currentUserMetaText" class="text-[11px] text-slate-500">Consultas ilimitadas</p>
+              <div class="pt-1 flex items-center justify-between text-[11px] font-mono bg-[#FAF9F6] px-2.5 py-1.5 rounded border border-[#E2DDD5]">
+                <span class="text-slate-600">Saldo Disponible:</span>
+                <span id="dropdownUserBalanceDisplay" class="font-bold text-emerald-700">$ 0 COP</span>
+              </div>
+            </div>
+
+            <div class="py-1">
+              <button type="button" onclick="openMyProfileModal(); closeAllNavbarDropdowns();"
+                      class="w-full text-left px-4 py-2.5 hover:bg-[#F5F3EE] flex items-center gap-2.5 cursor-pointer font-medium">
+                <i data-lucide="link-2" class="w-4 h-4 text-[#9A6E23]"></i>
+                <span>Mi Perfil & Vincular Google/Microsoft</span>
+              </button>
+
+              <button type="button" id="btnOpenUserManagement" onclick="openUserManagementModal(); closeAllNavbarDropdowns();"
+                      class="w-full text-left px-4 py-2.5 hover:bg-[#F5F3EE] flex items-center gap-2.5 cursor-pointer font-semibold text-[#0F1D32]">
+                <i data-lucide="users" class="w-4 h-4 text-indigo-700"></i>
+                <span>Administración, Saldos & Recargas</span>
+              </button>
+            </div>
+
+            <div class="border-t border-slate-100 pt-1">
+              <button type="button" onclick="cerrarSesion(); closeAllNavbarDropdowns();"
+                      class="w-full text-left px-4 py-2.5 hover:bg-red-50 text-red-700 flex items-center gap-2.5 cursor-pointer font-semibold">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                <span>Cerrar Sesión</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </header>
-
-  <!-- SELECTOR DE MÓDULOS (ESTILO EDITORIAL ARQUITECTÓNICO) -->
-  <nav aria-label="Selector de Calculadoras" class="bg-white border-b border-[#E2DDD5] no-print">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center overflow-x-auto space-x-1">
-        <button id="btnModulePension" onclick="switchSuiteModule('pension')" 
-                class="px-3.5 py-3 text-xs sm:text-sm font-bold flex items-center gap-2 border-b-2 border-[#0F1D32] text-[#0F1D32] bg-[#F5F3EE]/70 transition-colors whitespace-nowrap cursor-pointer">
-          <i data-lucide="landmark" class="w-4 h-4"></i>
-          <span>1. Pensional</span>
-        </button>
-
-        <button id="btnModuleAlimentos" onclick="switchSuiteModule('alimentos')" 
-                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
-          <i data-lucide="heart-handshake" class="w-4 h-4"></i>
-          <span>2. Alimentos & REDAM</span>
-        </button>
-
-        <button id="btnModuleCreditos" onclick="switchSuiteModule('creditos')" 
-                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
-          <i data-lucide="credit-card" class="w-4 h-4"></i>
-          <span>3. Créditos & Usura</span>
-        </button>
-
-        <button id="btnModulePerjuicios" onclick="switchSuiteModule('perjuicios')" 
-                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
-          <i data-lucide="scale" class="w-4 h-4"></i>
-          <span>4. Perjuicios Forenses</span>
-        </button>
-
-        <button id="btnModuleSeguros" onclick="switchSuiteModule('seguros')" 
-                class="px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer">
-          <i data-lucide="shield-check" class="w-4 h-4"></i>
-          <span>5. Seguros & Actuarial</span>
-        </button>
-      </div>
-
-      <div class="hidden xl:flex items-center gap-3 text-[11px] font-mono text-[#4B5563] py-2">
-        <span>SMMLV: <strong class="text-[#111827]">$1.750.905</strong></span>
-        <span class="text-[#D6D0C4]">|</span>
-        <span>Mora Civil: <strong class="text-[#111827]">6% E.A.</strong></span>
-        <span class="text-[#D6D0C4]">|</span>
-        <span>Usura: <strong class="text-[#111827]">38.98% E.A.</strong></span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Barra de Sesión, Rol y Saldo de Consultas -->
-  <div class="bg-[#FAF9F6] text-[#111827] border-b border-[#E2DDD5] text-xs py-2 px-4 no-print">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <div id="currentUserAvatar" class="w-7 h-7 rounded-full bg-[#0F1D32] text-white font-bold flex items-center justify-center text-[11px]">
-          IS
-        </div>
-        <div>
-          <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-[#4B5563]">Operador:</span>
-            <span id="currentUserName" class="font-bold text-[#111827]">Israel</span>
-            <span id="currentUserRoleBadge" class="bg-slate-200 text-[#0F1D32] text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
-              <i data-lucide="crown" class="w-3 h-3 text-[#9A6E23]"></i> Superadministrador
-            </span>
-          </div>
-          <p id="currentUserMetaText" class="text-[11px] text-[#4B5563] hidden sm:block">Control total del sistema y consultas ilimitadas</p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-2.5 flex-wrap">
-        <div class="bg-white border border-[#D6D0C4] px-3 py-1 rounded-lg flex items-center gap-2">
-          <i data-lucide="coins" class="w-3.5 h-3.5 text-[#9A6E23]"></i>
-          <span class="text-[#4B5563]">Saldo:</span>
-          <span id="currentUserTokensDisplay" class="font-bold text-emerald-700 font-mono">∞ Ilimitadas</span>
-        </div>
-
-        <button id="btnLinkEmailAccount" onclick="openLinkEmailModal()" title="Vincular tu usuario con un correo de Google o Microsoft"
-                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-[#0F1D32] border border-[#D6D0C4] font-semibold transition-colors cursor-pointer">
-          <i data-lucide="link-2" class="w-3.5 h-3.5 text-[#9A6E23]"></i>
-          <span id="btnLinkEmailText">Vincular Google / Microsoft</span>
-        </button>
-
-        <button onclick="openMyProfileModal()" title="Vincular correo de Google/Microsoft y teléfono"
-                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-[#0F1D32] border border-[#D6D0C4] font-semibold transition-colors cursor-pointer">
-          <i data-lucide="link-2" class="w-3.5 h-3.5 text-[#9A6E23]"></i>
-          <span>Mi Perfil & Vincular</span>
-        </button>
-
-                <button onclick="cerrarSesion()" title="Cerrar sesión y proteger el acceso"
-                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-red-50 text-red-700 border border-red-200 font-semibold transition-colors cursor-pointer">
-          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
-          <span>Cerrar Sesión</span>
-        </button>
-
-        <button id="btnOpenUserManagement" onclick="openUserManagementModal()"
-                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0F1D32] hover:bg-[#1B365D] text-white font-semibold transition-colors cursor-pointer">
-          <i data-lucide="users" class="w-3.5 h-3.5"></i>
-          <span>Administración</span>
-        </button>
-      </div>
-    </div>
-  </div>
 
   <div id="modulePensionContainer">
   <!-- Banner de Piso Legal Constitucional & SMMLV 2026 -->
@@ -3993,9 +4030,13 @@ C.C. [NÚMERO]
           <i data-lucide="user-plus" class="w-4 h-4"></i>
           <span>Crear Nuevo Usuario</span>
         </button>
-        <button id="tabBtnHistory" onclick="renderUserManagementTab('history')" class="py-3 px-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2">
+        <button id="tabBtnRecharges" onclick="renderUserManagementTab('recharges')" class="py-3 px-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap cursor-pointer">
+          <i data-lucide="wallet" class="w-4 h-4"></i>
+          <span>Recargas & Consignaciones</span>
+        </button>
+        <button id="tabBtnHistory" onclick="renderUserManagementTab('history')" class="py-3 px-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap cursor-pointer">
           <i data-lucide="history" class="w-4 h-4"></i>
-          <span>Registro de Consultas</span>
+          <span>Historial de Casos & Consumo</span>
         </button>
       </div>
 
@@ -4004,6 +4045,26 @@ C.C. [NÚMERO]
         
         <!-- PESTAÑA 1: LISTA DE USUARIOS & RECARGA DIRECTA DE TOKENS -->
         <div id="tabContentUsersList" class="space-y-4">
+          <!-- Valor General del Token (Solo editable por Superadministrador) -->
+          <div class="bg-[#FAF9F6] border border-[#E2DDD5] rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="coins" class="w-4 h-4 text-[#9A6E23]"></i>
+              <div>
+                <span class="font-bold text-[#0F1D32] text-xs block">Valor General por Token / Consulta</span>
+                <span id="tokenPriceReadonlyText" class="text-[11px] text-slate-500">Valor vigente: $10.000 COP</span>
+              </div>
+            </div>
+            <div id="superadminTokenPriceControls" class="hidden flex items-center gap-2">
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-500 font-mono text-xs">$</span>
+                <input type="number" id="superadminTokenPriceInput" min="0" step="500" value="10000"
+                       class="w-32 pl-6 pr-2 py-1.5 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-[#0F1D32]">
+              </div>
+              <button type="button" onclick="saveGlobalTokenPrice()" class="px-3 py-1.5 bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold rounded-lg text-xs cursor-pointer">
+                Guardar Valor
+              </button>
+            </div>
+          </div>
           <!-- Barra de Búsqueda y Resumen -->
           <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
             <div class="relative w-full sm:w-72">
@@ -4116,7 +4177,7 @@ C.C. [NÚMERO]
               </label>
 
               <div class="flex items-center gap-3">
-                <input type="number" id="newUserTokens" min="0" max="10000" value="10" 
+                <input type="number" id="newUserTokens" min="0" max="10000" value="5" 
                        class="w-32 px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 font-mono font-bold text-sm focus:ring-2 focus:ring-indigo-600 outline-none">
                 <span class="text-xs text-slate-500">consultas</span>
 
@@ -4139,7 +4200,22 @@ C.C. [NÚMERO]
           </form>
         </div>
 
-        <!-- PESTAÑA 3: HISTORIAL DE CONSULTAS REALIZADAS -->
+                <!-- PESTAÑA 3: REGISTRO DE RECARGAS Y CONSIGNACIONES -->
+        <div id="tabContentRecharges" class="hidden space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-3 bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
+            <div>
+              <h4 class="font-bold text-slate-900 text-xs">Libro Contable de Recargas y Consignaciones</h4>
+              <p class="text-[11px] text-slate-500">Control de abonos en dinero, tokens acreditados y entidad o medio donde se consignó.</p>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-emerald-800">
+              Total Recaudado: <span id="totalRechargesSumDisplay">$ 0 COP</span>
+            </div>
+          </div>
+          <div id="rechargesTableContainer" class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs">
+          </div>
+        </div>
+
+        <!-- PESTAÑA 4: HISTORIAL DE CONSULTAS REALIZADAS -->
         <div id="tabContentHistory" class="hidden space-y-3">
           <div class="flex items-center justify-between bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs">
             <div>
@@ -4352,6 +4428,75 @@ C.C. [NÚMERO]
   </div>
 
   <!-- ========================================== -->
+  
+  <!-- ========================================== -->
+  <!-- MODAL: REGISTRAR RECARGA DE SALDO & CONSIGNACIÓN -->
+  <!-- ========================================== -->
+  <div id="rechargeModal" role="dialog" aria-modal="true" class="fixed inset-0 bg-black/70 z-[75] hidden flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-xl max-w-md w-full p-5 shadow-2xl border border-slate-300 space-y-4 text-xs">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="wallet" class="w-5 h-5 text-emerald-700"></i>
+          <div>
+            <h4 class="font-bold text-[#0F1D32] text-sm">Registrar Recarga de Saldo</h4>
+            <p id="rechargeTargetUserLabel" class="text-[11px] text-slate-500">Usuario</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeRechargeModal()" class="text-slate-400 hover:text-slate-700 p-1 cursor-pointer">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleSubmitRecharge(event)" class="space-y-3.5">
+        <input type="hidden" id="rechargeTargetUserId">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="rechargeAmountInput" class="block font-semibold text-[#111827] mb-1">Valor Consignado (COP) *</label>
+            <input type="number" id="rechargeAmountInput" required min="0" step="1000" value="50000" oninput="onRechargeAmountChange()"
+                   class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg font-mono font-bold text-[#0F1D32]">
+          </div>
+          <div>
+            <label for="rechargeTokensInput" class="block font-semibold text-[#111827] mb-1">Tokens a Acreditar *</label>
+            <input type="number" id="rechargeTokensInput" required min="1" value="5"
+                   class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg font-mono font-bold text-emerald-700">
+          </div>
+        </div>
+
+        <p id="rechargeConversionHint" class="text-[11px] text-slate-600 bg-[#FAF9F6] px-3 py-1.5 rounded border border-[#E2DDD5]">
+          Cálculo automático según valor del token vigente.
+        </p>
+
+        <div>
+          <label for="rechargeLocationInput" class="block font-semibold text-[#111827] mb-1">¿Dónde se consignó / Medio de pago? *</label>
+          <select id="rechargeLocationSelect" onchange="onRechargeLocationChange(this.value)"
+                  class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs text-[#111827] mb-2">
+            <option value="Bancolombia">Bancolombia (Cuenta Ahorros / Corriente)</option>
+            <option value="Nequi">Nequi</option>
+            <option value="Daviplata">Daviplata</option>
+            <option value="Banco de Bogotá">Banco de Bogotá</option>
+            <option value="Davivienda">Davivienda</option>
+            <option value="PSE / Transferencia">PSE / Transferencia Bancaria</option>
+            <option value="Efectivo / Oficina">Efectivo en Oficina</option>
+            <option value="Otro">Otro medio (especificar)</option>
+          </select>
+          <input type="text" id="rechargeLocationOther" placeholder="Especifica el banco o lugar de consignación"
+                 class="hidden w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-xs">
+        </div>
+
+        <div>
+          <label for="rechargeReferenceInput" class="block font-semibold text-[#111827] mb-1">Número de Comprobante / Referencia (Opcional)</label>
+          <input type="text" id="rechargeReferenceInput" placeholder="Ej: Comprobante #948210"
+                 class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-mono">
+        </div>
+
+        <div class="pt-2 border-t border-slate-200 flex justify-end gap-2">
+          <button type="button" onclick="closeRechargeModal()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg cursor-pointer">Cancelar</button>
+          <button type="submit" class="px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg cursor-pointer">Registrar Recarga</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- MODAL: EDITAR USUARIO -->
   <!-- ========================================== -->
   <div id="editUserModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
@@ -5463,32 +5608,28 @@ C.C. [NÚMERO]
     }
 
     function renderUserManagementTab(tabId) {
-      const btnList = document.getElementById('tabBtnUsersList');
-      const btnCreate = document.getElementById('tabBtnCreateUser');
-      const btnHistory = document.getElementById('tabBtnHistory');
+      const tabs = {
+        list: { btn: document.getElementById('tabBtnUsersList'), content: document.getElementById('tabContentUsersList') },
+        create: { btn: document.getElementById('tabBtnCreateUser'), content: document.getElementById('tabContentCreateUser') },
+        recharges: { btn: document.getElementById('tabBtnRecharges'), content: document.getElementById('tabContentRecharges') },
+        history: { btn: document.getElementById('tabBtnHistory'), content: document.getElementById('tabContentHistory') }
+      };
 
-      const contentList = document.getElementById('tabContentUsersList');
-      const contentCreate = document.getElementById('tabContentCreateUser');
-      const contentHistory = document.getElementById('tabContentHistory');
-
-      // Reset tabs
-      [btnList, btnCreate, btnHistory].forEach(b => {
-        b.className = 'py-3 px-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 transition';
-      });
-      [contentList, contentCreate, contentHistory].forEach(c => c.classList.add('hidden'));
-
-      if (tabId === 'list') {
-        btnList.className = 'py-3 px-2 border-b-2 border-indigo-600 text-indigo-700 flex items-center gap-2 font-bold';
-        contentList.classList.remove('hidden');
-        renderUsersList();
-      } else if (tabId === 'create') {
-        btnCreate.className = 'py-3 px-2 border-b-2 border-indigo-600 text-indigo-700 flex items-center gap-2 font-bold';
-        contentCreate.classList.remove('hidden');
-      } else if (tabId === 'history') {
-        btnHistory.className = 'py-3 px-2 border-b-2 border-indigo-600 text-indigo-700 flex items-center gap-2 font-bold';
-        contentHistory.classList.remove('hidden');
-        renderHistoryTable();
+      for (const [k, t] of Object.entries(tabs)) {
+        if (!t.btn || !t.content) continue;
+        if (k === tabId) {
+          t.content.classList.remove('hidden');
+          t.btn.className = 'py-3 px-2 border-b-2 border-[#0F1D32] text-[#0F1D32] flex items-center gap-2 whitespace-nowrap cursor-pointer font-bold';
+        } else {
+          t.content.classList.add('hidden');
+          t.btn.className = 'py-3 px-2 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2 whitespace-nowrap cursor-pointer';
+        }
       }
+
+      updateTokenPriceUI();
+      if (tabId === 'list') renderUsersList(document.getElementById('userSearchInput') ? document.getElementById('userSearchInput').value : '');
+      if (tabId === 'recharges') renderRechargesLog();
+      if (tabId === 'history') renderHistoryTable();
       lucide.createIcons();
     }
 
@@ -5744,6 +5885,7 @@ C.C. [NÚMERO]
         password: password,
         role: role,
         tokens: isUnlimited ? 'unlimited' : (tokensVal < 0 ? 0 : tokensVal),
+        balance: isUnlimited ? 0 : ((tokensVal < 0 ? 0 : tokensVal) * (globalTokenPrice || 10000)),
         usedTokens: 0,
         createdAt: new Date().toISOString().split('T')[0],
         mustChangePassword: true,
@@ -5760,7 +5902,7 @@ C.C. [NÚMERO]
       // Limpiar formulario
       document.getElementById('formCreateUser').reset();
       document.getElementById('newUserTokens').disabled = false;
-      document.getElementById('newUserTokens').value = 10;
+      document.getElementById('newUserTokens').value = 5;
 
       // Volver a la lista y mostrar tarjeta de invitación lista para copiar/enviar
       renderUserManagementTab('list');
@@ -6069,8 +6211,17 @@ C.C. [NÚMERO]
         }
       }
 
-      const activeClass = 'px-3.5 py-3 text-xs sm:text-sm font-bold flex items-center gap-2 border-b-2 border-[#0F1D32] text-[#0F1D32] bg-[#F5F3EE]/70 transition-colors whitespace-nowrap cursor-pointer';
-      const inactiveClass = 'px-3.5 py-3 text-xs sm:text-sm font-medium flex items-center gap-2 border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] hover:bg-[#F5F3EE]/40 transition-colors whitespace-nowrap cursor-pointer';
+      const activeClass = 'w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-start gap-2.5 transition-colors cursor-pointer bg-[#F5F3EE] font-bold text-[#0F1D32]';
+      const inactiveClass = 'w-full text-left px-3.5 py-2.5 hover:bg-[#F5F3EE] flex items-start gap-2.5 transition-colors cursor-pointer text-slate-700';
+      const labelsMap = {
+        pension: '1. Pensional',
+        alimentos: '2. Alimentos & REDAM',
+        creditos: '3. Créditos & Usura',
+        perjuicios: '4. Perjuicios Forenses',
+        seguros: '5. Seguros & Actuarial'
+      };
+      const ddLabel = document.getElementById('activeModuleDropdownLabel');
+      if (ddLabel && labelsMap[moduleId]) ddLabel.innerText = labelsMap[moduleId];
 
       for (const [k, btn] of Object.entries(buttons)) {
         if (btn) {
@@ -7079,6 +7230,8 @@ C.C. No. __________________
               appUsers = data.users;
               localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
             }
+            if (data.tokenPrice !== undefined) { globalTokenPrice = parseInt(data.tokenPrice, 10); localStorage.setItem('calc_legal_token_price', String(globalTokenPrice)); }
+            if (Array.isArray(data.recharges)) { rechargesHistory = data.recharges; localStorage.setItem('calc_legal_recharges_v2', JSON.stringify(rechargesHistory)); }
             if (Array.isArray(data.history)) {
               consultationHistory = data.history;
               localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
@@ -7203,6 +7356,8 @@ C.C. No. __________________
               promptForcePasswordChange(data.user, data.users, data.history, passwordInput, remember);
               return;
             }
+            if (data.tokenPrice !== undefined) { globalTokenPrice = parseInt(data.tokenPrice, 10); localStorage.setItem('calc_legal_token_price', String(globalTokenPrice)); }
+            if (Array.isArray(data.recharges)) { rechargesHistory = data.recharges; localStorage.setItem('calc_legal_recharges_v2', JSON.stringify(rechargesHistory)); }
             completeLogin(data.user, data.users, data.history);
             return;
           } else {
@@ -10391,6 +10546,252 @@ T.P. No. ${apoderadoTp}`;
       renderAuthUI();
       showToast('Perfil actualizado y correo vinculado localmente.', 'success');
     }
+
+  
+
+    // =========================================================================
+    // MENÚS DESPLEGABLES MODERNOS + SALDO + RECARGAS + VALOR TOKEN SUPERADMIN
+    // =========================================================================
+    let globalTokenPrice = parseInt(localStorage.getItem('calc_legal_token_price') || '10000', 10);
+    let rechargesHistory = JSON.parse(localStorage.getItem('calc_legal_recharges_v2') || '[]');
+
+    function toggleNavbarDropdown(menuId) {
+      const menus = ['menuDropdownCalculadoras', 'menuDropdownTools', 'menuDropdownUser'];
+      menus.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (id === menuId) {
+          el.classList.toggle('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+    }
+
+    function closeAllNavbarDropdowns() {
+      ['menuDropdownCalculadoras', 'menuDropdownTools', 'menuDropdownUser'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      const wrappers = ['dropdownCalculadorasWrapper', 'dropdownToolsWrapper', 'dropdownUserWrapper'];
+      const inside = wrappers.some(wId => {
+        const w = document.getElementById(wId);
+        return w && w.contains(e.target);
+      });
+      if (!inside) closeAllNavbarDropdowns();
+    });
+
+    function updateTokenPriceUI() {
+      const cur = getCurrentUser();
+      const roText = document.getElementById('tokenPriceReadonlyText');
+      const saControls = document.getElementById('superadminTokenPriceControls');
+      const saInput = document.getElementById('superadminTokenPriceInput');
+      if (roText) roText.innerText = 'Valor vigente: $' + Number(globalTokenPrice).toLocaleString('es-CO') + ' COP por token';
+      if (saInput) saInput.value = globalTokenPrice;
+      if (saControls) {
+        if (cur && cur.role === 'superadmin') {
+          saControls.classList.remove('hidden');
+        } else {
+          saControls.classList.add('hidden');
+        }
+      }
+    }
+
+    async function saveGlobalTokenPrice() {
+      const cur = getCurrentUser();
+      if (!cur || cur.role !== 'superadmin') {
+        showToast('Solo el Superadministrador puede cambiar el valor del token.', 'error');
+        return;
+      }
+      const val = parseInt(document.getElementById('superadminTokenPriceInput').value, 10);
+      if (isNaN(val) || val < 0) {
+        showToast('Ingresa un valor válido.', 'error');
+        return;
+      }
+      globalTokenPrice = val;
+      localStorage.setItem('calc_legal_token_price', String(globalTokenPrice));
+
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'save_token_price', adminId: cur.id, tokenPrice: val })
+          });
+          const data = await resp.json();
+          if (data && data.ok) globalTokenPrice = parseInt(data.tokenPrice, 10);
+        } catch (err) { console.warn(err); }
+      }
+      updateTokenPriceUI();
+      showToast('Valor general del token actualizado a $' + Number(globalTokenPrice).toLocaleString('es-CO') + ' COP.', 'success');
+    }
+
+    function openRechargeModal(userId) {
+      const user = appUsers.find(u => u.id === userId);
+      if (!user) return;
+      document.getElementById('rechargeTargetUserId').value = user.id;
+      document.getElementById('rechargeTargetUserLabel').innerText = `${user.name} (@${user.username})`;
+      const defaultAmt = Math.max(globalTokenPrice * 5, 50000);
+      document.getElementById('rechargeAmountInput').value = defaultAmt;
+      onRechargeAmountChange();
+      document.getElementById('rechargeLocationSelect').value = 'Bancolombia';
+      document.getElementById('rechargeLocationOther').classList.add('hidden');
+      document.getElementById('rechargeLocationOther').value = '';
+      document.getElementById('rechargeReferenceInput').value = '';
+      document.getElementById('rechargeModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeRechargeModal() {
+      document.getElementById('rechargeModal').classList.add('hidden');
+    }
+
+    function onRechargeAmountChange() {
+      const amt = parseInt(document.getElementById('rechargeAmountInput').value, 10) || 0;
+      const price = Math.max(1, globalTokenPrice || 10000);
+      const calcTokens = Math.floor(amt / price);
+      document.getElementById('rechargeTokensInput').value = calcTokens;
+      document.getElementById('rechargeConversionHint').innerText = `Equivale a ${calcTokens} token${calcTokens === 1 ? '' : 's'} (a $${Number(price).toLocaleString('es-CO')} COP c/u).`;
+    }
+
+    function onRechargeLocationChange(val) {
+      const otherIn = document.getElementById('rechargeLocationOther');
+      if (val === 'Otro') otherIn.classList.remove('hidden');
+      else otherIn.classList.add('hidden');
+    }
+
+    async function handleSubmitRecharge(e) {
+      if (e) e.preventDefault();
+      const admin = getCurrentUser();
+      const userId = document.getElementById('rechargeTargetUserId').value;
+      const amount = parseInt(document.getElementById('rechargeAmountInput').value, 10) || 0;
+      const tokensAdded = parseInt(document.getElementById('rechargeTokensInput').value, 10) || 0;
+      const selLoc = document.getElementById('rechargeLocationSelect').value;
+      const otherLoc = document.getElementById('rechargeLocationOther').value.trim();
+      const depositLocation = (selLoc === 'Otro' && otherLoc) ? otherLoc : selLoc;
+      const reference = document.getElementById('rechargeReferenceInput').value.trim();
+
+      if (window.location.protocol.startsWith('http') && admin) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              action: 'register_recharge',
+              adminId: admin.id,
+              userId,
+              amount,
+              tokensAdded,
+              depositLocation,
+              reference
+            })
+          });
+          const data = await resp.json();
+          if (data && data.ok) {
+            if (Array.isArray(data.users)) appUsers = data.users;
+            if (Array.isArray(data.recharges)) rechargesHistory = data.recharges;
+            localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+            localStorage.setItem('calc_legal_recharges_v2', JSON.stringify(rechargesHistory));
+            closeRechargeModal();
+            renderUsersList();
+            renderAuthUI();
+            showToast(`Recarga registrada: +$${Number(amount).toLocaleString('es-CO')} COP (+${tokensAdded} tokens) vía ${depositLocation}.`, 'success');
+            return;
+          }
+        } catch (err) { console.warn(err); }
+      }
+
+      const target = appUsers.find(u => u.id === userId);
+      if (target) {
+        target.balance = (parseInt(target.balance, 10) || 0) + amount;
+        if (target.tokens !== 'unlimited') target.tokens = (parseInt(target.tokens, 10) || 0) + tokensAdded;
+        rechargesHistory.unshift({
+          id: 'rec_' + Date.now(),
+          userId: target.id,
+          userName: target.name,
+          username: target.username,
+          amount,
+          tokensAdded,
+          depositLocation,
+          reference,
+          registeredBy: admin ? admin.name : 'Admin',
+          timestamp: new Date().toLocaleString('es-CO', { dateStyle: 'short', timeStyle: 'short' })
+        });
+        localStorage.setItem('calc_legal_recharges_v2', JSON.stringify(rechargesHistory));
+        saveAuthState();
+        closeRechargeModal();
+        renderUsersList();
+        renderAuthUI();
+        showToast(`Recarga registrada localmente: +$${Number(amount).toLocaleString('es-CO')} COP.`, 'success');
+      }
+    }
+
+    function renderRechargesLog() {
+      const container = document.getElementById('rechargesTableContainer');
+      const totalEl = document.getElementById('totalRechargesSumDisplay');
+      if (!container) return;
+
+      const totalSum = (rechargesHistory || []).reduce((acc, r) => acc + (parseInt(r.amount, 10) || 0), 0);
+      if (totalEl) totalEl.innerText = '$ ' + Number(totalSum).toLocaleString('es-CO') + ' COP';
+
+      if (!rechargesHistory || rechargesHistory.length === 0) {
+        container.innerHTML = `<div class="p-8 text-center text-slate-400 text-xs">No se han registrado recargas o consignaciones todavía.</div>`;
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead class="bg-slate-100 text-slate-700 border-b border-slate-200">
+              <tr>
+                <th class="py-2.5 px-3 font-bold">Fecha</th>
+                <th class="py-2.5 px-3 font-bold">Usuario</th>
+                <th class="py-2.5 px-3 font-bold">Consignado (COP)</th>
+                <th class="py-2.5 px-3 font-bold">Tokens (+)</th>
+                <th class="py-2.5 px-3 font-bold">Dónde se Consignó</th>
+                <th class="py-2.5 px-3 font-bold">Ref / Registró</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              ${rechargesHistory.map(r => `
+                <tr class="hover:bg-slate-50">
+                  <td class="py-2 px-3 font-mono text-[11px] text-slate-500">${r.timestamp}</td>
+                  <td class="py-2 px-3 font-semibold text-slate-900">${r.userName}</td>
+                  <td class="py-2 px-3 font-mono font-bold text-emerald-700">+$ ${Number(r.amount || 0).toLocaleString('es-CO')}</td>
+                  <td class="py-2 px-3 font-mono font-bold text-indigo-700">+${r.tokensAdded}</td>
+                  <td class="py-2 px-3 font-semibold text-slate-800">${r.depositLocation}</td>
+                  <td class="py-2 px-3 text-[11px] text-slate-500">${r.reference ? r.reference + ' • ' : ''}${r.registeredBy || ''}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    // Override renderAuthUI balance & dropdown name
+    const _origRenderAuthUI = renderAuthUI;
+    renderAuthUI = function() {
+      _origRenderAuthUI();
+      const user = getCurrentUser();
+      if (!user) return;
+      const fullEl = document.getElementById('dropdownUserNameFull');
+      const balEl = document.getElementById('dropdownUserBalanceDisplay');
+      const tokEl = document.getElementById('currentUserTokensDisplay');
+      if (fullEl) fullEl.innerText = user.name;
+      if (user.tokens === 'unlimited') {
+        if (balEl) balEl.innerText = '∞ Ilimitado';
+        if (tokEl) tokEl.innerText = '∞ Ilimitadas';
+      } else {
+        const bal = Number(user.balance !== undefined ? user.balance : ((parseInt(user.tokens, 10) || 0) * globalTokenPrice));
+        if (balEl) balEl.innerText = `${user.tokens} tokens ($${bal.toLocaleString('es-CO')})`;
+        if (tokEl) tokEl.innerText = `${user.tokens} ($${bal.toLocaleString('es-CO')})`;
+      }
+      updateTokenPriceUI();
+    };
 
   </script>
 

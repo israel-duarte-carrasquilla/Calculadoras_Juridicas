@@ -10,13 +10,15 @@ function getDefaultUsers() {
             'id' => 'usr_israel',
             'name' => 'Israel',
             'username' => 'israel',
-            'email' => 'webmaster@solutiontech.lat',
+            'email' => 'israel.duarte.carrasquilla@gmail.com',
+            'phone' => '',
             'password' => 'DDuarte2004*',
             'role' => 'superadmin',
             'tokens' => 'unlimited',
+            'balance' => 0,
             'usedTokens' => 0,
             'mustChangePassword' => false,
-            'authProvider' => 'local',
+            'authProvider' => 'google',
             'createdAt' => '2026-01-01',
             'status' => 'active',
             'notes' => 'Superadministrador con control total y consultas ilimitadas.'
@@ -26,9 +28,11 @@ function getDefaultUsers() {
             'name' => 'Juan Carlos Oyola',
             'username' => 'jcarlos',
             'email' => 'jcarlos@solutiontech.lat',
+            'phone' => '',
             'password' => 'JC123',
             'role' => 'admin',
             'tokens' => 100,
+            'balance' => 1000000,
             'usedTokens' => 0,
             'mustChangePassword' => false,
             'authProvider' => 'local',
@@ -41,9 +45,11 @@ function getDefaultUsers() {
             'name' => 'Usuario de Prueba',
             'username' => 'prueba',
             'email' => 'prueba@solutiontech.lat',
+            'phone' => '',
             'password' => '123',
             'role' => 'user',
             'tokens' => 5,
+            'balance' => 50000,
             'usedTokens' => 0,
             'mustChangePassword' => false,
             'authProvider' => 'local',
@@ -57,8 +63,10 @@ function getDefaultUsers() {
 function loadDb($dbFile) {
     if (!file_exists($dbFile)) {
         $initial = [
+            'tokenPrice' => 10000,
             'users' => getDefaultUsers(),
             'history' => [],
+            'recharges' => [],
             'oauth' => ['googleClientId' => '', 'microsoftClientId' => '']
         ];
         file_put_contents($dbFile, json_encode($initial, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
@@ -68,14 +76,18 @@ function loadDb($dbFile) {
     $data = json_decode($raw, true);
     if (!is_array($data) || !isset($data['users'])) {
         $data = [
+            'tokenPrice' => 10000,
             'users' => getDefaultUsers(),
             'history' => [],
+            'recharges' => [],
             'oauth' => ['googleClientId' => '', 'microsoftClientId' => '']
         ];
     }
-    if (!isset($data['oauth'])) {
-        $data['oauth'] = ['googleClientId' => '', 'microsoftClientId' => ''];
-    }
+    if (!isset($data['tokenPrice'])) $data['tokenPrice'] = 10000;
+    if (!isset($data['recharges'])) $data['recharges'] = [];
+    if (!isset($data['history'])) $data['history'] = [];
+    if (!isset($data['oauth'])) $data['oauth'] = ['googleClientId' => '', 'microsoftClientId' => ''];
+
     $changed = false;
     foreach ($data['users'] as &$u) {
         if (($u['username'] ?? '') === 'israel' || ($u['id'] ?? '') === 'usr_israel') {
@@ -89,6 +101,10 @@ function loadDb($dbFile) {
                 $u['password'] = 'JC123';
                 $changed = true;
             }
+        }
+        if (!isset($u['balance'])) {
+            $u['balance'] = ($u['tokens'] ?? 0) === 'unlimited' ? 0 : (intval($u['tokens'] ?? 0) * intval($data['tokenPrice']));
+            $changed = true;
         }
     }
     unset($u);
@@ -117,7 +133,7 @@ if ($action === 'ping') {
 $db = loadDb($dbFile);
 
 if ($action === 'get_oauth_config') {
-    echo json_encode(['ok' => true, 'oauth' => $db['oauth']]);
+    echo json_encode(['ok' => true, 'oauth' => $db['oauth'], 'tokenPrice' => $db['tokenPrice']]);
     exit;
 }
 
@@ -140,6 +156,30 @@ if ($action === 'save_oauth_config') {
     ];
     saveDb($dbFile, $db);
     echo json_encode(['ok' => true, 'oauth' => $db['oauth']]);
+    exit;
+}
+
+if ($action === 'save_token_price') {
+    $adminId = (string)($input['adminId'] ?? '');
+    $newPrice = intval($input['tokenPrice'] ?? 0);
+    $adminUser = null;
+    foreach ($db['users'] as $u) {
+        if (($u['id'] ?? '') === $adminId && ($u['role'] ?? '') === 'superadmin') {
+            $adminUser = $u;
+            break;
+        }
+    }
+    if (!$adminUser) {
+        echo json_encode(['ok' => false, 'error' => 'Solo el Superadministrador puede modificar el valor del token.']);
+        exit;
+    }
+    if ($newPrice < 0) {
+        echo json_encode(['ok' => false, 'error' => 'El valor del token no puede ser negativo.']);
+        exit;
+    }
+    $db['tokenPrice'] = $newPrice;
+    saveDb($dbFile, $db);
+    echo json_encode(['ok' => true, 'tokenPrice' => $db['tokenPrice']]);
     exit;
 }
 
@@ -177,8 +217,12 @@ if ($action === 'login') {
     $isAdmin = in_array($foundUser['role'] ?? 'user', ['superadmin', 'admin'], true);
     echo json_encode([
         'ok' => true,
+        'tokenPrice' => $db['tokenPrice'],
         'user' => $foundUser,
         'users' => $isAdmin ? $db['users'] : [$foundUser],
+        'recharges' => $isAdmin ? $db['recharges'] : array_values(array_filter($db['recharges'], function($r) use ($foundUser) {
+            return ($r['userId'] ?? '') === ($foundUser['id'] ?? '');
+        })),
         'history' => $isAdmin ? $db['history'] : array_values(array_filter($db['history'], function($h) use ($foundUser) {
             return ($h['userName'] ?? '') === ($foundUser['name'] ?? '');
         }))
@@ -207,6 +251,7 @@ if ($action === 'register') {
         }
     }
 
+    $defaultTokens = 5;
     $newUser = [
         'id' => 'usr_' . time() . '_' . substr(md5($email), 0, 5),
         'name' => $name,
@@ -215,7 +260,8 @@ if ($action === 'register') {
         'phone' => $phone,
         'password' => $password,
         'role' => 'user',
-        'tokens' => 3,
+        'tokens' => $defaultTokens,
+        'balance' => $defaultTokens * intval($db['tokenPrice']),
         'usedTokens' => 0,
         'mustChangePassword' => false,
         'authProvider' => $provider,
@@ -229,18 +275,20 @@ if ($action === 'register') {
 
     echo json_encode([
         'ok' => true,
+        'tokenPrice' => $db['tokenPrice'],
         'user' => $newUser,
         'users' => [$newUser],
+        'recharges' => [],
         'history' => []
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-if ($action === 'update_profile') {
+if ($action === 'update_profile' || $action === 'link_email') {
     $userId = (string)($input['userId'] ?? '');
     $email = mb_strtolower(trim((string)($input['email'] ?? '')), 'UTF-8');
-    $phone = trim((string)($input['phone'] ?? ''));
-    $provider = trim((string)($input['authProvider'] ?? 'local'));
+    $phone = trim((string)($input['phone'] ?? ($db['users'][0]['phone'] ?? '')));
+    $provider = trim((string)($input['authProvider'] ?? ($input['provider'] ?? 'google')));
 
     $targetIdx = -1;
     foreach ($db['users'] as $idx => $u) {
@@ -267,7 +315,9 @@ if ($action === 'update_profile') {
     }
 
     $db['users'][$targetIdx]['email'] = $email;
-    $db['users'][$targetIdx]['phone'] = $phone;
+    if (isset($input['phone'])) {
+        $db['users'][$targetIdx]['phone'] = trim((string)$input['phone']);
+    }
     $db['users'][$targetIdx]['authProvider'] = $provider;
     saveDb($dbFile, $db);
 
@@ -275,6 +325,7 @@ if ($action === 'update_profile') {
     $isAdmin = in_array($updatedUser['role'] ?? 'user', ['superadmin', 'admin'], true);
     echo json_encode([
         'ok' => true,
+        'tokenPrice' => $db['tokenPrice'],
         'user' => $updatedUser,
         'users' => $isAdmin ? $db['users'] : [$updatedUser]
     ], JSON_UNESCAPED_UNICODE);
@@ -308,14 +359,17 @@ if ($action === 'oauth_login_or_register') {
             exit;
         }
     } else {
+        $defaultTokens = 5;
         $foundUser = [
             'id' => 'usr_' . time() . '_' . substr(md5($email), 0, 5),
             'name' => $name !== '' ? $name : explode('@', $email)[0],
             'username' => $email,
             'email' => $email,
+            'phone' => '',
             'password' => bin2hex(random_bytes(8)),
             'role' => 'user',
-            'tokens' => 3,
+            'tokens' => $defaultTokens,
+            'balance' => $defaultTokens * intval($db['tokenPrice']),
             'usedTokens' => 0,
             'mustChangePassword' => false,
             'authProvider' => $provider,
@@ -330,8 +384,10 @@ if ($action === 'oauth_login_or_register') {
     $isAdmin = in_array($foundUser['role'] ?? 'user', ['superadmin', 'admin'], true);
     echo json_encode([
         'ok' => true,
+        'tokenPrice' => $db['tokenPrice'],
         'user' => $foundUser,
         'users' => $isAdmin ? $db['users'] : [$foundUser],
+        'recharges' => $isAdmin ? $db['recharges'] : [],
         'history' => $isAdmin ? $db['history'] : array_values(array_filter($db['history'], function($h) use ($foundUser) {
             return ($h['userName'] ?? '') === ($foundUser['name'] ?? '');
         }))
@@ -391,11 +447,82 @@ if ($action === 'get_session') {
     $isAdmin = in_array($foundUser['role'] ?? 'user', ['superadmin', 'admin'], true);
     echo json_encode([
         'ok' => true,
+        'tokenPrice' => $db['tokenPrice'],
         'user' => $foundUser,
         'users' => $isAdmin ? $db['users'] : [$foundUser],
+        'recharges' => $isAdmin ? $db['recharges'] : array_values(array_filter($db['recharges'], function($r) use ($foundUser) {
+            return ($r['userId'] ?? '') === ($foundUser['id'] ?? '');
+        })),
         'history' => $isAdmin ? $db['history'] : array_values(array_filter($db['history'], function($h) use ($foundUser) {
             return ($h['userName'] ?? '') === ($foundUser['name'] ?? '');
         }))
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+if ($action === 'register_recharge') {
+    $adminId = (string)($input['adminId'] ?? '');
+    $userId = (string)($input['userId'] ?? '');
+    $amount = intval($input['amount'] ?? 0);
+    $tokensAdded = intval($input['tokensAdded'] ?? 0);
+    $depositLocation = trim((string)($input['depositLocation'] ?? ''));
+    $reference = trim((string)($input['reference'] ?? ''));
+
+    $adminUser = null;
+    foreach ($db['users'] as $u) {
+        if (($u['id'] ?? '') === $adminId && in_array($u['role'] ?? '', ['superadmin', 'admin'], true)) {
+            $adminUser = $u;
+            break;
+        }
+    }
+    if (!$adminUser) {
+        echo json_encode(['ok' => false, 'error' => 'No autorizado para registrar recargas.']);
+        exit;
+    }
+
+    $targetIdx = -1;
+    foreach ($db['users'] as $idx => $u) {
+        if (($u['id'] ?? '') === $userId) {
+            $targetIdx = $idx;
+            break;
+        }
+    }
+    if ($targetIdx === -1) {
+        echo json_encode(['ok' => false, 'error' => 'Usuario destino no encontrado.']);
+        exit;
+    }
+
+    $targetUser = &$db['users'][$targetIdx];
+    $targetUser['balance'] = intval($targetUser['balance'] ?? 0) + $amount;
+    if (($targetUser['tokens'] ?? 0) !== 'unlimited') {
+        $targetUser['tokens'] = intval($targetUser['tokens'] ?? 0) + $tokensAdded;
+    }
+
+    $rechargeRecord = [
+        'id' => 'rec_' . time() . '_' . rand(100, 999),
+        'userId' => $targetUser['id'],
+        'userName' => $targetUser['name'],
+        'username' => $targetUser['username'],
+        'amount' => $amount,
+        'tokensAdded' => $tokensAdded,
+        'tokenPriceAtTime' => $db['tokenPrice'],
+        'depositLocation' => $depositLocation !== '' ? $depositLocation : 'No especificado',
+        'reference' => $reference,
+        'registeredBy' => $adminUser['name'],
+        'timestamp' => date('d/m/Y H:i')
+    ];
+
+    array_unshift($db['recharges'], $rechargeRecord);
+    if (count($db['recharges']) > 200) {
+        $db['recharges'] = array_slice($db['recharges'], 0, 200);
+    }
+
+    saveDb($dbFile, $db);
+    echo json_encode([
+        'ok' => true,
+        'user' => $targetUser,
+        'users' => $db['users'],
+        'recharges' => $db['recharges']
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -440,6 +567,9 @@ if ($action === 'consume_token') {
     }
 
     $user = &$db['users'][$targetIdx];
+    $tokenPrice = intval($db['tokenPrice'] ?? 10000);
+    $deductedBalance = 0;
+
     if (($user['tokens'] ?? 0) !== 'unlimited') {
         $num = intval($user['tokens'] ?? 0);
         if ($num <= 0) {
@@ -447,19 +577,25 @@ if ($action === 'consume_token') {
             exit;
         }
         $user['tokens'] = $num - 1;
+        $curBal = intval($user['balance'] ?? 0);
+        $deductedBalance = min($curBal, $tokenPrice);
+        $user['balance'] = max(0, $curBal - $tokenPrice);
     }
     $user['usedTokens'] = intval($user['usedTokens'] ?? 0) + 1;
 
     if (is_array($historyItem)) {
+        $historyItem['tokenCost'] = ($user['tokens'] === 'unlimited') ? 0 : $tokenPrice;
+        $historyItem['balanceAfter'] = $user['balance'];
         array_unshift($db['history'], $historyItem);
-        if (count($db['history']) > 100) {
-            $db['history'] = array_slice($db['history'], 0, 100);
+        if (count($db['history']) > 200) {
+            $db['history'] = array_slice($db['history'], 0, 200);
         }
     }
 
     saveDb($dbFile, $db);
     echo json_encode([
         'ok' => true,
+        'tokenPrice' => $tokenPrice,
         'user' => $user,
         'history' => $db['history']
     ], JSON_UNESCAPED_UNICODE);
