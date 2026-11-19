@@ -8,6 +8,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://alcdn.msauth.net/browser/2.38.0/js/msal-browser.min.js" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -127,75 +129,159 @@
           </div>
         </div>
 
-        <!-- Panel Derecho: Autenticación Estricta (Solo Usuario y Contraseña) -->
-        <div class="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-center space-y-6 bg-white">
-          <div>
-            <h2 class="text-xl font-bold text-[#111827] tracking-tight">Acceso Autorizado</h2>
-            <p class="text-xs text-[#4B5563] mt-1">
-              Ingresa tu usuario y contraseña asignados para habilitar los módulos de cálculo.
-            </p>
+        <!-- Panel Derecho: Autenticación, Auto-Registro & Google / Microsoft -->
+        <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-center space-y-5 bg-white">
+          
+          <!-- Pestañas: Iniciar Sesión / Crear Cuenta -->
+          <div class="flex border-b border-slate-200">
+            <button type="button" id="btnGateTabLogin" onclick="switchGateAuthTab('login')"
+                    class="flex-1 pb-2.5 text-sm font-bold border-b-2 border-[#0F1D32] text-[#0F1D32] cursor-pointer transition-colors">
+              Iniciar Sesión
+            </button>
+            <button type="button" id="btnGateTabRegister" onclick="switchGateAuthTab('register')"
+                    class="flex-1 pb-2.5 text-sm font-medium border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] cursor-pointer transition-colors">
+              Registrarse (Crear Cuenta)
+            </button>
           </div>
 
-          <!-- Alerta de Error de Autenticación (WCAG role="alert") -->
+          <!-- Alerta de Error (WCAG role="alert") -->
           <div id="loginGateError" role="alert" aria-live="assertive" class="hidden bg-red-50 border border-red-300 text-red-900 text-xs p-3.5 rounded-lg flex items-center gap-2.5">
             <i data-lucide="alert-circle" class="w-4 h-4 text-red-700 shrink-0"></i>
             <span id="loginGateErrorText" class="font-medium">Usuario o contraseña incorrectos.</span>
           </div>
 
-          <form id="formLoginGate" onsubmit="handleGateLoginSubmit(event)" class="space-y-4">
-            <div>
-              <label class="block text-xs font-semibold text-[#111827] mb-1.5" for="gateLoginUsername">
-                Usuario
-              </label>
-              <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
-                  <i data-lucide="user" class="w-4 h-4"></i>
-                </span>
-                <input type="text" id="gateLoginUsername" required autocomplete="username" placeholder="Ingresa tu usuario"
-                       class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-3 py-2.5 text-sm text-[#111827] placeholder-slate-400 focus:border-[#0F1D32] transition-colors font-medium">
+          <!-- PANEL 1: INICIAR SESIÓN -->
+          <div id="gateLoginPanel" class="space-y-4">
+            <form id="formLoginGate" onsubmit="handleGateLoginSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-[#111827] mb-1.5" for="gateLoginUsername">
+                  Usuario o Correo Electrónico
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                  </span>
+                  <input type="text" id="gateLoginUsername" required autocomplete="username" placeholder="Ingresa tu usuario o correo"
+                         class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-3 py-2.5 text-sm text-[#111827] placeholder-slate-400 focus:border-[#0F1D32] transition-colors font-medium">
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label class="block text-xs font-semibold text-[#111827] mb-1.5" for="gateLoginPassword">
-                Contraseña
-              </label>
-              <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
-                  <i data-lucide="lock" class="w-4 h-4"></i>
-                </span>
-                <input type="password" id="gateLoginPassword" required autocomplete="current-password" placeholder="Ingresa tu contraseña"
-                       class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-10 py-2.5 text-sm text-[#111827] placeholder-slate-400 focus:border-[#0F1D32] transition-colors font-mono">
-                <button type="button" onclick="toggleGatePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-[#111827] cursor-pointer" aria-label="Mostrar u ocultar contraseña">
-                  <i id="gateEyeIcon" data-lucide="eye" class="w-4 h-4"></i>
-                </button>
+              <div>
+                <label class="block text-xs font-semibold text-[#111827] mb-1.5" for="gateLoginPassword">
+                  Contraseña
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
+                    <i data-lucide="lock" class="w-4 h-4"></i>
+                  </span>
+                  <input type="password" id="gateLoginPassword" required autocomplete="current-password" placeholder="Ingresa tu contraseña"
+                         class="w-full bg-white border border-slate-300 rounded-lg pl-10 pr-10 py-2.5 text-sm text-[#111827] placeholder-slate-400 focus:border-[#0F1D32] transition-colors font-mono">
+                  <button type="button" onclick="toggleGatePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 hover:text-[#111827] cursor-pointer" aria-label="Mostrar u ocultar contraseña">
+                    <i id="gateEyeIcon" data-lucide="eye" class="w-4 h-4"></i>
+                  </button>
+                </div>
               </div>
-            </div>
 
-            <!-- Consentimiento Legal Explícito (Legal Shield: desmarcado por defecto) -->
-            <div class="pt-1 space-y-2.5">
-              <label class="flex items-start gap-2.5 cursor-pointer select-none">
-                <input type="checkbox" id="gateLegalConsent" required class="mt-0.5 rounded border-slate-400 text-[#0F1D32] focus:ring-[#0F1D32] cursor-pointer">
+              <div class="pt-1 space-y-2">
+                <label class="flex items-start gap-2.5 cursor-pointer select-none">
+                  <input type="checkbox" id="gateLegalConsent" required class="mt-0.5 rounded border-slate-400 text-[#0F1D32] focus:ring-[#0F1D32] cursor-pointer">
+                  <span class="text-[11px] text-[#4B5563] leading-snug">
+                    Acepto la <button type="button" onclick="openLegalModal('privacy')" class="underline font-semibold text-[#0F1D32] hover:text-blue-800 cursor-pointer">Política de Privacidad</button> (Ley 1581/2012) y los <button type="button" onclick="openLegalModal('terms')" class="underline font-semibold text-[#0F1D32] hover:text-blue-800 cursor-pointer">Términos de Uso</button>.
+                  </span>
+                </label>
+
+                <label class="flex items-center gap-2.5 cursor-pointer select-none">
+                  <input type="checkbox" id="gateRememberMe" class="rounded border-slate-400 text-[#0F1D32] focus:ring-[#0F1D32] cursor-pointer">
+                  <span class="text-[11px] text-[#4B5563]">Mantener sesión iniciada en este navegador</span>
+                </label>
+              </div>
+
+              <button type="submit" id="btnGateSubmit"
+                      class="w-full py-3 px-4 rounded-lg bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold text-sm shadow-sm transition-colors cursor-pointer flex items-center justify-center gap-2">
+                <i data-lucide="log-in" class="w-4 h-4"></i>
+                <span>Ingresar a la Suite</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- PANEL 2: AUTO-REGISTRO -->
+          <div id="gateRegisterPanel" class="hidden space-y-3.5">
+            <form id="formGateRegister" onsubmit="handleGateRegisterSubmit(event)" class="space-y-3">
+              <div>
+                <label class="block text-xs font-semibold text-[#111827] mb-1" for="regFullName">Nombre Completo</label>
+                <input type="text" id="regFullName" required placeholder="Ej: María Fernanda Gómez"
+                       class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] placeholder-slate-400">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-[#111827] mb-1" for="regEmail">Correo Electrónico (Google, Microsoft o Corporativo)</label>
+                <input type="email" id="regEmail" required placeholder="nombre@gmail.com / @outlook.com"
+                       class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] placeholder-slate-400">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-[#111827] mb-1" for="regPassword">Contraseña (mín. 6)</label>
+                  <input type="password" id="regPassword" required minlength="6" placeholder="••••••••"
+                         class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] font-mono">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-[#111827] mb-1" for="regPasswordConfirm">Confirmar Contraseña</label>
+                  <input type="password" id="regPasswordConfirm" required minlength="6" placeholder="••••••••"
+                         class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] font-mono">
+                </div>
+              </div>
+
+              <label class="flex items-start gap-2.5 cursor-pointer select-none pt-1">
+                <input type="checkbox" id="regLegalConsent" required class="mt-0.5 rounded border-slate-400 text-[#0F1D32] cursor-pointer">
                 <span class="text-[11px] text-[#4B5563] leading-snug">
-                  Acepto la <button type="button" onclick="openLegalModal('privacy')" class="underline font-semibold text-[#0F1D32] hover:text-blue-800 cursor-pointer">Política de Privacidad</button> (Ley 1581/2012), los <button type="button" onclick="openLegalModal('terms')" class="underline font-semibold text-[#0F1D32] hover:text-blue-800 cursor-pointer">Términos de Uso y Descargo de Responsabilidad</button>.
+                  Acepto la <button type="button" onclick="openLegalModal('privacy')" class="underline font-semibold text-[#0F1D32] cursor-pointer">Política de Privacidad</button> y los <button type="button" onclick="openLegalModal('terms')" class="underline font-semibold text-[#0F1D32] cursor-pointer">Términos y Descargo Legal</button>.
                 </span>
               </label>
 
-              <label class="flex items-center gap-2.5 cursor-pointer select-none">
-                <input type="checkbox" id="gateRememberMe" class="rounded border-slate-400 text-[#0F1D32] focus:ring-[#0F1D32] cursor-pointer">
-                <span class="text-[11px] text-[#4B5563]">Mantener sesión iniciada en este navegador</span>
-              </label>
+              <button type="submit" id="btnGateRegisterSubmit"
+                      class="w-full py-3 px-4 rounded-lg bg-[#9A6E23] hover:bg-[#825B1C] text-white font-bold text-sm shadow-sm transition-colors cursor-pointer flex items-center justify-center gap-2">
+                <i data-lucide="user-plus" class="w-4 h-4"></i>
+                <span>Crear Cuenta y Acceder (3 Tokens)</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- ACCESO CON GOOGLE O MICROSOFT -->
+          <div class="space-y-3 pt-1">
+            <div class="relative flex items-center justify-center">
+              <div class="border-t border-slate-200 w-full"></div>
+              <span class="bg-white px-3 text-[11px] text-[#4B5563] font-medium whitespace-nowrap">O regístrate / ingresa con</span>
+              <div class="border-t border-slate-200 w-full"></div>
             </div>
 
-            <button type="submit" id="btnGateSubmit"
-                    class="w-full py-3 px-4 rounded-lg bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold text-sm shadow-sm transition-colors cursor-pointer flex items-center justify-center gap-2">
-              <i data-lucide="log-in" class="w-4 h-4"></i>
-              <span>Ingresar a la Suite</span>
-            </button>
-          </form>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button type="button" onclick="startSocialAuth('google')"
+                      class="w-full py-2.5 px-3 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[#111827] font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
+                </svg>
+                <span>Correo Google</span>
+              </button>
 
-          <p class="text-[11px] text-[#4B5563] border-t border-slate-200 pt-4 leading-relaxed">
-            <strong>Aviso de Exención:</strong> Las liquidaciones generadas constituyen cálculos técnicos auxiliares para profesionales del derecho y no sustituyen providencias judiciales ni asesoría legal particular.
+              <button type="button" onclick="startSocialAuth('microsoft')"
+                      class="w-full py-2.5 px-3 rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-[#111827] font-semibold text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer">
+                <svg class="w-4 h-4" viewBox="0 0 23 23" aria-hidden="true">
+                  <path fill="#f35325" d="M1 1h10v10H1z"/>
+                  <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                  <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                  <path fill="#ffba08" d="M12 12h10v10H12z"/>
+                </svg>
+                <span>Correo Microsoft</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="text-[11px] text-[#4B5563] border-t border-slate-200 pt-3 leading-relaxed">
+            <strong>Aviso de Exención:</strong> Las liquidaciones generadas constituyen cálculos técnicos auxiliares para profesionales del derecho y no sustituyen providencias judiciales.
           </p>
         </div>
 
@@ -5609,6 +5695,8 @@ C.C. [NÚMERO]
         tokens: isUnlimited ? 'unlimited' : (tokensVal < 0 ? 0 : tokensVal),
         usedTokens: 0,
         createdAt: new Date().toISOString().split('T')[0],
+        mustChangePassword: true,
+        authProvider: 'local',
         status: 'active',
         notes: `Creado por ${activeUser.name} (${activeUser.role})`
       };
@@ -6893,6 +6981,7 @@ C.C. No. __________________
 
     window.addEventListener('DOMContentLoaded', () => {
       initAuthSystem();
+      loadOAuthConfig();
       checkLoginGate();
       checkCookieConsentBanner();
       const hashRoute = window.location.hash.replace('#/', '').replace('#', '');
@@ -7050,6 +7139,10 @@ C.C. No. __________________
           const data = await resp.json();
           if (btnSubmit) btnSubmit.disabled = false;
           if (data && data.ok && data.user) {
+            if (data.user.mustChangePassword) {
+              promptForcePasswordChange(data.user, data.users, data.history, passwordInput, remember);
+              return;
+            }
             completeLogin(data.user, data.users, data.history);
             return;
           } else {
@@ -7098,6 +7191,10 @@ C.C. No. __________________
         return;
       }
 
+      if (user.mustChangePassword) {
+        promptForcePasswordChange(user, null, null, passwordInput, remember);
+        return;
+      }
       completeLogin(user, null, null);
     }
 
@@ -9617,7 +9714,8 @@ T.P. No. ${apoderadoTp}`;
         ``,
         `🔗 *Enlace de acceso:* https://solutiontech.lat/Calculadoras_Legales/`,
         `👤 *Usuario:* ${user.username}`,
-        `🔑 *Contraseña:* ${user.password}`,
+        `🔑 *Contraseña temporal:* ${user.password}`,
+        (user.mustChangePassword ? `⚠️ *Nota de seguridad:* En tu primer ingreso deberás cambiar tu contraseña.` : ''),
         `🛡️ *Perfil:* ${roleLabel}`,
         `🪙 *Saldo asignado:* ${tokensText}`,
         ``,
@@ -9670,6 +9768,351 @@ T.P. No. ${apoderadoTp}`;
       lucide.createIcons();
     }
 
+  
+
+    // =========================================================================
+    // CAMBIO OBLIGATORIO DE CONTRASEÑA + AUTO-REGISTRO + GOOGLE / MICROSOFT
+    // =========================================================================
+    let pendingPasswordChangeState = null;
+    let platformOAuthConfig = { googleClientId: '', microsoftClientId: '' };
+
+    function loadOAuthConfig() {
+      if (!window.location.protocol.startsWith('http')) return;
+      fetch('api_auth.php?action=get_oauth_config')
+        .then(r => r.json())
+        .then(d => {
+          if (d && d.ok && d.oauth) platformOAuthConfig = d.oauth;
+        }).catch(() => {});
+    }
+
+    function switchGateAuthTab(tab) {
+      const loginPanel = document.getElementById('gateLoginPanel');
+      const regPanel = document.getElementById('gateRegisterPanel');
+      const btnLogin = document.getElementById('btnGateTabLogin');
+      const btnReg = document.getElementById('btnGateTabRegister');
+      const errBox = document.getElementById('loginGateError');
+      if (errBox) errBox.classList.add('hidden');
+
+      if (tab === 'register') {
+        if (loginPanel) loginPanel.classList.add('hidden');
+        if (regPanel) regPanel.classList.remove('hidden');
+        if (btnReg) btnReg.className = 'flex-1 pb-2.5 text-sm font-bold border-b-2 border-[#0F1D32] text-[#0F1D32] cursor-pointer transition-colors';
+        if (btnLogin) btnLogin.className = 'flex-1 pb-2.5 text-sm font-medium border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] cursor-pointer transition-colors';
+      } else {
+        if (regPanel) regPanel.classList.add('hidden');
+        if (loginPanel) loginPanel.classList.remove('hidden');
+        if (btnLogin) btnLogin.className = 'flex-1 pb-2.5 text-sm font-bold border-b-2 border-[#0F1D32] text-[#0F1D32] cursor-pointer transition-colors';
+        if (btnReg) btnReg.className = 'flex-1 pb-2.5 text-sm font-medium border-b-2 border-transparent text-[#4B5563] hover:text-[#0F1D32] cursor-pointer transition-colors';
+      }
+    }
+
+    function promptForcePasswordChange(user, usersList, histList, oldPass, remember) {
+      pendingPasswordChangeState = { user, usersList, histList, oldPass, remember };
+      const errBox = document.getElementById('forcePassError');
+      if (errBox) errBox.classList.add('hidden');
+      document.getElementById('forceNewPassword').value = '';
+      document.getElementById('forceConfirmPassword').value = '';
+      document.getElementById('forcePasswordChangeModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function cancelForcePasswordChange() {
+      pendingPasswordChangeState = null;
+      document.getElementById('forcePasswordChangeModal').classList.add('hidden');
+      cerrarSesion(true);
+    }
+
+    async function handleForcePasswordChangeSubmit(e) {
+      if (e) e.preventDefault();
+      if (!pendingPasswordChangeState) return;
+      const newPass = document.getElementById('forceNewPassword').value;
+      const confirmPass = document.getElementById('forceConfirmPassword').value;
+      const errBox = document.getElementById('forcePassError');
+
+      if (newPass.length < 6) {
+        errBox.innerText = 'La nueva contraseña debe tener mínimo 6 caracteres.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (newPass === pendingPasswordChangeState.oldPass) {
+        errBox.innerText = 'La nueva contraseña debe ser diferente a la contraseña temporal.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (newPass !== confirmPass) {
+        errBox.innerText = 'Las contraseñas no coinciden.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      const targetUser = pendingPasswordChangeState.user;
+
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'change_password', userId: targetUser.id, newPassword: newPass })
+          });
+          const data = await resp.json();
+          if (data && data.ok && data.user) {
+            finalizeForcedLogin(data.user, data.users || pendingPasswordChangeState.usersList, pendingPasswordChangeState.histList);
+            return;
+          } else {
+            errBox.innerText = (data && data.error) ? data.error : 'No se pudo actualizar la contraseña.';
+            errBox.classList.remove('hidden');
+            return;
+          }
+        } catch (err) {
+          console.warn('Error API change_password:', err);
+        }
+      }
+
+      // Fallback local
+      targetUser.password = newPass;
+      targetUser.mustChangePassword = false;
+      const localIdx = appUsers.findIndex(u => u.id === targetUser.id);
+      if (localIdx !== -1) appUsers[localIdx] = targetUser;
+      saveAuthState();
+      finalizeForcedLogin(targetUser, appUsers, pendingPasswordChangeState.histList);
+    }
+
+    function finalizeForcedLogin(user, usersList, histList) {
+      const remember = pendingPasswordChangeState ? pendingPasswordChangeState.remember : false;
+      pendingPasswordChangeState = null;
+      document.getElementById('forcePasswordChangeModal').classList.add('hidden');
+
+      if (Array.isArray(usersList)) {
+        appUsers = usersList;
+        localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+      }
+      if (Array.isArray(histList)) {
+        consultationHistory = histList;
+        localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
+      }
+
+      currentUserId = user.id;
+      sessionStorage.setItem('calc_legal_session_active_id', user.id);
+      if (remember) localStorage.setItem('calc_legal_session_active_id', user.id);
+      localStorage.setItem('calc_legal_current_user_id_v2', currentUserId);
+
+      const gateEl = document.getElementById('appLoginGate');
+      const appEl = document.getElementById('mainAppWrapper');
+      if (gateEl) { gateEl.classList.add('hidden'); gateEl.style.display = 'none'; }
+      if (appEl) { appEl.classList.remove('hidden'); appEl.style.display = 'flex'; }
+
+      renderAuthUI();
+      showToast('Contraseña actualizada. Bienvenido(a), ' + user.name + '.', 'success');
+      lucide.createIcons();
+    }
+
+    async function handleGateRegisterSubmit(e) {
+      if (e) e.preventDefault();
+      const name = document.getElementById('regFullName').value.trim();
+      const email = document.getElementById('regEmail').value.trim().toLowerCase();
+      const pass = document.getElementById('regPassword').value;
+      const passConf = document.getElementById('regPasswordConfirm').value;
+      const consent = document.getElementById('regLegalConsent').checked;
+      const errBox = document.getElementById('loginGateError');
+      const errText = document.getElementById('loginGateErrorText');
+
+      if (errBox) errBox.classList.add('hidden');
+
+      if (!consent) {
+        errText.innerText = 'Debes aceptar la Política de Privacidad y los Términos de Uso.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (pass !== passConf) {
+        errText.innerText = 'Las contraseñas ingresadas no coinciden.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      const provider = email.includes('@gmail.') ? 'google' : (/@(outlook|hotmail|live|msn)\./.test(email) ? 'microsoft' : 'local');
+
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'register', name, email, password: pass, provider })
+          });
+          const data = await resp.json();
+          if (data && data.ok && data.user) {
+            finalizeSocialOrRegisterLogin(data.user, data.users, data.history);
+            return;
+          } else {
+            errText.innerText = (data && data.error) ? data.error : 'No fue posible registrar la cuenta.';
+            errBox.classList.remove('hidden');
+            return;
+          }
+        } catch (err) {
+          console.warn('Register fallback:', err);
+        }
+      }
+
+      if (appUsers.some(u => u.username.toLowerCase() === email)) {
+        errText.innerText = 'Este correo ya está registrado.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      const newUser = {
+        id: 'usr_' + Date.now(),
+        name,
+        username: email,
+        email,
+        password: pass,
+        role: 'user',
+        tokens: 3,
+        usedTokens: 0,
+        mustChangePassword: false,
+        authProvider: provider,
+        createdAt: new Date().toISOString().split('T')[0],
+        status: 'active',
+        notes: 'Auto-registro'
+      };
+      appUsers.push(newUser);
+      saveAuthState();
+      finalizeSocialOrRegisterLogin(newUser, appUsers, []);
+    }
+
+    function startSocialAuth(provider) {
+      if (provider === 'google' && platformOAuthConfig.googleClientId && window.google && google.accounts) {
+        google.accounts.id.initialize({
+          client_id: platformOAuthConfig.googleClientId,
+          callback: async (resp) => {
+            try {
+              const payload = JSON.parse(atob(resp.credential.split('.')[1]));
+              await oauthLoginOrRegister(payload.name || payload.email, payload.email, 'google');
+            } catch (e) { showToast('Error procesando respuesta de Google.', 'error'); }
+          }
+        });
+        google.accounts.id.prompt();
+        return;
+      }
+
+      if (provider === 'microsoft' && platformOAuthConfig.microsoftClientId && window.msal) {
+        const msalInstance = new msal.PublicClientApplication({
+          auth: { clientId: platformOAuthConfig.microsoftClientId, redirectUri: window.location.origin + window.location.pathname }
+        });
+        msalInstance.loginPopup({ scopes: ['user.read'] }).then(async (res) => {
+          const acc = res.account;
+          if (acc) await oauthLoginOrRegister(acc.name || acc.username, acc.username, 'microsoft');
+        }).catch(() => showToast('Inicio de sesión con Microsoft cancelado.', 'info'));
+        return;
+      }
+
+      // Modal limpio y directo para registro/acceso con correo Google o Microsoft
+      document.getElementById('socialProviderInput').value = provider;
+      document.getElementById('socialModalTitle').innerText = provider === 'google'
+        ? 'Continuar con Correo de Google'
+        : 'Continuar con Correo de Microsoft';
+      document.getElementById('socialModalSubtitle').innerText = provider === 'google'
+        ? 'Ingresa tu nombre y tu correo de Google (@gmail.com o Google Workspace) para registrarte o ingresar automáticamente con 3 tokens de bienvenida.'
+        : 'Ingresa tu nombre y tu correo de Microsoft (@outlook.com, @hotmail.com, @live.com o corporativo) para registrarte o ingresar automáticamente con 3 tokens de bienvenida.';
+      document.getElementById('socialEmailInput').placeholder = provider === 'google' ? 'usuario@gmail.com' : 'usuario@outlook.com';
+      document.getElementById('socialModalError').classList.add('hidden');
+      document.getElementById('socialEmailModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    async function handleSocialEmailSubmit(e) {
+      if (e) e.preventDefault();
+      const provider = document.getElementById('socialProviderInput').value;
+      const name = document.getElementById('socialNameInput').value.trim();
+      const email = document.getElementById('socialEmailInput').value.trim().toLowerCase();
+      const consent = document.getElementById('socialLegalConsent').checked;
+      const errBox = document.getElementById('socialModalError');
+
+      if (!consent) {
+        errBox.innerText = 'Debes aceptar la Política de Privacidad y los Términos de Uso.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      if (!email.includes('@')) {
+        errBox.innerText = 'Ingresa un correo electrónico válido.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      await oauthLoginOrRegister(name, email, provider);
+    }
+
+    async function oauthLoginOrRegister(name, email, provider) {
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'oauth_login_or_register', name, email, provider })
+          });
+          const data = await resp.json();
+          if (data && data.ok && data.user) {
+            document.getElementById('socialEmailModal').classList.add('hidden');
+            finalizeSocialOrRegisterLogin(data.user, data.users, data.history);
+            return;
+          } else {
+            const errBox = document.getElementById('socialModalError');
+            if (errBox) {
+              errBox.innerText = (data && data.error) ? data.error : 'Error en autenticación.';
+              errBox.classList.remove('hidden');
+            }
+            return;
+          }
+        } catch (err) {
+          console.warn('OAuth fallback:', err);
+        }
+      }
+
+      let user = appUsers.find(u => u.username.toLowerCase() === email);
+      if (!user) {
+        user = {
+          id: 'usr_' + Date.now(),
+          name,
+          username: email,
+          email,
+          password: Math.random().toString(36).slice(-8),
+          role: 'user',
+          tokens: 3,
+          usedTokens: 0,
+          mustChangePassword: false,
+          authProvider: provider,
+          createdAt: new Date().toISOString().split('T')[0],
+          status: 'active',
+          notes: 'Registro ' + provider.toUpperCase()
+        };
+        appUsers.push(user);
+        saveAuthState();
+      }
+      document.getElementById('socialEmailModal').classList.add('hidden');
+      finalizeSocialOrRegisterLogin(user, appUsers, []);
+    }
+
+    function finalizeSocialOrRegisterLogin(user, usersList, histList) {
+      if (Array.isArray(usersList)) {
+        appUsers = usersList;
+        localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+      }
+      if (Array.isArray(histList)) {
+        consultationHistory = histList;
+        localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
+      }
+      currentUserId = user.id;
+      sessionStorage.setItem('calc_legal_session_active_id', user.id);
+      localStorage.setItem('calc_legal_current_user_id_v2', currentUserId);
+
+      const gateEl = document.getElementById('appLoginGate');
+      const appEl = document.getElementById('mainAppWrapper');
+      if (gateEl) { gateEl.classList.add('hidden'); gateEl.style.display = 'none'; }
+      if (appEl) { appEl.classList.remove('hidden'); appEl.style.display = 'flex'; }
+
+      renderAuthUI();
+      showToast('Bienvenido(a), ' + user.name + '. Acceso habilitado.', 'success');
+      lucide.createIcons();
+    }
+
   </script>
 
   <!-- ========================================================================= -->
@@ -9712,6 +10155,88 @@ T.P. No. ${apoderadoTp}`;
   </div> <!-- Fin #mainAppWrapper -->
 
   <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- MODAL OBLIGATORIO: CAMBIO DE CONTRASEÑA EN PRIMER INGRESO                 -->
+  <!-- ========================================================================= -->
+  <div id="forcePasswordChangeModal" role="dialog" aria-modal="true" aria-labelledby="forcePassTitle" class="fixed inset-0 bg-[#070b14]/90 z-[80] hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-300 space-y-5">
+      <div class="space-y-1.5 border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2 text-[#0F1D32]">
+          <i data-lucide="key-round" class="w-5 h-5 text-[#9A6E23]"></i>
+          <h3 id="forcePassTitle" class="text-base font-bold font-serif-legal">Cambio Obligatorio de Contraseña</h3>
+        </div>
+        <p class="text-xs text-[#4B5563]">
+          Por seguridad, debes establecer una contraseña personal nueva antes de ingresar por primera vez a la Suite.
+        </p>
+      </div>
+
+      <div id="forcePassError" role="alert" class="hidden bg-red-50 border border-red-300 text-red-900 text-xs p-3 rounded-lg font-medium"></div>
+
+      <form onsubmit="handleForcePasswordChangeSubmit(event)" class="space-y-4">
+        <div>
+          <label for="forceNewPassword" class="block text-xs font-semibold text-[#111827] mb-1">Nueva Contraseña (mínimo 6 caracteres)</label>
+          <input type="password" id="forceNewPassword" required minlength="6" autocomplete="new-password" placeholder="Ingresa tu nueva contraseña"
+                 class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-[#111827] font-mono">
+        </div>
+        <div>
+          <label for="forceConfirmPassword" class="block text-xs font-semibold text-[#111827] mb-1">Confirmar Nueva Contraseña</label>
+          <input type="password" id="forceConfirmPassword" required minlength="6" autocomplete="new-password" placeholder="Repite tu nueva contraseña"
+                 class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-[#111827] font-mono">
+        </div>
+        <div class="flex items-center justify-between gap-2 pt-2">
+          <button type="button" onclick="cancelForcePasswordChange()" class="px-3 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 cursor-pointer">
+            Cancelar y Salir
+          </button>
+          <button type="submit" class="px-5 py-2.5 rounded-lg bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold text-xs shadow-sm cursor-pointer">
+            Guardar Contraseña e Ingresar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL REGISTRO/ACCESO CON CORREO GOOGLE O MICROSOFT                       -->
+  <!-- ========================================================================= -->
+  <div id="socialEmailModal" role="dialog" aria-modal="true" aria-labelledby="socialModalTitle" class="fixed inset-0 bg-black/70 z-[75] hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl border border-slate-300 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <h3 id="socialModalTitle" class="text-sm font-bold text-[#0F1D32]">Acceso con Correo Google / Microsoft</h3>
+        <button type="button" onclick="document.getElementById('socialEmailModal').classList.add('hidden')" class="text-slate-400 hover:text-slate-700 cursor-pointer" aria-label="Cerrar">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <p id="socialModalSubtitle" class="text-xs text-[#4B5563] leading-relaxed"></p>
+      <div id="socialModalError" role="alert" class="hidden bg-red-50 border border-red-300 text-red-900 text-xs p-3 rounded-lg font-medium"></div>
+
+      <form onsubmit="handleSocialEmailSubmit(event)" class="space-y-3">
+        <input type="hidden" id="socialProviderInput" value="google">
+        <div>
+          <label for="socialNameInput" class="block text-xs font-semibold text-[#111827] mb-1">Nombre Completo</label>
+          <input type="text" id="socialNameInput" required placeholder="Tu nombre completo"
+                 class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827]">
+        </div>
+        <div>
+          <label for="socialEmailInput" class="block text-xs font-semibold text-[#111827] mb-1">Correo Electrónico</label>
+          <input type="email" id="socialEmailInput" required placeholder="correo@gmail.com / @outlook.com"
+                 class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827]">
+        </div>
+        <label class="flex items-start gap-2 cursor-pointer select-none pt-1">
+          <input type="checkbox" id="socialLegalConsent" required class="mt-0.5 rounded border-slate-400 text-[#0F1D32] cursor-pointer">
+          <span class="text-[11px] text-[#4B5563] leading-snug">
+            Acepto la <button type="button" onclick="openLegalModal('privacy')" class="underline font-semibold text-[#0F1D32] cursor-pointer">Política de Privacidad</button> y los <button type="button" onclick="openLegalModal('terms')" class="underline font-semibold text-[#0F1D32] cursor-pointer">Términos de Uso</button>.
+          </span>
+        </label>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="document.getElementById('socialEmailModal').classList.add('hidden')" class="px-3 py-2 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold cursor-pointer">Cancelar</button>
+          <button type="submit" class="px-4 py-2 bg-[#0F1D32] hover:bg-[#1B365D] text-white rounded-lg text-xs font-bold cursor-pointer">Continuar y Acceder</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- MODAL DE POLÍTICAS LEGALES (/privacy, /terms, /cookies, /refunds, /data-deletion) -->
   <!-- ========================================================================= -->
   <div id="legalPolicyModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" class="fixed inset-0 bg-black/70 z-[70] hidden flex items-center justify-center p-4 no-print">
