@@ -198,6 +198,12 @@
           <i data-lucide="scale" class="w-4 h-4 text-amber-400"></i>
           <span>4. Perjuicios Forenses (Consejo de Estado)</span>
         </button>
+
+        <button id="btnModuleSeguros" onclick="switchSuiteModule('seguros')" 
+                class="px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 cursor-pointer">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+          <span>5. Seguros & Actuarial (Art. 1080 C.Co.)</span>
+        </button>
       </div>
 
       <!-- Indicadores Forenses 2026 -->
@@ -3980,6 +3986,34 @@ C.C. [NÚMERO]
   <!-- ========================================== -->
   <!-- MODAL: INICIO DE SESIÓN & CAMBIO RÁPIDO DE CUENTA -->
   <!-- ========================================== -->
+  
+  <!-- ========================================================================= -->
+  <!-- CONTENEDOR 5: MÓDULO CALCULADORA DE SEGUROS & ACTUARIAL (ART. 1080 C.CO.) -->
+  <!-- ========================================================================= -->
+  <div id="moduleSegurosContainer" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full space-y-4">
+    <div class="bg-slate-900 text-white rounded-2xl p-4 border border-slate-800 flex flex-wrap items-center justify-between gap-3 shadow-md">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+          <i data-lucide="shield-check" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="text-sm sm:text-base font-bold text-white">Calculadora Pericial de Seguros, Pólizas & Mora Art. 1080 C.Co.</h2>
+          <p class="text-[11px] text-slate-400">Tasación actuarial completa, límites de cobertura de pólizas, tablas de vida probable SFC y dictamen formal.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="registrarConsultaSegurosConToken()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-md flex items-center gap-2 cursor-pointer transition">
+          <i data-lucide="file-check" class="w-4 h-4"></i>
+          <span>Registrar Dictamen de Seguros (1 Token)</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-slate-950">
+      <iframe id="iframeSeguros" src="seguros_app.html" title="Calculadora Pericial de Seguros Colombia" class="w-full min-h-[860px] border-0"></iframe>
+    </div>
+  </div>
+
   <div id="loginModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
     <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
       
@@ -4904,9 +4938,47 @@ C.C. [NÚMERO]
         localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
         localStorage.setItem('calc_legal_current_user_id_v2', currentUserId);
         localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
+        syncUsersToServer();
       } catch (e) {
         console.error('Error guardando estado auth:', e);
       }
+    }
+
+    function syncUsersToServer() {
+      if (!window.location.protocol.startsWith('http')) return;
+      const current = getCurrentUser();
+      if (!current || (current.role !== 'superadmin' && current.role !== 'admin')) return;
+      fetch('api_auth.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'save_users',
+          adminId: current.id,
+          users: appUsers
+        })
+      }).catch(err => console.warn('Sync users warning:', err));
+    }
+
+    function syncTokenConsumptionToServer(user, historyItem) {
+      if (!window.location.protocol.startsWith('http') || !user) return;
+      fetch('api_auth.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'consume_token',
+          userId: user.id,
+          historyItem: historyItem
+        })
+      }).then(r => r.json()).then(data => {
+        if (data && data.ok && data.user) {
+          const idx = appUsers.findIndex(u => u.id === data.user.id);
+          if (idx !== -1) appUsers[idx] = data.user;
+          if (Array.isArray(data.history)) consultationHistory = data.history;
+          localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+          localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
+          renderAuthUI();
+        }
+      }).catch(err => console.warn('Sync token warning:', err));
     }
 
     function getCurrentUser() {
@@ -5158,6 +5230,7 @@ C.C. [NÚMERO]
         consultationHistory = consultationHistory.slice(0, 50);
       }
       saveAuthState();
+      syncTokenConsumptionToServer(user, consultationHistory[0]);
 
       // Ejecutar motor de cálculo actuarial
       calcularTodo();
@@ -5740,14 +5813,16 @@ C.C. [NÚMERO]
         pension: document.getElementById('modulePensionContainer'),
         alimentos: document.getElementById('moduleAlimentosContainer'),
         creditos: document.getElementById('moduleCreditosContainer'),
-        perjuicios: document.getElementById('modulePerjuiciosContainer')
+        perjuicios: document.getElementById('modulePerjuiciosContainer'),
+        seguros: document.getElementById('moduleSegurosContainer')
       };
 
       const buttons = {
         pension: document.getElementById('btnModulePension'),
         alimentos: document.getElementById('btnModuleAlimentos'),
         creditos: document.getElementById('btnModuleCreditos'),
-        perjuicios: document.getElementById('btnModulePerjuicios')
+        perjuicios: document.getElementById('btnModulePerjuicios'),
+        seguros: document.getElementById('btnModuleSeguros')
       };
 
       const headerTitle = document.getElementById('suiteHeaderTitle');
@@ -5765,7 +5840,8 @@ C.C. [NÚMERO]
         pension: 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white ring-2 ring-blue-400/40 shadow-md',
         alimentos: 'bg-gradient-to-r from-pink-600 to-rose-600 text-white ring-2 ring-pink-400/40 shadow-md',
         creditos: 'bg-gradient-to-r from-sky-600 to-cyan-600 text-white ring-2 ring-sky-400/40 shadow-md',
-        perjuicios: 'bg-gradient-to-r from-amber-600 to-orange-600 text-white ring-2 ring-amber-400/40 shadow-md'
+        perjuicios: 'bg-gradient-to-r from-amber-600 to-orange-600 text-white ring-2 ring-amber-400/40 shadow-md',
+        seguros: 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white ring-2 ring-emerald-400/40 shadow-md'
       };
 
       const inactiveClass = 'text-slate-300 hover:text-white hover:bg-slate-800/80 border border-slate-700/60 shadow-xs';
@@ -5803,6 +5879,10 @@ C.C. [NÚMERO]
         if (guiaJurisText) guiaJurisText.innerText = 'Baremos & Jurisprudencia';
         if (typeof cambiarPestana === 'function') cambiarPestana('perj-tab-liquidador');
         if (typeof actualizarCalculos === 'function') actualizarCalculos();
+      } else if (moduleId === 'seguros') {
+        if (headerTitle) headerTitle.innerText = 'Calculadora Pericial de Seguros, Pólizas & Indemnizaciones';
+        if (headerSubtitle) headerSubtitle.innerText = 'Art. 1080 C.Co. • Límite de Póliza • Tablas Actuariales SFC • CSJ & Consejo de Estado';
+        if (guiaJurisText) guiaJurisText.innerText = 'Módulo Actuarial';
       }
 
       renderAuthUI();
@@ -5892,6 +5972,7 @@ C.C. [NÚMERO]
         consultationHistory = consultationHistory.slice(0, 50);
       }
       saveAuthState();
+      syncTokenConsumptionToServer(user, consultationHistory[0]);
 
       if (subTipo === 'liquidador') {
         if (typeof calcularLiquidacionEjecutiva === 'function') calcularLiquidacionEjecutiva();
@@ -6759,32 +6840,61 @@ C.C. No. __________________
 
       const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
 
+      if (activeId && window.location.protocol.startsWith('http')) {
+        fetch('api_auth.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'get_session', userId: activeId })
+        })
+        .then(r => r.json())
+        .then(data => {
+          if (data && data.ok && data.user) {
+            if (Array.isArray(data.users)) {
+              appUsers = data.users;
+              localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+            }
+            if (Array.isArray(data.history)) {
+              consultationHistory = data.history;
+              localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
+            }
+            currentUserId = data.user.id;
+            if (gateEl) { gateEl.classList.add('hidden'); gateEl.style.display = 'none'; }
+            if (appEl) { appEl.classList.remove('hidden'); appEl.style.display = 'flex'; }
+            renderAuthUI();
+          } else {
+            cerrarSesion(true);
+          }
+          lucide.createIcons();
+        })
+        .catch(() => {
+          // Fallback local si no hay PHP
+          if (appUsers.some(u => u.id === activeId)) {
+            currentUserId = activeId;
+            if (gateEl) { gateEl.classList.add('hidden'); gateEl.style.display = 'none'; }
+            if (appEl) { appEl.classList.remove('hidden'); appEl.style.display = 'flex'; }
+            renderAuthUI();
+          } else {
+            cerrarSesion(true);
+          }
+          lucide.createIcons();
+        });
+        return;
+      }
+
       if (activeId && appUsers.some(u => u.id === activeId)) {
         currentUserId = activeId;
-        if (gateEl) {
-          gateEl.classList.add('hidden');
-          gateEl.style.display = 'none';
-        }
-        if (appEl) {
-          appEl.classList.remove('hidden');
-          appEl.style.display = 'flex';
-        }
+        if (gateEl) { gateEl.classList.add('hidden'); gateEl.style.display = 'none'; }
+        if (appEl) { appEl.classList.remove('hidden'); appEl.style.display = 'flex'; }
         renderAuthUI();
       } else {
         currentUserId = null;
-        if (gateEl) {
-          gateEl.classList.remove('hidden');
-          gateEl.style.display = 'flex';
-        }
-        if (appEl) {
-          appEl.classList.add('hidden');
-          appEl.style.display = 'none';
-        }
+        if (gateEl) { gateEl.classList.remove('hidden'); gateEl.style.display = 'flex'; }
+        if (appEl) { appEl.classList.add('hidden'); appEl.style.display = 'none'; }
       }
       lucide.createIcons();
     }
 
-    function cerrarSesion() {
+    function cerrarSesion(silent = false) {
       sessionStorage.removeItem('calc_legal_session_active_id');
       localStorage.removeItem('calc_legal_session_active_id');
       currentUserId = null;
@@ -6792,35 +6902,83 @@ C.C. No. __________________
       const gateEl = document.getElementById('appLoginGate');
       const appEl = document.getElementById('mainAppWrapper');
 
-      if (appEl) {
-        appEl.classList.add('hidden');
-        appEl.style.display = 'none';
-      }
-      if (gateEl) {
-        gateEl.classList.remove('hidden');
-        gateEl.style.display = 'flex';
-      }
+      if (appEl) { appEl.classList.add('hidden'); appEl.style.display = 'none'; }
+      if (gateEl) { gateEl.classList.remove('hidden'); gateEl.style.display = 'flex'; }
 
-      // Limpiar campos del login
       const passIn = document.getElementById('gateLoginPassword');
       if (passIn) passIn.value = '';
       const errBox = document.getElementById('loginGateError');
       if (errBox) errBox.classList.add('hidden');
 
-      showToast('🔒 Sesión cerrada correctamente.', 'info');
+      if (!silent) showToast('🔒 Sesión cerrada correctamente.', 'info');
       lucide.createIcons();
     }
 
-    function handleGateLoginSubmit(e) {
+    async function handleGateLoginSubmit(e) {
       if (e) e.preventDefault();
       const usernameInput = (document.getElementById('gateLoginUsername').value || '').trim();
       const passwordInput = document.getElementById('gateLoginPassword').value || '';
       const remember = document.getElementById('gateRememberMe') ? document.getElementById('gateRememberMe').checked : true;
       const errBox = document.getElementById('loginGateError');
       const errText = document.getElementById('loginGateErrorText');
+      const btnSubmit = document.getElementById('btnGateSubmit');
 
       if (errBox) errBox.classList.add('hidden');
 
+      const completeLogin = (user, usersList, histList) => {
+        if (Array.isArray(usersList)) {
+          appUsers = usersList;
+          localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+        }
+        if (Array.isArray(histList)) {
+          consultationHistory = histList;
+          localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
+        }
+        currentUserId = user.id;
+        sessionStorage.setItem('calc_legal_session_active_id', user.id);
+        if (remember) {
+          localStorage.setItem('calc_legal_session_active_id', user.id);
+        } else {
+          localStorage.removeItem('calc_legal_session_active_id');
+        }
+        localStorage.setItem('calc_legal_current_user_id_v2', currentUserId);
+
+        const gateEl = document.getElementById('appLoginGate');
+        const appEl = document.getElementById('mainAppWrapper');
+        if (gateEl) { gateEl.classList.add('hidden'); gateEl.style.display = 'none'; }
+        if (appEl) { appEl.classList.remove('hidden'); appEl.style.display = 'flex'; }
+
+        renderAuthUI();
+        showToast('Bienvenido, ' + user.name + '. Sesión autorizada.', 'success');
+        lucide.createIcons();
+      };
+
+      if (window.location.protocol.startsWith('http')) {
+        if (btnSubmit) btnSubmit.disabled = true;
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'login', username: usernameInput, password: passwordInput })
+          });
+          const data = await resp.json();
+          if (btnSubmit) btnSubmit.disabled = false;
+          if (data && data.ok && data.user) {
+            completeLogin(data.user, data.users, data.history);
+            return;
+          } else {
+            const msg = (data && data.error) ? data.error : 'Usuario o contraseña incorrectos.';
+            if (errBox && errText) { errText.innerText = msg; errBox.classList.remove('hidden'); }
+            showToast('⚠️ ' + msg, 'error');
+            return;
+          }
+        } catch (err) {
+          if (btnSubmit) btnSubmit.disabled = false;
+          console.warn('API auth fallback to local:', err);
+        }
+      }
+
+      // Fallback local (file:// o sin PHP)
       const user = appUsers.find(u => 
         (u.username && u.username.toLowerCase() === usernameInput.toLowerCase()) || 
         (u.name && u.name.toLowerCase() === usernameInput.toLowerCase()) ||
@@ -6836,14 +6994,13 @@ C.C. No. __________________
         return;
       }
 
-      // Validar contraseñas configuradas
       let passValida = false;
       if (user.username === 'israel' || user.id === 'usr_israel') {
         passValida = (passwordInput === 'DDuarte2004*');
       } else if (user.username === 'jcarlos' || user.id === 'usr_jcarlos') {
         passValida = (passwordInput === 'JC123');
       } else {
-        passValida = (user.password === passwordInput || passwordInput === '123');
+        passValida = (user.password === passwordInput);
       }
 
       if (!passValida) {
@@ -6855,32 +7012,7 @@ C.C. No. __________________
         return;
       }
 
-      // Autenticación Exitosa
-      currentUserId = user.id;
-      sessionStorage.setItem('calc_legal_session_active_id', user.id);
-      if (remember) {
-        localStorage.setItem('calc_legal_session_active_id', user.id);
-      } else {
-        localStorage.removeItem('calc_legal_session_active_id');
-      }
-
-      saveAuthState();
-
-      const gateEl = document.getElementById('appLoginGate');
-      const appEl = document.getElementById('mainAppWrapper');
-
-      if (gateEl) {
-        gateEl.classList.add('hidden');
-        gateEl.style.display = 'none';
-      }
-      if (appEl) {
-        appEl.classList.remove('hidden');
-        appEl.style.display = 'flex';
-      }
-
-      renderAuthUI();
-      showToast('Bienvenido, ' + user.name + '. Sesión autorizada.', 'success');
-      lucide.createIcons();
+      completeLogin(user, null, null);
     }
 
     function toggleGatePasswordVisibility() {
@@ -6895,6 +7027,40 @@ C.C. No. __________________
         if (eyeIcon) eyeIcon.setAttribute('data-lucide', 'eye');
       }
       lucide.createIcons();
+    }
+
+    function registrarConsultaSegurosConToken() {
+      const user = getCurrentUser();
+      if (!user) return;
+      if (user.tokens !== 'unlimited') {
+        const numTokens = parseInt(user.tokens, 10) || 0;
+        if (numTokens <= 0) {
+          showToast('⚠️ No tienes consultas disponibles. Solicita recarga a Israel.', 'error');
+          return;
+        }
+        user.tokens = numTokens - 1;
+        user.usedTokens = (user.usedTokens || 0) + 1;
+        showToast(`✅ Dictamen de Seguros registrado. Te restan ${user.tokens} tokens.`, 'success');
+      } else {
+        user.usedTokens = (user.usedTokens || 0) + 1;
+        showToast('✅ Dictamen de Seguros registrado (Acceso Ilimitado).', 'success');
+      }
+      const histItem = {
+        id: 'cons_' + Date.now(),
+        userName: user.name,
+        userRole: user.role,
+        timestamp: new Date().toLocaleString('es-CO', { dateStyle: 'short', timeStyle: 'short' }),
+        salario: 'Póliza / Indemnización',
+        semanas: 'Seguros: Art. 1080 C.Co.',
+        genero: 'Actuarial',
+        edad: 'Civil / Seguros'
+      };
+      consultationHistory.unshift(histItem);
+      if (consultationHistory.length > 50) consultationHistory = consultationHistory.slice(0, 50);
+      localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+      localStorage.setItem('calc_legal_history_v2', JSON.stringify(consultationHistory));
+      renderAuthUI();
+      syncTokenConsumptionToServer(user, histItem);
     }
 
     // =========================================================================
@@ -6933,6 +7099,7 @@ C.C. No. __________________
       });
       if (consultationHistory.length > 50) consultationHistory = consultationHistory.slice(0, 50);
       saveAuthState();
+      syncTokenConsumptionToServer(user, consultationHistory[0]);
 
       if (typeof calcularLiquidacion === 'function') calcularLiquidacion();
     }
@@ -6970,6 +7137,7 @@ C.C. No. __________________
       });
       if (consultationHistory.length > 50) consultationHistory = consultationHistory.slice(0, 50);
       saveAuthState();
+      syncTokenConsumptionToServer(user, consultationHistory[0]);
 
       if (typeof actualizarCalculos === 'function') actualizarCalculos();
     }

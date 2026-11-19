@@ -6,7 +6,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Dependencias node
+# Dependencias node y builds
 node_modules/
 **/node_modules/
 package-lock.json
+calculadora_seguros/dist/
+data_suite_juridica.json
