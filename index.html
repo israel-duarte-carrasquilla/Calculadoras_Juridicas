@@ -4274,13 +4274,18 @@ C.C. [NÚMERO]
           </select>
         </div>
 
-        <div class="pt-2 border-t border-slate-100 flex justify-end gap-2">
-          <button type="button" onclick="closeEditUserModal()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-lg">
+        <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+          <button type="button" onclick="copyUserInvitation(document.getElementById('editUserId').value)" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-[#0F1D32] border border-slate-300 font-bold rounded-lg flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Invitación
+          </button>
+          <div class="flex items-center gap-2 ml-auto">
+          <button type="button" onclick="closeEditUserModal()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-lg cursor-pointer">
             Cancelar
           </button>
-          <button type="submit" class="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-sm">
+          <button type="submit" class="px-4 py-1.5 bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold rounded-lg shadow-sm cursor-pointer">
             Guardar Cambios
           </button>
+          </div>
         </div>
       </form>
     </div>
@@ -5457,7 +5462,16 @@ C.C. [NÚMERO]
               </div>
 
               <!-- Acciones Secundarias: Probar, Editar, Eliminar -->
-              <div class="flex items-center gap-1.5 ml-auto">
+              <div class="flex items-center gap-1.5 ml-auto flex-wrap">
+                <button type="button" onclick="copyUserInvitation('${u.id}')" title="Copiar invitación para WhatsApp o Correo" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-[#0F1D32] border border-slate-300 rounded-lg font-bold text-xs flex items-center gap-1 transition cursor-pointer">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Invitación
+                </button>
+                <button type="button" onclick="sendUserInvitationWhatsApp('${u.id}')" title="Enviar por WhatsApp" class="p-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-lg transition cursor-pointer">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                </button>
+                <button type="button" onclick="sendUserInvitationEmail('${u.id}')" title="Enviar por Correo" class="p-1.5 bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 rounded-lg transition cursor-pointer">
+                  <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                </button>
                 ${!isCurrent ? `
                   <button onclick="switchUser('${u.id}')" title="Iniciar sesión como este usuario" class="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-lg font-bold text-xs flex items-center gap-1 transition">
                     <i data-lucide="log-in" class="w-3.5 h-3.5"></i> Probar Cuenta
@@ -5609,8 +5623,9 @@ C.C. [NÚMERO]
       document.getElementById('newUserTokens').disabled = false;
       document.getElementById('newUserTokens').value = 10;
 
-      // Volver a la lista
+      // Volver a la lista y mostrar tarjeta de invitación lista para copiar/enviar
       renderUserManagementTab('list');
+      showLatestInvitationBanner(newUser);
     }
 
     // Editar Usuario
@@ -9473,7 +9488,7 @@ T.P. No. ${apoderadoTp}`;
         route: '/privacy',
         html: `
           <h4 class="font-bold text-sm text-[#0F1D32]">1. Responsable del Tratamiento</h4>
-          <p>El responsable del tratamiento de los datos de acceso en <strong>Suite Jurídica Colombia</strong> es Israel Duarte Carrasquilla, con correo de contacto oficial <a href="mailto:israel.duarte.carrasquilla@gmail.com" class="underline font-semibold">israel.duarte.carrasquilla@gmail.com</a>.</p>
+          <p>El responsable del tratamiento de los datos de acceso en <strong>Suite Jurídica Colombia</strong> es Israel Duarte Carrasquilla, con correo de contacto oficial <a href="mailto:webmaster@solutiontech.lat" class="underline font-semibold">webmaster@solutiontech.lat</a>.</p>
           <h4 class="font-bold text-sm text-[#0F1D32]">2. Minimización de Datos y Finalidad</h4>
           <p>En cumplimiento de la <strong>Ley Estatutaria 1581 de 2012</strong>, el Decreto 1377 de 2013 y los estándares internacionales GDPR, la plataforma recopila exclusivamente los datos mínimos necesarios: identificador de usuario, rol operativo, saldo de tokens y registro cronológico de cálculos ejecutados para auditoría interna. <strong>No almacenamos historias clínicas, expedientes judiciales completos ni datos sensibles de menores</strong> ingresados en las calculadoras; dichos cálculos se procesan localmente en tu navegador.</p>
           <h4 class="font-bold text-sm text-[#0F1D32]">3. Derechos ARCO del Titular</h4>
@@ -9526,7 +9541,7 @@ T.P. No. ${apoderadoTp}`;
         route: '/data-deletion',
         html: `
           <h4 class="font-bold text-sm text-[#0F1D32]">1. Solicitud de Supresión Definitiva</h4>
-          <p>En cualquier momento puedes solicitar la eliminación permanente de tu cuenta de usuario, credenciales y registro de actividad enviando un correo a <a href="mailto:israel.duarte.carrasquilla@gmail.com?subject=Solicitud%20Eliminacion%20de%20Datos" class="underline font-semibold">israel.duarte.carrasquilla@gmail.com</a> indicando tu nombre de usuario. La supresión se ejecutará en un plazo máximo de 15 días hábiles conforme a la Ley 1581 de 2012.</p>
+          <p>En cualquier momento puedes solicitar la eliminación permanente de tu cuenta de usuario, credenciales y registro de actividad enviando un correo a <a href="mailto:webmaster@solutiontech.lat?subject=Solicitud%20Eliminacion%20de%20Datos" class="underline font-semibold">webmaster@solutiontech.lat</a> indicando tu nombre de usuario. La supresión se ejecutará en un plazo máximo de 15 días hábiles conforme a la Ley 1581 de 2012.</p>
           <h4 class="font-bold text-sm text-[#0F1D32]">2. Limpieza Inmediata de Datos Locales</h4>
           <p>Si deseas borrar ahora mismo los datos en caché almacenados en este navegador (preferencias, historial local y sesión), utiliza el siguiente botón:</p>
           <button type="button" onclick="borrarDatosLocalesNavegador()" class="mt-2 px-4 py-2 bg-red-700 hover:bg-red-800 text-white font-bold rounded-lg text-xs cursor-pointer">
@@ -9586,6 +9601,75 @@ T.P. No. ${apoderadoTp}`;
       }
     });
 
+  
+
+    // =========================================================================
+    // GENERADOR DE INVITACIONES (COPIAR / WHATSAPP / CORREO)
+    // =========================================================================
+    function buildUserInvitationText(user) {
+      const tokensText = user.tokens === 'unlimited' ? 'Consultas Ilimitadas' : `${user.tokens} tokens de consulta`;
+      const roleMap = { superadmin: 'Superadministrador', admin: 'Administrador', user: 'Consultor Forense' };
+      const roleLabel = roleMap[user.role] || 'Consultor';
+      return [
+        `🏛️ *INVITACIÓN DE ACCESO — SUITE JURÍDICA COLOMBIA*`,
+        ``,
+        `Hola *${user.name}*, se ha habilitado tu acceso a la plataforma de liquidación judicial y dictámenes periciales (Pensión, Alimentos & REDAM, Créditos CGP, Perjuicios y Seguros).`,
+        ``,
+        `🔗 *Enlace de acceso:* https://solutiontech.lat/Calculadoras_Legales/`,
+        `👤 *Usuario:* ${user.username}`,
+        `🔑 *Contraseña:* ${user.password}`,
+        `🛡️ *Perfil:* ${roleLabel}`,
+        `🪙 *Saldo asignado:* ${tokensText}`,
+        ``,
+        `📩 Soporte y contacto legal: webmaster@solutiontech.lat`
+      ].join('\n');
+    }
+
+    function copyUserInvitation(userId) {
+      const user = appUsers.find(u => u.id === userId);
+      if (!user) return;
+      const msg = buildUserInvitationText(user);
+      navigator.clipboard.writeText(msg).then(() => {
+        showToast(`📋 Invitación de ${user.name} copiada al portapapeles (lista para WhatsApp o Correo).`, 'success');
+      }).catch(() => {
+        prompt('Copia el siguiente mensaje de invitación:', msg);
+      });
+    }
+
+    function sendUserInvitationWhatsApp(userId) {
+      const user = appUsers.find(u => u.id === userId);
+      if (!user) return;
+      const msg = encodeURIComponent(buildUserInvitationText(user));
+      window.open(`https://wa.me/?text=${msg}`, '_blank', 'noopener,noreferrer');
+    }
+
+    function sendUserInvitationEmail(userId) {
+      const user = appUsers.find(u => u.id === userId);
+      if (!user) return;
+      const subject = encodeURIComponent('Acceso Autorizado — Suite Jurídica Colombia');
+      const body = encodeURIComponent(buildUserInvitationText(user).replace(/\*/g, ''));
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+
+    function showLatestInvitationBanner(user) {
+      const banner = document.getElementById('latestInvitationBanner');
+      const title = document.getElementById('latestInvitationTitle');
+      const preview = document.getElementById('latestInvitationPreview');
+      const btnCopy = document.getElementById('btnLatestInvCopy');
+      const btnWa = document.getElementById('btnLatestInvWa');
+      const btnMail = document.getElementById('btnLatestInvMail');
+      if (!banner || !preview) return;
+
+      if (title) title.innerText = `Invitación lista para ${user.name} (@${user.username})`;
+      preview.innerText = buildUserInvitationText(user);
+      if (btnCopy) btnCopy.onclick = () => copyUserInvitation(user.id);
+      if (btnWa) btnWa.onclick = () => sendUserInvitationWhatsApp(user.id);
+      if (btnMail) btnMail.onclick = () => sendUserInvitationEmail(user.id);
+
+      banner.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
   </script>
 
   <!-- ========================================================================= -->
@@ -9601,7 +9685,7 @@ T.P. No. ${apoderadoTp}`;
           </div>
           <p class="text-[11px] text-slate-400 leading-relaxed">
             Titular y Operador: Israel Duarte Carrasquilla — Plataforma Técnica de Cálculo Forense.<br>
-            Jurisdicción: República de Colombia • Contacto Legal y Habeas Data: <a href="mailto:israel.duarte.carrasquilla@gmail.com" class="underline text-slate-200 hover:text-white">israel.duarte.carrasquilla@gmail.com</a>
+            Jurisdicción: República de Colombia • Contacto Legal y Habeas Data: <a href="mailto:webmaster@solutiontech.lat" class="underline text-slate-200 hover:text-white">webmaster@solutiontech.lat</a>
           </p>
         </div>
 
