@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Forense de Perjuicios Colombia 2026 | Consejo de Estado & Corte Suprema de Justicia</title>
+  <script src="https://cdn.tailwindcss.com">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <script src="https://unpkg.com/lucide@latest">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif-legal {
+      font-family: 'Cinzel', serif;
+    }
+    .font-mono-math {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .tab-btn.active {
+      border-bottom: 3px solid #b45309;
+      color: #92400e;
+      font-weight: 700;
+      background-color: rgba(245, 158, 11, 0.08);
+    }
+    .dark .tab-btn.active {
+      border-bottom: 3px solid #f59e0b;
+      color: #fbbf24;
+      background-color: rgba(245, 158, 11, 0.15);
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 10.5pt !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
+        box-shadow: none !important;
+      }
+    }
+    .formula-card {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      color: #f8fafc;
+      border: 1px solid #334155;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 50%, #78350f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .badge-ce {
+      background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+      color: white;
+    }
+    .badge-csj {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- PORTAL DE ACCESO / LOGIN OBLIGATORIO                                      -->
+  <!-- ========================================================================= -->
+  <div id="appLoginGate" class="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-4 relative z-50">
+    <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center space-y-4">
+      <div class="inline-flex p-3 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-400/30">
+        <i data-lucide="scale" class="w-8 h-8"></i>
+      </div>
+      <h2 class="text-xl font-bold font-serif-legal">Acceso Protegido a la Suite</h2>
+      <p class="text-xs text-slate-400">Por favor inicia sesión en la Suite Jurídica para acceder a este módulo.</p>
+      <a href="index.html" class="block w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg transition">
+        Ir a la Suite Principal / Iniciar Sesión
+      </a>
+    </div>
+  </div>
+    
+  <div id="mainAppWrapper" class="hidden flex-1 flex flex-col">
+
+  <!-- Switcher Superior de Suite Legal de Colombia -->
+  <div class="bg-slate-950 text-slate-300 border-b border-slate-800 text-xs py-1.5 px-4 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-amber-400 font-extrabold flex items-center gap-1">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i> SUITE DE CALCULADORAS LEGALES DE COLOMBIA
+        </span>
+        <span class="text-slate-600 hidden md:inline">|</span>
+        <span class="text-slate-400 hidden md:inline">Vigencia 2026 - CSJ, Consejo de Estado & Superfinanciera</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="calculator" class="w-3 h-3 text-emerald-400"></i>
+          <span>Pensión (Ley 2381)</span>
+        </a>
+        <a href="calculadora_alimentos.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="heart-handshake" class="w-3 h-3 text-pink-400"></i>
+          <span>Alimentos (C.C. & REDAM)</span>
+        </a>
+        <a href="calculadora_perjuicios.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-amber-700 text-white font-bold transition-colors shadow-xs">
+          <i data-lucide="shield-alert" class="w-3 h-3 text-amber-200"></i>
+          <span>Perjuicios (CSJ & C.E.)</span>
+        </a>
+        <a href="calculadora_creditos.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="badge-dollar-sign" class="w-3 h-3 text-amber-300"></i>
+          <span>Créditos (CGP Art. 446)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA SUPERIOR INSTITUCIONAL -->
+  <header class="bg-slate-900 text-white border-b-2 border-amber-600 no-print sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap justify-between items-center gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="p-2 bg-gradient-to-br from-amber-500 to-amber-700 rounded-lg text-white shadow-md">
+          <i data-lucide="scale" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h1 class="font-serif-legal font-bold tracking-wide text-lg sm:text-xl text-amber-400 flex items-center gap-2">
+            CALCULADORA FORENSE DE PERJUCIOS
+            <span class="text-xs bg-amber-500/20 text-amber-300 font-sans px-2 py-0.5 rounded-full border border-amber-500/40">VIGENCIA 2026</span>
+          </h1>
+          <p class="text-xs text-slate-400">Reparación Integral • Consejo de Estado (Sec. Tercera) • Corte Suprema de Justicia (Casación Civil)</p>
+        </div>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-2 text-xs">
+        <div class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-md flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-slate-300">SMMLV 2026:</span>
+          <span class="font-bold text-emerald-400" id="headerSmmlv">$1.750.905 COP</span>
+        </div>
+        <button onclick="cargarCasoEjemplo('homicidio')" class="bg-amber-600 hover:bg-amber-700 text-white font-medium px-2.5 py-1.5 rounded flex items-center gap-1 transition">
+          <i data-lucide="folder-check" class="w-3.5 h-3.5"></i> Caso Muerte (Ejemplo)
+        </button>
+        <button onclick="cargarCasoEjemplo('lesiones')" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-2.5 py-1.5 rounded flex items-center gap-1 transition">
+          <i data-lucide="activity" class="w-3.5 h-3.5"></i> Caso Lesiones/PCL
+        </button>
+        <button onclick="window.print()" class="bg-slate-700 hover:bg-slate-600 text-white font-medium px-2.5 py-1.5 rounded flex items-center gap-1 transition">
+          <i data-lucide="printer" class="w-3.5 h-3.5"></i> Imprimir / PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN POR PESTAÑAS -->
+  <nav class="bg-white border-b border-slate-200 no-print shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex space-x-1 sm:space-x-4 overflow-x-auto py-1 text-sm font-medium">
+        <button onclick="cambiarPestana('tab-liquidador')" id="btn-tab-liquidador" class="tab-btn active px-4 py-3 rounded-t-lg flex items-center gap-2 transition whitespace-nowrap">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          1. Liquidador de Perjuicios
+        </button>
+        <button onclick="cambiarPestana('tab-demandantes')" id="btn-tab-demandantes" class="tab-btn px-4 py-3 rounded-t-lg flex items-center gap-2 transition whitespace-nowrap">
+          <i data-lucide="users" class="w-4 h-4"></i>
+          2. Víctimas y Beneficiarios (<span id="contadorBeneficiariosBadge">1</span>)
+        </button>
+        <button onclick="cambiarPestana('tab-formulas')" id="btn-tab-formulas" class="tab-btn px-4 py-3 rounded-t-lg flex items-center gap-2 transition whitespace-nowrap">
+          <i data-lucide="binary" class="w-4 h-4"></i>
+          3. Memorando Matemático y Actuarial
+        </button>
+        <button onclick="cambiarPestana('tab-juramento')" id="btn-tab-juramento" class="tab-btn px-4 py-3 rounded-t-lg flex items-center gap-2 transition whitespace-nowrap">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          4. Juramento Estimatorio (Art. 206 CGP)
+        </button>
+        <button onclick="cambiarPestana('tab-dictamen')" id="btn-tab-dictamen" class="tab-btn px-4 py-3 rounded-t-lg flex items-center gap-2 transition whitespace-nowrap">
+          <i data-lucide="award" class="w-4 h-4"></i>
+          5. Dictamen Pericial Forense
+        </button>
+        <button onclick="cambiarPestana('tab-baremos')" id="btn-tab-baremos" class="tab-btn px-4 py-3 rounded-t-lg flex items-center gap-2 transition whitespace-nowrap">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          6. Baremos y Jurisprudencia
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 py-6">
+
+    <!-- RESUMEN EJECUTIVO FLOTANTE / DASHBOARD SUPERIOR -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-white p-4 rounded-xl shadow-xs border border-slate-200 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-xs font-semibold uppercase tracking-wider">Perjuicios Materiales</span>
+          <i data-lucide="trending-up" class="w-4 h-4 text-blue-600"></i>
+        </div>
+        <div>
+          <div class="text-xl sm:text-2xl font-extrabold text-blue-700" id="cardPerjuiciosMateriales">$0 COP</div>
+          <div class="text-xs text-slate-500 flex justify-between mt-1">
+            <span>D. Emergente + Lucro Cesante</span>
+            <span class="font-semibold text-blue-600" id="cardPerjuiciosMaterialesSmmlv">0.00 SMLV</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow-xs border border-slate-200 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-xs font-semibold uppercase tracking-wider">Perjuicios Inmateriales</span>
+          <i data-lucide="heart-pulse" class="w-4 h-4 text-purple-600"></i>
+        </div>
+        <div>
+          <div class="text-xl sm:text-2xl font-extrabold text-purple-700" id="cardPerjuiciosInmateriales">$0 COP</div>
+          <div class="text-xs text-slate-500 flex justify-between mt-1">
+            <span>Morales + Salud + Bienes Prot.</span>
+            <span class="font-semibold text-purple-600" id="cardPerjuiciosInmaterialesSmmlv">0.00 SMLV</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-4 rounded-xl shadow-xs border border-slate-200 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-slate-500 mb-1">
+          <span class="text-xs font-semibold uppercase tracking-wider">Total Consolidado (Pasado)</span>
+          <i data-lucide="history" class="w-4 h-4 text-emerald-600"></i>
+        </div>
+        <div>
+          <div class="text-xl sm:text-2xl font-extrabold text-emerald-700" id="cardTotalConsolidado">$0 COP</div>
+          <div class="text-xs text-slate-500 flex justify-between mt-1">
+            <span>Devengado con Indexación</span>
+            <span class="font-semibold text-emerald-600" id="cardTotalConsolidadoSmmlv">0.00 SMLV</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-700 via-amber-800 to-slate-900 text-white p-4 rounded-xl shadow-md border border-amber-600 flex flex-col justify-between">
+        <div class="flex items-center justify-between text-amber-200 mb-1">
+          <span class="text-xs font-bold uppercase tracking-wider">GRAN TOTAL INDEMNIZATORIO</span>
+          <i data-lucide="coins" class="w-5 h-5 text-amber-400"></i>
+        </div>
+        <div>
+          <div class="text-xl sm:text-2xl font-black text-amber-300" id="cardGranTotal">$0 COP</div>
+          <div class="text-xs text-amber-200/80 flex justify-between mt-1">
+            <span>Monto Total Pretensiones</span>
+            <span class="font-bold text-amber-300" id="cardGranTotalSmmlv">0.00 SMLV</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PESTAÑA 1: LIQUIDADOR PRINCIPAL -->
+    <!-- ========================================== -->
+    <div id="tab-liquidador" class="space-y-6">
+      
+      <!-- CONFIGURACIÓN DE JURISDICCIÓN Y FECHAS -->
+      <div class="bg-white p-5 sm:p-6 rounded-xl shadow-xs border border-slate-200">
+        <div class="flex items-center gap-2 mb-4 border-b pb-3 border-slate-200">
+          <div class="p-2 bg-amber-100 text-amber-800 rounded-lg">
+            <i data-lucide="settings-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900">1. Parámetros Jurisdiccionales y Temporales del Siniestro</h2>
+            <p class="text-xs text-slate-500">Seleccione el régimen aplicable y las fechas hito para la indexación y cálculo de rentas periódicas.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Jurisdicción / Régimen Procesal</label>
+            <select id="jurisdiccion" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-amber-500 outline-hidden font-medium">
+              <option value="CE" selected>Contencioso Administrativo (Consejo de Estado)</option>
+              <option value="CSJ">Ordinaria Civil (Corte Suprema de Justicia)</option>
+            </select>
+            <p class="text-[11px] text-slate-500 mt-1" id="jurisdiccionInfo">Baremos CE: Sentencia de Unificación 28/08/2014.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Tipo de Evento Dañoso</label>
+            <select id="tipoEvento" onchange="cambiarTipoEvento()" class="w-full text-sm border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-amber-500 outline-hidden font-medium">
+              <option value="muerte" selected>Muerte / Homicidio / Accidente Fatal</option>
+              <option value="lesiones">Lesiones Personales / Invalidez / Secuelas</option>
+              <option value="bienes">Daño a Cosas / Contractual (Sin Lesión Corp.)</option>
+            </select>
+            <p class="text-[11px] text-slate-500 mt-1" id="tipoEventoInfo">En muerte se deduce 25% de sostenimiento y se liquida a dependientes.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Fecha del Hecho Generador (Daño)</label>
+            <input type="date" id="fechaHecho" value="2022-03-15" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-amber-500 outline-hidden">
+            <p class="text-[11px] text-slate-500 mt-1">Fecha exacta del siniestro o fallecimiento.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Fecha de Corte / Liquidación</label>
+            <input type="date" id="fechaCorte" value="2026-11-18" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-amber-500 outline-hidden">
+            <p class="text-[11px] text-slate-500 mt-1">Límite entre periodo consolidado y futuro.</p>
+          </div>
+        </div>
+
+        <!-- CONFIGURACIÓN DE TASA PURA E IPC -->
+        <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Tasa Pura / Técnica Mensual (Interés Actuarial)</label>
+            <select id="tasaInteresPura" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-amber-500 outline-hidden">
+              <option value="0.004867" selected>i = 0.004867 (Tasa Técnica CE: (1+0.06)^(1/12)-1)</option>
+              <option value="0.005000">i = 0.005000 (Tasa Nominal CSJ: 6% anual / 12 = 0.5% mes)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">SMMLV Vigencia de Liquidación (2026)</label>
+            <input type="number" id="smmlvVigente" value="1750905" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-amber-500 outline-hidden font-mono-math">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Método de Indexación Monetaria</label>
+            <div class="flex items-center gap-3 mt-2 text-xs">
+              <label class="inline-flex items-center">
+                <input type="radio" name="modoIpc" value="auto" checked onchange="actualizarCalculos()" class="text-amber-600 focus:ring-amber-500">
+                <span class="ml-1.5 text-slate-700">IPC DANE Automático</span>
+              </label>
+              <label class="inline-flex items-center">
+                <input type="radio" name="modoIpc" value="manual" onchange="actualizarCalculos()" class="text-amber-600 focus:ring-amber-500">
+                <span class="ml-1.5 text-slate-700">IPC Personalizado</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div id="panelIpcManual" class="hidden mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div>
+            <label class="font-semibold text-amber-900">IPC Inicial (Mes del Hecho)</label>
+            <input type="number" step="0.01" id="ipcInicialManual" value="114.50" onchange="actualizarCalculos()" class="w-full border border-amber-300 rounded p-1.5 bg-white">
+          </div>
+          <div>
+            <label class="font-semibold text-amber-900">IPC Final (Mes de Liquidación)</label>
+            <input type="number" step="0.01" id="ipcFinalManual" value="142.80" onchange="actualizarCalculos()" class="w-full border border-amber-300 rounded p-1.5 bg-white">
+          </div>
+        </div>
+      </div>
+
+      <!-- DATOS DE LA VÍCTIMA DIRECTA Y SU CAPACIDAD PRODUCTIVA -->
+      <div class="bg-white p-5 sm:p-6 rounded-xl shadow-xs border border-slate-200">
+        <div class="flex items-center gap-2 mb-4 border-b pb-3 border-slate-200">
+          <div class="p-2 bg-blue-100 text-blue-800 rounded-lg">
+            <i data-lucide="user-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900">2. Datos de la Víctima Directa y Capacidad Productiva (IBL)</h2>
+            <p class="text-xs text-slate-500">Información demográfica, laboral y base de cálculo de lucro cesante.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo de la Víctima</label>
+            <input type="text" id="victimaNombre" value="Pedro Antonio Pérez Rodríguez" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-hidden font-medium">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Cédula de Ciudadanía / Documento</label>
+            <input type="text" id="victimaDoc" value="1.098.765.432" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-hidden">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Sexo Biológico (Tabla de Mortalidad SFC)</label>
+            <select id="victimaSexo" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-hidden font-medium">
+              <option value="H" selected>Hombre (Mortalidad Rentistas SFC Masc.)</option>
+              <option value="M">Mujer (Mortalidad Rentistas SFC Fem.)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Fecha de Nacimiento</label>
+            <input type="date" id="victimaFechaNac" value="1987-06-20" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-hidden">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Edad al Momento del Hecho</label>
+            <div class="flex items-center">
+              <input type="text" id="victimaEdadHecho" readonly class="w-full text-sm border border-slate-200 bg-slate-100 rounded-lg p-2 text-slate-700 font-bold">
+              <span class="ml-2 text-xs text-slate-500">años</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Vida Probable Restante (Superfinanciera)</label>
+            <div class="flex items-center">
+              <input type="text" id="victimaVidaProbable" readonly class="w-full text-sm border border-emerald-200 bg-emerald-50 rounded-lg p-2 text-emerald-800 font-bold font-mono-math">
+              <span class="ml-2 text-xs text-slate-500" id="vidaProbableMesesSpan">0 meses</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONDICIÓN LABORAL Y SALARIO -->
+        <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Tipo de Ingreso / Régimen Laboral</label>
+            <select id="tipoIngreso" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2.5 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-hidden">
+              <option value="formal" selected>Laboral Formal (+25% Prestaciones de Ley)</option>
+              <option value="independiente">Independiente / Honorarios (Sin +25%)</option>
+              <option value="presuncion">No probado / Informal (Presunción 1 SMMLV)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Ingreso Mensual Histórico al Momento del Hecho</label>
+            <input type="number" id="ingresoHistorico" value="3500000" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-hidden font-mono-math">
+            <p class="text-[11px] text-slate-500 mt-1">Si es formal, el sistema añade 25% prestacional.</p>
+          </div>
+
+          <!-- CAMPO CONDICIONAL: PÉRDIDA DE CAPACIDAD LABORAL (PCL) PARA LESIONES -->
+          <div id="columnaPcl" class="hidden">
+            <label class="block text-xs font-semibold text-rose-700 mb-1">Pérdida de Capacidad Laboral (PCL %)</label>
+            <div class="flex items-center">
+              <input type="number" step="0.01" min="0" max="100" id="porcentajePcl" value="62.50" onchange="actualizarCalculos()" class="w-full text-sm border border-rose-300 rounded-lg p-2 bg-rose-50 text-rose-900 font-bold focus:ring-2 focus:ring-rose-500 outline-hidden">
+              <span class="ml-2 font-bold text-rose-700">%</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Dictamen JCI / Medicina Legal.</p>
+          </div>
+
+          <div id="columnaIncapacidadTemporal" class="hidden">
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Incapacidad Temporal Inicial (Días)</label>
+            <input type="number" id="diasIncapacidad" value="90" onchange="actualizarCalculos()" class="w-full text-sm border border-slate-300 rounded-lg p-2 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-blue-500 outline-hidden">
+            <p class="text-[11px] text-slate-500 mt-1">Días con 100% de lucro cesante.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1">Ingreso Base Actualizado a Hoy (Ra)</label>
+            <input type="text" id="ingresoActualizadoRa" readonly class="w-full text-sm border border-blue-200 bg-blue-50 rounded-lg p-2 text-blue-900 font-bold font-mono-math">
+            <p class="text-[11px] text-slate-500 mt-1" id="explicacionRa">Indexado con IPC.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN DE DAÑO EMERGENTE (CONSOLIDADO Y FUTURO) -->
+      <div class="bg-white p-5 sm:p-6 rounded-xl shadow-xs border border-slate-200">
+        <div class="flex items-center justify-between mb-4 border-b pb-3 border-slate-200">
+          <div class="flex items-center gap-2">
+            <div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg">
+              <i data-lucide="receipt" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-slate-900">3. Daño Emergente (Gastos Médicos, Funerarios, Bienes y Cuidados Futuros)</h2>
+              <p class="text-xs text-slate-500">Pérdida patrimonial directa: gastos soportados (consolidados) y desembolsos ciertos continuos (futuros).</p>
+            </div>
+          </div>
+          <button onclick="agregarFilaDanoEmergente()" class="text-xs bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1 transition">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Agregar Gasto
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100 text-slate-600 uppercase font-bold tracking-wider">
+              <tr>
+                <th class="p-2.5 rounded-l-lg">Concepto / Rubro Dañoso</th>
+                <th class="p-2.5">Tipo</th>
+                <th class="p-2.5">Valor Histórico (COP)</th>
+                <th class="p-2.5">Fecha del Desembolso</th>
+                <th class="p-2.5 text-right">Valor Indexado a Hoy</th>
+                <th class="p-2.5 rounded-r-lg text-center">Acción</th>
+              </tr>
+            </thead>
+            <tbody id="tablaDanoEmergenteBody" class="divide-y divide-slate-100">
+              <!-- Filas dinámicas -->
+            </tbody>
+            <tfoot class="border-t-2 border-slate-200 bg-slate-50 font-bold text-xs">
+              <tr>
+                <td colspan="4" class="p-2.5 text-right uppercase">Subtotal Daño Emergente Consolidado:</td>
+                <td class="p-2.5 text-right text-emerald-700 font-mono-math text-sm" id="subtotalDanoEmergenteConsolidado">$0</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- DAÑO EMERGENTE FUTURO (CUIDADORES, PRÓTESIS, TRATAMIENTOS VITALICIOS) -->
+        <div class="mt-4 pt-3 border-t border-slate-200 bg-slate-50/70 p-3 rounded-lg border border-slate-200">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+              <i data-lucide="shield-alert" class="w-4 h-4 text-emerald-600"></i> Daño Emergente Futuro (Rentas Periódicas Continuas: Cuidadores / Prótesis / Fármacos)
+            </span>
+            <label class="inline-flex items-center cursor-pointer text-xs">
+              <input type="checkbox" id="checkDanoEmergenteFuturo" onchange="toggleDanoEmergenteFuturo()" class="sr-only peer">
+              <div class="w-9 h-5 bg-slate-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
+              <span class="ml-2 text-slate-700 font-medium">Habilitar Gasto Futuro</span>
+            </label>
+          </div>
+
+          <div id="panelDanoEmergenteFuturo" class="hidden grid grid-cols-1 md:grid-cols-3 gap-3 text-xs mt-3">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Costo Mensual Estimado (Ej. Cuidador)</label>
+              <input type="number" id="costoMensualFuturo" value="1750905" onchange="actualizarCalculos()" class="w-full border border-slate-300 rounded p-1.5 font-mono-math">
+              <p class="text-[10px] text-slate-500 mt-0.5">Suele tasarse en 1 SMMLV mensual para enfermería/cuidado.</p>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Meses de Duración (n)</label>
+              <input type="number" id="mesesDanoEmergenteFuturo" value="480" onchange="actualizarCalculos()" class="w-full border border-slate-300 rounded p-1.5 font-mono-math">
+              <p class="text-[10px] text-slate-500 mt-0.5">Por defecto igual a la vida probable de la víctima.</p>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Total Daño Emergente Futuro (Valor Presente)</label>
+              <input type="text" id="totalDanoEmergenteFuturo" readonly class="w-full border border-emerald-300 bg-emerald-50 rounded p-1.5 text-emerald-800 font-bold font-mono-math">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PESTAÑA 2: VÍCTIMAS Y BENEFICIARIOS -->
+    <!-- ========================================== -->
+    <div id="tab-demandantes" class="hidden space-y-6">
+      
+      <div class="bg-white p-5 sm:p-6 rounded-xl shadow-xs border border-slate-200">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4 border-b pb-3 border-slate-200">
+          <div class="flex items-center gap-2">
+            <div class="p-2 bg-purple-100 text-purple-800 rounded-lg">
+              <i data-lucide="users-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-slate-900">Listado de Damnificados / Demandantes (Reparación Integral)</h2>
+              <p class="text-xs text-slate-500">Parentesco, baremo de perjuicio moral según Sentencia Unificación CE 28/08/2014 y cuota de lucro cesante.</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="agregarBeneficiarioPredefinido('conyuge')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-2.5 py-1.5 rounded-lg border border-slate-300 flex items-center gap-1 transition">
+              <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500"></i> + Cónyuge
+            </button>
+            <button onclick="agregarBeneficiarioPredefinido('hijo')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-2.5 py-1.5 rounded-lg border border-slate-300 flex items-center gap-1 transition">
+              <i data-lucide="baby" class="w-3.5 h-3.5 text-blue-500"></i> + Hijo
+            </button>
+            <button onclick="agregarBeneficiarioPredefinido('padre')" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-2.5 py-1.5 rounded-lg border border-slate-300 flex items-center gap-1 transition">
+              <i data-lucide="user" class="w-3.5 h-3.5 text-amber-500"></i> + Padre/Madre
+            </button>
+            <button onclick="agregarBeneficiarioPersonalizado()" class="text-xs bg-purple-600 hover:bg-purple-700 text-white font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1 transition">
+              <i data-lucide="user-plus" class="w-3.5 h-3.5"></i> + Otro Familiar
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100 text-slate-700 uppercase font-bold tracking-wider">
+              <tr>
+                <th class="p-3 rounded-l-lg">Demandante / Beneficiario</th>
+                <th class="p-3">Parentesco / Nivel CE</th>
+                <th class="p-3">Edad al Hecho</th>
+                <th class="p-3 text-center">Dependencia Ec. (Lucro Cesante)</th>
+                <th class="p-3 text-right">Perjuicio Moral (SMLV)</th>
+                <th class="p-3 text-right">Daño a la Salud</th>
+                <th class="p-3 text-right">Total Perjuicios</th>
+                <th class="p-3 rounded-r-lg text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaBeneficiariosBody" class="divide-y divide-slate-100">
+              <!-- Beneficiarios generados dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- BAREMO EXPLICATIVO SEGÚN SENTENCIA UNIFICACIÓN -->
+        <div class="mt-6 p-4 bg-purple-50 rounded-xl border border-purple-200 text-xs">
+          <h4 class="font-bold text-purple-900 mb-1 flex items-center gap-1.5">
+            <i data-lucide="info" class="w-4 h-4 text-purple-700"></i> Criterio de Graduación del Perjuicio Moral (Consejo de Estado - Rad. 32.988 / 2014):
+          </h4>
+          <p class="text-purple-800 leading-relaxed mb-2">
+            <strong>Nivel 1 (100% - Hasta 100 SMMLV):</strong> Cónyuge, compañera(o) permanente, hijos y padres. En lesiones con PCL $\ge 50\%$, se otorga el 100% de la tarifa.<br>
+            <strong>Nivel 2 (50% - Hasta 50 SMMLV):</strong> Nietos, abuelos y hermanos.<br>
+            <strong>Nivel 3 (35% - Hasta 35 SMMLV):</strong> Tíos y sobrinos.<br>
+            <strong>Nivel 4 (15% - Hasta 15 SMMLV):</strong> Primos.<br>
+            <strong>Nivel 5 (15% - Hasta 15 SMMLV):</strong> Terceros damnificados no familiares con afecto probado.
+          </p>
+          <div class="text-[11px] text-purple-700 font-medium">
+            * En caso de lesiones corporales inferiores al 50% de PCL, la indemnización moral se reduce proporcionalmente a la escala oficial (40-49%: 80 SMLV, 30-39%: 60 SMLV, 20-29%: 40 SMLV, 10-19%: 20 SMLV, 1-9%: 10 SMLV).
+          </div>
+        </div>
+      </div>
+
+      <!-- DISTRIBUCIÓN GRÁFICA ENTRE DEMANDANTES -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
+          <h3 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-1.5">
+            <i data-lucide="pie-chart" class="w-4 h-4 text-purple-600"></i> Distribución de Perjuicios por Tipo
+          </h3>
+          <div class="h-64 flex items-center justify-center">
+            <canvas id="graficoDistribucionTipos"></canvas>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl shadow-xs border border-slate-200">
+          <h3 class="text-sm font-bold text-slate-800 mb-3 flex items-center gap-1.5">
+            <i data-lucide="bar-chart-3" class="w-4 h-4 text-amber-600"></i> Liquidación Total por Beneficiario
+          </h3>
+          <div class="h-64 flex items-center justify-center">
+            <canvas id="graficoBeneficiarios"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PESTAÑA 3: MEMORANDO MATEMÁTICO Y ACTUARIAL -->
+    <!-- ========================================== -->
+    <div id="tab-formulas" class="hidden space-y-6">
+      
+      <div class="bg-white p-5 sm:p-6 rounded-xl shadow-xs border border-slate-200">
+        <div class="flex items-center gap-2 mb-4 border-b pb-3 border-slate-200">
+          <div class="p-2 bg-amber-100 text-amber-800 rounded-lg">
+            <i data-lucide="binary" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900">Memorando Forense de Fórmulas y Matemáticas Financieras</h2>
+            <p class="text-xs text-slate-500">Desglose exacto paso a paso con los valores numéricos reemplazados en las fórmulas de la jurisprudencia.</p>
+          </div>
+        </div>
+
+        <!-- 1. FÓRMULA DE INDEXACIÓN -->
+        <div class="formula-card p-5 rounded-xl mb-6 shadow-md">
+          <div class="flex items-center justify-between border-b border-slate-700 pb-2 mb-3">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="calculator" class="w-4 h-4"></i> 1. Corrección Monetaria (Indexación con IPC - DANE)
+            </span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-600">Art. 1614 C.C. & Jurisprudencia Reiterada</span>
+          </div>
+          <div class="font-mono-math text-sm text-slate-200 mb-2">
+            Va = Vh × ( IPC_final / IPC_inicial )
+          </div>
+          <p class="text-xs text-slate-400 mb-3">
+            Donde <strong>Vh</strong> es el ingreso o gasto histórico, <strong>IPC_final</strong> es el índice a la fecha de liquidación y <strong>IPC_inicial</strong> es el índice a la fecha del hecho dañoso.
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-700 text-xs font-mono-math text-emerald-400" id="desgloseIndexacionMath">
+            <!-- Reemplazo numérico dinámico -->
+          </div>
+        </div>
+
+        <!-- 2. FÓRMULA DE LUCRO CESANTE CONSOLIDADO -->
+        <div class="formula-card p-5 rounded-xl mb-6 shadow-md">
+          <div class="flex items-center justify-between border-b border-slate-700 pb-2 mb-3">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="history" class="w-4 h-4"></i> 2. Lucro Cesante Consolidado (Pasado) - Renta Vencida Acumulada
+            </span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-600">Consejo de Estado & Corte Suprema</span>
+          </div>
+          <div class="font-mono-math text-sm text-slate-200 mb-2">
+            S = Ra × [ ((1 + i)^m - 1) / i ]
+          </div>
+          <p class="text-xs text-slate-400 mb-3">
+            Donde <strong>S</strong> es la indemnización consolidada, <strong>Ra</strong> es la renta periódica mensual actualizada (ingreso neto afectado), <strong>i</strong> es la tasa pura de interés mensual (0.004867 o 0.005) y <strong>m</strong> es el número de meses transcurridos entre el hecho y la liquidación.
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-700 text-xs font-mono-math text-emerald-400" id="desgloseConsolidadoMath">
+            <!-- Reemplazo numérico dinámico -->
+          </div>
+        </div>
+
+        <!-- 3. FÓRMULA DE LUCRO CESANTE FUTURO -->
+        <div class="formula-card p-5 rounded-xl mb-6 shadow-md">
+          <div class="flex items-center justify-between border-b border-slate-700 pb-2 mb-3">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-4 h-4"></i> 3. Lucro Cesante Futuro - Valor Presente de Renta Periódica Futura
+            </span>
+            <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-600">Consejo de Estado & Corte Suprema</span>
+          </div>
+          <div class="font-mono-math text-sm text-slate-200 mb-2">
+            S = Ra × [ ((1 + i)^n - 1) / (i × (1 + i)^n) ]
+          </div>
+          <p class="text-xs text-slate-400 mb-3">
+            Donde <strong>S</strong> es el valor presente líquido del lucro cesante futuro, <strong>n</strong> es el número de meses futuros restantes indemnizables (limitado por vida probable según Resol. 1555/2010 SFC o mayoría de edad a 25 años para hijos estudiantes).
+          </p>
+          <div class="bg-slate-900/90 p-3 rounded-lg border border-slate-700 text-xs font-mono-math text-emerald-400" id="desgloseFuturoMath">
+            <!-- Reemplazo numérico dinámico -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PESTAÑA 4: JURAMENTO ESTIMATORIO (ART. 206 CGP) -->
+    <!-- ========================================== -->
+    <div id="tab-juramento" class="hidden space-y-6">
+      
+      <div class="bg-white p-5 sm:p-6 rounded-xl shadow-xs border border-slate-200">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4 border-b pb-3 border-slate-200">
+          <div class="flex items-center gap-2">
+            <div class="p-2 bg-blue-100 text-blue-800 rounded-lg">
+              <i data-lucide="file-check-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-slate-900">Capítulo Procesal: Juramento Estimatorio (Art. 206 CGP & Art. 162 CPACA)</h2>
+              <p class="text-xs text-slate-500">Texto formal listo para transcribir directamente en la demanda contenciosa o civil.</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="copiarTextoAlPortapapeles('textoJuramentoEstimatorio')" class="text-xs bg-blue-600 hover:bg-blue-700 text-white font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1 transition shadow-xs">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Capítulo de Demanda
+            </button>
+          </div>
+        </div>
+
+        <div class="p-4 bg-amber-50 rounded-lg border border-amber-200 mb-4 text-xs text-amber-900">
+          <strong>Aviso de Responsabilidad Procesal (Art. 206 CGP):</strong> El juramento estimatorio es medio de prueba de la cuantía de los perjuicios. Si la cantidad estimada excede en el 50% a la que resulte probada, se condenará al demandante al pago de una sanción económica del 10% de la diferencia a favor del Consejo Superior de la Judicatura.
+        </div>
+
+        <div class="bg-slate-50 border border-slate-300 rounded-xl p-5 text-slate-800 text-xs sm:text-sm leading-relaxed font-sans select-all overflow-y-auto max-h-[600px] shadow-inner" id="textoJuramentoEstimatorio">
+          <!-- Texto generado dinámicamente -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PESTAÑA 5: DICTAMEN PERICIAL FORENSE -->
+    <!-- ========================================== -->
+    <div id="tab-dictamen" class="hidden space-y-6">
+      
+      <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-slate-300 max-w-4xl mx-auto" id="areaDictamenPericial">
+        <!-- CABEZOTE DEL DICTAMEN -->
+        <div class="border-b-2 border-slate-900 pb-4 mb-6 flex justify-between items-start">
+          <div>
+            <div class="font-serif-legal text-lg sm:text-xl font-black text-slate-900 tracking-wider">
+              INFORME PERICIAL FORENSE DE PERJUCIOS
+            </div>
+            <div class="text-xs font-semibold text-amber-700 uppercase tracking-widest mt-0.5">
+              VALORACIÓN ACTUARIAL Y LIQUIDACIÓN PATRIMONIAL Y EXTRA-PATRIMONIAL
+            </div>
+            <div class="text-xs text-slate-500 mt-1">
+              REPÚBLICA DE COLOMBIA • LEGISLACIÓN Y BAREMOS UNIFICADOS 2026
+            </div>
+          </div>
+          <div class="text-right text-xs text-slate-600">
+            <div><strong>Radicación:</strong> <span id="peritajeRadicado">2026-EXP-PERJ-0042</span></div>
+            <div><strong>Fecha Emisión:</strong> <span id="peritajeFechaEmision">18 de Noviembre de 2026</span></div>
+            <div><strong>Régimen:</strong> <span id="peritajeRegimen">Consejo de Estado</span></div>
+          </div>
+        </div>
+
+        <!-- CONTENIDO FORMAL DEL DICTAMEN -->
+        <div class="space-y-4 text-xs sm:text-sm text-slate-800 leading-relaxed">
+          <div>
+            <h4 class="font-bold uppercase text-slate-900 border-b border-slate-200 pb-1 mb-2">I. OBJETO DE LA EXPERTICIA</h4>
+            <p>
+              El presente dictamen tiene por finalidad tasar de forma técnico-científica, financiera y actuarial el monto de los perjuicios materiales (daño emergente y lucro cesante consolidado y futuro) e inmateriales (morales, daño a la salud y afectación a bienes constitucionalmente protegidos) irrogados a la víctima directa <strong id="peritajeVictimaNombre"></strong> y su núcleo familiar de damnificados, a raíz del hecho dañoso ocurrido el <strong id="peritajeFechaHecho"></strong>.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-bold uppercase text-slate-900 border-b border-slate-200 pb-1 mb-2">II. METODOLOGÍA Y PARÁMETROS ACTUARIALES</h4>
+            <p class="mb-2">
+              La liquidación se rige por las directrices de la <strong>Guía de Liquidación de Perjuicios de la Sección Tercera del Consejo de Estado</strong> y la jurisprudencia de la Sala de Casación Civil de la Corte Suprema de Justicia, aplicando:
+            </p>
+            <ul class="list-disc pl-5 space-y-1 text-slate-700">
+              <li><strong>Indexación monetaria:</strong> Corrección del valor adquisitivo mediante la serie histórica del IPC certificado por el DANE.</li>
+              <li><strong>Tasa pura de interés:</strong> <span id="peritajeTasaInteres">i = 0.004867 mensual</span> (equivalente a una tasa pura técnica del 6% anual).</li>
+              <li><strong>Expectativa de vida:</strong> Tablas de mortalidad de rentistas aprobadas por la Superintendencia Financiera de Colombia (Resolución 1555 de 2010).</li>
+              <li><strong>Factor Prestacional:</strong> Reconocimiento del 25% por prestaciones sociales de ley sobre la remuneración laboral formal.</li>
+              <li><strong>Baremo de Perjuicios Morales:</strong> Sentencia de Unificación del Consejo de Estado de 28 de agosto de 2014 (Rad. 32.988) tasada en SMMLV.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-bold uppercase text-slate-900 border-b border-slate-200 pb-1 mb-2">III. DISCRIMINACIÓN LIQUIDATORIA Y CUANTÍAS</h4>
+            <div class="overflow-x-auto my-3">
+              <table class="w-full text-left border border-slate-200 text-xs">
+                <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+                  <tr>
+                    <th class="p-2 border-r border-slate-200">Rubro Perjudicial</th>
+                    <th class="p-2 border-r border-slate-200">Monto Histórico</th>
+                    <th class="p-2 border-r border-slate-200">Periodo / Unidades</th>
+                    <th class="p-2 text-right">Total Liquidado (COP)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200" id="peritajeTablaCuerpo">
+                  <!-- Filas de liquidación formal -->
+                </tbody>
+                <tfoot class="bg-slate-900 text-white font-bold text-xs">
+                  <tr>
+                    <td colspan="3" class="p-2.5 text-right uppercase tracking-wider">GRAN TOTAL INDEMNIZATORIO GENERAL:</td>
+                    <td class="p-2.5 text-right text-amber-300 font-mono-math text-sm" id="peritajeGranTotal">$0 COP</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="font-bold uppercase text-slate-900 border-b border-slate-200 pb-1 mb-2">IV. CONCLUSIÓN PERICIAL</h4>
+            <p>
+              El daño antijurídico irrogado asciende a la suma consolidada y futura de <strong class="text-slate-900" id="peritajeGranTotalLetras">CERO PESOS M/CTE</strong> (<span id="peritajeGranTotalCifra"></span>), equivalente a la suma de <strong id="peritajeTotalSmmlv"></strong> Salarios Mínimos Mensuales Legales Vigentes (SMMLV) para la vigencia del año 2026.
+            </p>
+          </div>
+
+          <div class="pt-8 mt-8 border-t border-slate-300 grid grid-cols-2 gap-8 text-center text-xs">
+            <div>
+              <div class="border-b border-slate-400 w-48 mx-auto mb-1"></div>
+              <p class="font-bold text-slate-800">PERITO ACTUARIAL / FINANCIERO FORENSE</p>
+              <p class="text-slate-500">Matrícula Profesional No. 45892-T</p>
+              <p class="text-slate-500">Registro Nacional de Avaluadores y Peritos</p>
+            </div>
+            <div>
+              <div class="border-b border-slate-400 w-48 mx-auto mb-1"></div>
+              <p class="font-bold text-slate-800">ABOGADO LITIGANTE / APODERADO</p>
+              <p class="text-slate-500">Tarjeta Profesional No. 234.819 del C.S.J.</p>
+              <p class="text-slate-500">Firma de Presentación Personal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PESTAÑA 6: BAREMOS Y BIBLIOTECA JURISPRUDENCIAL -->
+    <!-- ========================================== -->
+    <div id="tab-baremos" class="hidden space-y-6">
+      
+      <div class="bg-white p-5 sm:p-6 rounded-xl shadow-xs border border-slate-200">
+        <div class="flex items-center gap-2 mb-4 border-b pb-3 border-slate-200">
+          <div class="p-2 bg-amber-100 text-amber-800 rounded-lg">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900">Biblioteca Normativa, Baremos y Precedentes Jurisprudenciales</h2>
+            <p class="text-xs text-slate-500">Fundamentos de Derecho vigentes en la jurisprudencia colombiana para sustentar alegatos y recursos.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+          <!-- CARD CONSEJO DE ESTADO -->
+          <div class="border border-emerald-200 bg-emerald-50/40 p-4 rounded-xl">
+            <div class="flex items-center justify-between mb-2">
+              <span class="badge-ce text-xs font-bold px-2 py-0.5 rounded">Consejo de Estado</span>
+              <span class="text-xs text-emerald-800 font-semibold">Sección Tercera</span>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-1">Sentencias de Unificación de 28 de agosto de 2014</h3>
+            <p class="text-slate-600 mb-2">
+              <strong>Radicados 32.988, 31.170, 31.172 (M.P. Ramiro Pazos Guerrero y Jaime Orlando Santofimio):</strong>
+            </p>
+            <ul class="list-disc pl-4 space-y-1 text-slate-700 text-xs">
+              <li>Fijó el tope de <strong>100 SMMLV</strong> para el perjuicio moral en caso de muerte para familiares en Nivel 1.</li>
+              <li>Consagró la tabla de 5 niveles de parentesco con reducción porcentual (100%, 50%, 35%, 15%).</li>
+              <li>Unificó la figura del <strong>Daño a la Salud</strong> (sustituyendo el Daño a la Vida de Relación en lo contencioso) con escala según PCL de 10 a 100 SMMLV (hasta 400 en casos excepcionales de extrema afectación).</li>
+              <li>Reconoció la indemnización autónoma por afectación a bienes constitucional y convencionalmente protegidos.</li>
+            </ul>
+          </div>
+
+          <!-- CARD CORTE SUPREMA DE JUSTICIA -->
+          <div class="border border-blue-200 bg-blue-50/40 p-4 rounded-xl">
+            <div class="flex items-center justify-between mb-2">
+              <span class="badge-csj text-xs font-bold px-2 py-0.5 rounded">Corte Suprema de Justicia</span>
+              <span class="text-xs text-blue-800 font-semibold">Sala de Casación Civil</span>
+            </div>
+            <h3 class="font-bold text-slate-900 mb-1">Sentencias SC-10297-2014 & SC-21822-2017</h3>
+            <p class="text-slate-600 mb-2">
+              <strong>M.P. Ariel Salazar Ramírez y Margarita Cabello Blanco:</strong>
+            </p>
+            <ul class="list-disc pl-4 space-y-1 text-slate-700 text-xs">
+              <li>Mantiene la tipología del <strong>Daño a la Vida de Relación</strong> en la jurisdicción ordinaria civil frente a la pérdida de placeres vitales y actividades recreativas.</li>
+              <li>Ratifica el uso de la tasa de interés del 6% anual (0.5% mensual) para la amortización de rentas periódicas futuras.</li>
+              <li>Sentencia SC-917-2022: Reiteración sobre la no acumulación lesiva de indexación e intereses mercantiles, prefiriendo la tasa pura sobre capital indexado.</li>
+              <li>Aplicación de la deducción del 25% por gastos personales solo en eventos de muerte de la víctima.</li>
+            </ul>
+          </div>
+
+          <!-- CARD TABLA DE MORTALIDAD SFC -->
+          <div class="border border-slate-300 bg-white p-4 rounded-xl">
+            <h3 class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+              <i data-lucide="table" class="w-4 h-4 text-amber-600"></i> Tabla de Mortalidad de Rentistas (SFC Resol. 1555/2010)
+            </h3>
+            <p class="text-slate-600 text-xs mb-2">
+              Adoptada de forma uniforme por los despachos judiciales para establecer la expectativa de vida remanente:
+            </p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs border border-slate-200">
+                <thead class="bg-slate-100 font-bold">
+                  <tr>
+                    <th class="p-1.5 border-r">Edad</th>
+                    <th class="p-1.5 border-r">Hombre (Años Rest.)</th>
+                    <th class="p-1.5">Mujer (Años Rest.)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-slate-700">
+                  <tr><td class="p-1.5 font-semibold">20 años</td><td class="p-1.5">58.42 años</td><td class="p-1.5">63.15 años</td></tr>
+                  <tr><td class="p-1.5 font-semibold">30 años</td><td class="p-1.5">48.74 años</td><td class="p-1.5">53.30 años</td></tr>
+                  <tr><td class="p-1.5 font-semibold">40 años</td><td class="p-1.5">39.18 años</td><td class="p-1.5">43.52 años</td></tr>
+                  <tr><td class="p-1.5 font-semibold">50 años</td><td class="p-1.5">29.89 años</td><td class="p-1.5">33.95 años</td></tr>
+                  <tr><td class="p-1.5 font-semibold">60 años</td><td class="p-1.5">21.19 años</td><td class="p-1.5">24.84 años</td></tr>
+                  <tr><td class="p-1.5 font-semibold">70 años</td><td class="p-1.5">13.56 años</td><td class="p-1.5">16.51 años</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- CARD JURAMENTO ESTIMATORIO -->
+          <div class="border border-slate-300 bg-white p-4 rounded-xl">
+            <h3 class="font-bold text-slate-900 mb-1 flex items-center gap-1.5">
+              <i data-lucide="scale" class="w-4 h-4 text-blue-600"></i> Código General del Proceso - Art. 206
+            </h3>
+            <p class="text-slate-600 text-xs mb-2">
+              Reglas sustanciales del juramento estimatorio:
+            </p>
+            <ul class="list-disc pl-4 space-y-1 text-slate-700 text-xs">
+              <li>Quién pretenda el reconocimiento de una indemnización, compensación o el pago de frutos o mejoras, deberá estimarlo razonadamente bajo juramento en la demanda.</li>
+              <li>La estimación discriminará cada uno de los conceptos que la integran.</li>
+              <li>No aplica para la cuantificación de los perjuicios extrapatrimoniales o morales (Sentencia C-157 de 2013).</li>
+              <li>La objeción de la contraparte debe ser razonada y fundada; no basta la simple negación.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 text-xs py-6 no-print mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-2">
+        <i data-lucide="shield-check" class="w-5 h-5 text-amber-500"></i>
+        <span>Suite de Calculadoras Jurídicas de Colombia • Módulo de Liquidación Forense de Perjuicios (2026)</span>
+      </div>
+      <div class="flex space-x-4 text-slate-400">
+        <a href="calculadora_alimentos.html" class="hover:text-amber-400 transition">Calculadora de Alimentos</a>
+        <span>•</span>
+        <a href="index.html" class="hover:text-amber-400 transition">Calculadora Pensional</a>
+        <span>•</span>
+        <a href="README.md" class="hover:text-amber-400 transition">Documentación Legal</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT CON EL MOTOR MATEMÁTICO, JURÍDICO Y ACTUARIAL -->
+  <script>
+    // =========================================================================
+    // BASE DE DATOS ACTUARIAL DE COLOMBIA
+    // =========================================================================
+
+    // 1. Tabla de Vida Probable de Rentistas (Superintendencia Financiera de Colombia - Res. 1555 de 2010)
+    // Expectativa en años por edad exacta de 0 a 105
+    const TABLA_MORTALIDAD_SFC = {
+      H: [ // Hombres
+        74.5, 73.8, 72.9, 71.9, 70.9, 70.0, 69.0, 68.0, 67.1, 66.1,
+        65.1, 64.2, 63.2, 62.2, 61.3, 60.3, 59.4, 58.4, 57.5, 56.5,
+        55.6, 54.6, 53.7, 52.8, 51.8, 50.9, 50.0, 49.0, 48.1, 47.2,
+        46.2, 45.3, 44.4, 43.4, 42.5, 41.6, 40.7, 39.7, 38.8, 37.9,
+        37.0, 36.1, 35.1, 34.2, 33.3, 32.4, 31.5, 30.6, 29.7, 28.8,
+        28.0, 27.1, 26.2, 25.4, 24.5, 23.7, 22.8, 22.0, 21.2, 20.4,
+        19.6, 18.8, 18.0, 17.3, 16.5, 15.8, 15.0, 14.3, 13.6, 12.9,
+        12.3, 11.6, 11.0, 10.4, 9.8, 9.2, 8.7, 8.1, 7.6, 7.1,
+        6.7, 6.2, 5.8, 5.4, 5.0, 4.7, 4.4, 4.1, 3.8, 3.5,
+        3.3, 3.1, 2.9, 2.7, 2.5, 2.3, 2.2, 2.0, 1.9, 1.8,
+        1.7, 1.6, 1.5, 1.4, 1.3, 1.2
+      ],
+      M: [ // Mujeres
+        80.2, 79.4, 78.5, 77.5, 76.6, 75.6, 74.6, 73.6, 72.7, 71.7,
+        70.7, 69.8, 68.8, 67.8, 66.8, 65.9, 64.9, 63.9, 63.0, 62.0,
+        61.0, 60.1, 59.1, 58.1, 57.2, 56.2, 55.2, 54.3, 53.3, 52.3,
+        51.4, 50.4, 49.4, 48.5, 47.5, 46.5, 45.6, 44.6, 43.7, 42.7,
+        41.7, 40.8, 39.8, 38.9, 37.9, 37.0, 36.0, 35.1, 34.1, 33.2,
+        32.3, 31.3, 30.4, 29.5, 28.6, 27.7, 26.8, 25.9, 25.0, 24.1,
+        23.2, 22.4, 21.5, 20.7, 19.8, 19.0, 18.2, 17.4, 16.7, 15.9,
+        15.2, 14.5, 13.8, 13.1, 12.4, 11.8, 11.1, 10.5, 9.9, 9.4,
+        8.8, 8.3, 7.8, 7.3, 6.8, 6.4, 6.0, 5.6, 5.2, 4.9,
+        4.5, 4.2, 4.0, 3.7, 3.5, 3.2, 3.0, 2.8, 2.7, 2.5,
+        2.3, 2.2, 2.1, 1.9, 1.8, 1.7
+      ]
+    };
+
+    // 2. SERIE HISTÓRICA DE IPC DANE (Base Diciembre 2018 = 100)
+    // Mapeo anual de cierre de IPC
+    const IPC_HISTORICO_ANUAL = {
+      2000: 41.52, 2001: 44.70, 2002: 47.82, 2003: 50.93, 2004: 53.73,
+      2005: 56.33, 2006: 58.85, 2007: 62.19, 2008: 66.96, 2009: 68.30,
+      2010: 70.47, 2011: 73.10, 2012: 74.88, 2013: 76.33, 2014: 79.12,
+      2015: 84.47, 2016: 89.33, 2017: 92.99, 2018: 95.95, 2019: 99.59,
+      2020: 101.19, 2021: 106.88, 2022: 120.91, 2023: 132.13, 2024: 139.00,
+      2025: 146.50, 2026: 153.80
+    };
+
+    // 3. ESTADO GLOBAL DE LA APLICACIÓN
+    let estadoApp = {
+      beneficiarios: [
+        {
+          id: 1,
+          nombre: "María Elena Gómez de Pérez",
+          parentesco: "conyuge",
+          nivel: 1,
+          edadAlHecho: 34,
+          dependenciaPorcentaje: 50, // 50% de la cuota alimentaria/lucro cesante de los dependientes
+          reclamaMoral: true,
+          reclamaSalud: false,
+          reclamaBienesProt: false,
+          esVictimaDirecta: false
+        },
+        {
+          id: 2,
+          nombre: "Juan Camilo Pérez Gómez",
+          parentesco: "hijo",
+          nivel: 1,
+          edadAlHecho: 8,
+          dependenciaPorcentaje: 25,
+          reclamaMoral: true,
+          reclamaSalud: false,
+          reclamaBienesProt: false,
+          esVictimaDirecta: false
+        },
+        {
+          id: 3,
+          nombre: "Valentina Pérez Gómez",
+          parentesco: "hijo",
+          nivel: 1,
+          edadAlHecho: 4,
+          dependenciaPorcentaje: 25,
+          reclamaMoral: true,
+          reclamaSalud: false,
+          reclamaBienesProt: false,
+          esVictimaDirecta: false
+        }
+      ],
+      danoEmergente: [
+        { id: 1, concepto: "Gastos Funerarios y Cofre Mortuorio", tipo: "Funerario", valor: 6800000, fecha: "2022-03-18" },
+        { id: 2, concepto: "Reparación de Vehículo Afectado", tipo: "Bienes", valor: 14500000, fecha: "2022-04-10" },
+        { id: 3, concepto: "Honorarios Peritaje Forense de Tránsito", tipo: "Peritaje", valor: 3500000, fecha: "2022-05-15" }
+      ],
+      resultados: {}
+    };
+
+    // =========================================================================
+    // INICIALIZACIÓN
+    // =========================================================================
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      renderizarTablaBeneficiarios();
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+      inicializarGraficos();
+    });
+
+    // =========================================================================
+    // NAVEGACIÓN ENTRE PESTAÑAS
+    // =========================================================================
+    function cambiarPestana(tabId) {
+      const tabs = ['tab-liquidador', 'tab-demandantes', 'tab-formulas', 'tab-juramento', 'tab-dictamen', 'tab-baremos'];
+      tabs.forEach(t => {
+        const el = document.getElementById(t);
+        const btn = document.getElementById('btn-' + t);
+        if (el && btn) {
+          if (t === tabId) {
+            el.classList.remove('hidden');
+            btn.classList.add('active');
+          } else {
+            el.classList.add('hidden');
+            btn.classList.remove('active');
+          }
+        }
+      });
+      lucide.createIcons();
+      if (tabId === 'tab-demandantes') {
+        actualizarGraficos();
+      }
+    }
+
+    // =========================================================================
+    // MANEJO DE TIPOS DE EVENTO (MUERTE VS LESIONES)
+    // =========================================================================
+    function cambiarTipoEvento() {
+      const tipo = document.getElementById("tipoEvento").value;
+      const colPcl = document.getElementById("columnaPcl");
+      const colIncapacidad = document.getElementById("columnaIncapacidadTemporal");
+      const info = document.getElementById("tipoEventoInfo");
+
+      if (tipo === "lesiones") {
+        colPcl.classList.remove("hidden");
+        colIncapacidad.classList.remove("hidden");
+        info.innerText = "En lesiones no se deduce el 25% personal y el lucro cesante se tasa según la PCL.";
+      } else if (tipo === "muerte") {
+        colPcl.classList.add("hidden");
+        colIncapacidad.classList.add("hidden");
+        info.innerText = "En muerte se deduce 25% de sostenimiento y se liquida a dependientes.";
+      } else {
+        colPcl.classList.add("hidden");
+        colIncapacidad.classList.add("hidden");
+        info.innerText = "Daño a cosas/contractual sin lesiones físicas.";
+      }
+
+      actualizarCalculos();
+    }
+
+    // =========================================================================
+    // FORMULACIÓN MATEMÁTICA Y MOTOR DE CÁLCULO
+    // =========================================================================
+    function obtenerIpc(fechaStr) {
+      const anio = new Date(fechaStr).getFullYear();
+      if (IPC_HISTORICO_ANUAL[anio]) {
+        return IPC_HISTORICO_ANUAL[anio];
+      }
+      return 153.80;
+    }
+
+    function calcularEdad(fechaNacStr, fechaRefStr) {
+      const nac = new Date(fechaNacStr);
+      const ref = new Date(fechaRefStr);
+      let edad = ref.getFullYear() - nac.getFullYear();
+      const m = ref.getMonth() - nac.getMonth();
+      if (m < 0 || (m === 0 && ref.getDate() < nac.getDate())) {
+        edad--;
+      }
+      return Math.max(0, edad);
+    }
+
+    function obtenerVidaProbable(sexo, edad) {
+      const tabla = TABLA_MORTALIDAD_SFC[sexo] || TABLA_MORTALIDAD_SFC['H'];
+      const e = Math.min(Math.max(0, Math.floor(edad)), 105);
+      return tabla[e] || 1.5;
+    }
+
+    function actualizarCalculos() {
+      const jurisdiccion = document.getElementById("jurisdiccion").value;
+      const tipoEvento = document.getElementById("tipoEvento").value;
+      const fechaHecho = document.getElementById("fechaHecho").value;
+      const fechaCorte = document.getElementById("fechaCorte").value;
+      const tasaInteres = parseFloat(document.getElementById("tasaInteresPura").value);
+      const smmlv = parseFloat(document.getElementById("smmlvVigente").value) || 1750905;
+
+      const victimaNombre = document.getElementById("victimaNombre").value;
+      const victimaSexo = document.getElementById("victimaSexo").value;
+      const victimaFechaNac = document.getElementById("victimaFechaNac").value;
+      const tipoIngreso = document.getElementById("tipoIngreso").value;
+      const ingresoHistoricoInput = parseFloat(document.getElementById("ingresoHistorico").value) || 0;
+      const porcentajePcl = parseFloat(document.getElementById("porcentajePcl").value) || 0;
+
+      // 1. Edad al hecho y expectativa de vida
+      const edadHecho = calcularEdad(victimaFechaNac, fechaHecho);
+      const edadActual = calcularEdad(victimaFechaNac, fechaCorte);
+      document.getElementById("victimaEdadHecho").value = edadHecho;
+
+      const vidaProbableAnios = obtenerVidaProbable(victimaSexo, edadHecho);
+      const vidaProbableMesesTotal = Math.round(vidaProbableAnios * 12);
+      document.getElementById("victimaVidaProbable").value = `${vidaProbableAnios.toFixed(2)} años`;
+      document.getElementById("vidaProbableMesesSpan").innerText = `${vidaProbableMesesTotal} meses`;
+
+      // 2. Meses transcurridos (Consolidado m) y Meses restantes (Futuro n)
+      const dHecho = new Date(fechaHecho);
+      const dCorte = new Date(fechaCorte);
+      const mConsolidado = Math.max(0, Math.round((dCorte - dHecho) / (1000 * 60 * 60 * 24 * 30.4375)));
+      
+      let nFuturo = 0;
+      if (tipoEvento === "lesiones") {
+        // En lesiones la víctima vive: vida probable restante desde la fecha de corte
+        const aniosRestantes = Math.max(0, vidaProbableAnios - (edadActual - edadHecho));
+        nFuturo = Math.round(aniosRestantes * 12);
+      } else if (tipoEvento === "muerte") {
+        // En muerte, límite hasta la vida probable de la víctima o beneficiario
+        const aniosRestantes = Math.max(0, vidaProbableAnios - (mConsolidado / 12));
+        nFuturo = Math.round(aniosRestantes * 12);
+      }
+
+      // 3. Indexación del ingreso
+      let ipcInicial = obtenerIpc(fechaHecho);
+      let ipcFinal = obtenerIpc(fechaCorte);
+      const modoIpc = document.querySelector('input[name="modoIpc"]:checked').value;
+      const panelIpcManual = document.getElementById("panelIpcManual");
+      if (modoIpc === "manual") {
+        panelIpcManual.classList.remove("hidden");
+        ipcInicial = parseFloat(document.getElementById("ipcInicialManual").value) || ipcInicial;
+        ipcFinal = parseFloat(document.getElementById("ipcFinalManual").value) || ipcFinal;
+      } else {
+        panelIpcManual.classList.add("hidden");
+      }
+
+      // Base salarial
+      let ingresoBaseHistorico = ingresoHistoricoInput;
+      if (tipoIngreso === "presuncion") {
+        ingresoBaseHistorico = 1000000; // SMMLV aproximado histórico
+      }
+
+      // Factor prestacional del 25% si es formal
+      let factorPrestacional = (tipoIngreso === "formal") ? 1.25 : 1.0;
+      let ingresoConPrestaciones = ingresoBaseHistorico * factorPrestacional;
+
+      // Indexación a hoy
+      let ingresoIndexado = ingresoConPrestaciones * (ipcFinal / ipcInicial);
+
+      // Si es inferior a 1 SMMLV actual, el Consejo de Estado y CSJ presumen al menos 1 SMMLV
+      if (ingresoIndexado < smmlv) {
+        ingresoIndexado = smmlv;
+      }
+
+      // Deducción o modulación:
+      // En Muerte: se deduce 25% para sostenimiento propio de la víctima (queda 75% para indemnizar a dependientes)
+      // En Lesiones: NO se deduce el 25% porque la víctima subsiste, pero se aplica la PCL %
+      let rentaMensualIndemnizable = ingresoIndexado;
+      if (tipoEvento === "muerte") {
+        rentaMensualIndemnizable = ingresoIndexado * 0.75;
+        document.getElementById("explicacionRa").innerText = `Indexado + 25% prest. menos 25% sostenimiento (75% neto).`;
+      } else if (tipoEvento === "lesiones") {
+        rentaMensualIndemnizable = ingresoIndexado * (porcentajePcl / 100);
+        document.getElementById("explicacionRa").innerText = `Indexado proporcional al ${porcentajePcl}% de PCL.`;
+      } else {
+        rentaMensualIndemnizable = 0;
+        document.getElementById("explicacionRa").innerText = `Sin lucro cesante personal (daño netamente a bienes).`;
+      }
+
+      document.getElementById("ingresoActualizadoRa").value = formatearMoneda(rentaMensualIndemnizable);
+
+      // 4. Cálculo actuarial Lucro Cesante Consolidado (m meses)
+      // S = Ra * [ ((1+i)^m - 1) / i ]
+      let lucroCesanteConsolidado = 0;
+      if (mConsolidado > 0 && rentaMensualIndemnizable > 0) {
+        const factorAcum = (Math.pow(1 + tasaInteres, mConsolidado) - 1) / tasaInteres;
+        lucroCesanteConsolidado = rentaMensualIndemnizable * factorAcum;
+      }
+
+      // 5. Cálculo actuarial Lucro Cesante Futuro (n meses)
+      // S = Ra * [ ((1+i)^n - 1) / (i * (1+i)^n) ]
+      let lucroCesanteFuturo = 0;
+      if (nFuturo > 0 && rentaMensualIndemnizable > 0) {
+        const numerador = Math.pow(1 + tasaInteres, nFuturo) - 1;
+        const denominador = tasaInteres * Math.pow(1 + tasaInteres, nFuturo);
+        const factorFuturo = numerador / denominador;
+        lucroCesanteFuturo = rentaMensualIndemnizable * factorFuturo;
+      }
+
+      // 6. Daño Emergente Consolidado y Futuro
+      let subtotalDanoEmergenteConsolidado = 0;
+      estadoApp.danoEmergente.forEach(g => {
+        const ipcGasto = obtenerIpc(g.fecha);
+        const valorIndexado = g.valor * (ipcFinal / ipcGasto);
+        g.valorIndexado = valorIndexado;
+        subtotalDanoEmergenteConsolidado += valorIndexado;
+      });
+      document.getElementById("subtotalDanoEmergenteConsolidado").innerText = formatearMoneda(subtotalDanoEmergenteConsolidado);
+
+      let danoEmergenteFuturo = 0;
+      const checkFuturo = document.getElementById("checkDanoEmergenteFuturo").checked;
+      if (checkFuturo) {
+        const costoMensual = parseFloat(document.getElementById("costoMensualFuturo").value) || 0;
+        const mesesFut = parseInt(document.getElementById("mesesDanoEmergenteFuturo").value) || nFuturo;
+        if (costoMensual > 0 && mesesFut > 0) {
+          const num = Math.pow(1 + tasaInteres, mesesFut) - 1;
+          const den = tasaInteres * Math.pow(1 + tasaInteres, mesesFut);
+          danoEmergenteFuturo = costoMensual * (num / den);
+        }
+      }
+      document.getElementById("totalDanoEmergenteFuturo").value = formatearMoneda(danoEmergenteFuturo);
+
+      // 7. Perjuicios Inmateriales por Beneficiario
+      let totalPerjuiciosMorales = 0;
+      let totalDanoSalud = 0;
+      let totalBienesProtegidos = 0;
+
+      // Actualizar montos en la lista de beneficiarios
+      estadoApp.beneficiarios.forEach(b => {
+        // Moral según parentesco y gravedad (CE Unificación 28/08/2014)
+        let smmlvMoral = 0;
+        if (b.reclamaMoral) {
+          let tarifaPlena = 0;
+          if (b.nivel === 1) tarifaPlena = 100;
+          else if (b.nivel === 2) tarifaPlena = 50;
+          else if (b.nivel === 3) tarifaPlena = 35;
+          else if (b.nivel === 4) tarifaPlena = 15;
+          else tarifaPlena = 15;
+
+          if (tipoEvento === "muerte") {
+            smmlvMoral = tarifaPlena;
+          } else if (tipoEvento === "lesiones") {
+            // Escala según PCL
+            if (porcentajePcl >= 50) smmlvMoral = tarifaPlena;
+            else if (porcentajePcl >= 40) smmlvMoral = tarifaPlena * 0.8;
+            else if (porcentajePcl >= 30) smmlvMoral = tarifaPlena * 0.6;
+            else if (porcentajePcl >= 20) smmlvMoral = tarifaPlena * 0.4;
+            else if (porcentajePcl >= 10) smmlvMoral = tarifaPlena * 0.2;
+            else smmlvMoral = tarifaPlena * 0.1;
+          } else {
+            smmlvMoral = 0;
+          }
+        }
+        b.montoMoralSmmlv = smmlvMoral;
+        b.montoMoralCop = smmlvMoral * smmlv;
+        totalPerjuiciosMorales += b.montoMoralCop;
+
+        // Daño a la salud (exclusivo de la víctima directa lesionada)
+        let smmlvSalud = 0;
+        if (b.reclamaSalud && tipoEvento === "lesiones") {
+          if (porcentajePcl >= 50) smmlvSalud = 100;
+          else if (porcentajePcl >= 40) smmlvSalud = 80;
+          else if (porcentajePcl >= 30) smmlvSalud = 60;
+          else if (porcentajePcl >= 20) smmlvSalud = 40;
+          else if (porcentajePcl >= 10) smmlvSalud = 20;
+          else smmlvSalud = 10;
+        }
+        b.montoSaludSmmlv = smmlvSalud;
+        b.montoSaludCop = smmlvSalud * smmlv;
+        totalDanoSalud += b.montoSaludCop;
+
+        // Distribución de lucro cesante a este beneficiario
+        if (tipoEvento === "muerte") {
+          b.cuotaLucroConsolidado = (lucroCesanteConsolidado * (b.dependenciaPorcentaje / 100));
+          // Si es hijo menor de 25 años, limitar nFuturo hasta los 25 años
+          if (b.parentesco === "hijo") {
+            const mesesHasta25 = Math.max(0, (25 - (b.edadAlHecho + (mConsolidado / 12))) * 12);
+            const nHijo = Math.min(nFuturo, Math.round(mesesHasta25));
+            if (nHijo > 0) {
+              const numH = Math.pow(1 + tasaInteres, nHijo) - 1;
+              const denH = tasaInteres * Math.pow(1 + tasaInteres, nHijo);
+              b.cuotaLucroFuturo = (rentaMensualIndemnizable * (b.dependenciaPorcentaje / 100)) * (numH / denH);
+            } else {
+              b.cuotaLucroFuturo = 0;
+            }
+          } else {
+            b.cuotaLucroFuturo = (lucroCesanteFuturo * (b.dependenciaPorcentaje / 100));
+          }
+        } else {
+          // En lesiones, el lucro cesante pertenece a la víctima directa
+          if (b.esVictimaDirecta) {
+            b.cuotaLucroConsolidado = lucroCesanteConsolidado;
+            b.cuotaLucroFuturo = lucroCesanteFuturo;
+          } else {
+            b.cuotaLucroConsolidado = 0;
+            b.cuotaLucroFuturo = 0;
+          }
+        }
+
+        b.totalBeneficiario = b.montoMoralCop + b.montoSaludCop + b.cuotaLucroConsolidado + b.cuotaLucroFuturo;
+      });
+
+      // TOTALES GLOBALES
+      const granTotalLucroConsolidado = estadoApp.beneficiarios.reduce((acc, b) => acc + b.cuotaLucroConsolidado, 0) || lucroCesanteConsolidado;
+      const granTotalLucroFuturo = estadoApp.beneficiarios.reduce((acc, b) => acc + b.cuotaLucroFuturo, 0) || lucroCesanteFuturo;
+
+      const totalMateriales = subtotalDanoEmergenteConsolidado + danoEmergenteFuturo + granTotalLucroConsolidado + granTotalLucroFuturo;
+      const totalInmateriales = totalPerjuiciosMorales + totalDanoSalud + totalBienesProtegidos;
+      const totalConsolidado = subtotalDanoEmergenteConsolidado + granTotalLucroConsolidado;
+      const totalFuturo = danoEmergenteFuturo + granTotalLucroFuturo;
+      const granTotal = totalMateriales + totalInmateriales;
+
+      // Guardar en estado global
+      estadoApp.resultados = {
+        smmlv,
+        mConsolidado,
+        nFuturo,
+        ipcInicial,
+        ipcFinal,
+        rentaMensualIndemnizable,
+        subtotalDanoEmergenteConsolidado,
+        danoEmergenteFuturo,
+        granTotalLucroConsolidado,
+        granTotalLucroFuturo,
+        totalMateriales,
+        totalInmateriales,
+        totalPerjuiciosMorales,
+        totalDanoSalud,
+        totalConsolidado,
+        totalFuturo,
+        granTotal,
+        tasaInteres
+      };
+
+      // Actualizar tarjetas del dashboard
+      document.getElementById("cardPerjuiciosMateriales").innerText = formatearMoneda(totalMateriales);
+      document.getElementById("cardPerjuiciosMaterialesSmmlv").innerText = `${(totalMateriales / smmlv).toFixed(2)} SMLV`;
+
+      document.getElementById("cardPerjuiciosInmateriales").innerText = formatearMoneda(totalInmateriales);
+      document.getElementById("cardPerjuiciosInmaterialesSmmlv").innerText = `${(totalInmateriales / smmlv).toFixed(2)} SMLV`;
+
+      document.getElementById("cardTotalConsolidado").innerText = formatearMoneda(totalConsolidado);
+      document.getElementById("cardTotalConsolidadoSmmlv").innerText = `${(totalConsolidado / smmlv).toFixed(2)} SMLV`;
+
+      document.getElementById("cardGranTotal").innerText = formatearMoneda(granTotal);
+      document.getElementById("cardGranTotalSmmlv").innerText = `${(granTotal / smmlv).toFixed(2)} SMLV`;
+
+      // Actualizar desglose matemático
+      generarDesgloseMatematico();
+
+      // Actualizar capítulo de Juramento Estimatorio
+      generarJuramentoEstimatorio();
+
+      // Actualizar Dictamen Pericial
+      generarDictamenPericial();
+
+      // Actualizar tabla de beneficiarios en pantalla
+      renderizarTablaBeneficiarios();
+
+      // Actualizar badge
+      document.getElementById("contadorBeneficiariosBadge").innerText = estadoApp.beneficiarios.length;
+    }
+
+    // =========================================================================
+    // RENDERIZADO DE TABLAS
+    // =========================================================================
+    function renderizarTablaBeneficiarios() {
+      const tbody = document.getElementById("tablaBeneficiariosBody");
+      tbody.innerHTML = "";
+
+      estadoApp.beneficiarios.forEach((b, index) => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
+
+        tr.innerHTML = `
+          <td class="p-3">
+            <input type="text" value="${b.nombre}" onchange="actualizarNombreBeneficiario(${b.id}, this.value)" class="text-xs font-bold text-slate-800 border-b border-dashed border-slate-300 hover:border-slate-500 bg-transparent w-full">
+            <span class="text-[10px] text-slate-400 block">${b.esVictimaDirecta ? '★ Víctima Directa' : 'Damnificado Indirecto'}</span>
+          </td>
+          <td class="p-3">
+            <select onchange="actualizarParentescoBeneficiario(${b.id}, this.value)" class="text-xs border border-slate-200 rounded p-1 bg-white">
+              <option value="conyuge" ${b.parentesco === 'conyuge' ? 'selected' : ''}>Cónyuge / Compañera(o) (Nivel 1)</option>
+              <option value="hijo" ${b.parentesco === 'hijo' ? 'selected' : ''}>Hijo(a) (Nivel 1)</option>
+              <option value="padre" ${b.parentesco === 'padre' ? 'selected' : ''}>Padre / Madre (Nivel 1)</option>
+              <option value="hermano" ${b.parentesco === 'hermano' ? 'selected' : ''}>Hermano(a) (Nivel 2)</option>
+              <option value="abuelo" ${b.parentesco === 'abuelo' ? 'selected' : ''}>Abuelo(a) (Nivel 2)</option>
+              <option value="nieto" ${b.parentesco === 'nieto' ? 'selected' : ''}>Nieto(a) (Nivel 2)</option>
+              <option value="tio" ${b.parentesco === 'tio' ? 'selected' : ''}>Tío(a) / Sobrino (Nivel 3)</option>
+              <option value="primo" ${b.parentesco === 'primo' ? 'selected' : ''}>Primo(a) (Nivel 4)</option>
+            </select>
+          </td>
+          <td class="p-3">
+            <input type="number" value="${b.edadAlHecho}" onchange="actualizarEdadBeneficiario(${b.id}, this.value)" class="w-14 text-xs border border-slate-200 rounded p-1 text-center font-mono-math">
+          </td>
+          <td class="p-3 text-center">
+            <div class="flex items-center justify-center gap-1">
+              <input type="number" min="0" max="100" value="${b.dependenciaPorcentaje}" onchange="actualizarDependenciaBeneficiario(${b.id}, this.value)" class="w-14 text-xs border border-slate-200 rounded p-1 text-center font-mono-math">
+              <span class="text-slate-500 font-semibold">%</span>
+            </div>
+          </td>
+          <td class="p-3 text-right font-mono-math text-purple-700 font-semibold">
+            ${(b.montoMoralSmmlv || 0).toFixed(1)} SMLV
+            <div class="text-[10px] text-slate-500">${formatearMoneda(b.montoMoralCop || 0)}</div>
+          </td>
+          <td class="p-3 text-right font-mono-math text-rose-700 font-semibold">
+            ${(b.montoSaludSmmlv || 0).toFixed(1)} SMLV
+            <div class="text-[10px] text-slate-500">${formatearMoneda(b.montoSaludCop || 0)}</div>
+          </td>
+          <td class="p-3 text-right font-mono-math font-bold text-slate-900">
+            ${formatearMoneda(b.totalBeneficiario || 0)}
+          </td>
+          <td class="p-3 text-center">
+            ${estadoApp.beneficiarios.length > 1 ? `
+              <button onclick="eliminarBeneficiario(${b.id})" class="text-rose-500 hover:text-rose-700 p-1 rounded hover:bg-rose-50 transition" title="Eliminar demandante">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            ` : '<span class="text-slate-300">-</span>'}
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+
+      lucide.createIcons();
+    }
+
+    function renderizarTablaDanoEmergente() {
+      const tbody = document.getElementById("tablaDanoEmergenteBody");
+      tbody.innerHTML = "";
+
+      estadoApp.danoEmergente.forEach(g => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50 transition";
+
+        tr.innerHTML = `
+          <td class="p-2.5">
+            <input type="text" value="${g.concepto}" onchange="actualizarConceptoGasto(${g.id}, this.value)" class="w-full text-xs font-medium border-b border-transparent hover:border-slate-300 bg-transparent">
+          </td>
+          <td class="p-2.5">
+            <select onchange="actualizarTipoGasto(${g.id}, this.value)" class="text-xs border border-slate-200 rounded p-1 bg-white">
+              <option value="Médico" ${g.tipo === 'Médico' ? 'selected' : ''}>Médico / Hospitalario</option>
+              <option value="Funerario" ${g.tipo === 'Funerario' ? 'selected' : ''}>Funerario / Exequial</option>
+              <option value="Bienes" ${g.tipo === 'Bienes' ? 'selected' : ''}>Reparación de Bienes</option>
+              <option value="Peritaje" ${g.tipo === 'Peritaje' ? 'selected' : ''}>Peritaje / Asesoría</option>
+              <option value="Transporte" ${g.tipo === 'Transporte' ? 'selected' : ''}>Transporte / Viáticos</option>
+            </select>
+          </td>
+          <td class="p-2.5">
+            <input type="number" value="${g.valor}" onchange="actualizarValorGasto(${g.id}, this.value)" class="text-xs border border-slate-200 rounded p-1 w-28 font-mono-math">
+          </td>
+          <td class="p-2.5">
+            <input type="date" value="${g.fecha}" onchange="actualizarFechaGasto(${g.id}, this.value)" class="text-xs border border-slate-200 rounded p-1">
+          </td>
+          <td class="p-2.5 text-right font-mono-math font-bold text-emerald-700">
+            ${formatearMoneda(g.valorIndexado || g.valor)}
+          </td>
+          <td class="p-2.5 text-center">
+            <button onclick="eliminarFilaDanoEmergente(${g.id})" class="text-rose-500 hover:text-rose-700 p-1" title="Eliminar rubro">
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      });
+
+      lucide.createIcons();
+    }
+
+    // =========================================================================
+    // ACCIONES DE GESTIÓN DE BENEFICIARIOS Y GASTOS
+    // =========================================================================
+    function agregarBeneficiarioPredefinido(parentesco) {
+      const nuevoId = Date.now();
+      let nombre = "Nuevo Familiar";
+      let nivel = 1;
+      let edad = 30;
+      let dep = 0;
+
+      if (parentesco === "conyuge") {
+        nombre = "Cónyuge / Compañera(o)";
+        nivel = 1;
+        edad = 35;
+        dep = 50;
+      } else if (parentesco === "hijo") {
+        nombre = "Hijo(a) Menor";
+        nivel = 1;
+        edad = 10;
+        dep = 25;
+      } else if (parentesco === "padre") {
+        nombre = "Padre / Madre";
+        nivel = 1;
+        edad = 62;
+        dep = 0;
+      }
+
+      estadoApp.beneficiarios.push({
+        id: nuevoId,
+        nombre: nombre,
+        parentesco: parentesco,
+        nivel: nivel,
+        edadAlHecho: edad,
+        dependenciaPorcentaje: dep,
+        reclamaMoral: true,
+        reclamaSalud: false,
+        reclamaBienesProt: false,
+        esVictimaDirecta: false
+      });
+
+      actualizarCalculos();
+    }
+
+    function agregarBeneficiarioPersonalizado() {
+      agregarBeneficiarioPredefinido("hermano");
+    }
+
+    function eliminarBeneficiario(id) {
+      estadoApp.beneficiarios = estadoApp.beneficiarios.filter(b => b.id !== id);
+      actualizarCalculos();
+    }
+
+    function actualizarNombreBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) { b.nombre = val; actualizarCalculos(); }
+    }
+
+    function actualizarParentescoBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) {
+        b.parentesco = val;
+        if (["conyuge", "hijo", "padre"].includes(val)) b.nivel = 1;
+        else if (["hermano", "abuelo", "nieto"].includes(val)) b.nivel = 2;
+        else if (["tio"].includes(val)) b.nivel = 3;
+        else b.nivel = 4;
+        actualizarCalculos();
+      }
+    }
+
+    function actualizarEdadBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) { b.edadAlHecho = parseInt(val) || 0; actualizarCalculos(); }
+    }
+
+    function actualizarDependenciaBeneficiario(id, val) {
+      const b = estadoApp.beneficiarios.find(x => x.id === id);
+      if (b) { b.dependenciaPorcentaje = Math.min(100, Math.max(0, parseFloat(val) || 0)); actualizarCalculos(); }
+    }
+
+    function agregarFilaDanoEmergente() {
+      const nuevoId = Date.now();
+      const fechaHoy = document.getElementById("fechaHecho").value;
+      estadoApp.danoEmergente.push({
+        id: nuevoId,
+        concepto: "Gasto de Transporte y Diligencias",
+        tipo: "Transporte",
+        valor: 1200000,
+        fecha: fechaHoy
+      });
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+    }
+
+    function eliminarFilaDanoEmergente(id) {
+      estadoApp.danoEmergente = estadoApp.danoEmergente.filter(g => g.id !== id);
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+    }
+
+    function actualizarConceptoGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.concepto = val; actualizarCalculos(); }
+    }
+
+    function actualizarTipoGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.tipo = val; actualizarCalculos(); }
+    }
+
+    function actualizarValorGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.valor = parseFloat(val) || 0; actualizarCalculos(); }
+    }
+
+    function actualizarFechaGasto(id, val) {
+      const g = estadoApp.danoEmergente.find(x => x.id === id);
+      if (g) { g.fecha = val; renderizarTablaDanoEmergente(); actualizarCalculos(); }
+    }
+
+    function toggleDanoEmergenteFuturo() {
+      const check = document.getElementById("checkDanoEmergenteFuturo").checked;
+      const panel = document.getElementById("panelDanoEmergenteFuturo");
+      if (check) panel.classList.remove("hidden");
+      else panel.classList.add("hidden");
+      actualizarCalculos();
+    }
+
+    // =========================================================================
+    // DESGLOSE MATEMÁTICO PASO A PASO
+    // =========================================================================
+    function generarDesgloseMatematico() {
+      const r = estadoApp.resultados;
+      if (!r) return;
+
+      // 1. Indexación
+      document.getElementById("desgloseIndexacionMath").innerHTML = `
+        Va = $${formatearNumero(parseFloat(document.getElementById("ingresoHistorico").value))} × ( ${r.ipcFinal.toFixed(2)} / ${r.ipcInicial.toFixed(2)} )<br>
+        Factor de Corrección = ${(r.ipcFinal / r.ipcInicial).toFixed(4)}<br>
+        Renta Mensual Neta Actualizada (Ra) = <strong>$${formatearNumero(r.rentaMensualIndemnizable)} COP</strong>
+      `;
+
+      // 2. Consolidado
+      const factorC = (Math.pow(1 + r.tasaInteres, r.mConsolidado) - 1) / r.tasaInteres;
+      document.getElementById("desgloseConsolidadoMath").innerHTML = `
+        S = $${formatearNumero(r.rentaMensualIndemnizable)} × [ ((1 + ${r.tasaInteres})^${r.mConsolidado} - 1) / ${r.tasaInteres} ]<br>
+        Meses Transcurridos (m) = ${r.mConsolidado} meses<br>
+        Factor Financiero de Acumulación = ${factorC.toFixed(4)}<br>
+        Total Lucro Cesante Consolidado = <strong>$${formatearNumero(r.granTotalLucroConsolidado)} COP</strong>
+      `;
+
+      // 3. Futuro
+      const numF = Math.pow(1 + r.tasaInteres, r.nFuturo) - 1;
+      const denF = r.tasaInteres * Math.pow(1 + r.tasaInteres, r.nFuturo);
+      const factorF = (denF !== 0) ? (numF / denF) : 0;
+      document.getElementById("desgloseFuturoMath").innerHTML = `
+        S = $${formatearNumero(r.rentaMensualIndemnizable)} × [ ((1 + ${r.tasaInteres})^${r.nFuturo} - 1) / (${r.tasaInteres} × (1 + ${r.tasaInteres})^${r.nFuturo}) ]<br>
+        Meses Futuros Restantes (n) = ${r.nFuturo} meses (Vida Probable SFC)<br>
+        Factor Financiero de Valor Presente = ${factorF.toFixed(4)}<br>
+        Total Lucro Cesante Futuro = <strong>$${formatearNumero(r.granTotalLucroFuturo)} COP</strong>
+      `;
+    }
+
+    // =========================================================================
+    // GENERADOR DE TEXTO PARA DEMANDA Y JURAMENTO ESTIMATORIO
+    // =========================================================================
+    function generarJuramentoEstimatorio() {
+      const r = estadoApp.resultados;
+      const victima = document.getElementById("victimaNombre").value;
+      const victimaDoc = document.getElementById("victimaDoc").value;
+      const fechaHecho = document.getElementById("fechaHecho").value;
+      const tipoEvento = document.getElementById("tipoEvento").value;
+      const jurisdiccion = document.getElementById("jurisdiccion").value;
+
+      let html = `
+        <div class="text-center mb-6">
+          <h3 class="font-bold text-base uppercase text-slate-900">CAPÍTULO: LIQUIDACIÓN Y ESTIMACIÓN RAZONADA DE PERJUCIOS</h3>
+          <h4 class="font-bold text-xs uppercase text-amber-700 tracking-wider">JURAMENTO ESTIMATORIO (ARTÍCULO 206 DEL CÓDIGO GENERAL DEL PROCESO Y ART. 162 CPACA)</h4>
+        </div>
+
+        <p class="mb-4 text-justify">
+          En cumplimiento de lo normado en el <strong>artículo 206 del Código General del Proceso (Ley 1564 de 2012)</strong> y el <strong>artículo 162 del CPACA</strong>, la parte demandante formula bajo la gravedad del juramento la estimación razonada y cuantificada de los perjuicios materiales irrogados por la conducta dañosa acaecida el día <strong>${fechaHecho}</strong>, en la que resultó víctima directa el ciudadano <strong>${victima}</strong>, identificado con cédula de ciudadanía No. <strong>${victimaDoc}</strong>:
+        </p>
+
+        <h5 class="font-bold text-slate-900 uppercase border-b border-slate-300 pb-1 mb-2">1. PERJUICIOS MATERIALES</h5>
+
+        <div class="mb-3 pl-3 border-l-2 border-emerald-500">
+          <p class="font-semibold text-slate-900">1.1. DAÑO EMERGENTE CONSOLIDADO Y FUTURO:</p>
+          <p class="text-slate-700 text-xs mb-1">
+            • <strong>Daño Emergente Consolidado:</strong> Corresponde a los gastos médicos, fúnebres, periciales y de reparación debidamente soportados, indexados a valor presente a la fecha de radicación de la demanda, tasados en la suma de <strong>${formatearMoneda(r.subtotalDanoEmergenteConsolidado)} COP</strong>.<br>
+            • <strong>Daño Emergente Futuro:</strong> Tasado a valor presente para tratamientos, medicación y cuidadores continuos por la suma de <strong>${formatearMoneda(r.danoEmergenteFuturo)} COP</strong>.<br>
+            <strong>SUBTOTAL DAÑO EMERGENTE:</strong> <strong>${formatearMoneda(r.subtotalDanoEmergenteConsolidado + r.danoEmergenteFuturo)} COP</strong>.
+          </p>
+        </div>
+
+        <div class="mb-3 pl-3 border-l-2 border-blue-500">
+          <p class="font-semibold text-slate-900">1.2. LUCRO CESANTE CONSOLIDADO Y FUTURO (FÓRMULAS CONSEJO DE ESTADO / CSJ):</p>
+          <p class="text-slate-700 text-xs mb-1">
+            Partiendo de una Renta Mensual Neta Actualizada (Ra) de <strong>${formatearMoneda(r.rentaMensualIndemnizable)} COP</strong>, una tasa técnica pura mensual del <strong>${(r.tasaInteres * 100).toFixed(4)}%</strong>, ${r.mConsolidado} meses transcurridos a la liquidación y ${r.nFuturo} meses de expectativa futura:<br>
+            • <strong>Lucro Cesante Consolidado (S = Ra × [((1+i)^m - 1)/i]):</strong> <strong>${formatearMoneda(r.granTotalLucroConsolidado)} COP</strong>.<br>
+            • <strong>Lucro Cesante Futuro (S = Ra × [((1+i)^n - 1)/(i*(1+i)^n)]):</strong> <strong>${formatearMoneda(r.granTotalLucroFuturo)} COP</strong>.<br>
+            <strong>SUBTOTAL LUCRO CESANTE:</strong> <strong>${formatearMoneda(r.granTotalLucroConsolidado + r.granTotalLucroFuturo)} COP</strong>.
+          </p>
+        </div>
+
+        <p class="font-bold text-slate-900 mb-4 bg-slate-100 p-2 rounded">
+          TOTAL JURAMENTO ESTIMATORIO (PERJUICIOS MATERIALES): ${formatearMoneda(r.totalMateriales)} COP (${(r.totalMateriales / r.smmlv).toFixed(2)} SMMLV).
+        </p>
+
+        <h5 class="font-bold text-slate-900 uppercase border-b border-slate-300 pb-1 mb-2">2. PERJUICIOS EXTRAPATRIMONIALES (NO SUJETOS A JURAMENTO ESTIMATORIO - SENTENCIA C-157/13)</h5>
+        <p class="text-xs text-slate-600 mb-2">
+          De conformidad con el criterio unificado de la Corte Constitucional (Sentencia C-157 de 2013), los perjuicios morales y a la salud se tasan al prudente arbitrio judicial y con fundamento en los baremos de la <strong>Sentencia de Unificación de 28 de agosto de 2014 de la Sección Tercera del Consejo de Estado</strong>:
+        </p>
+
+        <table class="w-full text-xs text-left border border-slate-300 mb-4">
+          <thead class="bg-slate-200 font-bold">
+            <tr>
+              <th class="p-2 border-r border-slate-300">Demandante</th>
+              <th class="p-2 border-r border-slate-300">Parentesco</th>
+              <th class="p-2 border-r border-slate-300 text-right">Perjuicio Moral</th>
+              <th class="p-2 border-r border-slate-300 text-right">Daño a la Salud</th>
+              <th class="p-2 text-right">Total Inmaterial</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            ${estadoApp.beneficiarios.map(b => `
+              <tr>
+                <td class="p-2 border-r border-slate-300 font-semibold">${b.nombre}</td>
+                <td class="p-2 border-r border-slate-300 capitalize">${b.parentesco} (Nivel ${b.nivel})</td>
+                <td class="p-2 border-r border-slate-300 text-right">${formatearMoneda(b.montoMoralCop || 0)}</td>
+                <td class="p-2 border-r border-slate-300 text-right">${formatearMoneda(b.montoSaludCop || 0)}</td>
+                <td class="p-2 text-right font-bold">${formatearMoneda((b.montoMoralCop || 0) + (b.montoSaludCop || 0))}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+          <tfoot class="bg-slate-100 font-bold">
+            <tr>
+              <td colspan="4" class="p-2 text-right">TOTAL PERJUICIOS INMATERIALES:</td>
+              <td class="p-2 text-right text-purple-700 font-mono-math">${formatearMoneda(r.totalInmateriales)} COP</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="bg-amber-100 border border-amber-300 p-3 rounded-lg text-amber-950 font-bold text-center">
+          GRAN TOTAL DE PRETENSIONES INDEMNIZATORIAS: ${formatearMoneda(r.granTotal)} COP (${(r.granTotal / r.smmlv).toFixed(2)} SMMLV).
+        </div>
+      `;
+
+      document.getElementById("textoJuramentoEstimatorio").innerHTML = html;
+    }
+
+    // =========================================================================
+    // GENERADOR DE DICTAMEN PERICIAL FORENSE (VISTA CERTIFICADA)
+    // =========================================================================
+    function generarDictamenPericial() {
+      const r = estadoApp.resultados;
+      const victima = document.getElementById("victimaNombre").value;
+      const fechaHecho = document.getElementById("fechaHecho").value;
+      const tasaInteres = parseFloat(document.getElementById("tasaInteresPura").value);
+
+      document.getElementById("peritajeVictimaNombre").innerText = victima;
+      document.getElementById("peritajeFechaHecho").innerText = fechaHecho;
+      document.getElementById("peritajeTasaInteres").innerText = `i = ${tasaInteres} mensual (${(tasaInteres * 100).toFixed(4)}%)`;
+      document.getElementById("peritajeGranTotal").innerText = formatearMoneda(r.granTotal);
+      document.getElementById("peritajeGranTotalCifra").innerText = formatearMoneda(r.granTotal);
+      document.getElementById("peritajeTotalSmmlv").innerText = (r.granTotal / r.smmlv).toFixed(2);
+      document.getElementById("peritajeGranTotalLetras").innerText = numeroALetras(Math.round(r.granTotal)) + " PESOS M/CTE";
+
+      const tbody = document.getElementById("peritajeTablaCuerpo");
+      tbody.innerHTML = `
+        <tr>
+          <td class="p-2 border-r font-semibold">1. Daño Emergente Consolidado</td>
+          <td class="p-2 border-r font-mono-math">${formatearMoneda(estadoApp.danoEmergente.reduce((a,b)=>a+b.valor,0))}</td>
+          <td class="p-2 border-r">${estadoApp.danoEmergente.length} rubros soportados</td>
+          <td class="p-2 text-right font-mono-math">${formatearMoneda(r.subtotalDanoEmergenteConsolidado)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">2. Daño Emergente Futuro</td>
+          <td class="p-2 border-r font-mono-math">-</td>
+          <td class="p-2 border-r">${r.nFuturo} meses futuros</td>
+          <td class="p-2 text-right font-mono-math">${formatearMoneda(r.danoEmergenteFuturo)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">3. Lucro Cesante Consolidado</td>
+          <td class="p-2 border-r font-mono-math">Ra = ${formatearMoneda(r.rentaMensualIndemnizable)}</td>
+          <td class="p-2 border-r">${r.mConsolidado} meses transcurridos</td>
+          <td class="p-2 text-right font-mono-math font-bold">${formatearMoneda(r.granTotalLucroConsolidado)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">4. Lucro Cesante Futuro</td>
+          <td class="p-2 border-r font-mono-math">Ra = ${formatearMoneda(r.rentaMensualIndemnizable)}</td>
+          <td class="p-2 border-r">${r.nFuturo} meses (SFC)</td>
+          <td class="p-2 text-right font-mono-math font-bold">${formatearMoneda(r.granTotalLucroFuturo)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">5. Perjuicios Morales (Baremo CE)</td>
+          <td class="p-2 border-r font-mono-math">${(r.totalPerjuiciosMorales / r.smmlv).toFixed(1)} SMMLV</td>
+          <td class="p-2 border-r">${estadoApp.beneficiarios.length} familiares</td>
+          <td class="p-2 text-right font-mono-math text-purple-700">${formatearMoneda(r.totalPerjuiciosMorales)}</td>
+        </tr>
+        <tr>
+          <td class="p-2 border-r font-semibold">6. Daño a la Salud (PCL)</td>
+          <td class="p-2 border-r font-mono-math">${(r.totalDanoSalud / r.smmlv).toFixed(1)} SMMLV</td>
+          <td class="p-2 border-r">Víctima corporal</td>
+          <td class="p-2 text-right font-mono-math text-rose-700">${formatearMoneda(r.totalDanoSalud)}</td>
+        </tr>
+      `;
+    }
+
+    // =========================================================================
+    // CASOS PRECONFIGURADOS DE PRUEBA Y APRENDIZAJE
+    // =========================================================================
+    function cargarCasoEjemplo(tipo) {
+      if (tipo === 'homicidio') {
+        document.getElementById("tipoEvento").value = "muerte";
+        document.getElementById("victimaNombre").value = "Carlos Eduardo Mendoza Sarmiento";
+        document.getElementById("victimaDoc").value = "79.845.120";
+        document.getElementById("victimaSexo").value = "H";
+        document.getElementById("victimaFechaNac").value = "1988-04-12";
+        document.getElementById("fechaHecho").value = "2021-08-10";
+        document.getElementById("tipoIngreso").value = "formal";
+        document.getElementById("ingresoHistorico").value = "4800000";
+
+        estadoApp.beneficiarios = [
+          { id: 1, nombre: "Adriana Lucía Torres (Cónyuge)", parentesco: "conyuge", nivel: 1, edadAlHecho: 32, dependenciaPorcentaje: 50, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 2, nombre: "Mateo Mendoza Torres (Hijo 6 años)", parentesco: "hijo", nivel: 1, edadAlHecho: 6, dependenciaPorcentaje: 25, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 3, nombre: "Sofía Mendoza Torres (Hija 2 años)", parentesco: "hijo", nivel: 1, edadAlHecho: 2, dependenciaPorcentaje: 25, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 4, nombre: "Rosa Sarmiento de Mendoza (Madre)", parentesco: "padre", nivel: 1, edadAlHecho: 64, dependenciaPorcentaje: 0, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false }
+        ];
+
+        estadoApp.danoEmergente = [
+          { id: 1, concepto: "Servicios Exequiales y Destino Final", tipo: "Funerario", valor: 7500000, fecha: "2021-08-12" },
+          { id: 2, concepto: "Destrucción Total de Motocicleta", tipo: "Bienes", valor: 18000000, fecha: "2021-08-10" }
+        ];
+
+        document.getElementById("checkDanoEmergenteFuturo").checked = false;
+      } else if (tipo === 'lesiones') {
+        document.getElementById("tipoEvento").value = "lesiones";
+        document.getElementById("victimaNombre").value = "Luis Fernando Restrepo Gómez";
+        document.getElementById("victimaDoc").value = "1.015.420.890";
+        document.getElementById("victimaSexo").value = "H";
+        document.getElementById("victimaFechaNac").value = "1994-11-25";
+        document.getElementById("fechaHecho").value = "2023-02-14";
+        document.getElementById("tipoIngreso").value = "formal";
+        document.getElementById("ingresoHistorico").value = "3600000";
+        document.getElementById("porcentajePcl").value = "68.40";
+        document.getElementById("diasIncapacidad").value = "180";
+
+        estadoApp.beneficiarios = [
+          { id: 1, nombre: "Luis Fernando Restrepo (Víctima Lesionada)", parentesco: "conyuge", nivel: 1, edadAlHecho: 28, dependenciaPorcentaje: 100, reclamaMoral: true, reclamaSalud: true, esVictimaDirecta: true },
+          { id: 2, nombre: "Camila Andrea Restrepo (Esposa)", parentesco: "conyuge", nivel: 1, edadAlHecho: 27, dependenciaPorcentaje: 0, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false },
+          { id: 3, nombre: "Ana Gómez (Madre)", parentesco: "padre", nivel: 1, edadAlHecho: 55, dependenciaPorcentaje: 0, reclamaMoral: true, reclamaSalud: false, esVictimaDirecta: false }
+        ];
+
+        estadoApp.danoEmergente = [
+          { id: 1, concepto: "Prótesis Biónica de Extremidad Inferior", tipo: "Médico", valor: 45000000, fecha: "2023-04-10" },
+          { id: 2, concepto: "Tratamiento de Neuro-Rehabilitación", tipo: "Médico", valor: 12500000, fecha: "2023-06-20" }
+        ];
+
+        document.getElementById("checkDanoEmergenteFuturo").checked = true;
+        document.getElementById("costoMensualFuturo").value = "1750905"; // 1 SMMLV Cuidador
+        document.getElementById("mesesDanoEmergenteFuturo").value = "480";
+      }
+
+      cambiarTipoEvento();
+      renderizarTablaBeneficiarios();
+      renderizarTablaDanoEmergente();
+      actualizarCalculos();
+      cambiarPestana('tab-liquidador');
+    }
+
+    // =========================================================================
+    // GRÁFICOS INTERACTIVOS (CHART.JS)
+    // =========================================================================
+    let chartTipos = null;
+    let chartBeneficiarios = null;
+
+    function inicializarGraficos() {
+      const ctxTipos = document.getElementById("graficoDistribucionTipos");
+      const ctxBen = document.getElementById("graficoBeneficiarios");
+
+      if (ctxTipos) {
+        chartTipos = new Chart(ctxTipos, {
+          type: 'doughnut',
+          data: {
+            labels: ['Daño Emergente', 'Lucro C. Consolidado', 'Lucro C. Futuro', 'Perjuicios Morales', 'Daño a la Salud'],
+            datasets: [{
+              data: [10, 20, 40, 20, 10],
+              backgroundColor: ['#10b981', '#3b82f6', '#1d4ed8', '#a855f7', '#ec4899'],
+              borderWidth: 2,
+              borderColor: '#ffffff'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
+            }
+          }
+        });
+      }
+
+      if (ctxBen) {
+        chartBeneficiarios = new Chart(ctxBen, {
+          type: 'bar',
+          data: {
+            labels: ['Beneficiario 1', 'Beneficiario 2'],
+            datasets: [{
+              label: 'Total Liquidado (COP)',
+              data: [50000000, 30000000],
+              backgroundColor: '#d97706',
+              borderRadius: 6
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: { ticks: { callback: v => '$' + (v / 1000000).toFixed(0) + 'M' } }
+            },
+            plugins: {
+              legend: { display: false }
+            }
+          }
+        });
+      }
+    }
+
+    function actualizarGraficos() {
+      const r = estadoApp.resultados;
+      if (!r || !chartTipos || !chartBeneficiarios) return;
+
+      chartTipos.data.datasets[0].data = [
+        r.subtotalDanoEmergenteConsolidado + r.danoEmergenteFuturo,
+        r.granTotalLucroConsolidado,
+        r.granTotalLucroFuturo,
+        r.totalPerjuiciosMorales,
+        r.totalDanoSalud
+      ];
+      chartTipos.update();
+
+      chartBeneficiarios.data.labels = estadoApp.beneficiarios.map(b => b.nombre.length > 15 ? b.nombre.substring(0, 15) + '...' : b.nombre);
+      chartBeneficiarios.data.datasets[0].data = estadoApp.beneficiarios.map(b => b.totalBeneficiario || 0);
+      chartBeneficiarios.update();
+    }
+
+    // =========================================================================
+    // UTILIDADES: FORMATEO Y CONVERSIÓN DE CIFRAS A LETRAS
+    // =========================================================================
+    function formatearMoneda(val) {
+      return '$' + Math.round(val || 0).toLocaleString('es-CO');
+    }
+
+    function formatearNumero(val) {
+      return Math.round(val || 0).toLocaleString('es-CO');
+    }
+
+    function copiarTextoAlPortapapeles(idElemento) {
+      const el = document.getElementById(idElemento);
+      if (!el) return;
+      const texto = el.innerText;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("¡Capítulo de demanda y juramento estimatorio copiado exitosamente al portapapeles!");
+      }).catch(err => {
+        console.error("Error al copiar:", err);
+      });
+    }
+
+    function numeroALetras(num) {
+      if (num === 0) return 'CERO';
+      const unidades = ['', 'UN', 'DOS', 'TRES', 'CUATRO', 'CINCO', 'SEIS', 'SIETE', 'OCHO', 'NUEVE'];
+      const decenas = ['', 'DIEZ', 'VEINTE', 'TREINTA', 'CUARENTA', 'CINCUENTA', 'SESENTA', 'SETENTA', 'OCHENTA', 'NOVENTA'];
+      const diezY = ['DIEZ', 'ONCE', 'DOCE', 'TRECE', 'CATORCE', 'QUINCE', 'DIECISEIS', 'DIECISIETE', 'DIECIOCHO', 'DIECINUEVE'];
+      const centenas = ['', 'CIENTO', 'DOSCIENTOS', 'TRESCIENTOS', 'CUATROCIENTOS', 'QUINIENTOS', 'SEISCIENTOS', 'SETECIENTOS', 'OCHOCIENTOS', 'NOVECIENTOS'];
+
+      function convertirSeccion(n) {
+        let salida = '';
+        const c = Math.floor(n / 100);
+        const d = Math.floor((n % 100) / 10);
+        const u = n % 10;
+
+        if (n === 100) return 'CIEN';
+        if (c > 0) salida += centenas[c] + ' ';
+
+        if (d === 1) {
+          salida += diezY[u] + ' ';
+        } else if (d === 2 && u > 0) {
+          salida += 'VEINTI' + unidades[u] + ' ';
+        } else {
+          if (d > 0) salida += decenas[d] + (u > 0 ? ' Y ' : ' ');
+          if (u > 0) salida += unidades[u] + ' ';
+        }
+        return salida.trim();
+      }
+
+      let millones = Math.floor(num / 1000000);
+      let miles = Math.floor((num % 1000000) / 1000);
+      let resto = num % 1000;
+      let resultado = '';
+
+      if (millones > 0) {
+        if (millones === 1) resultado += 'UN MILLON ';
+        else resultado += convertirSeccion(millones) + ' MILLONES ';
+      }
+      if (miles > 0) {
+        if (miles === 1) resultado += 'MIL ';
+        else resultado += convertirSeccion(miles) + ' MIL ';
+      }
+      if (resto > 0) {
+        resultado += convertirSeccion(resto);
+      }
+      return resultado.trim();
+    }
+  
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  </div> <!-- Fin #mainAppWrapper -->
+</body>
+</html>

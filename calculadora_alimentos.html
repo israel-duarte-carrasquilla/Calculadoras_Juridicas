@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora y Liquidador Judicial de Alimentos Colombia 2026 | Código Civil, Ley 1098 & REDAM</title>
+  <script src="https://cdn.tailwindcss.com">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <script src="https://unpkg.com/lucide@latest">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif-legal {
+      font-family: 'Cinzel', serif;
+    }
+    .tab-btn.active {
+      border-bottom: 3px solid #2563eb;
+      color: #1d4ed8;
+      font-weight: 700;
+      background-color: rgba(37, 99, 235, 0.04);
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 11pt !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    }
+    .badge-congruo {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    }
+    .badge-necesario {
+      background: linear-gradient(135deg, #831843 0%, #ec4899 100%);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- PORTAL DE ACCESO / LOGIN OBLIGATORIO                                      -->
+  <!-- ========================================================================= -->
+  <div id="appLoginGate" class="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-4 relative z-50">
+    <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center space-y-4">
+      <div class="inline-flex p-3 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-400/30">
+        <i data-lucide="scale" class="w-8 h-8"></i>
+      </div>
+      <h2 class="text-xl font-bold font-serif-legal">Acceso Protegido a la Suite</h2>
+      <p class="text-xs text-slate-400">Por favor inicia sesión en la Suite Jurídica para acceder a este módulo.</p>
+      <a href="index.html" class="block w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg transition">
+        Ir a la Suite Principal / Iniciar Sesión
+      </a>
+    </div>
+  </div>
+    
+  <div id="mainAppWrapper" class="hidden flex-1 flex flex-col">
+
+  <!-- Switcher Superior de Suite Legal -->
+  <div class="bg-slate-950 text-slate-300 border-b border-slate-800 text-xs py-1.5 px-4 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-amber-400 font-extrabold flex items-center gap-1">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i> SUITE DE CALCULADORAS LEGALES DE COLOMBIA
+        </span>
+        <span class="text-slate-600 hidden md:inline">|</span>
+        <span class="text-slate-400 hidden md:inline">Edición Integral 2026 - Normativa & Jurisprudencia</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="calculator" class="w-3 h-3 text-emerald-400"></i>
+          <span>Pensión (Ley 2381)</span>
+        </a>
+        <a href="calculadora_alimentos.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-blue-700 text-white font-bold transition-colors shadow-xs">
+          <i data-lucide="heart-handshake" class="w-3 h-3 text-pink-300"></i>
+          <span>Alimentos (C.C. & REDAM)</span>
+        </a>
+        <a href="calculadora_perjuicios.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="shield-alert" class="w-3 h-3 text-amber-300"></i>
+          <span>Perjuicios (CSJ & C.E.)</span>
+        </a>
+        <a href="calculadora_creditos.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="badge-dollar-sign" class="w-3 h-3 text-amber-300"></i>
+          <span>Créditos (CGP Art. 446)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Principal -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-2.5 rounded-xl shadow-inner text-white flex items-center justify-center">
+          <i data-lucide="shield-alert" class="w-6 h-6 text-amber-300"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+              Calculadora y Liquidador Judicial de Alimentos
+            </h1>
+            <span class="bg-blue-500/20 text-blue-300 text-[11px] px-2.5 py-0.5 rounded-full border border-blue-400/30 font-semibold">
+              Colombia 2026
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">
+            Alimentos Congruos vs. Necesarios • Límite 50% Salarial • Economía del Cuidado • Liquidador Ejecutivo & REDAM (Ley 2097/20)
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs">
+        <button onclick="switchTab('tab-jurisprudencia')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-700 hover:bg-indigo-600 text-white font-medium shadow-sm transition-colors">
+          <i data-lucide="book-open-check" class="w-4 h-4 text-indigo-200"></i>
+          <span>Jurisprudencia & Precedentes</span>
+        </button>
+        <button onclick="window.print()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors">
+          <i data-lucide="printer" class="w-4 h-4 text-emerald-400"></i>
+          <span>Imprimir / PDF Judicial</span>
+        </button>
+        <button onclick="openModal('normativaModal')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium shadow-sm transition-colors">
+          <i data-lucide="scale" class="w-4 h-4 text-amber-300"></i>
+          <span>Marco Legal C.C.</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner Informativo de Presunciones y Valores Legales 2026 -->
+  <section class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white border-b border-blue-900/40 py-2.5 px-4 text-xs shadow-inner no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-4 flex-wrap">
+        <div class="flex items-center gap-1.5">
+          <span class="text-blue-400 font-semibold">SMMLV 2026 (Referencia):</span>
+          <span class="font-bold text-amber-300 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700">$1.750.905 COP</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-blue-400 font-semibold">Presunción Legal de Ingreso (Art. 129 Ley 1098):</span>
+          <span class="font-bold text-emerald-300 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700">1 SMMLV Mínimo</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-blue-400 font-semibold">Tope Embargo Máximo (Art. 130 Ley 1098 & Art. 156 CST):</span>
+          <span class="font-bold text-rose-300 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700">Hasta 50% de Ingresos</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-blue-400 font-semibold">Interés Moratorio Civil Especial (Art. 1617 C.C.):</span>
+          <span class="font-bold text-cyan-300 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700">6% E.A. (0.5% Mensual)</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 text-slate-300">
+        <i data-lucide="database" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span>Soportado en repositorio <strong class="text-white">@[jurisprudencia]</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pestañas de Navegación del Sistema -->
+  <nav class="bg-white border-b border-slate-200 sticky top-[57px] z-40 shadow-xs no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex overflow-x-auto space-x-1 sm:space-x-4">
+      <button onclick="switchTab('tab-tasacion')" id="btn-tab-tasacion" class="tab-btn active py-3.5 px-4 text-xs sm:text-sm font-semibold flex items-center gap-2 border-b-2 border-transparent transition-all whitespace-nowrap">
+        <i data-lucide="calculator" class="w-4 h-4"></i>
+        <span>1. Tasación y Fijación de Cuota Periódica</span>
+      </button>
+      <button onclick="switchTab('tab-liquidador')" id="btn-tab-liquidador" class="tab-btn py-3.5 px-4 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-2 border-b-2 border-transparent transition-all whitespace-nowrap">
+        <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+        <span>2. Liquidador Ejecutivo de Cuotas Atrasadas & REDAM</span>
+      </button>
+      <button onclick="switchTab('tab-minutas')" id="btn-tab-minutas" class="tab-btn py-3.5 px-4 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-2 border-b-2 border-transparent transition-all whitespace-nowrap">
+        <i data-lucide="file-text" class="w-4 h-4"></i>
+        <span>3. Generador de Minutas y Acuerdos</span>
+      </button>
+      <button onclick="switchTab('tab-jurisprudencia')" id="btn-tab-jurisprudencia" class="tab-btn py-3.5 px-4 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-2 border-b-2 border-transparent transition-all whitespace-nowrap">
+        <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+        <span>4. Biblioteca Jurisprudencial & Doctrina</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 1: TASACIÓN Y FIJACIÓN DE CUOTA PERIÓDICA                        -->
+    <!-- ========================================================================= -->
+    <section id="tab-tasacion" class="tab-content block space-y-6">
+      
+      <!-- Selector de Casos Tipo / Preconfigurados -->
+      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+          <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Cargar Caso Tipo Preestablecido:</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <button onclick="cargarCasoTipo('hijo_menor_formal')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-700 rounded-lg font-medium border border-slate-200 transition-colors">
+            👶 Hijo Menor + Asalariado (Congruos)
+          </button>
+          <button onclick="cargarCasoTipo('hijo_estudiante')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-700 rounded-lg font-medium border border-slate-200 transition-colors">
+            🎓 Universitario 21 años (T-209/20)
+          </button>
+          <button onclick="cargarCasoTipo('independiente_informal')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-700 rounded-lg font-medium border border-slate-200 transition-colors">
+            💼 Informal (Presunción 1 SMMLV)
+          </button>
+          <button onclick="cargarCasoTipo('conyuge_inocente')" class="px-3 py-1.5 bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-700 rounded-lg font-medium border border-slate-200 transition-colors">
+            💍 Cónyuge Inocente (Congruos C-017/19)
+          </button>
+          <button onclick="cargarCasoTipo('hermano_necesarios')" class="px-3 py-1.5 bg-slate-100 hover:bg-pink-50 hover:text-pink-700 text-slate-700 rounded-lg font-medium border border-slate-200 transition-colors">
+            🤝 Hermanos (Alimentos Necesarios)
+          </button>
+        </div>
+      </div>
+
+      <!-- Cuadrícula Principal: Entradas vs. Resultados -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Columna Izquierda: Parámetros del Caso (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Tarjeta 1: Sujeto Beneficiario y Calificación Legal -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="user-check" class="w-4 h-4 text-blue-600"></i>
+                1. Acreedor Alimentario & Título Legal (Art. 411 C.C.)
+              </h2>
+              <span id="badgeNaturalezaAlimentos" class="badge-congruo text-white text-[10px] uppercase font-extrabold px-2.5 py-0.5 rounded-full shadow-xs">
+                Alimentos Congruos
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Tipo de Beneficiario:</label>
+                <select id="tipoBeneficiario" onchange="onCambioBeneficiario()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-500 font-medium">
+                  <option value="hijo_menor">Hijo(a) Menor de Edad (0 a 17 años) - Ley 1098</option>
+                  <option value="hijo_estudiante">Hijo(a) Mayor Estudiante (18 a 25 años) - T-209/20</option>
+                  <option value="hijo_discapacidad">Hijo(a) en Condición de Discapacidad Permanente</option>
+                  <option value="conyuge_inocente">Cónyuge / Compañero(a) Permanente Inocente</option>
+                  <option value="conyuge_culpable">Cónyuge Culpable / Extrema Pobreza</option>
+                  <option value="padres">Ascendiente (Padre / Madre en necesidad)</option>
+                  <option value="hermanos">Hermanos (Art. 411 Num. 5)</option>
+                  <option value="donante">Donante de Donación Cuantiosa (Art. 411 Num. 6)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Clase Jurídica de Alimentos:</label>
+                <div class="flex items-center gap-2 mt-1">
+                  <label class="flex items-center gap-1.5 cursor-pointer">
+                    <input type="radio" name="claseAlimentosRadio" id="radioCongruos" value="congruos" checked onchange="calcularCuotaAlimentos()" class="text-blue-600 focus:ring-blue-500">
+                    <span class="font-bold text-blue-900 text-xs">Congruos (Art. 413)</span>
+                  </label>
+                  <label class="flex items-center gap-1.5 cursor-pointer">
+                    <input type="radio" name="claseAlimentosRadio" id="radioNecesarios" value="necesarios" onchange="calcularCuotaAlimentos()" class="text-pink-600 focus:ring-pink-500">
+                    <span class="font-bold text-pink-900 text-xs">Necesarios (Art. 413)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Explicación Didáctica de Congruos vs Necesarios -->
+            <div id="boxExplicacionClase" class="bg-blue-50/80 border border-blue-200 rounded-xl p-3 text-xs text-blue-900 space-y-1">
+              <div class="font-bold flex items-center gap-1.5 text-blue-800">
+                <i data-lucide="info" class="w-3.5 h-3.5"></i>
+                <span id="tituloExplicacionClase">Alimentos Congruos (Código Civil Art. 413 Inc. 1)</span>
+              </div>
+              <p id="cuerpoExplicacionClase" class="text-slate-700 leading-relaxed text-[11px]">
+                Son aquellos que habilitan al alimentario para <strong>subsistir modestamente de un modo correspondiente a su posición social y nivel de vida habitual</strong>. Abarcan educación privada, recreación, vestuario digno, medicina prepagada y vivienda acorde al estatus familiar. Se deben obligatoriamente a descendientes, cónyuge inocente y ascendientes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tarjeta 2: Capacidad Económica del Alimentante (Deudor) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="wallet" class="w-4 h-4 text-emerald-600"></i>
+                2. Capacidad Económica del Alimentante (Obligado/a)
+              </h2>
+              <span class="text-xs text-slate-500 font-medium">Tope de Ley: 50%</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Tipo de Vinculación Laboral / Ingreso:</label>
+                <select id="tipoIngresoAlimentante" onchange="onCambioTipoIngreso()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-emerald-500 font-medium">
+                  <option value="dependiente">Empleado Dependiente (Contrato de Trabajo CST)</option>
+                  <option value="servidor">Servidor Público / Régimen Oficial</option>
+                  <option value="independiente_formal">Independiente Formal (Honorarios / Facturación)</option>
+                  <option value="informal_sin_probar">Informal / Sin Ingresos Demostrables (Presunción 1 SMMLV)</option>
+                  <option value="pensionado">Pensionado (Mesada Pensional Embargable)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">
+                  Ingreso Bruto Mensual (COP):
+                  <span id="txtPresuncionAviso" class="text-[10px] text-amber-600 font-bold hidden">(Presunción 1 SMMLV)</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="ingresoBrutoAlimentante" value="4500000" step="50000" min="0" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-7 pr-3 py-2 text-xs font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Deducciones de Ley Mensuales (Salud 4%, Pensión 4%, Retención):</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="deduccionesLeyAlimentante" value="360000" step="10000" min="0" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-7 pr-3 py-2 text-xs font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <span class="text-[10px] text-slate-400">Descuentos parafiscales obligatorios no computables</span>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Número de Otros Hijos o Dependientes a Cargo:</label>
+                <select id="numOtrosHijos" onchange="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-emerald-500 font-medium">
+                  <option value="0">Ningún otro dependiente (Capacidad íntegra)</option>
+                  <option value="1">1 otro hijo a cargo (Prorrateo Sentencia T-281/18)</option>
+                  <option value="2">2 otros hijos a cargo</option>
+                  <option value="3">3 o más dependientes (Mínimo vital reforzado)</option>
+                </select>
+                <span class="text-[10px] text-slate-400">Garantiza el mínimo vital del deudor (T-559/17)</span>
+              </div>
+            </div>
+
+            <!-- Resumen de Capacidad Neta y Techo Embargable -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs">
+              <div>
+                <span class="text-slate-500 block text-[10px]">Ingreso Neto Real:</span>
+                <span id="lblIngresoNetoAlimentante" class="font-extrabold text-slate-900 text-sm">$ 4.140.000</span>
+              </div>
+              <div>
+                <span class="text-slate-500 block text-[10px]">Tope Legal 50% Embargable:</span>
+                <span id="lblTopeLegal50" class="font-extrabold text-rose-600 text-sm">$ 2.070.000</span>
+              </div>
+              <div class="col-span-2 sm:col-span-1">
+                <span class="text-slate-500 block text-[10px]">Mínimo Vital Deudor Garantizado:</span>
+                <span id="lblMinimoVitalDeudor" class="font-extrabold text-blue-700 text-sm">$ 2.070.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3: Presupuesto Mensual de Necesidades del Beneficiario -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-4 h-4 text-amber-600"></i>
+                3. Presupuesto Mensual de Gastos Ordinarios (Art. 24 Ley 1098)
+              </h2>
+              <span id="lblTotalGastosMensualesHeader" class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                Total: $ 2.300.000
+              </span>
+            </div>
+
+            <p class="text-xs text-slate-500">
+              Desglose rubro por rubro de las necesidades reales del alimentario para sustentar la pretensión o fijación judicial:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div>
+                <label class="block font-medium text-slate-700 mb-0.5">Alimentación & Mercado Mensual:</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="gastoAlimentacion" value="800000" step="20000" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-6 pr-2 py-1.5 font-semibold text-slate-800">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-medium text-slate-700 mb-0.5">Vivienda & Servicios (Alícuota del Menor):</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="gastoVivienda" value="500000" step="20000" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-6 pr-2 py-1.5 font-semibold text-slate-800">
+                </div>
+                <span class="text-[10px] text-slate-400">Parte proporcional del arriendo y servicios públicos</span>
+              </div>
+
+              <div>
+                <label class="block font-medium text-slate-700 mb-0.5">Educación Ordinaria (Pensión escolar/universitaria, transporte):</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="gastoEducacion" value="550000" step="20000" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-6 pr-2 py-1.5 font-semibold text-slate-800">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-medium text-slate-700 mb-0.5">Salud Ordinaria (EPS, copagos, citas, medicamentos):</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="gastoSalud" value="150000" step="10000" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-6 pr-2 py-1.5 font-semibold text-slate-800">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-medium text-slate-700 mb-0.5">Recreación, Deporte & Actividades Extracurriculares:</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="gastoRecreacion" value="200000" step="10000" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-6 pr-2 py-1.5 font-semibold text-slate-800">
+                </div>
+                <span class="text-[10px] text-slate-400">Congruo: acorde al nivel social; Necesario: recreación básica</span>
+              </div>
+
+              <div>
+                <label class="block font-medium text-slate-700 mb-0.5">Aseo Personal, Cuidados & Misceláneos:</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 font-bold">$</span>
+                  <input type="number" id="gastoAseo" value="100000" step="10000" oninput="calcularCuotaAlimentos()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-6 pr-2 py-1.5 font-semibold text-slate-800">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta 4: Enfoque de Género y Economía del Cuidado (T-261/22 & T-103/23) -->
+          <div class="bg-gradient-to-br from-purple-50 to-indigo-50/50 rounded-2xl border border-purple-200 p-5 shadow-xs space-y-3">
+            <div class="flex items-center justify-between border-b border-purple-200 pb-2">
+              <h2 class="text-sm font-bold text-purple-950 flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-4 h-4 text-purple-600"></i>
+                4. Economía del Cuidado: Aporte No Remunerado en Especie
+              </h2>
+              <span class="text-[10px] bg-purple-200/80 text-purple-800 font-bold px-2 py-0.5 rounded">
+                Sentencias T-261/22 y T-103/23
+              </span>
+            </div>
+
+            <p class="text-xs text-purple-900 leading-relaxed">
+              La Corte Constitucional sentó como precedente vinculante que las tareas domésticas, crianza, supervisión escolar y cuidado físico aportadas por el progenitor custodio <strong>constituyen un aporte económico real y tangible</strong> que debe cuantificarse para no sobrecargar financieramente a quien convive con el hijo:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div>
+                <label class="block font-semibold text-purple-900 mb-1">¿Quién ejerce la custodia física principal?:</label>
+                <select id="custodioPrincipal" onchange="calcularCuotaAlimentos()" class="w-full bg-white border border-purple-300 rounded-lg px-3 py-2 text-xs font-medium text-purple-950 focus:ring-2 focus:ring-purple-500">
+                  <option value="madre">La Madre (Custodia habitual)</option>
+                  <option value="padre">El Padre (Custodia habitual)</option>
+                  <option value="compartida">Custodia Compartida 50/50</option>
+                  <option value="tercero">Tercero / Abuelos / Familia Extensa</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-purple-900 mb-1">Valoración Estimada del Cuidado en Especie:</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-purple-400 font-bold">$</span>
+                  <input type="number" id="valorEconomiaCuidado" value="600000" step="50000" oninput="calcularCuotaAlimentos()" class="w-full bg-white border border-purple-300 rounded-lg pl-6 pr-3 py-1.5 font-bold text-purple-900 focus:ring-2 focus:ring-purple-500">
+                </div>
+                <span class="text-[10px] text-purple-700">Equivalente a tiempo de cuidado y crianza no remunerada</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarjeta 5: Rubros Extraordinarios Periódicos (Típicos de Fallos en Colombia) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="layers" class="w-4 h-4 text-blue-600"></i>
+                5. Cuotas Extraordinarias Periódicas (Vestuario, Educación & Primas)
+              </h2>
+              <span class="text-xs text-blue-600 font-bold">SC-917-2022 CSJ</span>
+            </div>
+
+            <p class="text-xs text-slate-500">
+              Obligaciones adicionales de fijación habitual en Comisarías, Defensorías y Juzgados de Familia:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-slate-800">👕 Vestuario / Mudas de Ropa:</span>
+                  <span class="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">3 al año</span>
+                </div>
+                <p class="text-[11px] text-slate-500">Abril, Agosto y Diciembre (calzado y vestimenta completa).</p>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-xs text-slate-600">Monto sugerido por muda:</span>
+                  <input type="number" id="valorMudaRopa" value="450000" step="20000" oninput="calcularCuotaAlimentos()" class="w-28 bg-white border border-slate-300 rounded px-2 py-1 text-xs font-bold text-slate-900">
+                </div>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-slate-800">📚 Matrícula y Útiles Escolares:</span>
+                  <span class="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded">Anual</span>
+                </div>
+                <p class="text-[11px] text-slate-500">Gastos escolares de inicio de año escolar (Enero o Agosto).</p>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-xs text-slate-600">Participación acordada:</span>
+                  <select id="pctGastosEscolares" onchange="calcularCuotaAlimentos()" class="bg-white border border-slate-300 rounded px-2 py-1 text-xs font-bold text-slate-900">
+                    <option value="50">50% cada padre</option>
+                    <option value="100">100% el alimentante</option>
+                    <option value="0">Incluido en ordinaria</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-slate-800">🎁 Participación en Prima Legal:</span>
+                  <span class="text-[10px] font-bold text-purple-700 bg-purple-100 px-1.5 py-0.5 rounded">Junio y Diciembre</span>
+                </div>
+                <p class="text-[11px] text-slate-500">Porcentaje de las primas de servicios semestrales del obligado.</p>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-xs text-slate-600">Porcentaje de prima:</span>
+                  <select id="pctPrimaServicios" onchange="calcularCuotaAlimentos()" class="bg-white border border-slate-300 rounded px-2 py-1 text-xs font-bold text-slate-900">
+                    <option value="50">50% de la prima legal</option>
+                    <option value="30">30% de la prima</option>
+                    <option value="0">0% (Solo cuota mensual fija)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-slate-800">🩺 Salud Extraordinaria No POS:</span>
+                  <span class="text-[10px] font-bold text-rose-700 bg-rose-100 px-1.5 py-0.5 rounded">Eventual</span>
+                </div>
+                <p class="text-[11px] text-slate-500">Odontología, ortodoncia, lentes, cirugías, tratamientos especializados.</p>
+                <div class="flex items-center gap-2 mt-1">
+                  <span class="text-xs text-slate-600">Distribución de ley:</span>
+                  <span class="text-xs font-bold text-slate-900">50% a prorrata por progenitor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Dictamen Cuantitativo y Resultados (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Tarjeta de Dictamen Principal -->
+          <div class="bg-slate-900 text-white rounded-3xl p-6 shadow-xl border border-slate-800 sticky top-28 space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-blue-400">Dictamen de Liquidación Judicial</span>
+                <h3 class="text-base font-extrabold text-white">Cuota Alimentaria Sugerida</h3>
+              </div>
+              <div id="statusTopeBadge" class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+                <i data-lucide="check-circle" class="w-3 h-3 text-emerald-400"></i>
+                Dentro del límite legal
+              </div>
+            </div>
+
+            <!-- Gran Cifra de la Cuota Ordinaria -->
+            <div class="bg-slate-800/80 rounded-2xl p-4 border border-slate-700/60 text-center space-y-1">
+              <span class="text-xs text-slate-300 font-medium">Cuota Mensual Ordinaria a Cargo del Obligado:</span>
+              <div id="displayCuotaFinalCOP" class="text-3xl sm:text-4xl font-extrabold text-amber-400 tracking-tight">
+                $ 1.150.000
+              </div>
+              <div class="flex items-center justify-center gap-2 text-xs text-slate-400 mt-1">
+                <span>Equivalente a: <strong id="displayCuotaEnSMMLV" class="text-white">0.66 SMMLV</strong></span>
+                <span>•</span>
+                <span><strong id="displayPctIngresoNeto" class="text-emerald-400">27.8%</strong> del ingreso neto</span>
+              </div>
+            </div>
+
+            <!-- Desglose de Gastos y Aportes en Paralelo -->
+            <div class="space-y-2.5 text-xs">
+              <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
+                <span class="text-slate-400">Presupuesto Total de Gastos del Menor:</span>
+                <span id="lblResumenGastoTotal" class="font-bold text-white">$ 2.300.000</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
+                <span class="text-slate-400">Cuota Asignada al Padre / Obligado (Efectivo):</span>
+                <span id="lblResumenCuotaPadre" class="font-bold text-amber-300">$ 1.150.000</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
+                <span class="text-slate-400">Cuota Asignada a la Madre / Custodio (Efectivo):</span>
+                <span id="lblResumenCuotaMadre" class="font-bold text-blue-300">$ 550.000</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
+                <span class="text-slate-400">Aporte en Especie (Economía del Cuidado T-261/22):</span>
+                <span id="lblResumenEconomiaCuidado" class="font-bold text-purple-300">$ 600.000</span>
+              </div>
+              <div class="flex justify-between items-center py-1.5 border-b border-slate-800">
+                <span class="text-slate-400">Tope Legal Máximo del 50% Embargable:</span>
+                <span id="lblResumenTopeLegal" class="font-bold text-rose-400">$ 2.070.000</span>
+              </div>
+            </div>
+
+            <!-- Alerta Legal si Excede el 50% -->
+            <div id="alertaExcesoTope" class="hidden bg-rose-950/80 border border-rose-500/60 rounded-xl p-3 text-xs text-rose-200 space-y-1">
+              <div class="font-bold flex items-center gap-1.5 text-rose-300">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400"></i>
+                ¡ADVERTENCIA LEGAL: LA CUOTA SUPERA EL TOPE DEL 50%!
+              </div>
+              <p class="text-[11px] text-rose-200">
+                Conforme al Art. 130 de la Ley 1098 de 2006 y el Art. 156 del Código Sustantivo del Trabajo, el límite absoluto es del 50%. En sede judicial, el juez reducirá la cuota a un máximo de <strong id="lblMontoTopeAjustado" class="text-white">$ 2.070.000</strong> para salvaguardar el mínimo vital del obligado (Sentencias T-559/17 y T-281/18).
+              </p>
+            </div>
+
+            <!-- Gráfico de Distribución del Presupuesto (Chart.js) -->
+            <div class="bg-slate-800/60 p-3 rounded-2xl border border-slate-700/50 space-y-2">
+              <span class="text-[11px] font-bold text-slate-300 block text-center">Distribución de Rubros de la Cuota</span>
+              <div class="h-44 relative">
+                <canvas id="chartGastosAlimentos"></canvas>
+              </div>
+            </div>
+
+            <!-- Resumen de Obligaciones Extraordinarias en Fechas -->
+            <div class="bg-slate-800/50 p-3 rounded-xl border border-slate-700 text-xs space-y-2">
+              <span class="font-bold text-amber-300 flex items-center gap-1 text-[11px]">
+                <i data-lucide="calendar" class="w-3.5 h-3.5"></i> Calendario de Pagos Extraordinarios:
+              </span>
+              <ul class="text-[11px] text-slate-300 space-y-1">
+                <li>• <strong>3 Mudas de Ropa:</strong> 30 de abril, 30 de agosto y 20 de diciembre.</li>
+                <li>• <strong>Útiles y Matrícula:</strong> Primera semana del año lectivo (Calendario A o B).</li>
+                <li>• <strong>Prima de Servicios:</strong> 20 de junio y 20 de diciembre (si fue pactada).</li>
+                <li>• <strong>Reajuste Anual:</strong> 1 de enero de cada año (por IPC o aumento del SMLMV).</li>
+              </ul>
+            </div>
+
+            <!-- Botones de Acción Rápida -->
+            <div class="flex items-center gap-2 pt-2">
+              <button onclick="copiarDictamenTexto()" class="flex-1 py-2.5 px-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-md">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copiar Dictamen Legal</span>
+              </button>
+              <button onclick="window.print()" class="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-colors">
+                <i data-lucide="printer" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>Imprimir</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 2: LIQUIDADOR EJECUTIVO DE CUOTAS ATRASADAS & REDAM             -->
+    <!-- ========================================================================= -->
+    <section id="tab-liquidador" class="tab-content hidden space-y-6">
+
+      <!-- Encabezado del Liquidador Judicial -->
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i data-lucide="gavel" class="w-5 h-5 text-indigo-600"></i>
+            Liquidador Judicial de Cuotas Alimentarias Atrasadas, Indexación e Intereses Civiles
+          </h2>
+          <span class="bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs font-bold px-2.5 py-1 rounded-full">
+            Art. 422 Código General del Proceso & Art. 1617 C.C.
+          </span>
+        </div>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Herramienta forense para procesos ejecutivos de alimentos y cobro judicial. Aplica de forma automática el <strong>interés moratorio legal civil del 6% Efectivo Anual (0.5% mensual)</strong> ratificado por la Corte Suprema de Justicia, la indexación anual por IPC o SMLMV y la verificación automática de causales para inscripción en el <strong>Registro de Deudores Alimentarios Morosos (REDAM - Ley 2097 de 2020)</strong>.
+        </p>
+      </div>
+
+      <!-- Configuración del Crédito y Período de Mora -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs space-y-5">
+        <div class="border-b border-slate-100 pb-3">
+          <h3 class="text-sm font-bold text-slate-800">1. Parámetros del Título Ejecutivo (Acta de Conciliación o Sentencia)</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Cuota Mensual Pactada Originalmente:</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold">$</span>
+              <input type="number" id="liqCuotaBase" value="800000" step="10000" oninput="calcularLiquidacionEjecutiva()" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-7 pr-3 py-2 font-bold text-slate-900">
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Criterio de Reajuste Anual Pactado:</label>
+            <select id="liqTipoReajuste" onchange="calcularLiquidacionEjecutiva()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-medium">
+              <option value="ipc">Incremento por IPC Anual (DANE)</option>
+              <option value="smlmv">Incremento por Salario Mínimo (SMLMV)</option>
+              <option value="fijo">Suma Fija (Sin indexación)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Mes y Año de Inicio de Mora:</label>
+            <input type="month" id="liqFechaInicio" value="2025-01" onchange="calcularLiquidacionEjecutiva()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Mes y Año de Corte de Liquidación:</label>
+            <input type="month" id="liqFechaFin" value="2026-03" onchange="calcularLiquidacionEjecutiva()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold">
+          </div>
+        </div>
+
+        <!-- Conceptos Adicionales de Mora (Mudas y Gastos Extraordinarios) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs pt-2 border-t border-slate-100">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Número de Mudas de Ropa Impagas en el Período:</label>
+            <input type="number" id="liqMudasImpagas" value="3" min="0" max="20" oninput="calcularLiquidacionEjecutiva()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Valor Unitario por Cada Muda Pactada (COP):</label>
+            <input type="number" id="liqValorMuda" value="350000" step="10000" oninput="calcularLiquidacionEjecutiva()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-semibold">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Total de Abonos Parciales Realizados por el Deudor (COP):</label>
+            <input type="number" id="liqAbonosParciales" value="500000" step="50000" oninput="calcularLiquidacionEjecutiva()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 font-bold text-emerald-700">
+          </div>
+        </div>
+      </div>
+
+      <!-- Semáforo y Alerta REDAM (Ley 2097 de 2020) -->
+      <div id="panelAlertaREDAM" class="bg-gradient-to-r from-red-900 to-rose-950 text-white rounded-2xl p-5 shadow-lg border border-red-700/60 space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2 border-b border-red-800 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="bg-red-500 text-white font-extrabold text-xs px-2.5 py-1 rounded-full animate-pulse flex items-center gap-1">
+              <i data-lucide="alert-octagon" class="w-4 h-4"></i> ALERTA ROJA REDAM
+            </span>
+            <h3 class="text-sm font-bold text-white">Procedencia Inmediata de Reporte en el Registro de Deudores Alimentarios Morosos</h3>
+          </div>
+          <span class="text-xs text-rose-300 font-semibold">Ley 2097 de 2020</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="bg-black/30 p-3 rounded-xl border border-red-800/40">
+            <span class="text-rose-300 text-[11px] block">Meses / Cuotas en Mora Acumuladas:</span>
+            <span id="lblRedamCuotasMora" class="text-2xl font-black text-amber-300">14 Cuotas</span>
+            <span class="text-[10px] text-rose-300 block mt-0.5">La ley exige 3 o más cuotas (continuas o discontinuas)</span>
+          </div>
+
+          <div class="bg-black/30 p-3 rounded-xl border border-red-800/40 col-span-2">
+            <span class="text-rose-300 text-[11px] block font-bold mb-1">Inhabilidades y Sanciones Legales Inmediatas al Reportar:</span>
+            <ul class="text-[11px] text-rose-100 space-y-0.5">
+              <li>🚫 <strong>Inhabilidad para Contratar con el Estado</strong> (no puede suscribir contratos públicos).</li>
+              <li>🚫 <strong>Inhabilidad para el Servicio Público</strong> (no puede posesionarse en cargos públicos).</li>
+              <li>🚫 <strong>Bloqueo Notarial e Inmobiliario:</strong> No podrá vender ni registrar inmuebles ni vehículos.</li>
+              <li>🚫 <strong>Impedimento de Salida del País</strong> ante Migración Colombia y reporte a Datacrédito / TransUnion.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resumen Consolidado de la Deuda -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-1">
+          <span class="text-slate-500 font-medium">Capital de Cuotas Ordinarias:</span>
+          <span id="lblCapitalOrdinario" class="text-xl font-extrabold text-slate-900 block">$ 11.200.000</span>
+          <span class="text-[10px] text-slate-400">Sumatoria histórica indexada</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-1">
+          <span class="text-slate-500 font-medium">Capital Extraordinario (Mudas):</span>
+          <span id="lblCapitalMudas" class="text-xl font-extrabold text-blue-700 block">$ 1.050.000</span>
+          <span class="text-[10px] text-slate-400">Obligaciones periódicas impagas</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-1">
+          <span class="text-slate-500 font-medium">Intereses Moratorios Civiles (6% E.A.):</span>
+          <span id="lblInteresesMoratorios" class="text-xl font-extrabold text-rose-600 block">$ 432.500</span>
+          <span class="text-[10px] text-slate-400">0.5% mensual (Art. 1617 C.C.)</span>
+        </div>
+
+        <div class="bg-slate-900 text-white p-4 rounded-xl border border-slate-800 shadow-md space-y-1">
+          <span class="text-slate-300 font-medium">TOTAL CRÉDITO A COBRAR:</span>
+          <span id="lblTotalCreditoEjecutivo" class="text-2xl font-black text-amber-400 block">$ 12.182.500</span>
+          <span class="text-[10px] text-emerald-400">Deducidos los abonos de ley</span>
+        </div>
+      </div>
+
+      <!-- Tabla Cronológica Mes a Mes de Liquidación Judicial -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+        <div class="p-4 border-b border-slate-100 flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+              <i data-lucide="table" class="w-4 h-4 text-slate-600"></i>
+              Tabla Detallada de Liquidación de Crédito Procesal
+            </h3>
+            <p class="text-[11px] text-slate-500">Lista para adjuntar a la demanda ejecutiva de alimentos ante el Juez de Familia.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="copiarTablaLiquidacionTexto()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold flex items-center gap-1">
+              <i data-lucide="clipboard-copy" class="w-3.5 h-3.5"></i> Copiar Tabla
+            </button>
+            <button onclick="window.print()" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold flex items-center gap-1">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i> Imprimir Liquidación
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold uppercase text-[10px] tracking-wider">
+              <tr>
+                <th class="py-3 px-4">Mes / Año</th>
+                <th class="py-3 px-4">Cuota Base</th>
+                <th class="py-3 px-4">Indexación</th>
+                <th class="py-3 px-4">Días Mora</th>
+                <th class="py-3 px-4">Int. Mora (6% E.A.)</th>
+                <th class="py-3 px-4">Concepto Extra</th>
+                <th class="py-3 px-4">Total Causado</th>
+                <th class="py-3 px-4 text-right">Saldo Acumulado</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyLiquidacionMesAMes" class="divide-y divide-slate-100 font-medium">
+              <!-- Renderizado dinámicamente con JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 3: GENERADOR DE MINUTAS Y ACUERDOS JURÍDICOS                     -->
+    <!-- ========================================================================= -->
+    <section id="tab-minutas" class="tab-content hidden space-y-6">
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-2">
+        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <i data-lucide="file-text" class="w-5 h-5 text-blue-600"></i>
+          Generador de Minutas y Documentos Jurídicos Autodiligenciados
+        </h2>
+        <p class="text-xs text-slate-600">
+          Documentos redactados conforme a los estándares de la Ley 1098 de 2006, Ley 2126 de 2021 (Comisarías de Familia), Código General del Proceso y Ley 2097 de 2020.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Opciones de Minutas -->
+        <div class="lg:col-span-4 space-y-3">
+          <button onclick="generarMinuta('acta_conciliacion')" id="btnMinutaActa" class="w-full text-left p-4 rounded-xl border border-blue-500 bg-blue-50/50 shadow-xs space-y-1 transition-all">
+            <span class="text-xs font-bold text-blue-900 block flex items-center justify-between">
+              <span>Acta de Acuerdo de Conciliación</span>
+              <i data-lucide="check" class="w-4 h-4 text-blue-600"></i>
+            </span>
+            <p class="text-[11px] text-slate-600">Presta mérito ejecutivo y hace tránsito a cosa juzgada ante ICBF o Comisaría.</p>
+          </button>
+
+          <button onclick="generarMinuta('requerimiento_redam')" id="btnMinutaRedam" class="w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 shadow-xs space-y-1 transition-all">
+            <span class="text-xs font-bold text-slate-800 block flex items-center justify-between">
+              <span>Requerimiento Prejudicial + Aviso REDAM</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </span>
+            <p class="text-[11px] text-slate-600">Notificación formal previa al reporte en el Registro de Deudores Alimentarios.</p>
+          </button>
+
+          <button onclick="generarMinuta('demanda_ejecutiva')" id="btnMinutaDemanda" class="w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 shadow-xs space-y-1 transition-all">
+            <span class="text-xs font-bold text-slate-800 block flex items-center justify-between">
+              <span>Demanda Ejecutiva de Alimentos</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+            </span>
+            <p class="text-[11px] text-slate-600">Con solicitud de embargo del 50% de salario, prestaciones y prohibición de salida.</p>
+          </button>
+
+          <!-- Nombres para Personalizar Minuta -->
+          <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-3 text-xs">
+            <span class="font-bold text-slate-800 block border-b pb-1">Datos para Diligenciar Minuta:</span>
+            <div>
+              <label class="block text-slate-600 mb-0.5">Nombre del Alimentante (Deudor):</label>
+              <input type="text" id="minutaNombreDeudor" value="JUAN CARLOS PÉREZ RODRÍGUEZ" oninput="actualizarTextoMinuta()" class="w-full bg-slate-50 border rounded px-2.5 py-1.5 font-medium">
+            </div>
+            <div>
+              <label class="block text-slate-600 mb-0.5">Nombre del Progenitor Custodio / Acreedor:</label>
+              <input type="text" id="minutaNombreAcreedor" value="MARÍA FERNANDA GÓMEZ LÓPEZ" oninput="actualizarTextoMinuta()" class="w-full bg-slate-50 border rounded px-2.5 py-1.5 font-medium">
+            </div>
+            <div>
+              <label class="block text-slate-600 mb-0.5">Nombre del Menor / Beneficiario:</label>
+              <input type="text" id="minutaNombreMenor" value="MATEO PÉREZ GÓMEZ" oninput="actualizarTextoMinuta()" class="w-full bg-slate-50 border rounded px-2.5 py-1.5 font-medium">
+            </div>
+            <div>
+              <label class="block text-slate-600 mb-0.5">Ciudad de Diligenciamiento:</label>
+              <input type="text" id="minutaCiudad" value="Bogotá D.C." oninput="actualizarTextoMinuta()" class="w-full bg-slate-50 border rounded px-2.5 py-1.5 font-medium">
+            </div>
+          </div>
+        </div>
+
+        <!-- Área de Visualización y Copia del Documento -->
+        <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200 shadow-xs flex flex-col overflow-hidden">
+          <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+            <span id="lblTituloMinutaVisualizador" class="text-xs font-bold text-slate-800 uppercase tracking-wide">
+              Acta de Acuerdo de Conciliación de Alimentos
+            </span>
+            <div class="flex items-center gap-2">
+              <button onclick="copiarMinutaPortapapeles()" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Texto Completo
+              </button>
+            </div>
+          </div>
+
+          <div class="p-6 overflow-y-auto max-h-[600px] text-xs leading-relaxed text-slate-800 font-mono whitespace-pre-wrap select-all bg-slate-50/30" id="contenedorTextoMinuta">
+            <!-- Texto de minuta generado dinámicamente -->
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 4: BIBLIOTECA JURISPRUDENCIAL & PRECEDENTES                     -->
+    <!-- ========================================================================= -->
+    <section id="tab-jurisprudencia" class="tab-content hidden space-y-6">
+
+      <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-indigo-600"></i>
+            Biblioteca Jurisprudencial de Alimentos (Corte Constitucional & Corte Suprema)
+          </h2>
+          <span class="text-xs bg-indigo-50 text-indigo-700 px-2.5 py-1 rounded-full border border-indigo-200 font-bold">
+            Estructura Repositorio @[jurisprudencia]
+          </span>
+        </div>
+        <p class="text-xs text-slate-600">
+          Sentencias hito sistematizadas con sus ratios decidendi, reglas procesales y mandatos constitucionales vigentes:
+        </p>
+      </div>
+
+      <!-- Buscador y Filtros de Jurisprudencia -->
+      <div class="flex flex-wrap items-center gap-3 bg-slate-100/70 p-3 rounded-xl border border-slate-200 text-xs">
+        <div class="flex-1 min-w-[200px] relative">
+          <input type="text" id="filtroJurisprudencia" oninput="filtrarJurisprudencia()" placeholder="Buscar por tema (ej. congruos, cuidado, REDAM, mayores estudiantes, 50%)..." class="w-full bg-white border border-slate-300 rounded-lg pl-8 pr-3 py-2 text-xs">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-2.5 top-2.5"></i>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="setFiltroCorte('todas')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 text-white font-semibold">Todas</button>
+          <button onclick="setFiltroCorte('constitucional')" class="px-2.5 py-1.5 rounded-lg bg-white hover:bg-slate-200 text-slate-700 font-medium border border-slate-300">Corte Constitucional</button>
+          <button onclick="setFiltroCorte('casacion')" class="px-2.5 py-1.5 rounded-lg bg-white hover:bg-slate-200 text-slate-700 font-medium border border-slate-300">Corte Suprema (Casación Civil)</button>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Sentencias -->
+      <div id="gridJurisprudencia" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <!-- Renderizado con JS -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Modal de Marco Legal Código Civil -->
+  <div id="normativaModal" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200 animate-in fade-in duration-200">
+      <div class="p-5 bg-slate-900 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="scale" class="w-5 h-5 text-amber-400"></i>
+          <div>
+            <h3 class="text-sm font-bold">Compendio Normativo de Alimentos en Colombia</h3>
+            <span class="text-[11px] text-slate-400">Código Civil, Ley 1098 de 2006 & Ley 2097 de 2020</span>
+          </div>
+        </div>
+        <button onclick="closeModal('normativaModal')" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-4 text-xs text-slate-700 leading-relaxed">
+        <div class="bg-blue-50 p-3.5 rounded-xl border border-blue-200 space-y-1">
+          <span class="font-bold text-blue-900 block text-xs">Artículo 411 Código Civil: Titulares del Derecho de Alimentos</span>
+          <p class="text-[11px] text-slate-700">
+            Se deben alimentos al cónyuge o compañero permanente; a los descendientes; a los ascendientes; al cónyuge culpable por parte del inocente en divorcio; a los hermanos; y al donante de donación cuantiosa.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+          <span class="font-bold text-slate-900 block text-xs">Artículo 413 Código Civil: Alimentos Congruos vs. Necesarios</span>
+          <p class="text-[11px] text-slate-700">
+            <strong>Congruos:</strong> Los que habilitan al alimentario para subsistir modestamente de un modo acorde a su posición social.<br>
+            <strong>Necesarios:</strong> Los que bastan para sustentar la vida de manera biológica elemental (subsistencia biológica).
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+          <span class="font-bold text-slate-900 block text-xs">Artículo 129 y 130 Ley 1098 de 2006 (Infancia y Adolescencia)</span>
+          <p class="text-[11px] text-slate-700">
+            <strong>Presunción legal:</strong> Si no se demuestran los ingresos del obligado, se presume que devenga al menos 1 SMMLV.<br>
+            <strong>Tope de embargo:</strong> Se podrá embargar hasta el 50% de salarios, cesantías, primas y pensiones.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+          <span class="font-bold text-slate-900 block text-xs">Artículo 1617 Código Civil: Interés Moratorio Civil Legal</span>
+          <p class="text-[11px] text-slate-700">
+            Las deudas por alimentos devengan el <strong>6% efectivo anual (0.5% mensual)</strong>. No aplica tasa de usura comercial.
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-slate-100 border-t border-slate-200 flex justify-end">
+        <button onclick="closeModal('normativaModal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vista Judicial Imprimible Forense -->
+  <div class="print-only hidden p-8 max-w-4xl mx-auto space-y-6 text-slate-900">
+    <div class="text-center border-b-2 border-slate-900 pb-4 space-y-1">
+      <h1 class="text-xl font-black uppercase tracking-wider font-serif-legal">Dictamen Pericial y Liquidación Judicial de Alimentos</h1>
+      <p class="text-xs font-semibold">República de Colombia • Jurisdicción de Familia / Defensoría ICBF / Comisaría de Familia</p>
+      <p class="text-[10px] text-slate-600">Fundamentado en Código Civil (Arts. 411-427), Ley 1098 de 2006, Ley 2097 de 2020 (REDAM) y Precedentes Constitucionales</p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 text-xs border border-slate-300 p-4 rounded">
+      <div>
+        <span class="font-bold block">Alimentante (Deudor):</span>
+        <span id="printNombreDeudor">Juan Carlos Pérez Rodríguez</span>
+      </div>
+      <div>
+        <span class="font-bold block">Acreedor / Progenitor Custodio:</span>
+        <span id="printNombreAcreedor">María Fernanda Gómez López</span>
+      </div>
+      <div>
+        <span class="font-bold block">Beneficiario(s):</span>
+        <span id="printNombreMenor">Mateo Pérez Gómez</span>
+      </div>
+      <div>
+        <span class="font-bold block">Naturaleza Jurídica de Alimentos:</span>
+        <span id="printClaseAlimentos" class="font-bold text-blue-900">ALIMENTOS CONGRUOS (Art. 413 C.C.)</span>
+      </div>
+    </div>
+
+    <div class="space-y-2 text-xs">
+      <h2 class="font-bold text-sm border-b pb-1 uppercase">1. Liquidación de la Cuota Ordinaria Mensual</h2>
+      <table class="w-full text-left border border-slate-300">
+        <tr class="border-b"><td class="p-2 font-semibold">Presupuesto Acreditado de Necesidades del Menor:</td><td class="p-2 text-right font-bold" id="printTotalPresupuesto">$ 2.300.000</td></tr>
+        <tr class="border-b"><td class="p-2 font-semibold">Capacidad Neta Demostrada del Alimentante:</td><td class="p-2 text-right font-bold" id="printIngresoNeto">$ 4.140.000</td></tr>
+        <tr class="border-b"><td class="p-2 font-semibold">Tope Máximo Legal Embargable (50% de Ingresos):</td><td class="p-2 text-right font-bold text-rose-800" id="printTope50">$ 2.070.000</td></tr>
+        <tr class="border-b"><td class="p-2 font-semibold">Valoración del Cuidado en Especie (T-261/22 y T-103/23):</td><td class="p-2 text-right font-bold text-purple-900" id="printEconomiaCuidado">$ 600.000</td></tr>
+        <tr class="bg-slate-100 font-bold"><td class="p-2">CUOTA MENSUAL ORDINARIA A PAGAR POR EL OBLIGADO:</td><td class="p-2 text-right text-sm" id="printCuotaOrdinariaFinal">$ 1.150.000</td></tr>
+      </table>
+    </div>
+
+    <div class="space-y-2 text-xs">
+      <h2 class="font-bold text-sm border-b pb-1 uppercase">2. Obligaciones Extraordinarias Periódicas Decretadas</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Vestuario / Mudas de Ropa:</strong> Tres (3) mudas completas por año (abril, agosto y diciembre) tasadas en el valor pactado o en especie con calzado.</li>
+        <li><strong>Educación Anual:</strong> 50% de la matrícula, textos escolares y uniformes al inicio de cada año lectivo.</li>
+        <li><strong>Gastos Médicos Extraordinarios:</strong> 50% a cargo de cada padre respecto de tratamientos, odontología y medicamentos no cubiertos por el PBS/POS.</li>
+        <li><strong>Incremento Anual:</strong> La cuota se reajustará automáticamente el 1 de enero de cada año conforme a la variación del IPC o del SMMLV.</li>
+      </ul>
+    </div>
+
+    <div class="pt-8 border-t border-slate-400 grid grid-cols-2 gap-8 text-center text-xs">
+      <div>
+        <div class="border-b border-slate-900 pb-12"></div>
+        <p class="font-bold mt-2">ALIMENTANTE / OBLIGADO</p>
+        <p class="text-[10px] text-slate-500">C.C. No. __________________</p>
+      </div>
+      <div>
+        <div class="border-b border-slate-900 pb-12"></div>
+        <p class="font-bold mt-2">ACREEDOR / PROGENITOR CUSTODIO</p>
+        <p class="text-[10px] text-slate-500">C.C. No. __________________</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-6 px-4 text-xs no-print mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div>
+        <p class="text-white font-bold text-sm">Calculadora y Liquidador Judicial de Alimentos de Colombia</p>
+        <p class="text-[11px] text-slate-500">
+          Desarrollada para litigio en derecho de familia, defensorías del ICBF, comisarías de familia y consultorios jurídicos.
+        </p>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="index.html" class="hover:text-white transition-colors">Calculadora Pensional</a>
+        <span>•</span>
+        <a href="MANUAL_LEGAL_ALIMENTOS_Y_JURISPRUDENCIA.md" target="_blank" class="hover:text-white transition-colors">Manual Legal Completo (.md)</a>
+        <span>•</span>
+        <span class="text-emerald-400 font-semibold">Vigencia 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC JURÍDICA Y CÁLCULOS -->
+  <script>
+    // Constantes Legales de Referencia Colombia 2026
+    const SMMLV_2026 = 1750905;
+    const INTERES_MORATORIO_CIVIL_ANUAL = 0.06; // 6% E.A. Art. 1617 C.C.
+    const INTERES_MORATORIO_CIVIL_MENSUAL = 0.005; // 0.5% mensual legal
+
+    // Datos Históricos de Indexación Oficial
+    const HISTORICO_IPC = {
+      2020: 0.0161,
+      2021: 0.0562,
+      2022: 0.1312,
+      2023: 0.0928,
+      2024: 0.0520,
+      2025: 0.0510,
+      2026: 0.0480
+    };
+
+    const HISTORICO_SMLMV = {
+      2020: 877803,
+      2021: 908526,
+      2022: 1000000,
+      2023: 1160000,
+      2024: 1300000,
+      2025: 1423500,
+      2026: 1750905
+    };
+
+    // Biblioteca Jurisprudencial Estructurada
+    const JURISPRUDENCIA_DATA = [
+      {
+        id: "C-1033-02",
+        corte: "constitucional",
+        numero: "Sentencia C-1033 de 2002",
+        magistrado: "Dr. Jaime Araújo Rentería",
+        tema: "Alimentos Congruos vs. Necesarios & Principio de Igualdad",
+        ratio: "La distinción entre alimentos congruos y necesarios establecida en el Código Civil es constitucional. No viola la igualdad, sino que obedece a criterios de justicia conmutativa y distributiva: los congruos aseguran el estatus socioeconómico familiar al cónyuge inocente, hijos y ascendientes, mientras que los necesarios salvaguardan la subsistencia biológica del obligado en situaciones de desamparo.",
+        etiquetas: ["congruos", "necesarios", "codigo civil", "igualdad"],
+        cita: "Corte Constitucional, Sentencia C-1033/02"
+      },
+      {
+        id: "T-261-22",
+        corte: "constitucional",
+        numero: "Sentencia T-261 de 2022",
+        magistrado: "Dra. Cristina Pardo Schlesinger",
+        tema: "Economía del Cuidado: Trabajo Doméstico como Cuota Alimentaria en Especie",
+        ratio: "Las labores de cuidado no remuneradas asumidas por el progenitor que ejerce la custodia física (crianza, alimentación, aseo, acompañamiento médico y escolar) constituyen un aporte patrimonial tangible a la obligación alimentaria. El juez de familia tiene el deber de valorar este aporte para no imponer una doble carga desigual.",
+        etiquetas: ["cuidado", "genero", "especie", "custodia"],
+        cita: "Corte Constitucional, Sentencia T-261/22"
+      },
+      {
+        id: "T-103-23",
+        corte: "constitucional",
+        numero: "Sentencia T-103 de 2023",
+        magistrado: "Dra. Natalia Ángel Cabo",
+        tema: "Sobrecarga Materna y Cuantificación de Alimentos en Especie",
+        ratio: "Reitera y profundiza que la cuota alimentaria debe tasarse con enfoque de género. Exigir un aporte 50/50 monetario cuando la madre aporta el 100% del cuidado personal vulnera el derecho a la igualdad y perpetúa la brecha de género.",
+        etiquetas: ["cuidado", "enfoque de genero", "tasacion", "madres"],
+        cita: "Corte Constitucional, Sentencia T-103/23"
+      },
+      {
+        id: "T-209-20",
+        corte: "constitucional",
+        numero: "Sentencia T-209 de 2020",
+        magistrado: "Dr. José Fernando Reyes Cuartas",
+        tema: "Alimentos a Hijos Mayores de Edad Estudiantes (18 a 25 años)",
+        ratio: "La obligación alimentaria de los padres no cesa automáticamente con la mayoría de edad (18 años) si el hijo continúa adelantando estudios superiores o técnicos de manera continua con rendimiento académico normal. La presunción de necesidad se extiende hasta los 25 años.",
+        etiquetas: ["mayores estudiantes", "18 a 25 anos", "universitarios", "educacion"],
+        cita: "Corte Constitucional, Sentencia T-209/20"
+      },
+      {
+        id: "T-559-17",
+        corte: "constitucional",
+        numero: "Sentencia T-559 de 2017",
+        magistrado: "Dr. Alberto Rojas Ríos",
+        tema: "Tope del 50% y Salvaguarda del Mínimo Vital del Deudor",
+        ratio: "El juez debe ponderar la capacidad económica real del deudor sin imponer una cuota que absorba más del 50% de sus ingresos netos o que lo deje en la indigencia. El deber de solidaridad no puede traducirse en la aniquilación de la subsistencia digna del obligado.",
+        etiquetas: ["minimo vital deudor", "50%", "limite salarial", "embargo"],
+        cita: "Corte Constitucional, Sentencia T-559/17"
+      },
+      {
+        id: "T-281-18",
+        corte: "constitucional",
+        numero: "Sentencia T-281 de 2018",
+        magistrado: "Dr. Carlos Bernal Pulido",
+        tema: "Prorrateo Equitativo ante Concurrencia de Múltiples Hijos",
+        ratio: "Cuando el alimentante tiene varios hijos matrimoniales o extramatrimoniales, la capacidad alimentaria debe prorratearse de forma estrictamente equitativa sin privilegios entre descendientes, respetando el límite máximo legal del 50% embargable.",
+        etiquetas: ["hijos multiples", "prorrateo", "igualdad de hijos", "50%"],
+        cita: "Corte Constitucional, Sentencia T-281/18"
+      },
+      {
+        id: "C-017-19",
+        corte: "constitucional",
+        numero: "Sentencia C-017 de 2019",
+        magistrado: "Dr. Alejandro Linares Cantillo",
+        tema: "Alimentos al Cónyuge Inocente en Divorcio (Congruos)",
+        ratio: "El cónyuge que no dio lugar al divorcio tiene derecho a reclamar alimentos congruos al cónyuge culpable, los cuales subsisten mientras persista la necesidad y el beneficiario no contraiga nuevo matrimonio o unión marital de hecho.",
+        etiquetas: ["conyuge inocente", "divorcio", "congruos", "culpable"],
+        cita: "Corte Constitucional, Sentencia C-017/19"
+      },
+      {
+        id: "SC-917-2022",
+        corte: "casacion",
+        numero: "Sentencia SC-917-2022",
+        magistrado: "Sala de Casación Civil CSJ",
+        tema: "Exigibilidad Ejecutiva de Mudas de Ropa y Gastos Extraordinarios",
+        ratio: "Los compromisos pactados en actas de conciliación relativos a 3 mudas de ropa anuales, gastos escolares y salud no cubierta son plenamente ejecutables mediante proceso ejecutivo de alimentos con mandamiento de pago y medidas cautelares.",
+        etiquetas: ["mudas de ropa", "gastos extraordinarios", "ejecutivo", "actas"],
+        cita: "Corte Suprema de Justicia, Sala Civil, SC-917-2022"
+      },
+      {
+        id: "CSJ-RAD-2602",
+        corte: "casacion",
+        numero: "Radicación 11001-02-03-000-2021-02602-00",
+        magistrado: "Sala de Casación Civil CSJ",
+        tema: "Autonomía de Cuotas Corrientes frente a Cuotas Atrasadas",
+        ratio: "El obligado no puede excusar el pago de las cuotas alimentarias corrientes en el trámite de objeciones a la liquidación de las cuotas atrasadas. El sustento presente no admite dilaciones procesales.",
+        etiquetas: ["cuotas corrientes", "alimentos atrasados", "minimo vital actual"],
+        cita: "Corte Suprema de Justicia, Sala Civil, Auto 2021"
+      },
+      {
+        id: "REDAM-LEY-2097",
+        corte: "constitucional",
+        numero: "Ley 2097 de 2020 & Sentencia C-325/21",
+        magistrado: "Corte Constitucional",
+        tema: "Constitucionalidad del Reporte en REDAM por 3 o más Cuotas en Mora",
+        ratio: "Es plenamente ajustada a la Constitución la imposición de inhabilidades contractuales, laborales, crediticias y migratorias a quienes incurran en mora reiterada de 3 o más cuotas alimentarias, como medida proporcional para proteger a la niñez.",
+        etiquetas: ["redam", "ley 2097", "inhabilidades", "morosos"],
+        cita: "Corte Constitucional, Sentencia C-325/21"
+      }
+    ];
+
+    // Variables Globales de Gráfica
+    let chartGastosInstance = null;
+
+    // Inicialización al Cargar la Página
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      calcularCuotaAlimentos();
+      calcularLiquidacionEjecutiva();
+      generarMinuta('acta_conciliacion');
+      renderizarJurisprudencia(JURISPRUDENCIA_DATA);
+    });
+
+    // Control de Pestañas
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.add('text-slate-600');
+      });
+
+      const target = document.getElementById(tabId);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.classList.remove('text-slate-600');
+      }
+
+      // Re-render iconos lucide si es necesario
+      lucide.createIcons();
+    }
+
+    // Modal Control
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    }
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    }
+
+    // =========================================================================
+    // LÓGICA DE LA PESTAÑA 1: TASACIÓN Y FIJACIÓN DE CUOTA PERIÓDICA
+    // =========================================================================
+
+    function onCambioBeneficiario() {
+      const tipo = document.getElementById('tipoBeneficiario').value;
+      const radioCongruos = document.getElementById('radioCongruos');
+      const radioNecesarios = document.getElementById('radioNecesarios');
+
+      if (tipo === 'hermanos' || tipo === 'conyuge_culpable') {
+        radioNecesarios.checked = true;
+      } else {
+        radioCongruos.checked = true;
+      }
+      calcularCuotaAlimentos();
+    }
+
+    function onCambioTipoIngreso() {
+      const tipo = document.getElementById('tipoIngresoAlimentante').value;
+      const inputIngreso = document.getElementById('ingresoBrutoAlimentante');
+      const avisoPresuncion = document.getElementById('txtPresuncionAviso');
+
+      if (tipo === 'informal_sin_probar') {
+        inputIngreso.value = SMMLV_2026;
+        avisoPresuncion.classList.remove('hidden');
+      } else {
+        avisoPresuncion.classList.add('hidden');
+      }
+      calcularCuotaAlimentos();
+    }
+
+    function calcularCuotaAlimentos() {
+      // 1. Obtener valores de entradas
+      const tipoBeneficiario = document.getElementById('tipoBeneficiario').value;
+      const esCongruos = document.getElementById('radioCongruos').checked;
+      const ingresoBruto = parseFloat(document.getElementById('ingresoBrutoAlimentante').value) || 0;
+      const deducciones = parseFloat(document.getElementById('deduccionesLeyAlimentante').value) || 0;
+      const numOtrosHijos = parseInt(document.getElementById('numOtrosHijos').value) || 0;
+
+      // Actualizar badges y textos didácticos
+      const badgeClase = document.getElementById('badgeNaturalezaAlimentos');
+      const tituloClase = document.getElementById('tituloExplicacionClase');
+      const cuerpoClase = document.getElementById('cuerpoExplicacionClase');
+
+      if (esCongruos) {
+        badgeClase.className = "badge-congruo text-white text-[10px] uppercase font-extrabold px-2.5 py-0.5 rounded-full shadow-xs";
+        badgeClase.innerText = "Alimentos Congruos";
+        tituloClase.innerText = "Alimentos Congruos (Código Civil Art. 413 Inc. 1 & Sentencia C-1033/02)";
+        cuerpoClase.innerHTML = "Son aquellos que habilitan al alimentario para <strong>subsistir modestamente de un modo correspondiente a su posición social y nivel de vida habitual</strong>. Abarcan educación privada, recreación, vestuario digno, medicina prepagada y vivienda acorde al estatus familiar. Se deben a hijos, cónyuge inocente y padres.";
+      } else {
+        badgeClase.className = "badge-necesario text-white text-[10px] uppercase font-extrabold px-2.5 py-0.5 rounded-full shadow-xs";
+        badgeClase.innerText = "Alimentos Necesarios";
+        tituloClase.innerText = "Alimentos Necesarios (Código Civil Art. 413 Inc. 2)";
+        cuerpoClase.innerHTML = "Son aquellos que bastan para <strong>sustentar la vida biológica elemental</strong>: alimentación canasta básica, vestuario modesto, habitación mínima y atención médica obligatoria (POS/PBS). Se aplican a hermanos o al cónyuge culpable en extrema indigencia.";
+      }
+
+      // 2. Capacidad económica neta y techo legal
+      const ingresoNeto = Math.max(0, ingresoBruto - deducciones);
+      const topeLegal50 = ingresoNeto * 0.50;
+      const minimoVitalDeudor = ingresoNeto - topeLegal50;
+
+      document.getElementById('lblIngresoNetoAlimentante').innerText = formatearCOP(ingresoNeto);
+      document.getElementById('lblTopeLegal50').innerText = formatearCOP(topeLegal50);
+      document.getElementById('lblMinimoVitalDeudor').innerText = formatearCOP(minimoVitalDeudor);
+
+      // 3. Gastos del menor / alimentario
+      let gAlim = parseFloat(document.getElementById('gastoAlimentacion').value) || 0;
+      let gViv = parseFloat(document.getElementById('gastoVivienda').value) || 0;
+      let gEdu = parseFloat(document.getElementById('gastoEducacion').value) || 0;
+      let gSal = parseFloat(document.getElementById('gastoSalud').value) || 0;
+      let gRec = parseFloat(document.getElementById('gastoRecreacion').value) || 0;
+      let gAse = parseFloat(document.getElementById('gastoAseo').value) || 0;
+
+      // Si es necesario, limitar recreación suntuaria
+      if (!esCongruos) {
+        gRec = Math.min(gRec, 50000); // recreación modesta
+      }
+
+      const totalGastos = gAlim + gViv + gEdu + gSal + gRec + gAse;
+      document.getElementById('lblTotalGastosMensualesHeader').innerText = `Total: ${formatearCOP(totalGastos)}`;
+
+      // 4. Economía del Cuidado (T-261/22 y T-103/23)
+      const custodio = document.getElementById('custodioPrincipal').value;
+      const valorCuidado = parseFloat(document.getElementById('valorEconomiaCuidado').value) || 0;
+
+      // 5. Cálculo y Ponderación Proporcional
+      // Regla de decisión jurisprudencial:
+      // Ambos padres deben alimentos en proporción a su capacidad. Si la madre tiene la custodia y aporta el cuidado en especie,
+      // el padre solvente asume la mayor parte del efectivo (típicamente entre 50% y 75% del presupuesto en dinero).
+      let proporcionPadreEfectivo = 0.50; // Base paritaria
+
+      if (custodio === 'madre') {
+        // La madre aporta cuidado en especie, padre asume mayor porcentaje del efectivo
+        proporcionPadreEfectivo = 0.60;
+      } else if (custodio === 'padre') {
+        proporcionPadreEfectivo = 0.40;
+      } else if (custodio === 'compartida') {
+        proporcionPadreEfectivo = 0.50;
+      }
+
+      // Si el deudor tiene más hijos dependientes, se modula por mínimo vital
+      if (numOtrosHijos === 1) {
+        proporcionPadreEfectivo *= 0.85;
+      } else if (numOtrosHijos >= 2) {
+        proporcionPadreEfectivo *= 0.70;
+      }
+
+      let cuotaCalculadaPadre = totalGastos * proporcionPadreEfectivo;
+      let cuotaCalculadaMadreEfectivo = Math.max(0, totalGastos - cuotaCalculadaPadre);
+
+      // Verificación de Techo Legal del 50%
+      const statusBadge = document.getElementById('statusTopeBadge');
+      const alertaExceso = document.getElementById('alertaExcesoTope');
+      let cuotaFinal = cuotaCalculadaPadre;
+
+      if (cuotaCalculadaPadre > topeLegal50) {
+        statusBadge.className = "bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1";
+        statusBadge.innerHTML = `<i data-lucide="alert-triangle" class="w-3 h-3 text-rose-400"></i> Supera Tope del 50%`;
+        alertaExceso.classList.remove('hidden');
+        document.getElementById('lblMontoTopeAjustado').innerText = formatearCOP(topeLegal50);
+        // El juez no decretará más del tope legal
+        cuotaFinal = topeLegal50;
+      } else {
+        statusBadge.className = "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1";
+        statusBadge.innerHTML = `<i data-lucide="check-circle" class="w-3 h-3 text-emerald-400"></i> Dentro del límite legal`;
+        alertaExceso.classList.add('hidden');
+      }
+
+      // Mostrar Resultados
+      document.getElementById('displayCuotaFinalCOP').innerText = formatearCOP(cuotaFinal);
+      const enSMMLV = (cuotaFinal / SMMLV_2026).toFixed(2);
+      document.getElementById('displayCuotaEnSMMLV').innerText = `${enSMMLV} SMMLV`;
+      const pctNeto = ingresoNeto > 0 ? ((cuotaFinal / ingresoNeto) * 100).toFixed(1) : 0;
+      document.getElementById('displayPctIngresoNeto').innerText = `${pctNeto}%`;
+
+      document.getElementById('lblResumenGastoTotal').innerText = formatearCOP(totalGastos);
+      document.getElementById('lblResumenCuotaPadre').innerText = formatearCOP(cuotaFinal);
+      document.getElementById('lblResumenCuotaMadre').innerText = formatearCOP(cuotaCalculadaMadreEfectivo);
+      document.getElementById('lblResumenEconomiaCuidado').innerText = formatearCOP(valorCuidado);
+      document.getElementById('lblResumenTopeLegal').innerText = formatearCOP(topeLegal50);
+
+      // Actualizar vista imprimible
+      document.getElementById('printTotalPresupuesto').innerText = formatearCOP(totalGastos);
+      document.getElementById('printIngresoNeto').innerText = formatearCOP(ingresoNeto);
+      document.getElementById('printTope50').innerText = formatearCOP(topeLegal50);
+      document.getElementById('printEconomiaCuidado').innerText = formatearCOP(valorCuidado);
+      document.getElementById('printCuotaOrdinariaFinal').innerText = formatearCOP(cuotaFinal);
+      document.getElementById('printClaseAlimentos').innerText = esCongruos ? "ALIMENTOS CONGRUOS (Art. 413 C.C.)" : "ALIMENTOS NECESARIOS (Art. 413 C.C.)";
+
+      // Actualizar Gráfico Chart.js
+      actualizarGraficoGastos([gAlim, gViv, gEdu, gSal, gRec, gAse]);
+      lucide.createIcons();
+    }
+
+    function actualizarGraficoGastos(datos) {
+      const ctx = document.getElementById('chartGastosAlimentos');
+      if (!ctx) return;
+
+      const labels = ['Alimentación', 'Vivienda', 'Educación', 'Salud', 'Recreación', 'Aseo'];
+      const backgroundColors = ['#f59e0b', '#3b82f6', '#10b981', '#ef4444', '#8b5cf6', '#64748b'];
+
+      if (chartGastosInstance) {
+        chartGastosInstance.data.datasets[0].data = datos;
+        chartGastosInstance.update();
+      } else {
+        chartGastosInstance = new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: labels,
+            datasets: [{
+              data: datos,
+              backgroundColor: backgroundColors,
+              borderWidth: 2,
+              borderColor: '#1e293b'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'right',
+                labels: {
+                  color: '#cbd5e1',
+                  font: { size: 9, family: "'Plus Jakarta Sans', sans-serif" },
+                  boxWidth: 10
+                }
+              }
+            },
+            cutout: '65%'
+          }
+        });
+      }
+    }
+
+    // Casos Tipo Preestablecidos
+    function cargarCasoTipo(caso) {
+      if (caso === 'hijo_menor_formal') {
+        document.getElementById('tipoBeneficiario').value = 'hijo_menor';
+        document.getElementById('radioCongruos').checked = true;
+        document.getElementById('tipoIngresoAlimentante').value = 'dependiente';
+        document.getElementById('ingresoBrutoAlimentante').value = 4500000;
+        document.getElementById('deduccionesLeyAlimentante').value = 360000;
+        document.getElementById('numOtrosHijos').value = '0';
+        document.getElementById('custodioPrincipal').value = 'madre';
+        document.getElementById('gastoAlimentacion').value = 800000;
+        document.getElementById('gastoVivienda').value = 500000;
+        document.getElementById('gastoEducacion').value = 550000;
+        document.getElementById('gastoSalud').value = 150000;
+        document.getElementById('gastoRecreacion').value = 200000;
+        document.getElementById('gastoAseo').value = 100000;
+      } else if (caso === 'hijo_estudiante') {
+        document.getElementById('tipoBeneficiario').value = 'hijo_estudiante';
+        document.getElementById('radioCongruos').checked = true;
+        document.getElementById('tipoIngresoAlimentante').value = 'dependiente';
+        document.getElementById('ingresoBrutoAlimentante').value = 6500000;
+        document.getElementById('deduccionesLeyAlimentante').value = 580000;
+        document.getElementById('gastoEducacion').value = 1800000; // Universidad
+        document.getElementById('gastoAlimentacion').value = 900000;
+        document.getElementById('gastoVivienda').value = 600000;
+        document.getElementById('gastoRecreacion').value = 250000;
+      } else if (caso === 'independiente_informal') {
+        document.getElementById('tipoBeneficiario').value = 'hijo_menor';
+        document.getElementById('radioCongruos').checked = true;
+        document.getElementById('tipoIngresoAlimentante').value = 'informal_sin_probar';
+        document.getElementById('ingresoBrutoAlimentante').value = SMMLV_2026;
+        document.getElementById('deduccionesLeyAlimentante').value = 140000;
+        document.getElementById('gastoAlimentacion').value = 500000;
+        document.getElementById('gastoVivienda').value = 300000;
+        document.getElementById('gastoEducacion').value = 200000;
+        document.getElementById('gastoRecreacion').value = 50000;
+        document.getElementById('txtPresuncionAviso').classList.remove('hidden');
+      } else if (caso === 'conyuge_inocente') {
+        document.getElementById('tipoBeneficiario').value = 'conyuge_inocente';
+        document.getElementById('radioCongruos').checked = true;
+        document.getElementById('ingresoBrutoAlimentante').value = 8000000;
+        document.getElementById('deduccionesLeyAlimentante').value = 850000;
+        document.getElementById('gastoAlimentacion').value = 1200000;
+        document.getElementById('gastoVivienda').value = 1500000;
+        document.getElementById('gastoSalud').value = 450000;
+        document.getElementById('gastoEducacion').value = 0;
+      } else if (caso === 'hermano_necesarios') {
+        document.getElementById('tipoBeneficiario').value = 'hermanos';
+        document.getElementById('radioNecesarios').checked = true;
+        document.getElementById('ingresoBrutoAlimentante').value = 3500000;
+        document.getElementById('gastoAlimentacion').value = 450000;
+        document.getElementById('gastoVivienda').value = 250000;
+        document.getElementById('gastoSalud').value = 80000;
+        document.getElementById('gastoEducacion').value = 0;
+        document.getElementById('gastoRecreacion').value = 0;
+      }
+      calcularCuotaAlimentos();
+    }
+
+    // =========================================================================
+    // LÓGICA DE LA PESTAÑA 2: LIQUIDADOR EJECUTIVO DE CUOTAS ATRASADAS & REDAM
+    // =========================================================================
+
+    function calcularLiquidacionEjecutiva() {
+      const cuotaBaseInicial = parseFloat(document.getElementById('liqCuotaBase').value) || 0;
+      const tipoReajuste = document.getElementById('liqTipoReajuste').value;
+      const strFechaInicio = document.getElementById('liqFechaInicio').value; // "YYYY-MM"
+      const strFechaFin = document.getElementById('liqFechaFin').value;       // "YYYY-MM"
+      const mudasImpagas = parseInt(document.getElementById('liqMudasImpagas').value) || 0;
+      const valorMuda = parseFloat(document.getElementById('liqValorMuda').value) || 0;
+      const abonosParciales = parseFloat(document.getElementById('liqAbonosParciales').value) || 0;
+
+      if (!strFechaInicio || !strFechaFin) return;
+
+      const [anioIni, mesIni] = strFechaInicio.split('-').map(Number);
+      const [anioFin, mesFin] = strFechaFin.split('-').map(Number);
+
+      const tbody = document.getElementById('tbodyLiquidacionMesAMes');
+      tbody.innerHTML = '';
+
+      let capitalOrdinarioTotal = 0;
+      let interesesMoratoriosTotal = 0;
+      let saldoAcumulado = 0;
+      let contadorCuotasMora = 0;
+
+      let anioActual = anioIni;
+      let mesActual = mesIni;
+      let cuotaIndexada = cuotaBaseInicial;
+      let anioAnteriorIndexado = anioIni;
+
+      const fechaFinObj = new Date(anioFin, mesFin - 1, 1);
+      const nombresMeses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+
+      while (new Date(anioActual, mesActual - 1, 1) <= fechaFinObj) {
+        contadorCuotasMora++;
+
+        // Reajuste anual cada 1 de enero si cambia el año
+        if (anioActual > anioAnteriorIndexado) {
+          if (tipoReajuste === 'ipc') {
+            const tasaIpc = HISTORICO_IPC[anioActual] || 0.05;
+            cuotaIndexada = cuotaIndexada * (1 + tasaIpc);
+          } else if (tipoReajuste === 'smlmv') {
+            const smlPrev = HISTORICO_SMLMV[anioActual - 1] || 1300000;
+            const smlCurr = HISTORICO_SMLMV[anioActual] || 1423500;
+            cuotaIndexada = cuotaIndexada * (smlCurr / smlPrev);
+          }
+          anioAnteriorIndexado = anioActual;
+        }
+
+        // Cálculo de meses en mora transcurridos desde ese mes hasta la fecha de corte
+        const mesesEnMora = (anioFin - anioActual) * 12 + (mesFin - mesActual);
+        // Interés moratorio legal civil 0.5% mensual (6% E.A.)
+        const intMoraMes = cuotaIndexada * (INTERES_MORATORIO_CIVIL_MENSUAL * mesesEnMora);
+
+        capitalOrdinarioTotal += cuotaIndexada;
+        interesesMoratoriosTotal += intMoraMes;
+
+        // Verificar si este mes correspondía muda de ropa periódica (abril, agosto, diciembre)
+        let extraTexto = '—';
+        let valorExtra = 0;
+        if (mesActual === 4 || mesActual === 8 || mesActual === 12) {
+          extraTexto = 'Muda de Ropa';
+        }
+
+        const totalCausadoMes = cuotaIndexada + intMoraMes;
+        saldoAcumulado += totalCausadoMes;
+
+        // Fila en tabla
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 text-slate-800 transition-colors";
+        tr.innerHTML = `
+          <td class="py-2.5 px-4 font-bold text-slate-900">${nombresMeses[mesActual - 1]} ${anioActual}</td>
+          <td class="py-2.5 px-4">${formatearCOP(cuotaBaseInicial)}</td>
+          <td class="py-2.5 px-4 font-semibold text-blue-700">${formatearCOP(cuotaIndexada)}</td>
+          <td class="py-2.5 px-4">${mesesEnMora * 30} días (${mesesEnMora}m)</td>
+          <td class="py-2.5 px-4 text-rose-600 font-bold">+${formatearCOP(intMoraMes)}</td>
+          <td class="py-2.5 px-4 text-slate-500">${extraTexto}</td>
+          <td class="py-2.5 px-4 font-bold text-slate-900">${formatearCOP(totalCausadoMes)}</td>
+          <td class="py-2.5 px-4 text-right font-extrabold text-slate-900">${formatearCOP(saldoAcumulado)}</td>
+        `;
+        tbody.appendChild(tr);
+
+        // Avanzar mes
+        mesActual++;
+        if (mesActual > 12) {
+          mesActual = 1;
+          anioActual++;
+        }
+      }
+
+      // Añadir mudas de ropa impagas al capital extraordinario
+      const capitalMudasTotal = mudasImpagas * valorMuda;
+      const totalCreditoBruto = capitalOrdinarioTotal + capitalMudasTotal + interesesMoratoriosTotal;
+      const totalCreditoNeto = Math.max(0, totalCreditoBruto - abonosParciales);
+
+      // Actualizar Contadores y Tarjetas
+      document.getElementById('lblCapitalOrdinario').innerText = formatearCOP(capitalOrdinarioTotal);
+      document.getElementById('lblCapitalMudas').innerText = formatearCOP(capitalMudasTotal);
+      document.getElementById('lblInteresesMoratorios').innerText = formatearCOP(interesesMoratoriosTotal);
+      document.getElementById('lblTotalCreditoEjecutivo').innerText = formatearCOP(totalCreditoNeto);
+
+      // Verificación y Semáforo REDAM (Ley 2097 de 2020: 3 o más cuotas en mora)
+      const panelRedam = document.getElementById('panelAlertaREDAM');
+      const lblRedamCuotas = document.getElementById('lblRedamCuotasMora');
+      lblRedamCuotas.innerText = `${contadorCuotasMora} Cuotas`;
+
+      if (contadorCuotasMora >= 3) {
+        panelRedam.classList.remove('hidden');
+      } else {
+        panelRedam.classList.add('hidden');
+      }
+    }
+
+    // =========================================================================
+    // LÓGICA DE LA PESTAÑA 3: GENERADOR DE MINUTAS Y ACUERDOS
+    // =========================================================================
+
+    let tipoMinutaActual = 'acta_conciliacion';
+
+    function generarMinuta(tipo) {
+      tipoMinutaActual = tipo;
+
+      // Resaltar botón seleccionado
+      document.getElementById('btnMinutaActa').className = tipo === 'acta_conciliacion' ? "w-full text-left p-4 rounded-xl border border-blue-500 bg-blue-50/50 shadow-xs space-y-1 transition-all" : "w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 shadow-xs space-y-1 transition-all";
+      document.getElementById('btnMinutaRedam').className = tipo === 'requerimiento_redam' ? "w-full text-left p-4 rounded-xl border border-blue-500 bg-blue-50/50 shadow-xs space-y-1 transition-all" : "w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 shadow-xs space-y-1 transition-all";
+      document.getElementById('btnMinutaDemanda').className = tipo === 'demanda_ejecutiva' ? "w-full text-left p-4 rounded-xl border border-blue-500 bg-blue-50/50 shadow-xs space-y-1 transition-all" : "w-full text-left p-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 shadow-xs space-y-1 transition-all";
+
+      actualizarTextoMinuta();
+    }
+
+    function actualizarTextoMinuta() {
+      const deudor = document.getElementById('minutaNombreDeudor').value || 'JUAN CARLOS PÉREZ RODRÍGUEZ';
+      const acreedor = document.getElementById('minutaNombreAcreedor').value || 'MARÍA FERNANDA GÓMEZ LÓPEZ';
+      const menor = document.getElementById('minutaNombreMenor').value || 'MATEO PÉREZ GÓMEZ';
+      const ciudad = document.getElementById('minutaCiudad').value || 'Bogotá D.C.';
+      const cuotaCOP = document.getElementById('displayCuotaFinalCOP').innerText;
+      const deudaTotalCOP = document.getElementById('lblTotalCreditoEjecutivo').innerText;
+      const mudasVal = formatearCOP(parseFloat(document.getElementById('valorMudaRopa').value) || 450000);
+
+      const contenedor = document.getElementById('contenedorTextoMinuta');
+      const tituloHeader = document.getElementById('lblTituloMinutaVisualizador');
+
+      if (tipoMinutaActual === 'acta_conciliacion') {
+        tituloHeader.innerText = "Acta de Acuerdo de Conciliación de Alimentos y Visitas (Ley 1098 & C.C.)";
+        contenedor.innerText = `ACTA DE ACUERDO CONCILIATORIO DE ALIMENTOS, CUSTODIA Y VISITAS
+CENTRO DE CONCILIACIÓN / DEFENSORÍA DE FAMILIA / COMISARÍA DE FAMILIA DE ${ciudad.toUpperCase()}
+
+En la ciudad de ${ciudad}, a los ________ (__) días del mes de ________ de 2026, comparecieron personalmente:
+
+1. De una parte, el/la señor(a) ${deudor}, mayor de edad, identificado(a) con C.C. No. _______________ expedida en ______________, quien en adelante y para los efectos de este acuerdo se denominará EL ALIMENTANTE / OBLIGADO.
+2. De otra parte, el/la señor(a) ${acreedor}, mayor de edad, identificado(a) con C.C. No. _______________ expedida en ______________, quien actúa en representación legal de su hijo(a) menor de edad: ${menor}.
+
+Los comparecientes, en uso de sus plenas facultades mentales y legales, manifiestan que han llegado de manera libre, voluntaria y concertada al siguiente:
+
+ACUERDO DE OBLIGACIÓN ALIMENTARIA INTEGRAL (ALIMENTOS CONGRUOS)
+
+CLÁUSULA PRIMERA - CUSTODIA Y CUIDADO PERSONAL:
+La custodia y el cuidado personal directo del menor ${menor} continuará a cargo de su progenitor(a) ${acreedor}. Se deja expresa constancia, en armonía con las Sentencias T-261 de 2022 y T-103 de 2023 de la Corte Constitucional, de la valoración pecuniaria del cuidado doméstico no remunerado aportado por el progenitor custodio como contribución en especie a la cuota alimentaria.
+
+CLÁUSULA SEGUNDA - CUOTA ALIMENTARIA MENSUAL ORDINARIA:
+EL ALIMENTANTE (${deudor}) se compromete a cancelar a favor de su hijo(a) ${menor} una cuota alimentaria mensual ordinaria por la suma de ${cuotaCOP} M/CTE.
+Dicha suma deberá ser cancelada de manera anticipada dentro de los primeros cinco (5) días calendario de cada mes, mediante consignación en la cuenta de ahorros No. ____________________ del Banco __________________ a nombre de ${acreedor}.
+
+CLÁUSULA TERCERA - INCREMENTO ANUAL OBLIGATORIO:
+La cuota alimentaria aquí fijada se reajustará de manera automática y sucesiva el primero (1º) de enero de cada año, con base en el incremento porcentual del Índice de Precios al Consumidor (IPC) certificado por el DANE para el año inmediatamente anterior o, en su defecto, en el porcentaje de incremento del Salario Mínimo Legal Mensual Vigente (SMLMV).
+
+CLÁUSULA CUARTA - GASTOS EXTRAORDINARIOS DE VESTUARIO (MUDAS DE ROPA):
+Conforme a la doctrina de la Sala de Casación Civil de la Corte Suprema de Justicia (SC-917-2022), EL ALIMENTANTE suministrará tres (3) mudas de ropa completas al año (vestuario exterior y calzado de calidad acorde a su posición social), o su equivalente en dinero tasado en ${mudasVal} M/CTE por muda, pagaderas a más tardar el 30 de abril, 30 de agosto y 20 de diciembre de cada año.
+
+CLÁUSULA QUINTA - GASTOS EXTRAORDINARIOS DE EDUCACIÓN Y SALUD:
+1. EDUCACIÓN: Los gastos de matrícula anual, uniformes escolares de diario y educación física, y lista de útiles o textos escolares serán asumidos en un cincuenta por ciento (50%) por cada uno de los progenitores.
+2. SALUD: Los gastos médicos, odontológicos, terapéuticos, medicamentos y lentes que no sean cubiertos por el Plan de Beneficios en Salud (PBS/POS) serán asumidos en un 50% por cada padre, previa presentación de la fórmula médica y factura legal.
+
+CLÁUSULA SEXTA - PARTICIPACIÓN EN PRIMAS DE SERVICIOS:
+EL ALIMENTANTE transferirá adicionalmente el cincuenta por ciento (50%) del valor neto que reciba por concepto de prima legal de servicios semestral (junio y diciembre) a favor del menor.
+
+CLÁUSULA SÉPTIMA - RÉGIMEN DE VISITAS:
+EL ALIMENTANTE disfrutará de un régimen de visitas abierto y armónico, compartiendo fines de semana de por medio desde el viernes a las 6:00 p.m. hasta el domingo a las 6:00 p.m., alternando fechas de festividades decembrinas y mitad de períodos de vacaciones escolares.
+
+MÉRITO EJECUTIVO Y TRÁNSITO A COSA JUZGADA:
+El presente acuerdo presta mérito ejecutivo en los términos del Artículo 129 de la Ley 1098 de 2006 y el Artículo 422 del Código General del Proceso, y hace tránsito a cosa juzgada. Las partes reconocen expresamente que el incumplimiento en el pago de tres (3) o más cuotas facultará a la acreedora para solicitar el reporte inmediato en el Registro de Deudores Alimentarios Morosos (REDAM - Ley 2097 de 2020) y el embargo judicial de hasta el 50% de los salarios y prestaciones.
+
+Para constancia se firma por los intervinientes.
+
+
+__________________________________________
+${deudor}
+C.C. No. __________________
+EL ALIMENTANTE
+
+
+__________________________________________
+${acreedor}
+C.C. No. __________________
+EN REPRESENTACIÓN DEL MENOR
+
+
+__________________________________________
+FUNCIONARIO CONCILIADOR / DEFENSOR DE FAMILIA
+`;
+      } else if (tipoMinutaActual === 'requerimiento_redam') {
+        tituloHeader.innerText = "Requerimiento Prejudicial de Pago con Advertencia Expresa de Reporte en REDAM";
+        contenedor.innerText = `REQUERIMIENTO PREJUDICIAL DE PAGO Y NOTIFICACIÓN PREVIA DE REPORTE ANTE EL REDAM
+(Ley 2097 de 2020, Reglamentada por el Decreto 1310 de 2022)
+
+${ciudad}, a los ________ días de ______________ de 2026.
+
+Señor(a):
+${deudor}
+Dirección física / electrónica: ___________________________
+Ciudad.
+
+ASUNTO: Cobro prejudicial de cuotas alimentarias adeudadas y advertencia de solicitud de inscripción en el Registro de Deudores Alimentarios Morosos (REDAM).
+
+Respetado(a) señor(a):
+
+En mi condición de representante legal del menor ${menor}, por medio de la presente comunicación me permito REQUERIRLO(A) FORMALMENTE para que proceda al pago inmediato e integral de las obligaciones alimentarias insolutas causadas a favor de su hijo(a), fijadas mediante título debidamente ejecutoriado.
+
+A la fecha de corte, usted registra un retraso acumulado e injustificado de las cuotas mensuales ordinarias e indexadas y gastos extraordinarios, ascendiendo la deuda total liquidada a la suma de:
+
+VALOR TOTAL ADEUDADO: ${deudaTotalCOP} M/CTE
+(Incluye capital causado e intereses moratorios civiles a la tasa del 6% E.A. conforme al Art. 1617 del Código Civil).
+
+ADVERTENCIA LEGAL EXPRESA - LEY 2097 DE 2020 (REDAM):
+Le informo que, habiendo incurrido en mora por un período superior a tres (3) cuotas alimentarias, se configuran a cabalidad los presupuestos fácticos y jurídicos establecidos en el Artículo 2º y concordantes de la Ley 2097 de 2020. En consecuencia, de no cancelarse o suscribirse acuerdo formal de pago dentro de los cinco (5) días hábiles siguientes al recibo de este requerimiento, se radicará solicitud formal ante el funcionario competente para que ordene su REPORTE E INSCRIPCIÓN INMEDIATA EN EL REGISTRO DE DEUDORES ALIMENTARIOS MOROSOS (REDAM).
+
+Le recuerdo que la inscripción en el REDAM genera las siguientes sanciones e inhabilidades de ley:
+1. Inhabilidad sobreviniente para celebrar contratos con el Estado colombiano o ejercer como servidor público.
+2. Imposibilidad legal para enajenar, transferir o registrar compraventa de bienes inmuebles o automotores sujetos a registro.
+3. Bloqueo crediticio ante todas las entidades del sistema financiero supervisadas por la Superfinanciera.
+4. Reporte negativo inmediato en centrales de riesgo (Datacrédito y TransUnion).
+5. Notificación a Migración Colombia para el impedimento de salida del territorio nacional.
+
+Asimismo, se adelantará la correspondiente DEMANDA EJECUTIVA DE ALIMENTOS con solicitud de embargo de hasta el 50% de sus ingresos salariales y prestaciones sociales (Art. 130 Ley 1098/06 y Art. 156 CST).
+
+Para acordar la forma de pago, sírvase comunicarse de inmediato al teléfono ______________ o al correo electrónico ________________________.
+
+Atentamente,
+
+
+__________________________________________
+${acreedor}
+C.C. No. __________________ de ____________
+Representante legal de ${menor}
+`;
+      } else if (tipoMinutaActual === 'demanda_ejecutiva') {
+        tituloHeader.innerText = "Minuta de Demanda Ejecutiva de Alimentos con Medidas Cautelares de Embargo del 50%";
+        contenedor.innerText = `SEÑOR(A)
+JUEZ DE FAMILIA DE ${ciudad.toUpperCase()} (REPARTO)
+E. S. D.
+
+REF: DEMANDA EJECUTIVA DE ALIMENTOS PARA MENOR DE EDAD
+DEMANDANTE: ${acreedor}, en representación de su hijo menor ${menor}.
+DEMANDADO: ${deudor}.
+
+${acreedor}, mayor de edad, domiciliado(a) en ${ciudad}, identificado(a) como aparece al pie de mi firma, actuando en nombre y representación legal de mi hijo(a) menor de edad ${menor}, por medio del presente escrito formulo DEMANDA EJECUTIVA DE ALIMENTOS en contra del señor ${deudor}, con fundamento en los siguientes:
+
+I. HECHOS
+
+PRIMERO: Mediante Acta de Conciliación / Sentencia Judicial No. ________ expedida el día ____________ por ________________________, se fijó a cargo del demandado ${deudor} una cuota alimentaria mensual a favor del menor ${menor}.
+SEGUNDO: En dicho título ejecutivo se pactó igualmente el incremento anual obligatorio por IPC/SMLMV, el suministro de tres (3) mudas de ropa anuales y el 50% de gastos extraordinarios de educación y salud.
+TERCERO: El demandado ha incurrido en mora reiterada e injustificada en el pago de las cuotas alimentarias desde el mes de ____________ hasta la fecha de corte, acumulando más de tres (3) cuotas insolutas.
+CUARTO: La obligación es actualmente clara, expresa y actualmente exigible, prestando pleno mérito ejecutivo conforme al Art. 422 del CGP y el Art. 129 de la Ley 1098 de 2006.
+
+II. PRETENSIONES
+
+PRIMERA: Librar MANDAMIENTO DE PAGO por vía ejecutiva en contra del ejecutado ${deudor} y a favor del menor ${menor}, por las siguientes sumas:
+a) Por la suma de ${deudaTotalCOP} M/CTE por concepto de capital de cuotas alimentarias mensuales ordinarias causadas e impagas.
+b) Por concepto de cuotas extraordinarias de vestuario y útiles escolares no suministrados.
+c) Por los INTERESES MORATORIOS CIVILES a la tasa legal del 6% Efectivo Anual (0.5% mensual), conforme al Artículo 1617 del Código Civil, causados desde que cada cuota se hizo exigible y hasta el momento del pago efectivo.
+d) Por las cuotas alimentarias que se sigan causando durante el transcurso del presente proceso.
+e) Condenar en costas procesales y agencias en derecho a la parte ejecutada.
+
+III. MEDIDAS CAUTELARES PREVIAS (ART. 598 CGP & ART. 130 LEY 1098/06)
+
+Con el fin de asegurar el cumplimiento de la obligación y la protección preferente del menor, solicito de manera inmediata:
+1. EMBARGO Y RETENCIÓN DE HASTA EL CINCUENTA POR CIENTO (50%) del salario básico, horas extras, recargos, primas de servicios legales y extralegales, cesantías e intereses de cesantías que devengue el demandado ${deudor} en la empresa / entidad _________________________________.
+2. EMBARGO Y RETENCIÓN de los dineros depositados en cuentas de ahorros, cuentas corrientes y CDT que posea el ejecutado en las entidades bancarias del país.
+3. IMPEDIMENTO DE SALIDA DEL PAÍS del demandado ante la Unidad Administrativa Especial Migración Colombia, hasta tanto garantice el pago de las obligaciones causadas y futuras mediante caución judicial fidedigna.
+4. OFICIAR al Ministerio de las TIC / Entidad competente para que ordene la INSCRIPCIÓN DEL DEMANDADO EN EL REGISTRO DE DEUDORES ALIMENTARIOS MOROSOS (REDAM) en los términos de la Ley 2097 de 2020.
+
+IV. FUNDAMENTOS DE DERECHO
+Artículos 411, 413 (Alimentos Congruos), 419, 421, 422 y 1617 del Código Civil.
+Artículos 24, 129, 130, 134 y 135 de la Ley 1098 de 2006 (Código de la Infancia y la Adolescencia).
+Ley 2097 de 2020 (REDAM).
+Artículos 422 y concordantes del Código General del Proceso (Ley 1564 de 2012).
+Sentencias C-1033/02, T-559/17, T-281/18 y SC-917-2022 de la Corte Suprema de Justicia.
+
+Anexo título ejecutivo original, poder y liquidación de crédito detallada.
+
+
+__________________________________________
+${acreedor}
+C.C. No. __________________
+`;
+      }
+    }
+
+    function copiarMinutaPortapapeles() {
+      const texto = document.getElementById('contenedorTextoMinuta').innerText;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("¡Minuta jurídica copiada con éxito al portapapeles!");
+      }).catch(err => {
+        console.error("Error al copiar:", err);
+      });
+    }
+
+    function copiarDictamenTexto() {
+      const cuota = document.getElementById('displayCuotaFinalCOP').innerText;
+      const total = document.getElementById('lblResumenGastoTotal').innerText;
+      const deudor = document.getElementById('minutaNombreDeudor').value;
+      const menor = document.getElementById('minutaNombreMenor').value;
+      const texto = `DICTAMEN DE LIQUIDACIÓN DE ALIMENTOS (COLOMBIA 2026)\n` +
+                    `Beneficiario: ${menor}\n` +
+                    `Obligado: ${deudor}\n` +
+                    `Presupuesto Total de Gastos del Menor: ${total}\n` +
+                    `Cuota Mensual Ordinaria a Cargo del Obligado: ${cuota}\n` +
+                    `Tope Legal del 50% Salarial respetado (Art. 130 Ley 1098/06).\n` +
+                    `Mudas de ropa: 3 al año (abril, agosto, diciembre).\n` +
+                    `Gastos escolares y médicos no POS: 50% cada padre.\n` +
+                    `Incremento Anual: 1 de enero por IPC o SMLMV.`;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("¡Dictamen copiado al portapapeles!");
+      });
+    }
+
+    function copiarTablaLiquidacionTexto() {
+      const rows = document.querySelectorAll('#tbodyLiquidacionMesAMes tr');
+      let out = "Mes/Año\tCuota Base\tCuota Indexada\tDías Mora\tInt. Mora (6% E.A.)\tExtra\tTotal Mes\tSaldo Acumulado\n";
+      rows.forEach(r => {
+        const cols = r.querySelectorAll('td');
+        const line = Array.from(cols).map(c => c.innerText.trim()).join('\t');
+        out += line + '\n';
+      });
+      navigator.clipboard.writeText(out).then(() => {
+        alert("¡Tabla de liquidación procesal copiada al portapapeles en formato TSV (pega en Excel / Word)!");
+      });
+    }
+
+    // =========================================================================
+    // LÓGICA DE LA PESTAÑA 4: BIBLIOTECA JURISPRUDENCIAL
+    // =========================================================================
+
+    let filtroCorteActual = 'todas';
+
+    function setFiltroCorte(corte) {
+      filtroCorteActual = corte;
+      filtrarJurisprudencia();
+    }
+
+    function filtrarJurisprudencia() {
+      const q = document.getElementById('filtroJurisprudencia').value.toLowerCase().trim();
+      const filtradas = JURISPRUDENCIA_DATA.filter(item => {
+        const coincideCorte = (filtroCorteActual === 'todas') || (item.corte === filtroCorteActual);
+        const coincideTexto = !q || item.numero.toLowerCase().includes(q) ||
+                              item.tema.toLowerCase().includes(q) ||
+                              item.ratio.toLowerCase().includes(q) ||
+                              item.etiquetas.some(t => t.toLowerCase().includes(q));
+        return coincideCorte && coincideTexto;
+      });
+      renderizarJurisprudencia(filtradas);
+    }
+
+    function renderizarJurisprudencia(lista) {
+      const contenedor = document.getElementById('gridJurisprudencia');
+      contenedor.innerHTML = '';
+
+      if (lista.length === 0) {
+        contenedor.innerHTML = `<div class="col-span-2 text-center py-8 text-slate-400">No se encontraron sentencias con el criterio de búsqueda.</div>`;
+        return;
+      }
+
+      lista.forEach(item => {
+        const esConst = item.corte === 'constitucional';
+        const card = document.createElement('div');
+        card.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-xs hover:border-blue-400 transition-all space-y-3";
+        card.innerHTML = `
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <span class="${esConst ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-900'} text-[10px] font-extrabold px-2 py-0.5 rounded uppercase">
+              ${esConst ? 'Corte Constitucional' : 'Corte Suprema de Justicia (Civil)'}
+            </span>
+            <span class="text-[11px] font-bold text-slate-500">${item.numero}</span>
+          </div>
+          <div>
+            <h4 class="font-extrabold text-slate-900 text-sm">${item.tema}</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Ponente / Fuente: ${item.magistrado}</p>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-slate-700 leading-relaxed text-[11px]">
+            <strong class="text-slate-900 block mb-1">Ratio Decidendi / Regla Jurídica:</strong>
+            ${item.ratio}
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-100 text-[10px]">
+            <div class="flex flex-wrap gap-1">
+              ${item.etiquetas.map(t => `<span class="bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded">#${t}</span>`).join('')}
+            </div>
+            <span class="text-blue-600 font-semibold">${item.cita}</span>
+          </div>
+        `;
+        contenedor.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    // Formateador de moneda colombiana
+    function formatearCOP(valor) {
+      if (isNaN(valor)) return "$ 0";
+      return "$ " + Math.round(valor).toLocaleString('es-CO');
+    }
+  
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  </div> <!-- Fin #mainAppWrapper -->
+</body>
+</html>

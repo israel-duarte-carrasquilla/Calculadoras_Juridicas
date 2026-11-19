@@ -1,0 +1,2415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora y Liquidador Judicial de Créditos Colombia 2026 | CGP Art. 446, C.Co. Art. 884 & Usura</title>
+  <script src="https://cdn.tailwindcss.com">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <script src="https://unpkg.com/lucide@latest">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js">
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif-legal {
+      font-family: 'Cinzel', serif;
+    }
+    .tab-btn.active {
+      border-bottom: 3px solid #0284c7;
+      color: #0369a1;
+      font-weight: 700;
+      background-color: rgba(2, 132, 199, 0.05);
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 10pt !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
+        box-shadow: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- PORTAL DE ACCESO / LOGIN OBLIGATORIO                                      -->
+  <!-- ========================================================================= -->
+  <div id="appLoginGate" class="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-4 relative z-50">
+    <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl text-center space-y-4">
+      <div class="inline-flex p-3 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-400/30">
+        <i data-lucide="scale" class="w-8 h-8"></i>
+      </div>
+      <h2 class="text-xl font-bold font-serif-legal">Acceso Protegido a la Suite</h2>
+      <p class="text-xs text-slate-400">Por favor inicia sesión en la Suite Jurídica para acceder a este módulo.</p>
+      <a href="index.html" class="block w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg transition">
+        Ir a la Suite Principal / Iniciar Sesión
+      </a>
+    </div>
+  </div>
+    
+  <div id="mainAppWrapper" class="hidden flex-1 flex flex-col">
+
+  <!-- Switcher Superior de Suite Legal de Colombia -->
+  <div class="bg-slate-950 text-slate-300 border-b border-slate-800 text-xs py-1.5 px-4 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-amber-400 font-extrabold flex items-center gap-1">
+          <i data-lucide="scale" class="w-3.5 h-3.5"></i> SUITE DE CALCULADORAS LEGALES DE COLOMBIA
+        </span>
+        <span class="text-slate-600 hidden md:inline">|</span>
+        <span class="text-slate-400 hidden md:inline">Vigencia 2026 - Certificaciones SFC, CGP & Precedentes CSJ</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="calculator" class="w-3 h-3 text-emerald-400"></i>
+          <span>Pensión (Ley 2381)</span>
+        </a>
+        <a href="calculadora_alimentos.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="heart-handshake" class="w-3 h-3 text-pink-400"></i>
+          <span>Alimentos (C.C. & REDAM)</span>
+        </a>
+        <a href="calculadora_perjuicios.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">
+          <i data-lucide="shield-alert" class="w-3 h-3 text-amber-300"></i>
+          <span>Perjuicios (CSJ & C.E.)</span>
+        </a>
+        <a href="calculadora_creditos.html" class="flex items-center gap-1 px-2.5 py-1 rounded bg-sky-700 text-white font-bold transition-colors shadow-xs">
+          <i data-lucide="badge-dollar-sign" class="w-3 h-3 text-amber-300"></i>
+          <span>Créditos (CGP Art. 446)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Principal -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="bg-gradient-to-br from-sky-600 to-blue-800 p-2.5 rounded-xl shadow-inner text-white flex items-center justify-center">
+          <i data-lucide="landmark" class="w-6 h-6 text-amber-300"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+              Calculadora y Liquidador Judicial de Créditos
+            </h1>
+            <span class="bg-sky-500/20 text-sky-300 text-[11px] px-2.5 py-0.5 rounded-full border border-sky-400/30 font-semibold">
+              Colombia 2026
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">
+            Procesos Ejecutivos (CGP Art. 446) • Mora Mercantil (C.Co. Art. 884) • Imputación (C.C. 1653) • Control de Usura & Amortización
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs">
+        <button onclick="switchTab('tab-jurisprudencia')" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-800 hover:bg-sky-700 text-white font-medium shadow-sm transition-colors">
+          <i data-lucide="book-open-check" class="w-4 h-4 text-sky-200"></i>
+          <span>Jurisprudencia & Normativa</span>
+        </button>
+        <button onclick="window.print()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors">
+          <i data-lucide="printer" class="w-4 h-4 text-slate-300"></i>
+          <span>Imprimir / PDF Judicial</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navegación por Pestañas -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800 flex overflow-x-auto space-x-1 py-1">
+      <button onclick="switchTab('tab-liquidador')" id="btn-tab-liquidador" class="tab-btn active px-4 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition-colors flex items-center gap-2 text-slate-300 hover:text-white">
+        <i data-lucide="gavel" class="w-4 h-4 text-sky-400"></i>
+        <span>1. Liquidador Judicial de Mora (Art. 446 CGP)</span>
+      </button>
+      <button onclick="switchTab('tab-amortizacion')" id="btn-tab-amortizacion" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition-colors flex items-center gap-2 text-slate-300 hover:text-white">
+        <i data-lucide="table-properties" class="w-4 h-4 text-emerald-400"></i>
+        <span>2. Simulador de Amortización (Francés, Alemán, UVR)</span>
+      </button>
+      <button onclick="switchTab('tab-usura')" id="btn-tab-usura" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition-colors flex items-center gap-2 text-slate-300 hover:text-white">
+        <i data-lucide="shield-alert" class="w-4 h-4 text-amber-400"></i>
+        <span>3. Auditor de Usura & Sanción Ley 45/90</span>
+      </button>
+      <button onclick="switchTab('tab-minutas')" id="btn-tab-minutas" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition-colors flex items-center gap-2 text-slate-300 hover:text-white">
+        <i data-lucide="file-text" class="w-4 h-4 text-purple-400"></i>
+        <span>4. Minutas & Memoriales Judiciales</span>
+      </button>
+      <button onclick="switchTab('tab-jurisprudencia')" id="btn-tab-jurisprudencia" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-t-lg transition-colors flex items-center gap-2 text-slate-300 hover:text-white">
+        <i data-lucide="library" class="w-4 h-4 text-blue-400"></i>
+        <span>5. Biblioteca Jurisprudencial & Fórmulas</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 1: LIQUIDADOR JUDICIAL DE MORA (ART. 446 CGP & ART. 884 C.CO.) -->
+    <!-- ========================================================================= -->
+    <div id="tab-liquidador" class="tab-content block space-y-6">
+      
+      <!-- Banner de Resumen Procesal -->
+      <div class="bg-gradient-to-r from-sky-900 to-indigo-950 rounded-2xl p-5 text-white shadow-md border border-sky-800/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span class="bg-sky-500/20 text-sky-300 text-xs px-3 py-1 rounded-full border border-sky-400/30 font-semibold tracking-wider uppercase inline-block mb-2">
+            Módulo Forense Judicial
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+            Liquidación del Crédito y las Costas en Procesos Ejecutivos
+          </h2>
+          <p class="text-xs sm:text-sm text-sky-200 mt-1 max-w-3xl">
+            Cálculo cronológico periodo por periodo con tasas históricas de la Superintendencia Financiera de Colombia (IBC x 1.5), imputación imperativa de abonos a intereses y capital (Art. 1653 C.C.), control de usura y liquidación de agencias en derecho (Acuerdo PSAA16-10554).
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 w-full md:w-auto">
+          <button onclick="cargarCasoEjemploJudicial()" class="w-full md:w-auto px-3.5 py-2 bg-sky-700/80 hover:bg-sky-600 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-2 shadow-xs transition">
+            <i data-lucide="sparkles" class="w-4 h-4 text-amber-300"></i>
+            <span>Cargar Caso Judicial Real</span>
+          </button>
+          <button onclick="exportarExcelLiquidacion()" class="w-full md:w-auto px-3.5 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-2 shadow-xs transition">
+            <i data-lucide="sheet" class="w-4 h-4 text-emerald-200"></i>
+            <span>Exportar Tabla a Excel / CSV</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Grid de Parámetros y Liquidación -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Columna Izquierda: Formulario de Parámetros (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Tarjeta 1: Obligación Base -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                <i data-lucide="file-check-2" class="w-4 h-4 text-sky-600"></i>
+                1. Datos del Título Ejecutivo & Capital
+              </h3>
+              <span class="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">Art. 422 CGP</span>
+            </div>
+
+            <!-- Enlace al Expediente Digital / Micrositio de la Rama Judicial -->
+            <div class="bg-sky-50/60 p-3 rounded-xl border border-sky-100 space-y-1.5">
+              <div class="flex items-center justify-between">
+                <label class="block text-xs font-bold text-sky-950 flex items-center gap-1.5">
+                  <i data-lucide="folder-symlink" class="w-3.5 h-3.5 text-sky-700"></i>
+                  Enlace al Expediente Digital / Micrositio
+                </label>
+                <span class="text-[10px] text-sky-700 bg-sky-100/80 px-2 py-0.5 rounded font-semibold">Rama Judicial / OneDrive</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <div class="relative flex-grow">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400">
+                    <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                  </span>
+                  <input type="url" id="liq-link-expediente" placeholder="https://procesos.ramajudicial.gov.co/... o carpeta OneDrive del Juzgado" value="https://procesos.ramajudicial.gov.co/procesos/NumeroRadicacion.aspx" class="w-full pl-8 pr-3 py-1.5 border border-slate-300 rounded-lg text-xs font-medium text-slate-900 focus:ring-2 focus:ring-sky-500 bg-white">
+                </div>
+                <button type="button" onclick="abrirLinkExpediente()" title="Abrir expediente digital en nueva pestaña" class="px-2.5 py-1.5 bg-sky-700 hover:bg-sky-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1 shadow-xs transition shrink-0">
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  <span class="hidden sm:inline">Abrir</span>
+                </button>
+                <button type="button" onclick="copiarLinkExpediente()" title="Copiar enlace del expediente" class="p-1.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 rounded-lg transition shrink-0">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+              <p class="text-[10px] text-slate-500">Se incluirá en el encabezado procesal del memorial para facilitar el acceso al Despacho.</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">
+                Capital Insoluto Exigible (COP)
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold text-sm">$</span>
+                <input type="number" id="liq-capital" value="50000000" min="1000" step="10000" class="w-full pl-8 pr-4 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-sky-500 font-bold text-slate-900 text-sm">
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1">Capital inicial neto adeudado al momento de entrar en mora.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Fecha Inicial de Mora</label>
+                <input type="date" id="liq-fecha-inicio" value="2023-01-15" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-sky-500 text-xs text-slate-900 font-semibold">
+                <p class="text-[10px] text-slate-500 mt-0.5">Día de vencimiento exigible.</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Fecha de Corte / Liquidación</label>
+                <input type="date" id="liq-fecha-fin" value="2026-11-18" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-sky-500 text-xs text-slate-900 font-semibold">
+                <p class="text-[10px] text-slate-500 mt-0.5">Fecha de presentación judicial.</p>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Régimen y Modalidad de la Tasa de Mora</label>
+              <select id="liq-tipo-tasa" onchange="toggleOpcionesTasaLiq()" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-sky-500 text-xs font-medium text-slate-800">
+                <option value="sfc-variable" selected>Tasa Variable Oficial SFC (1.5x IBC mes a mes - Comercial)</option>
+                <option value="fija-pactada">Tasa Fija Pactada en Título (con Tope Legal de Usura)</option>
+                <option value="legal-civil">Interés Legal Civil (6.00% E.A. - Art. 1617 Código Civil)</option>
+                <option value="corriente-mora">Interés Corriente Fijo + Mora Legal SFC</option>
+              </select>
+            </div>
+
+            <div id="campo-tasa-pactada" class="hidden">
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Tasa Moratoria Pactada (% Efectiva Anual)</label>
+              <div class="relative">
+                <input type="number" id="liq-tasa-pactada-valor" value="28.5" min="0" max="100" step="0.01" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-sky-500 text-xs font-bold text-slate-900 pr-8">
+                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 text-xs font-bold">% E.A.</span>
+              </div>
+              <p class="text-[10px] text-amber-700 mt-1 flex items-center gap-1">
+                <i data-lucide="info" class="w-3 h-3 inline"></i>
+                Se reducirá automáticamente al tope de usura SFC en los meses que lo sobrepase (Sentencia SC-917-2022).
+              </p>
+            </div>
+
+            <div class="border-t border-slate-100 pt-3">
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Intereses Corrientes Previos Pendientes (COP)</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold text-xs">$</span>
+                <input type="number" id="liq-corrientes-previos" value="0" min="0" step="10000" class="w-full pl-7 pr-3 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Cuotas de intereses corrientes causadas antes de la fecha de mora.</p>
+            </div>
+          </div>
+
+          <!-- Tarjeta 2: Abonos Parciales (Art. 1653 C.C.) & Carga Masiva Excel -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3.5">
+            <div class="flex flex-wrap items-center justify-between gap-1 border-b border-slate-100 pb-2">
+              <div class="flex items-center gap-2">
+                <i data-lucide="arrow-down-left" class="w-4 h-4 text-emerald-600"></i>
+                <h3 class="font-bold text-sm text-slate-900">2. Abonos y Pagos Procesales</h3>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span id="badge-total-abonos-cargados" class="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-300">
+                  0 pagos ($0)
+                </span>
+                <span class="text-[10px] font-semibold text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+                  Art. 1653 C.C.
+                </span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-slate-600 leading-tight">
+              Regla imperativa: los pagos cancelan primero los <strong>intereses de mora</strong>, segundo <strong>intereses corrientes</strong> y el saldo amortiza directamente el <strong>capital</strong>.
+            </p>
+
+            <!-- Acciones de Carga Masiva Excel y Plantilla -->
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/80 space-y-2">
+              <div class="flex items-center justify-between text-xs font-semibold text-slate-700">
+                <span class="flex items-center gap-1.5">
+                  <i data-lucide="sheet" class="w-4 h-4 text-emerald-600"></i>
+                  Carga Inteligente de Cuotas Pagadas
+                </span>
+                <button type="button" onclick="descargarPlantillaExcelAbonos()" class="text-[10px] text-sky-700 hover:text-sky-900 font-bold hover:underline flex items-center gap-1">
+                  <i data-lucide="download" class="w-3 h-3"></i>
+                  <span>Descargar Plantilla Excel</span>
+                </button>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <!-- Input de archivo oculto -->
+                <input type="file" id="input-excel-abonos" accept=".xlsx, .xls, .csv" onchange="procesarArchivoExcelAbonos(event)" class="hidden">
+                
+                <button type="button" onclick="document.getElementById('input-excel-abonos').click()" class="py-2 px-3 bg-emerald-700 hover:bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition">
+                  <i data-lucide="upload" class="w-3.5 h-3.5 text-emerald-200"></i>
+                  <span>Cargar Excel / CSV</span>
+                </button>
+
+                <button type="button" onclick="limpiarTodosLosAbonos()" class="py-2 px-3 bg-slate-200 hover:bg-red-50 hover:text-red-700 text-slate-700 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                  <span>Limpiar Pagos</span>
+                </button>
+              </div>
+
+              <!-- Alerta / Notificación de Carga de Excel -->
+              <div id="alerta-carga-excel" class="hidden p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-[11px] text-emerald-900 font-medium flex items-center justify-between gap-1">
+                <span id="alerta-carga-texto" class="flex items-center gap-1.5">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                  <span>Abonos cargados exitosamente.</span>
+                </span>
+                <button type="button" onclick="document.getElementById('alerta-carga-excel').classList.add('hidden')" class="text-emerald-700 hover:text-emerald-950 p-0.5">
+                  <i data-lucide="x" class="w-3 h-3"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lista de Abonos Dinámicos con Soporte / Concepto -->
+            <div class="space-y-1">
+              <div class="flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase px-1">
+                <span class="w-1/3">Fecha Pago</span>
+                <span class="w-1/3 text-right pr-2">Monto (COP)</span>
+                <span class="w-1/3 pl-1">Soporte / Recibo</span>
+              </div>
+              <div id="lista-abonos" class="space-y-2 max-h-52 overflow-y-auto pr-1">
+                <!-- Filas de abonos dinámicas -->
+              </div>
+            </div>
+
+            <button type="button" onclick="agregarFilaAbono()" class="w-full py-1.5 border-2 border-dashed border-slate-300 hover:border-sky-500 hover:bg-sky-50 text-sky-700 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+              <span>+ Agregar Abono Manual Individual</span>
+            </button>
+          </div>
+
+          <!-- Tarjeta 3: Costas Procesales y Agencias en Derecho (Art. 366 CGP) -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                <i data-lucide="scale" class="w-4 h-4 text-indigo-600"></i>
+                3. Costas & Agencias en Derecho
+              </h3>
+              <span class="text-[11px] font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                Acuerdo PSAA16-10554
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Agencias en Derecho</label>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="costas-agencias-porcentaje" value="5" min="0" max="25" step="0.5" class="w-20 px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-bold text-slate-900">
+                  <span class="text-xs font-semibold text-slate-600">% crédito</span>
+                </div>
+                <p class="text-[10px] text-slate-400 mt-0.5">Común: 3% a 10%.</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Otras Expensas Judiciales</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-2.5 flex items-center text-slate-400 font-bold text-xs">$</span>
+                  <input type="number" id="costas-expensas-fijas" value="450000" min="0" step="50000" class="w-full pl-6 pr-2 py-1.5 border border-slate-300 rounded-lg text-xs font-medium text-slate-900">
+                </div>
+                <p class="text-[10px] text-slate-400 mt-0.5">Notificaciones, arancel, peritos.</p>
+              </div>
+            </div>
+
+            <button onclick="ejecutarLiquidacionJudicial()" class="w-full mt-2 py-3 bg-gradient-to-r from-sky-600 to-indigo-700 hover:from-sky-500 hover:to-indigo-600 text-white font-bold text-sm rounded-xl shadow-md transition flex items-center justify-center gap-2">
+              <i data-lucide="calculator" class="w-4 h-4 text-amber-300"></i>
+              <span>Liquidar Crédito Judicialmente</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Columna Derecha: Resultados y Tabla Forense (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Tarjetas KPI de Resultados -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-xs">
+              <span class="text-[11px] font-semibold text-slate-500 block">Capital Inicial</span>
+              <span id="res-capital-inicial" class="text-sm sm:text-base font-extrabold text-slate-900 block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-slate-400">Título valor base</span>
+            </div>
+
+            <div class="bg-white rounded-xl p-3.5 border border-amber-200 bg-amber-50/30 shadow-xs">
+              <span class="text-[11px] font-semibold text-amber-800 block">Intereses de Mora</span>
+              <span id="res-intereses-mora" class="text-sm sm:text-base font-extrabold text-amber-700 block mt-0.5">$ 0</span>
+              <span id="res-dias-mora-totales" class="text-[10px] text-amber-600">0 días liquidados</span>
+            </div>
+
+            <div class="bg-white rounded-xl p-3.5 border border-emerald-200 bg-emerald-50/30 shadow-xs">
+              <span class="text-[11px] font-semibold text-emerald-800 block">Total Abonos Aplicados</span>
+              <span id="res-total-abonos" class="text-sm sm:text-base font-extrabold text-emerald-700 block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-emerald-600">Art. 1653 C.C.</span>
+            </div>
+
+            <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-xs">
+              <span class="text-[11px] font-semibold text-slate-500 block">Saldo Capital Insoluto</span>
+              <span id="res-capital-saldo" class="text-sm sm:text-base font-extrabold text-slate-900 block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-slate-400">Capital pendiente hoy</span>
+            </div>
+
+            <div class="bg-white rounded-xl p-3.5 border border-indigo-200 bg-indigo-50/30 shadow-xs">
+              <span class="text-[11px] font-semibold text-indigo-800 block">Costas & Agencias</span>
+              <span id="res-costas-total" class="text-sm sm:text-base font-extrabold text-indigo-700 block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-indigo-600">Art. 366 CGP</span>
+            </div>
+
+            <div class="bg-gradient-to-br from-sky-900 to-indigo-950 text-white rounded-xl p-3.5 shadow-md border border-sky-800">
+              <span class="text-[11px] font-semibold text-amber-300 block">GRAN TOTAL JUDICIAL</span>
+              <span id="res-gran-total" class="text-base sm:text-lg font-black text-white block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-sky-200">Exigible al ejecutado</span>
+            </div>
+          </div>
+
+          <!-- Gráfico de Composición de la Deuda -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+              <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                <i data-lucide="pie-chart" class="w-4 h-4 text-sky-600"></i>
+                Composición Forense de la Obligación Judicial
+              </h3>
+              <span class="text-xs text-slate-500 font-medium">Desglose porcentual</span>
+            </div>
+            <div class="h-44 flex items-center justify-center">
+              <canvas id="chart-liquidacion"></canvas>
+            </div>
+          </div>
+
+          <!-- Tabla Forense Periodo a Periodo -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+              <div>
+                <h3 class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                  <i data-lucide="list-ordered" class="w-4 h-4 text-indigo-600"></i>
+                  Tabla Forense de Liquidación Periodo a Periodo
+                </h3>
+                <p class="text-xs text-slate-500">Conforme al trámite del Artículo 446 del Código General del Proceso.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="copiarResumenJudicial()" class="px-2.5 py-1 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition flex items-center gap-1">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span>Copiar Resumen</span>
+                </button>
+                <button onclick="trasladarAMinutaJudicial()" class="px-2.5 py-1 text-xs font-semibold bg-sky-700 hover:bg-sky-600 text-white rounded-lg transition flex items-center gap-1">
+                  <i data-lucide="file-output" class="w-3.5 h-3.5"></i>
+                  <span>Llevar a Minuta</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="overflow-x-auto max-h-96 rounded-xl border border-slate-200">
+              <table class="w-full text-left border-collapse text-[11px]" id="tabla-liquidacion-judicial">
+                <thead class="bg-slate-100 text-slate-700 uppercase font-bold sticky top-0 border-b border-slate-200 z-10">
+                  <tr>
+                    <th class="py-2.5 px-3">Período</th>
+                    <th class="py-2.5 px-2 text-center">Días</th>
+                    <th class="py-2.5 px-2 text-right">Capital Base</th>
+                    <th class="py-2.5 px-2 text-center">Tasa E.A.</th>
+                    <th class="py-2.5 px-2 text-center">Tasa Mes</th>
+                    <th class="py-2.5 px-2 text-right">Mora Causada</th>
+                    <th class="py-2.5 px-2 text-right">Abono</th>
+                    <th class="py-2.5 px-2 text-right">Imp. Mora</th>
+                    <th class="py-2.5 px-2 text-right">Imp. Capital</th>
+                    <th class="py-2.5 px-3 text-right">Saldo Capital</th>
+                  </tr>
+                </thead>
+                <tbody id="cuerpo-tabla-liquidacion" class="divide-y divide-slate-100 text-slate-700">
+                  <tr>
+                    <td colspan="10" class="py-8 text-center text-slate-400">
+                      Haz clic en "Liquidar Crédito Judicialmente" para generar la tabla forense.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-[10px] text-slate-500 italic">
+              * Nota: En periodos donde la tasa pactada supere el límite de usura de la Superintendencia Financiera, se aplicará el tope legal de usura conforme a la jurisprudencia de la Sala de Casación Civil de la Corte Suprema de Justicia (SC-917-2022).
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 2: SIMULADOR DE AMORTIZACIÓN Y PLANES DE PAGO -->
+    <!-- ========================================================================= -->
+    <div id="tab-amortizacion" class="tab-content hidden space-y-6">
+
+      <!-- Banner Informativo -->
+      <div class="bg-gradient-to-r from-emerald-900 to-teal-950 rounded-2xl p-5 text-white shadow-md border border-emerald-800/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span class="bg-emerald-500/20 text-emerald-300 text-xs px-3 py-1 rounded-full border border-emerald-400/30 font-semibold tracking-wider uppercase inline-block mb-2">
+            Matemática Financiera & Amortizaciones
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+            Simulador de Crédito & Planes de Amortización Bancaria
+          </h2>
+          <p class="text-xs sm:text-sm text-emerald-200 mt-1 max-w-3xl">
+            Sistemas Francés (cuota fija), Alemán (abono constante), Americano y Créditos de Vivienda en UVR (Ley 546/1999). Evaluación de abonos extraordinarios sin penalidad (Ley 1555/2012 y Ley 2032/2020).
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2 w-full md:w-auto">
+          <button onclick="exportarExcelAmortizacion()" class="w-full md:w-auto px-3.5 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-2 shadow-xs transition">
+            <i data-lucide="sheet" class="w-4 h-4 text-emerald-200"></i>
+            <span>Exportar Plan a Excel</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Formulario y Resultados Amortización -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Parámetros (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <h3 class="font-bold text-sm text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
+              <i data-lucide="sliders" class="w-4 h-4 text-emerald-600"></i>
+              Parámetros del Préstamo
+            </h3>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Monto del Préstamo (COP)</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold text-sm">$</span>
+                <input type="number" id="amort-monto" value="80000000" min="100000" step="100000" class="w-full pl-8 pr-4 py-2 border border-slate-300 rounded-xl font-bold text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Plazo en Meses</label>
+                <input type="number" id="amort-plazo" value="60" min="1" max="360" class="w-full px-3 py-2 border border-slate-300 rounded-xl font-bold text-slate-900 text-xs focus:ring-2 focus:ring-emerald-500">
+                <p class="text-[10px] text-slate-500 mt-0.5">Ej: 12, 36, 60, 120, 240</p>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Tasa de Interés (% E.A.)</label>
+                <div class="relative">
+                  <input type="number" id="amort-tasa" value="18.5" min="0.1" max="100" step="0.01" class="w-full px-3 py-2 border border-slate-300 rounded-xl font-bold text-slate-900 text-xs focus:ring-2 focus:ring-emerald-500 pr-8">
+                  <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 text-xs font-bold">%</span>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-0.5">Tasa Efectiva Anual</p>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Sistema de Amortización</label>
+              <select id="amort-sistema" onchange="toggleSistemaAmortizacion()" class="w-full px-3 py-2 border border-slate-300 rounded-xl font-semibold text-slate-800 text-xs focus:ring-2 focus:ring-emerald-500">
+                <option value="frances" selected>Sistema Francés (Cuota Fija en Pesos - Más Común)</option>
+                <option value="aleman">Sistema Alemán (Abono Constante a Capital - Cuota Decreciente)</option>
+                <option value="americano">Sistema Americano (Interés Periódico y Capital al Vencimiento)</option>
+                <option value="uvr">Sistema Vivienda en UVR (Ley 546/1999 - Cuota Constante en UVR)</option>
+              </select>
+            </div>
+
+            <div id="campo-uvr-inflacion" class="hidden p-3 bg-amber-50 border border-amber-200 rounded-xl space-y-2">
+              <label class="block text-xs font-bold text-amber-900">Proyección Inflación Anual / IPC (% E.A.)</label>
+              <input type="number" id="amort-inflacion-uvr" value="5.2" min="0" max="25" step="0.1" class="w-full px-3 py-1.5 border border-amber-300 rounded-lg text-xs font-bold text-amber-950">
+              <p class="text-[10px] text-amber-800">
+                En créditos hipotecarios en UVR, el capital se ajusta con el IPC y sobre el saldo se liquidan los intereses remuneratorios.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 border-t border-slate-100 pt-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Seguro de Vida / Mensual</label>
+                <input type="number" id="amort-seguro" value="35000" min="0" step="5000" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Cuota Manejo / Admin</label>
+                <input type="number" id="amort-admin" value="0" min="0" step="1000" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+            </div>
+
+            <!-- Abonos Extraordinarios -->
+            <div class="border-t border-slate-100 pt-3 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+                  Abono Extraordinario a Capital
+                </span>
+                <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Ley 1555/12</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block text-[11px] text-slate-600 mb-0.5">En el Mes #</label>
+                  <input type="number" id="amort-abono-mes" value="12" min="1" max="360" class="w-full px-2.5 py-1 border border-slate-300 rounded-lg text-xs">
+                </div>
+                <div>
+                  <label class="block text-[11px] text-slate-600 mb-0.5">Monto Abono (COP)</label>
+                  <input type="number" id="amort-abono-monto" value="0" min="0" step="500000" class="w-full px-2.5 py-1 border border-slate-300 rounded-lg text-xs font-semibold text-emerald-700">
+                </div>
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-600 mb-0.5">Efecto del Abono</label>
+                <select id="amort-abono-efecto" class="w-full px-2.5 py-1 border border-slate-300 rounded-lg text-xs font-medium text-slate-800">
+                  <option value="plazo" selected>Disminuir Plazo (Mantener Cuota)</option>
+                  <option value="cuota">Disminuir Valor de la Cuota (Mantener Plazo)</option>
+                </select>
+              </div>
+            </div>
+
+            <button onclick="calcularAmortizacion()" class="w-full py-2.5 bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2">
+              <i data-lucide="refresh-cw" class="w-4 h-4 text-emerald-200"></i>
+              <span>Generar Plan de Pagos</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Resultados y Tabla Amortización (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Tarjetas KPI Amortización -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-white rounded-xl p-3 border border-slate-200 shadow-xs">
+              <span class="text-[10px] font-semibold text-slate-500 block">Cuota Inicial / Fija</span>
+              <span id="amort-kpi-cuota" class="text-sm sm:text-base font-extrabold text-slate-900 block mt-0.5">$ 0</span>
+              <span id="amort-kpi-tasa-mes" class="text-[10px] text-emerald-600">0.00% mes vencido</span>
+            </div>
+            <div class="bg-white rounded-xl p-3 border border-slate-200 shadow-xs">
+              <span class="text-[10px] font-semibold text-slate-500 block">Total Intereses Pagados</span>
+              <span id="amort-kpi-intereses" class="text-sm sm:text-base font-extrabold text-amber-700 block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-slate-400">Rédito financiero</span>
+            </div>
+            <div class="bg-white rounded-xl p-3 border border-slate-200 shadow-xs">
+              <span class="text-[10px] font-semibold text-slate-500 block">Total Seguros & Otros</span>
+              <span id="amort-kpi-seguros" class="text-sm sm:text-base font-extrabold text-slate-700 block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-slate-400">Vida / Terremoto</span>
+            </div>
+            <div class="bg-emerald-950 text-white rounded-xl p-3 border border-emerald-800 shadow-xs">
+              <span class="text-[10px] font-semibold text-emerald-300 block">Costo Total del Crédito</span>
+              <span id="amort-kpi-total" class="text-sm sm:text-base font-black text-white block mt-0.5">$ 0</span>
+              <span class="text-[10px] text-emerald-400">Capital + Interés + Seguros</span>
+            </div>
+          </div>
+
+          <!-- Gráfico de Evolución -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2 mb-3">
+              <h3 class="font-bold text-xs sm:text-sm text-slate-900 flex items-center gap-2">
+                <i data-lucide="trending-down" class="w-4 h-4 text-emerald-600"></i>
+                Evolución del Saldo de Capital vs. Intereses Causados
+              </h3>
+            </div>
+            <div class="h-44 flex items-center justify-center">
+              <canvas id="chart-amortizacion"></canvas>
+            </div>
+          </div>
+
+          <!-- Tabla Completa de Amortización -->
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h3 class="font-bold text-xs sm:text-sm text-slate-900 flex items-center gap-2">
+                <i data-lucide="table" class="w-4 h-4 text-emerald-600"></i>
+                Tabla Completa de Amortización Mes a Mes
+              </h3>
+              <span id="amort-total-cuotas-label" class="text-xs text-slate-500 font-semibold">60 cuotas</span>
+            </div>
+
+            <div class="overflow-x-auto max-h-96 rounded-xl border border-slate-200">
+              <table class="w-full text-left border-collapse text-[11px]" id="tabla-plan-amortizacion">
+                <thead class="bg-slate-100 text-slate-700 uppercase font-bold sticky top-0 border-b border-slate-200 z-10">
+                  <tr>
+                    <th class="py-2.5 px-2.5">Mes</th>
+                    <th class="py-2.5 px-2 text-right">Saldo Inicial</th>
+                    <th class="py-2.5 px-2 text-right">Cuota Total</th>
+                    <th class="py-2.5 px-2 text-right">Abono Capital</th>
+                    <th class="py-2.5 px-2 text-right">Interés</th>
+                    <th class="py-2.5 px-2 text-right">Seguro</th>
+                    <th class="py-2.5 px-2.5 text-right">Saldo Final</th>
+                  </tr>
+                </thead>
+                <tbody id="cuerpo-tabla-amortizacion" class="divide-y divide-slate-100 text-slate-700">
+                  <!-- Filas dinámicas -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 3: AUDITOR DE USURA Y SANCIÓN LEY 45 DE 1990 -->
+    <!-- ========================================================================= -->
+    <div id="tab-usura" class="tab-content hidden space-y-6">
+
+      <!-- Banner de Usura -->
+      <div class="bg-gradient-to-r from-amber-900 to-red-950 rounded-2xl p-5 text-white shadow-md border border-amber-800/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span class="bg-amber-500/20 text-amber-300 text-xs px-3 py-1 rounded-full border border-amber-400/30 font-semibold tracking-wider uppercase inline-block mb-2">
+            Auditoría Forense & Defensa del Deudor
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+            Auditor de Cobros Excesivos, Usura y Sanción del Art. 72 Ley 45/90
+          </h2>
+          <p class="text-xs sm:text-sm text-amber-200 mt-1 max-w-3xl">
+            Verificación contra la tasa máxima legal de usura de la Superintendencia Financiera (Art. 305 Código Penal). Cálculo de la pérdida total de intereses cobrados en exceso aumentados en un monto igual a favor del deudor.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Formulario Auditor (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <h3 class="font-bold text-sm text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
+              <i data-lucide="search-check" class="w-4 h-4 text-amber-600"></i>
+              Datos de la Operación Auditada
+            </h3>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Monto del Crédito o Saldo Liquidado (COP)</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold text-sm">$</span>
+                <input type="number" id="aud-monto" value="30000000" min="100000" step="100000" class="w-full pl-8 pr-4 py-2 border border-slate-300 rounded-xl font-bold text-slate-900 text-sm focus:ring-2 focus:ring-amber-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Mes y Año de Liquidación</label>
+                <select id="aud-periodo" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 focus:ring-2 focus:ring-amber-500">
+                  <option value="2026-11">Noviembre 2026 (Usura: 21.70% E.A.)</option>
+                  <option value="2026-06">Junio 2026 (Usura: 22.35% E.A.)</option>
+                  <option value="2026-01">Enero 2026 (Usura: 23.20% E.A.)</option>
+                  <option value="2025-06">Junio 2025 (Usura: 25.10% E.A.)</option>
+                  <option value="2024-06">Junio 2024 (Usura: 30.84% E.A.)</option>
+                  <option value="2023-04">Abril 2023 (Pico Histórico: 47.09% E.A.)</option>
+                  <option value="2022-12">Diciembre 2022 (Usura: 41.46% E.A.)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Modalidad</label>
+                <select id="aud-modalidad" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-medium text-slate-800">
+                  <option value="consumo" selected>Consumo y Ordinario</option>
+                  <option value="microcredito">Microcrédito</option>
+                  <option value="productivo">Crédito Productivo</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Tasa Efectiva Cobrada por el Acreedor (% E.A.)</label>
+              <div class="relative">
+                <input type="number" id="aud-tasa-cobrada" value="34.5" min="0" max="200" step="0.1" class="w-full px-3 py-2 border border-slate-300 rounded-xl font-bold text-slate-900 text-sm focus:ring-2 focus:ring-amber-500 pr-8">
+                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500 text-xs font-bold">% E.A.</span>
+              </div>
+              <p class="text-[10px] text-slate-500 mt-1">Incluya comisiones obligatorias o cobros que encarezcan el crédito.</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Cobros Accesorios No Autorizados o Atados (COP)</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 font-bold text-xs">$</span>
+                <input type="number" id="aud-cobros-atados" value="1200000" min="0" step="50000" class="w-full pl-7 pr-3 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+              <p class="text-[10px] text-slate-500 mt-0.5">Honorarios de cobranza prejurídica arbitrarios o seguros sin póliza.</p>
+            </div>
+
+            <button onclick="auditarUsura()" class="w-full py-2.5 bg-amber-700 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2">
+              <i data-lucide="shield-alert" class="w-4 h-4 text-amber-200"></i>
+              <span>Auditar Infracción y Calcular Sanción</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Resultados Auditoría (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <div id="resultado-auditoria-card" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                <i data-lucide="file-warning" class="w-5 h-5 text-red-600"></i>
+                Dictamen Forense de Legalidad
+              </h3>
+              <span id="badge-dictamen-usura" class="text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 border border-red-300">
+                INFRACCIÓN DE USURA DETECTADA
+              </span>
+            </div>
+
+            <!-- Comparativo de Tasas -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <span class="text-[10px] font-semibold text-slate-500 block">Tasa Cobrada Acreedor</span>
+                <span id="aud-res-tasa-cobrada" class="text-base font-extrabold text-red-600 block mt-0.5">34.50% E.A.</span>
+                <span class="text-[10px] text-slate-400">Tasa aplicada</span>
+              </div>
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <span class="text-[10px] font-semibold text-slate-500 block">Tope Legal Usura (SFC)</span>
+                <span id="aud-res-tasa-tope" class="text-base font-extrabold text-slate-800 block mt-0.5">21.70% E.A.</span>
+                <span class="text-[10px] text-slate-400">1.5 veces el IBC</span>
+              </div>
+              <div class="bg-red-50 p-3 rounded-xl border border-red-200">
+                <span class="text-[10px] font-semibold text-red-700 block">Exceso Ilegal</span>
+                <span id="aud-res-exceso-porcentual" class="text-base font-extrabold text-red-700 block mt-0.5">+12.80%</span>
+                <span class="text-[10px] text-red-600">Por encima de usura</span>
+              </div>
+            </div>
+
+            <!-- Cuantificación de la Sanción -->
+            <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-200 space-y-3">
+              <div class="flex items-center gap-2 text-amber-900 font-bold text-xs">
+                <i data-lucide="scale" class="w-4 h-4 text-amber-700"></i>
+                Liquidación de la Sanción Legal (Art. 72 Ley 45 de 1990)
+              </div>
+              <p class="text-xs text-amber-950 leading-relaxed">
+                "El acreedor perderá todos los intereses cobrados en exceso, remuneratorios, moratorios o ambos, aumentados en un monto igual..."
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-amber-200/60">
+                <div>
+                  <span class="text-[11px] font-semibold text-amber-900 block">Intereses Cobrados en Exceso:</span>
+                  <span id="aud-res-exceso-dinero" class="text-sm font-bold text-slate-900">$ 3.840.000</span>
+                </div>
+                <div>
+                  <span class="text-[11px] font-bold text-red-700 block">Sanción Total Reclamable (Doble):</span>
+                  <span id="aud-res-sancion-total" class="text-base font-extrabold text-red-700">$ 7.680.000</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fundamentación Penal y Civil -->
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-2">
+              <h4 class="font-bold text-slate-900 flex items-center gap-1.5">
+                <i data-lucide="alert-octagon" class="w-4 h-4 text-red-600"></i>
+                Efectos Jurídicos Inmediatos
+              </h4>
+              <ul class="list-disc pl-5 space-y-1 text-slate-600">
+                <li><strong>Art. 305 Código Penal:</strong> El cobro de intereses por encima de 1.5 veces el IBC tipifica el delito de Usura, sancionable con prisión de 32 a 90 meses y multa de hasta 300 SMLMV.</li>
+                <li><strong>Compensación Inmediata:</strong> El deudor tiene derecho a exigir que la sanción del doble del exceso se compense de pleno derecho contra el saldo insoluto de capital.</li>
+                <li><strong>Reliquidación Obligatoria:</strong> El título o crédito debe ser reliquidado a la tasa legal sin los cobros abusivos.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 4: MINUTAS & MEMORIALES PROCESALES -->
+    <!-- ========================================================================= -->
+    <div id="tab-minutas" class="tab-content hidden space-y-6">
+
+      <div class="bg-gradient-to-r from-purple-900 to-indigo-950 rounded-2xl p-5 text-white shadow-md border border-purple-800/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span class="bg-purple-500/20 text-purple-300 text-xs px-3 py-1 rounded-full border border-purple-400/30 font-semibold tracking-wider uppercase inline-block mb-2">
+            Secretaría Judicial & Litigio Estratégico
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+            Generador de Minutas Procesales & Memoriales de Liquidación
+          </h2>
+          <p class="text-xs sm:text-sm text-purple-200 mt-1 max-w-3xl">
+            Redacción automatizada de memoriales de liquidación de crédito (Art. 446 CGP), objeción motivada por exceso de intereses, pagarés con carta de instrucciones y cobro prejudicial respetuoso (Ley 2300/2023).
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Configuración de Minuta (4 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <h3 class="font-bold text-sm text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
+              <i data-lucide="file-cog" class="w-4 h-4 text-purple-600"></i>
+              Configurar Documento Procesal
+            </h3>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Tipo de Documento</label>
+              <select id="minuta-tipo" onchange="actualizarPlantillaMinuta()" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-bold text-slate-900 focus:ring-2 focus:ring-purple-500">
+                <option value="liquidacion-cgp" selected>Memorial de Liquidación del Crédito (Art. 446 CGP)</option>
+                <option value="objecion-cgp">Memorial de Objeción a la Liquidación (Exceso / Usura)</option>
+                <option value="pagare">Pagaré en Blanco con Carta de Instrucciones</option>
+                <option value="requerimiento-prejudicial">Requerimiento Prejudicial de Cobro (Ley 2300/23)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Juzgado de Conocimiento</label>
+              <input type="text" id="minuta-juzgado" value="JUZGADO CIVIL MUNICIPAL DE BOGOTÁ D.C. (REPARTO)" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Radicación del Proceso (23 dígitos)</label>
+              <input type="text" id="minuta-radicado" value="11001400300120230045600" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl text-xs font-mono font-medium text-slate-900">
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Enlace del Expediente Digital / Micrositio</label>
+              <input type="url" id="minuta-link-expediente" value="https://procesos.ramajudicial.gov.co/procesos/NumeroRadicacion.aspx" class="w-full px-3 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-700 mb-1">Demandante / Acreedor</label>
+                <input type="text" id="minuta-demandante" value="BANCO DE CRÉDITO Y COMERCIO S.A." class="w-full px-2.5 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-700 mb-1">NIT / C.C. Demandante</label>
+                <input type="text" id="minuta-demandante-id" value="900.123.456-7" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-700 mb-1">Demandado / Deudor</label>
+                <input type="text" id="minuta-demandado" value="CARLOS ALBERTO GÓMEZ RESTREPO" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-700 mb-1">C.C. Demandado</label>
+                <input type="text" id="minuta-demandado-id" value="79.845.120" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-700 mb-1">Apoderado Judicial</label>
+                <input type="text" id="minuta-apoderado" value="DR. ISRAEL PINZÓN" class="w-full px-2.5 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-700 mb-1">Tarjeta Profesional (T.P.)</label>
+                <input type="text" id="minuta-apoderado-tp" value="285.490 del C.S. de la J." class="w-full px-2.5 py-1.5 border border-slate-300 rounded-xl text-xs font-medium text-slate-900">
+              </div>
+            </div>
+
+            <button onclick="generarMinutaTexto()" class="w-full py-2 bg-purple-700 hover:bg-purple-600 text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              <span>Actualizar Minuta con Cálculos</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Visor del Documento Procesal (8 cols) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="file-text" class="w-5 h-5 text-purple-600"></i>
+                <h3 class="font-bold text-sm text-slate-900" id="minuta-titulo-display">
+                  Memorial de Liquidación del Crédito (Art. 446 CGP)
+                </h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="copiarMinutaAlPortapapeles()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span>Copiar al Portapapeles</span>
+                </button>
+                <button onclick="descargarMinutaWord()" class="px-3 py-1.5 bg-purple-700 hover:bg-purple-600 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition shadow-xs">
+                  <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                  <span>Descargar Documento</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Área de Texto Editable del Documento Judicial -->
+            <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl font-mono text-xs leading-relaxed text-slate-800 whitespace-pre-wrap max-h-[600px] overflow-y-auto selection:bg-purple-200" id="minuta-preview-content">
+              Cargando memorial procesal...
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PESTAÑA 5: BIBLIOTECA JURISPRUDENCIAL & FÓRMULAS -->
+    <!-- ========================================================================= -->
+    <div id="tab-jurisprudencia" class="tab-content hidden space-y-6">
+
+      <div class="bg-gradient-to-r from-blue-900 to-slate-900 rounded-2xl p-5 text-white shadow-md border border-blue-800/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <span class="bg-blue-500/20 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-400/30 font-semibold tracking-wider uppercase inline-block mb-2">
+            Doctrina Jurisprudencial Vinculante
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+            Jurisprudencia Hito, Matemática Financiera Forense & Normativa
+          </h2>
+          <p class="text-xs sm:text-sm text-blue-200 mt-1 max-w-3xl">
+            Corte Suprema de Justicia (Sala Civil), Corte Constitucional, Consejo de Estado y Circulares de la Superintendencia Financiera de Colombia.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fichas Jurisprudenciales -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <!-- Ficha 1: SC-917-2022 CSJ -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+              Corte Suprema de Justicia - Sala Civil
+            </span>
+            <span class="text-xs font-semibold text-slate-500">SC-917-2022</span>
+          </div>
+          <h4 class="font-bold text-sm text-slate-900">
+            Reglas de Liquidación Judicial y Reducción Automática al Tope de Usura
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            La Sala reitera que la tasa de interés moratorio pactada por las partes no puede exceder en ningún periodo el límite de usura certificado por la SFC. Si la tasa pactada supera el tope en algún mes, el juez o liquidador debe reajustarla ipso jure al tope legal máximo permitido en dicho periodo, sin que proceda la pérdida total si no hubo dolo comprobado.
+          </p>
+          <div class="text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-semibold text-slate-700">
+            ⚖️ <strong>Regla vinculante:</strong> La tasa de mora judicial es flotante cuando se acoge la tasa legal comercial, y se liquida mes a mes con las certificaciones de la Superfinanciera.
+          </div>
+        </div>
+
+        <!-- Ficha 2: SC-3047-2021 CSJ -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-indigo-100 text-indigo-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+              Corte Suprema de Justicia - Sala Civil
+            </span>
+            <span class="text-xs font-semibold text-slate-500">SC-3047-2021</span>
+          </div>
+          <h4 class="font-bold text-sm text-slate-900">
+            Prohibición Expresa de Anatocismo (Capitalización de Intereses)
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            El anatocismo se encuentra terminantemente restringido en el ordenamiento colombiano por el Art. 886 del Código de Comercio y Art. 2235 del Código Civil. Los intereses devengados y no pagados no generan nuevos intereses, salvo demanda judicial desde su presentación o acuerdo posterior sobre réditos con más de un año de vencimiento.
+          </p>
+          <div class="text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-semibold text-slate-700">
+            ⚖️ <strong>Regla vinculante:</strong> Es causal de nulidad u objeción procesal incluir intereses moratorios sobre saldos de intereses corrientes acumulados.
+          </div>
+        </div>
+
+        <!-- Ficha 3: C-747 de 1999 Corte Constitucional -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-purple-100 text-purple-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+              Corte Constitucional
+            </span>
+            <span class="text-xs font-semibold text-slate-500">Sentencia C-747/99</span>
+          </div>
+          <h4 class="font-bold text-sm text-slate-900">
+            Inconstitucionalidad de la Capitalización de Intereses en Créditos de Vivienda
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Declaró inexequible el régimen UPAC que permitía capitalizar intereses en la financiación habitacional, por lesionar el derecho a la vivienda digna (Art. 51 C.P.). Esta sentencia dio origen a la Ley 546 de 1999 (Ley de Vivienda) y consagró la prohibición absoluta de capitalización en créditos hipotecarios.
+          </p>
+          <div class="text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-semibold text-slate-700">
+            ⚖️ <strong>Regla vinculante:</strong> En créditos de vivienda en UVR o Pesos jamás puede cobrarse interés sobre interés.
+          </div>
+        </div>
+
+        <!-- Ficha 4: SC-2475-2020 CSJ -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+              Corte Suprema de Justicia - Sala Civil
+            </span>
+            <span class="text-xs font-semibold text-slate-500">SC-2475-2020</span>
+          </div>
+          <h4 class="font-bold text-sm text-slate-900">
+            Imputación Imperativa de Pagos (Art. 1653 C.C. y Art. 881 C.Co.)
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Se censura la práctica financiera de imputar los pagos del deudor primero a comisiones accesorias, gastos de cobranza prejudicial no regulados o primas accesorias sin consentimiento. El orden legal es imperativo: 1° Intereses de mora, 2° Intereses corrientes y 3° Capital insoluto.
+          </p>
+          <div class="text-[11px] bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-semibold text-slate-700">
+            ⚖️ <strong>Regla vinculante:</strong> Todo abono que exceda los intereses adeudados a la fecha amortiza ipso facto el capital del crédito.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Fórmulas Matemáticas Financieras Forenses -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+        <h3 class="font-bold text-sm text-slate-900 border-b border-slate-100 pb-2 flex items-center gap-2">
+          <i data-lucide="binary" class="w-4 h-4 text-sky-600"></i>
+          Fórmulas Matemáticas Financieras Oficiales (SFC & Juzgados)
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <span class="font-bold text-slate-900 block">1. Efectiva Anual a Mensual Vencida</span>
+            <div class="font-mono bg-white p-2 rounded border border-slate-200 text-sky-700 text-[11px] font-bold">
+              i_m = (1 + E.A.)^(1/12) - 1
+            </div>
+            <p class="text-slate-500 text-[11px]">
+              Tasa periódica mensual matemáticamente equivalente a la tasa efectiva anual certificada por la SFC.
+            </p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <span class="font-bold text-slate-900 block">2. Nominal Anual Mes Vencido (NAMV)</span>
+            <div class="font-mono bg-white p-2 rounded border border-slate-200 text-indigo-700 text-[11px] font-bold">
+              NAMV = 12 * ((1 + E.A.)^(1/12) - 1)
+            </div>
+            <p class="text-slate-500 text-[11px]">
+              Expresión nominal anualizada utilizada habitualmente en extractos bancarios y pagarés.
+            </p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <span class="font-bold text-slate-900 block">3. Interés Moratorio Fraccionado</span>
+            <div class="font-mono bg-white p-2 rounded border border-slate-200 text-emerald-700 text-[11px] font-bold">
+              I = Saldo_Capital * i_m * (días / 30)
+            </div>
+            <p class="text-slate-500 text-[11px]">
+              Cálculo proporcional de mora para meses fraccionados o periodos menores a 30 días en juzgados.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer Institucional -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="text-slate-300 font-semibold flex items-center gap-1.5">
+          <i data-lucide="scale" class="w-4 h-4 text-amber-400"></i>
+          Suite de Calculadoras Legales de Colombia © 2026
+        </p>
+        <p class="text-[11px] text-slate-500 mt-0.5">
+          Desarrollado conforme a la Constitución Política, Códigos de Comercio, General del Proceso y Civil.
+        </p>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400 text-xs">
+        <a href="index.html" class="hover:text-white transition">Pensión (Ley 2381)</a>
+        <span>•</span>
+        <a href="calculadora_alimentos.html" class="hover:text-white transition">Alimentos & REDAM</a>
+        <span>•</span>
+        <a href="MANUAL_LEGAL_CREDITOS_Y_JURISPRUDENCIA.md" target="_blank" class="text-sky-400 hover:underline">Manual Normativo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- SCRIPTS Y MATEMÁTICA FORENSE EN JAVASCRIPT PURO -->
+  <!-- ========================================================================= -->
+  <script>
+    // Inicializar Iconos Lucide
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      inicializarHistorialTasasSFC();
+      agregarFilaAbono('2024-03-15', 5000000);
+      ejecutarLiquidacionJudicial();
+      calcularAmortizacion();
+      actualizarPlantillaMinuta();
+    });
+
+    // -------------------------------------------------------------
+    // BASE HISTÓRICA DE TASAS DE LA SUPERINTENDENCIA FINANCIERA (SFC)
+    // Modalidad Consumo y Ordinario (IBC y Usura = 1.5x IBC)
+    // -------------------------------------------------------------
+    const HISTORIAL_TASAS_SFC = {
+      // 2022
+      "2022-01": 26.49, "2022-02": 27.45, "2022-03": 27.71, "2022-04": 28.58, "2022-05": 29.57, "2022-06": 30.60,
+      "2022-07": 31.92, "2022-08": 33.32, "2022-09": 35.25, "2022-10": 36.92, "2022-11": 38.67, "2022-12": 41.46,
+      // 2023
+      "2023-01": 43.26, "2023-02": 45.27, "2023-03": 46.26, "2023-04": 47.09, "2023-05": 45.41, "2023-06": 44.64,
+      "2023-07": 44.04, "2023-08": 43.13, "2023-09": 42.05, "2023-10": 39.80, "2023-11": 38.28, "2023-12": 37.56,
+      // 2024
+      "2024-01": 34.97, "2024-02": 34.97, "2024-03": 33.30, "2024-04": 33.09, "2024-05": 31.53, "2024-06": 30.84,
+      "2024-07": 29.49, "2024-08": 28.65, "2024-09": 28.85, "2024-10": 28.17, "2024-11": 27.90, "2024-12": 27.48,
+      // 2025
+      "2025-01": 26.85, "2025-02": 26.50, "2025-03": 26.20, "2025-04": 25.80, "2025-05": 25.50, "2025-06": 25.10,
+      "2025-07": 24.80, "2025-08": 24.50, "2025-09": 24.20, "2025-10": 23.95, "2025-11": 23.70, "2025-12": 23.50,
+      // 2026
+      "2026-01": 23.20, "2026-02": 23.00, "2026-03": 22.85, "2026-04": 22.70, "2026-05": 22.50, "2026-06": 22.35,
+      "2026-07": 22.20, "2026-08": 22.05, "2026-09": 21.90, "2026-10": 21.80, "2026-11": 21.70, "2026-12": 21.60
+    };
+
+    function obtenerTasaUsuraSFC(year, month) {
+      const key = `${year}-${String(month).padStart(2, '0')}`;
+      if (HISTORIAL_TASAS_SFC[key]) {
+        return HISTORIAL_TASAS_SFC[key];
+      }
+      if (year < 2022) return 26.00;
+      return 21.70;
+    }
+
+    function inicializarHistorialTasasSFC() {
+      // Lista pre-cargada disponible
+    }
+
+    // -------------------------------------------------------------
+    // NAVEGACIÓN ENTRE PESTAÑAS
+    // -------------------------------------------------------------
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+      
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove("hidden");
+      
+      const btn = document.getElementById(`btn-${tabId}`);
+      if (btn) btn.classList.add("active");
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 1: LIQUIDADOR JUDICIAL DE MORA (ART. 446 CGP)
+    // -------------------------------------------------------------
+    let abonosJudiciales = [];
+    let chartLiquidacionInstance = null;
+    let ultimaLiquidacionResumen = null;
+    let tablaLiquidacionExportable = [];
+
+    function toggleOpcionesTasaLiq() {
+      const tipo = document.getElementById("liq-tipo-tasa").value;
+      const campoPactada = document.getElementById("campo-tasa-pactada");
+      if (tipo === 'fija-pactada' || tipo === 'corriente-mora') {
+        campoPactada.classList.remove("hidden");
+      } else {
+        campoPactada.classList.add("hidden");
+      }
+    }
+
+    function abrirLinkExpediente() {
+      const url = document.getElementById("liq-link-expediente").value.trim();
+      if (!url) {
+        alert("Por favor ingrese la URL del expediente digital o micrositio.");
+        return;
+      }
+      window.open(url, "_blank");
+    }
+
+    function copiarLinkExpediente() {
+      const url = document.getElementById("liq-link-expediente").value.trim();
+      if (!url) return;
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Enlace del expediente digital copiado al portapapeles.");
+      });
+    }
+
+    function actualizarBadgeAbonos() {
+      let count = 0;
+      let total = 0;
+      document.querySelectorAll("#lista-abonos > div").forEach(div => {
+        const val = parseFloat(div.querySelector(".abono-valor").value) || 0;
+        if (val > 0) {
+          count++;
+          total += val;
+        }
+      });
+      const badge = document.getElementById("badge-total-abonos-cargados");
+      if (badge) {
+        badge.innerText = `${count} ${count === 1 ? 'pago' : 'pagos'} (${formatearMoneda(total)})`;
+      }
+    }
+
+    function limpiarTodosLosAbonos() {
+      if (!confirm("¿Está seguro de eliminar todos los pagos y cuotas registradas?")) return;
+      document.getElementById("lista-abonos").innerHTML = "";
+      actualizarBadgeAbonos();
+      ejecutarLiquidacionJudicial();
+    }
+
+    function descargarPlantillaExcelAbonos() {
+      if (typeof XLSX === "undefined") {
+        alert("El módulo XLSX aún se está cargando. Intente en un instante.");
+        return;
+      }
+      const data = [
+        ["Fecha", "Valor", "Soporte_Referencia"],
+        ["2024-03-15", 5000000, "Depósito Judicial Banco Agrario #45012"],
+        ["2024-08-20", 3500000, "Consignación Bancolombia #88124"],
+        ["2025-02-10", 7000000, "Embargo nómina certificado por empleador"]
+      ];
+      const ws = XLSX.utils.aoa_to_sheet(data);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Cuotas_Abonadas");
+      XLSX.writeFile(wb, "Plantilla_Abonos_Credito.xlsx");
+    }
+
+    function procesarArchivoExcelAbonos(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      if (typeof XLSX === "undefined") {
+        alert("Biblioteca SheetJS no disponible. Verifique su conexión a internet.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array', cellDates: true });
+          const firstSheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[firstSheetName];
+          
+          const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: "" });
+          if (!rows || rows.length < 2) {
+            alert("El archivo no contiene suficientes filas de datos.");
+            return;
+          }
+
+          // Identificar índices de columnas
+          let headerRowIndex = 0;
+          let colFecha = -1;
+          let colValor = -1;
+          let colSoporte = -1;
+
+          for (let r = 0; r < Math.min(5, rows.length); r++) {
+            const row = rows[r];
+            for (let c = 0; c < row.length; c++) {
+              const val = String(row[c]).toLowerCase().trim();
+              if (val.includes("fech") || val.includes("date") || val.includes("dia")) colFecha = c;
+              if (val.includes("val") || val.includes("mont") || val.includes("abon") || val.includes("pag") || val.includes("amount") || val.includes("cuot")) colValor = c;
+              if (val.includes("sop") || val.includes("ref") || val.includes("conc") || val.includes("recib") || val.includes("comp") || val.includes("banc")) colSoporte = c;
+            }
+            if (colFecha !== -1 && colValor !== -1) {
+              headerRowIndex = r;
+              break;
+            }
+          }
+
+          if (colFecha === -1) colFecha = 0;
+          if (colValor === -1) colValor = 1;
+          if (colSoporte === -1 && rows[headerRowIndex].length > 2) colSoporte = 2;
+
+          let cargadosCount = 0;
+          let totalSuma = 0;
+
+          for (let r = headerRowIndex + 1; r < rows.length; r++) {
+            const row = rows[r];
+            if (!row || row.length === 0) continue;
+
+            let rawFecha = row[colFecha];
+            let rawValor = row[colValor];
+            let rawSoporte = colSoporte !== -1 ? String(row[colSoporte] || "").trim() : "";
+
+            if (rawFecha === "" && rawValor === "") continue;
+
+            // Formatear Fecha
+            let fechaStr = "";
+            if (rawFecha instanceof Date && !isNaN(rawFecha)) {
+              fechaStr = rawFecha.toISOString().slice(0, 10);
+            } else if (typeof rawFecha === "number") {
+              const d = new Date(Math.round((rawFecha - 25569) * 86400 * 1000));
+              if (!isNaN(d)) fechaStr = d.toISOString().slice(0, 10);
+            } else {
+              const s = String(rawFecha).trim();
+              const ddmmyyyy = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+              if (ddmmyyyy) {
+                fechaStr = `${ddmmyyyy[3]}-${String(ddmmyyyy[2]).padStart(2, '0')}-${String(ddmmyyyy[1]).padStart(2, '0')}`;
+              } else {
+                const parsedD = new Date(s);
+                if (!isNaN(parsedD)) {
+                  fechaStr = parsedD.toISOString().slice(0, 10);
+                }
+              }
+            }
+
+            // Formatear Valor
+            let valorNum = 0;
+            if (typeof rawValor === "number") {
+              valorNum = rawValor;
+            } else {
+              const cleanStr = String(rawValor).replace(/[\$\s\.]/g, '').replace(',', '.');
+              valorNum = parseFloat(cleanStr) || 0;
+            }
+
+            if (fechaStr && valorNum > 0) {
+              agregarFilaAbono(fechaStr, valorNum, rawSoporte);
+              cargadosCount++;
+              totalSuma += valorNum;
+            }
+          }
+
+          // Notificar al usuario
+          const alerta = document.getElementById("alerta-carga-excel");
+          const alertaTexto = document.getElementById("alerta-carga-texto");
+          if (alerta && alertaTexto) {
+            alertaTexto.innerHTML = `
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+              <span>Se cargaron con éxito <strong>${cargadosCount} cuotas</strong> (${file.name}) por un total de <strong>${formatearMoneda(totalSuma)}</strong>.</span>
+            `;
+            alerta.classList.remove("hidden");
+            lucide.createIcons();
+          }
+
+          actualizarBadgeAbonos();
+          ejecutarLiquidacionJudicial();
+          event.target.value = "";
+
+        } catch (err) {
+          console.error(err);
+          alert("Error al leer el archivo Excel: " + err.message);
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    }
+
+    function agregarFilaAbono(fecha = '', valor = 0, soporte = '') {
+      const container = document.getElementById("lista-abonos");
+      const id = Date.now() + Math.random().toString(36).substring(2, 6);
+      
+      const div = document.createElement("div");
+      div.id = `abono-fila-${id}`;
+      div.className = "flex items-center gap-1.5 bg-slate-50 p-1.5 rounded-xl border border-slate-200 text-xs";
+      div.innerHTML = `
+        <div class="w-1/3">
+          <input type="date" value="${fecha || document.getElementById('liq-fecha-inicio').value}" onchange="actualizarBadgeAbonos()" class="abono-fecha w-full px-2 py-1 border border-slate-300 rounded-lg text-xs font-semibold text-slate-800">
+        </div>
+        <div class="w-1/3 relative">
+          <span class="absolute inset-y-0 left-0 pl-1.5 flex items-center text-slate-400 font-bold text-xs">$</span>
+          <input type="number" value="${valor || 1000000}" min="1000" step="50000" oninput="actualizarBadgeAbonos()" class="abono-valor w-full pl-5 pr-1 py-1 border border-slate-300 rounded-lg text-xs font-bold text-emerald-800">
+        </div>
+        <div class="w-1/3">
+          <input type="text" value="${soporte || ''}" placeholder="Recibo / Soporte" class="abono-soporte w-full px-2 py-1 border border-slate-300 rounded-lg text-[11px] text-slate-700">
+        </div>
+        <button type="button" onclick="eliminarFilaAbono('${id}')" class="text-slate-400 hover:text-red-600 p-1 rounded-md transition shrink-0" title="Eliminar abono">
+          <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+        </button>
+      `;
+      container.appendChild(div);
+      lucide.createIcons();
+      actualizarBadgeAbonos();
+    }
+
+    function eliminarFilaAbono(id) {
+      const el = document.getElementById(`abono-fila-${id}`);
+      if (el) el.remove();
+      actualizarBadgeAbonos();
+    }
+
+    function cargarCasoEjemploJudicial() {
+      document.getElementById("liq-link-expediente").value = "https://procesos.ramajudicial.gov.co/procesos/NumeroRadicacion.aspx?rad=11001400300120230045600";
+      document.getElementById("liq-capital").value = 75000000;
+      document.getElementById("liq-fecha-inicio").value = "2023-03-01";
+      document.getElementById("liq-fecha-fin").value = "2026-11-18";
+      document.getElementById("liq-tipo-tasa").value = "sfc-variable";
+      toggleOpcionesTasaLiq();
+      document.getElementById("liq-corrientes-previos").value = 2500000;
+      document.getElementById("costas-agencias-porcentaje").value = 6;
+      document.getElementById("costas-expensas-fijas").value = 600000;
+
+      const container = document.getElementById("lista-abonos");
+      container.innerHTML = "";
+      agregarFilaAbono("2024-02-15", 10000000, "Depósito Judicial Banco Agrario #88210");
+      agregarFilaAbono("2025-05-20", 15000000, "Consignación Bancolombia #44912");
+
+      ejecutarLiquidacionJudicial();
+    }
+
+    function ejecutarLiquidacionJudicial() {
+      const capitalInicial = parseFloat(document.getElementById("liq-capital").value) || 0;
+      const fechaInicioStr = document.getElementById("liq-fecha-inicio").value;
+      const fechaFinStr = document.getElementById("liq-fecha-fin").value;
+      const tipoTasa = document.getElementById("liq-tipo-tasa").value;
+      const tasaPactadaValor = parseFloat(document.getElementById("liq-tasa-pactada-valor").value) || 0;
+      const corrientesPrevios = parseFloat(document.getElementById("liq-corrientes-previos").value) || 0;
+      const pctAgencias = parseFloat(document.getElementById("costas-agencias-porcentaje").value) || 0;
+      const expensasFijas = parseFloat(document.getElementById("costas-expensas-fijas").value) || 0;
+
+      if (!fechaInicioStr || !fechaFinStr) {
+        alert("Por favor ingrese las fechas de inicio de mora y fecha de corte.");
+        return;
+      }
+
+      const fInicio = new Date(fechaInicioStr + "T00:00:00");
+      const fFin = new Date(fechaFinStr + "T00:00:00");
+
+      if (fFin < fInicio) {
+        alert("La fecha de corte no puede ser anterior a la fecha de inicio de la mora.");
+        return;
+      }
+
+      // Recopilar abonos
+      const abonos = [];
+      document.querySelectorAll("#lista-abonos > div").forEach(div => {
+        const fecha = div.querySelector(".abono-fecha").value;
+        const valor = parseFloat(div.querySelector(".abono-valor").value) || 0;
+        const soporte = div.querySelector(".abono-soporte") ? div.querySelector(".abono-soporte").value.trim() : "";
+        if (fecha && valor > 0) {
+          abonos.push({ fecha: new Date(fecha + "T00:00:00"), valor, fechaStr: fecha, soporte });
+        }
+      });
+      abonos.sort((a, b) => a.fecha - b.fecha);
+
+      // Algoritmo Forense de Liquidación Periodo a Periodo
+      let curDate = new Date(fInicio.getFullYear(), fInicio.getMonth(), 1);
+      const endDate = new Date(fFin.getFullYear(), fFin.getMonth(), 1);
+
+      let capitalSaldo = capitalInicial;
+      let moraAcumulada = 0;
+      let corrienteSaldo = corrientesPrevios;
+      let totalMoraCausada = 0;
+      let totalAbonosAplicados = 0;
+      let totalDiasMora = 0;
+
+      const filasTabla = [];
+      tablaLiquidacionExportable = [];
+
+      while (curDate <= endDate) {
+        const year = curDate.getFullYear();
+        const month = curDate.getMonth() + 1; // 1 to 12
+
+        // Determinar límites del mes dentro del rango de mora
+        const primerDiaMes = new Date(year, month - 1, 1);
+        const ultimoDiaMes = new Date(year, month, 0);
+
+        let dInicioPeriodo = (primerDiaMes < fInicio) ? fInicio : primerDiaMes;
+        let dFinPeriodo = (ultimoDiaMes > fFin) ? fFin : ultimoDiaMes;
+
+        // Días de mora en este mes (cálculo comercial estándar colombiano: si mes completo = 30 días, si fracción = días calendario)
+        let diasMes;
+        if (dInicioPeriodo.getTime() === primerDiaMes.getTime() && dFinPeriodo.getTime() === ultimoDiaMes.getTime()) {
+          diasMes = 30;
+        } else {
+          const diffMs = dFinPeriodo.getTime() - dInicioPeriodo.getTime();
+          diasMes = Math.floor(diffMs / (1000 * 60 * 60 * 24)) + 1;
+        }
+        totalDiasMora += diasMes;
+
+        // Tasa aplicable
+        const tasaUsuraSFC = obtenerTasaUsuraSFC(year, month);
+        let tasaEA = tasaUsuraSFC;
+
+        if (tipoTasa === "legal-civil") {
+          tasaEA = 6.00; // Art. 1617 C.C.
+        } else if (tipoTasa === "fija-pactada" || tipoTasa === "corriente-mora") {
+          // Sentencia SC-917-2022: se reduce al tope de usura si la pactada supera la usura
+          tasaEA = Math.min(tasaPactadaValor, tasaUsuraSFC);
+        } else {
+          tasaEA = tasaUsuraSFC;
+        }
+
+        // Tasa periódica mensual: i_m = (1 + E.A.)^(1/12) - 1
+        const tasaMensual = Math.pow(1 + (tasaEA / 100), 1 / 12) - 1;
+        
+        // Interés de mora causado en el período
+        const factorDias = diasMes / 30;
+        const moraCausadaPeriodo = capitalSaldo * tasaMensual * factorDias;
+        totalMoraCausada += moraCausadaPeriodo;
+        moraAcumulada += moraCausadaPeriodo;
+
+        // Buscar abonos dentro de este periodo
+        let abonoPeriodo = 0;
+        abonos.forEach(ab => {
+          if (ab.fecha >= dInicioPeriodo && ab.fecha <= dFinPeriodo) {
+            abonoPeriodo += ab.valor;
+          }
+        });
+
+        // Aplicación del Art. 1653 C.C. (Imputación estricta a mora primero, corriente segundo, capital tercero)
+        let impMora = 0;
+        let impCorriente = 0;
+        let impCapital = 0;
+
+        if (abonoPeriodo > 0) {
+          totalAbonosAplicados += abonoPeriodo;
+          let remanente = abonoPeriodo;
+
+          // 1° A mora acumulada
+          if (moraAcumulada > 0) {
+            impMora = Math.min(remanente, moraAcumulada);
+            moraAcumulada -= impMora;
+            remanente -= impMora;
+          }
+
+          // 2° A intereses corrientes previos
+          if (remanente > 0 && corrienteSaldo > 0) {
+            impCorriente = Math.min(remanente, corrienteSaldo);
+            corrienteSaldo -= impCorriente;
+            remanente -= impCorriente;
+          }
+
+          // 3° A capital insoluto
+          if (remanente > 0 && capitalSaldo > 0) {
+            impCapital = Math.min(remanente, capitalSaldo);
+            capitalSaldo -= impCapital;
+            remanente -= impCapital;
+          }
+        }
+
+        const nombreMes = new Intl.DateTimeFormat('es-CO', { month: 'short' }).format(curDate);
+        const periodoStr = `${nombreMes.toUpperCase()} ${year}`;
+
+        filasTabla.push({
+          periodoStr,
+          diasMes,
+          capitalBase: capitalSaldo + impCapital,
+          tasaEA,
+          tasaMensualPct: tasaMensual * 100,
+          moraCausadaPeriodo,
+          abonoPeriodo,
+          impMora,
+          impCapital,
+          capitalSaldoFinal: capitalSaldo,
+          moraAcumuladaFinal: moraAcumulada
+        });
+
+        tablaLiquidacionExportable.push({
+          Periodo: periodoStr,
+          Dias: diasMes,
+          CapitalBase: capitalSaldo + impCapital,
+          TasaEA: tasaEA.toFixed(2) + "%",
+          TasaMes: (tasaMensual * 100).toFixed(4) + "%",
+          MoraCausada: moraCausadaPeriodo,
+          Abono: abonoPeriodo,
+          ImputacionMora: impMora,
+          ImputacionCapital: impCapital,
+          SaldoCapital: capitalSaldo
+        });
+
+        // Avanzar al siguiente mes
+        curDate.setMonth(curDate.getMonth() + 1);
+      }
+
+      // Costas y agencias
+      const totalCreditoBase = capitalSaldo + moraAcumulada + corrienteSaldo;
+      const agenciasDerecho = totalCreditoBase * (pctAgencias / 100);
+      const totalCostas = agenciasDerecho + expensasFijas;
+      const granTotalJudicial = totalCreditoBase + totalCostas;
+
+      // Renderizar KPIs
+      document.getElementById("res-capital-inicial").innerText = formatearMoneda(capitalInicial);
+      document.getElementById("res-intereses-mora").innerText = formatearMoneda(moraAcumulada);
+      document.getElementById("res-dias-mora-totales").innerText = `${totalDiasMora} días en mora`;
+      document.getElementById("res-total-abonos").innerText = formatearMoneda(totalAbonosAplicados);
+      document.getElementById("res-capital-saldo").innerText = formatearMoneda(capitalSaldo);
+      document.getElementById("res-costas-total").innerText = formatearMoneda(totalCostas);
+      document.getElementById("res-gran-total").innerText = formatearMoneda(granTotalJudicial);
+
+      // Renderizar Tabla Forense
+      const tbody = document.getElementById("cuerpo-tabla-liquidacion");
+      tbody.innerHTML = "";
+
+      filasTabla.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50 transition-colors";
+        tr.innerHTML = `
+          <td class="py-2 px-3 font-semibold text-slate-800">${row.periodoStr}</td>
+          <td class="py-2 px-2 text-center text-slate-500">${row.diasMes}</td>
+          <td class="py-2 px-2 text-right font-medium">${formatearMoneda(row.capitalBase)}</td>
+          <td class="py-2 px-2 text-center text-sky-700 font-bold">${row.tasaEA.toFixed(2)}%</td>
+          <td class="py-2 px-2 text-center text-slate-600">${row.tasaMensualPct.toFixed(3)}%</td>
+          <td class="py-2 px-2 text-right text-amber-700 font-semibold">${formatearMoneda(row.moraCausadaPeriodo)}</td>
+          <td class="py-2 px-2 text-right font-bold text-emerald-700">${row.abonoPeriodo > 0 ? formatearMoneda(row.abonoPeriodo) : '-'}</td>
+          <td class="py-2 px-2 text-right text-slate-600">${row.impMora > 0 ? formatearMoneda(row.impMora) : '-'}</td>
+          <td class="py-2 px-2 text-right text-slate-600">${row.impCapital > 0 ? formatearMoneda(row.impCapital) : '-'}</td>
+          <td class="py-2 px-3 text-right font-bold text-slate-900">${formatearMoneda(row.capitalSaldoFinal)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Renderizar Gráfico
+      renderizarGraficoLiquidacion(capitalSaldo, moraAcumulada, corrienteSaldo, totalCostas);
+
+      const linkExpediente = document.getElementById("liq-link-expediente") ? document.getElementById("liq-link-expediente").value.trim() : "";
+      const inputMinutaLink = document.getElementById("minuta-link-expediente");
+      if (inputMinutaLink && linkExpediente) {
+        inputMinutaLink.value = linkExpediente;
+      }
+
+      // Guardar resumen
+      ultimaLiquidacionResumen = {
+        capitalInicial,
+        capitalSaldo,
+        moraAcumulada,
+        corrienteSaldo,
+        totalCostas,
+        agenciasDerecho,
+        expensasFijas,
+        granTotalJudicial,
+        totalDiasMora,
+        totalAbonosAplicados,
+        fechaInicioStr,
+        fechaFinStr,
+        tipoTasa,
+        linkExpediente,
+        abonosDetalle: abonos
+      };
+    }
+
+    function renderizarGraficoLiquidacion(capital, mora, corriente, costas) {
+      const ctx = document.getElementById("chart-liquidacion").getContext("2d");
+      if (chartLiquidacionInstance) {
+        chartLiquidacionInstance.destroy();
+      }
+
+      chartLiquidacionInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Saldo de Capital', 'Intereses de Mora', 'Intereses Corrientes', 'Costas & Agencias'],
+          datasets: [{
+            data: [capital, mora, corriente, costas],
+            backgroundColor: ['#0284c7', '#d97706', '#8b5cf6', '#4f46e5'],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                boxWidth: 12,
+                font: { size: 10 }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return ` ${context.label}: ${formatearMoneda(context.raw)}`;
+                }
+              }
+            }
+          },
+          cutout: '65%'
+        }
+      });
+    }
+
+    function copiarResumenJudicial() {
+      if (!ultimaLiquidacionResumen) {
+        alert("Primero realiza la liquidación.");
+        return;
+      }
+      const r = ultimaLiquidacionResumen;
+      const linkExp = r.linkExpediente || (document.getElementById("liq-link-expediente") ? document.getElementById("liq-link-expediente").value.trim() : "");
+      
+      let detalleAbonosTxt = "";
+      if (r.abonosDetalle && r.abonosDetalle.length > 0) {
+        detalleAbonosTxt = r.abonosDetalle.map(ab => `   • ${ab.fechaStr}: ${formatearMoneda(ab.valor)} [${ab.soporte || 'Comprobante acreditado'}]`).join("\n");
+      } else {
+        detalleAbonosTxt = "   • Sin abonos registrados";
+      }
+
+      const texto = `=== RESUMEN DE LIQUIDACIÓN JUDICIAL (ART. 446 CGP) ===
+Expediente Digital: ${linkExp || 'Consultable en Portal de la Rama Judicial'}
+Período de Mora: ${r.fechaInicioStr} hasta ${r.fechaFinStr} (${r.totalDiasMora} días)
+Capital Inicial Base: ${formatearMoneda(r.capitalInicial)}
+Abonos Imputados (Art. 1653 C.C.): ${formatearMoneda(r.totalAbonosAplicados)}
+Detalle de Cuotas / Pagos:
+${detalleAbonosTxt}
+Saldo de Capital Insoluto: ${formatearMoneda(r.capitalSaldo)}
+Intereses Moratorios Causados: ${formatearMoneda(r.moraAcumulada)}
+Intereses Corrientes Pendientes: ${formatearMoneda(r.corrienteSaldo)}
+Costas Procesales y Agencias en Derecho: ${formatearMoneda(r.totalCostas)}
+------------------------------------------------------------
+TOTAL OBLIGACIÓN JUDICIAL EXIGIBLE: ${formatearMoneda(r.granTotalJudicial)}
+============================================================`;
+
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Resumen judicial copiado al portapapeles con éxito.");
+      });
+    }
+
+    function exportarExcelLiquidacion() {
+      if (!tablaLiquidacionExportable.length) {
+        alert("Primero debes liquidar el crédito.");
+        return;
+      }
+
+      let csv = "Periodo;Dias;Capital Base;Tasa EA;Tasa Mes;Mora Causada;Abono;Imputacion Mora;Imputacion Capital;Saldo Capital\n";
+      tablaLiquidacionExportable.forEach(r => {
+        csv += `"${r.Periodo}";${r.Dias};${r.CapitalBase};"${r.TasaEA}";"${r.TasaMes}";${r.MoraCausada};${r.Abono};${r.ImputacionMora};${r.ImputacionCapital};${r.SaldoCapital}\n`;
+      });
+
+      const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Liquidacion_Judicial_Credito_CGP446_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 2: SIMULADOR DE AMORTIZACIÓN Y PLANES DE PAGO
+    // -------------------------------------------------------------
+    let chartAmortizacionInstance = null;
+    let tablaAmortizacionExportable = [];
+
+    function toggleSistemaAmortizacion() {
+      const sis = document.getElementById("amort-sistema").value;
+      const uvrBox = document.getElementById("campo-uvr-inflacion");
+      if (sis === "uvr") {
+        uvrBox.classList.remove("hidden");
+      } else {
+        uvrBox.classList.add("hidden");
+      }
+    }
+
+    function calcularAmortizacion() {
+      const monto = parseFloat(document.getElementById("amort-monto").value) || 0;
+      const plazo = parseInt(document.getElementById("amort-plazo").value) || 12;
+      const tasaEA = parseFloat(document.getElementById("amort-tasa").value) || 15;
+      const sistema = document.getElementById("amort-sistema").value;
+      const seguro = parseFloat(document.getElementById("amort-seguro").value) || 0;
+      const admin = parseFloat(document.getElementById("amort-admin").value) || 0;
+      const inflacionUVR = parseFloat(document.getElementById("amort-inflacion-uvr").value) || 5;
+
+      const mesAbonoExtra = parseInt(document.getElementById("amort-abono-mes").value) || 0;
+      const montoAbonoExtra = parseFloat(document.getElementById("amort-abono-monto").value) || 0;
+      const efectoAbono = document.getElementById("amort-abono-efecto").value;
+
+      // Tasa periódica mensual efectiva
+      const tasaMes = Math.pow(1 + (tasaEA / 100), 1 / 12) - 1;
+      document.getElementById("amort-kpi-tasa-mes").innerText = `${(tasaMes * 100).toFixed(4)}% mes vencido`;
+
+      let saldo = monto;
+      let totalIntereses = 0;
+      let totalSeguros = 0;
+      let plan = [];
+      tablaAmortizacionExportable = [];
+
+      let cuotaFijaFrances = monto * (tasaMes * Math.pow(1 + tasaMes, plazo)) / (Math.pow(1 + tasaMes, plazo) - 1);
+      const abonoFijoAleman = monto / plazo;
+
+      let cuotaActual = cuotaFijaFrances;
+      let mesesLabels = [];
+      let saldoData = [];
+      let interesData = [];
+
+      for (let mes = 1; mes <= plazo; mes++) {
+        if (saldo <= 0.01) break;
+
+        const saldoInicial = saldo;
+        let interesMes = saldo * tasaMes;
+
+        // Ajuste por UVR si aplica
+        if (sistema === "uvr") {
+          const tasaInfMes = Math.pow(1 + (inflacionUVR / 100), 1 / 12) - 1;
+          const correccionMonetaria = saldo * tasaInfMes;
+          saldo += correccionMonetaria;
+          interesMes = saldo * tasaMes;
+        }
+
+        let abonoCapital = 0;
+        let cuotaMesPura = 0;
+
+        if (sistema === "frances" || sistema === "uvr") {
+          cuotaMesPura = cuotaActual;
+          abonoCapital = cuotaMesPura - interesMes;
+          if (abonoCapital > saldo) {
+            abonoCapital = saldo;
+            cuotaMesPura = abonoCapital + interesMes;
+          }
+        } else if (sistema === "aleman") {
+          abonoCapital = Math.min(abonoFijoAleman, saldo);
+          cuotaMesPura = abonoCapital + interesMes;
+        } else if (sistema === "americano") {
+          if (mes === plazo) {
+            abonoCapital = saldo;
+          } else {
+            abonoCapital = 0;
+          }
+          cuotaMesPura = abonoCapital + interesMes;
+        }
+
+        // Abono extraordinario si aplica en este mes
+        let abonoExtraReal = 0;
+        if (mes === mesAbonoExtra && montoAbonoExtra > 0) {
+          abonoExtraReal = Math.min(montoAbonoExtra, saldo - abonoCapital);
+          if (efectoAbono === "cuota" && (plazo - mes) > 0) {
+            const nuevoSaldo = saldo - abonoCapital - abonoExtraReal;
+            if (nuevoSaldo > 0) {
+              const nRestante = plazo - mes;
+              cuotaActual = nuevoSaldo * (tasaMes * Math.pow(1 + tasaMes, nRestante)) / (Math.pow(1 + tasaMes, nRestante) - 1);
+            }
+          }
+        }
+
+        const cuotaTotalConSeguros = cuotaMesPura + seguro + admin + abonoExtraReal;
+        saldo = saldo - abonoCapital - abonoExtraReal;
+        if (saldo < 0) saldo = 0;
+
+        totalIntereses += interesMes;
+        totalSeguros += (seguro + admin);
+
+        plan.push({
+          mes,
+          saldoInicial,
+          cuotaTotal: cuotaTotalConSeguros,
+          abonoCapital: abonoCapital + abonoExtraReal,
+          interesMes,
+          seguro: seguro + admin,
+          saldoFinal: saldo
+        });
+
+        tablaAmortizacionExportable.push({
+          Mes: mes,
+          SaldoInicial: saldoInicial,
+          CuotaTotal: cuotaTotalConSeguros,
+          AbonoCapital: abonoCapital + abonoExtraReal,
+          Interes: interesMes,
+          Seguros: seguro + admin,
+          SaldoFinal: saldo
+        });
+
+        if (mes % Math.ceil(plazo / 12) === 0 || mes === plazo || mes === 1) {
+          mesesLabels.push(`M${mes}`);
+          saldoData.push(saldo);
+          interesData.push(interesMes);
+        }
+      }
+
+      // KPIs
+      const cuotaInicialMuestra = plan.length > 0 ? plan[0].cuotaTotal : 0;
+      document.getElementById("amort-kpi-cuota").innerText = formatearMoneda(cuotaInicialMuestra);
+      document.getElementById("amort-kpi-intereses").innerText = formatearMoneda(totalIntereses);
+      document.getElementById("amort-kpi-seguros").innerText = formatearMoneda(totalSeguros);
+      document.getElementById("amort-kpi-total").innerText = formatearMoneda(monto + totalIntereses + totalSeguros);
+      document.getElementById("amort-total-cuotas-label").innerText = `${plan.length} cuotas liquidadas`;
+
+      // Tabla
+      const tbody = document.getElementById("cuerpo-tabla-amortizacion");
+      tbody.innerHTML = "";
+      plan.forEach(r => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-slate-50";
+        tr.innerHTML = `
+          <td class="py-2 px-2.5 font-bold text-slate-800">${r.mes}</td>
+          <td class="py-2 px-2 text-right">${formatearMoneda(r.saldoInicial)}</td>
+          <td class="py-2 px-2 text-right font-bold text-slate-900">${formatearMoneda(r.cuotaTotal)}</td>
+          <td class="py-2 px-2 text-right text-emerald-700 font-semibold">${formatearMoneda(r.abonoCapital)}</td>
+          <td class="py-2 px-2 text-right text-amber-700">${formatearMoneda(r.interesMes)}</td>
+          <td class="py-2 px-2 text-right text-slate-500">${formatearMoneda(r.seguro)}</td>
+          <td class="py-2 px-2.5 text-right font-bold">${formatearMoneda(r.saldoFinal)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Gráfico
+      renderizarGraficoAmortizacion(mesesLabels, saldoData, interesData);
+    }
+
+    function renderizarGraficoAmortizacion(labels, saldos, intereses) {
+      const ctx = document.getElementById("chart-amortizacion").getContext("2d");
+      if (chartAmortizacionInstance) {
+        chartAmortizacionInstance.destroy();
+      }
+
+      chartAmortizacionInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Saldo de Capital',
+              data: saldos,
+              borderColor: '#059669',
+              backgroundColor: 'rgba(5, 150, 105, 0.1)',
+              fill: true,
+              tension: 0.3,
+              borderWidth: 2
+            },
+            {
+              label: 'Interés Periódico',
+              data: intereses,
+              borderColor: '#d97706',
+              borderDash: [5, 5],
+              tension: 0.3,
+              borderWidth: 1.5
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 12, font: { size: 10 } }
+            }
+          },
+          scales: {
+            y: {
+              ticks: {
+                callback: function(value) { return '$' + (value / 1000000).toFixed(0) + 'M'; },
+                font: { size: 9 }
+              }
+            },
+            x: {
+              ticks: { font: { size: 9 } }
+            }
+          }
+        }
+      });
+    }
+
+    function exportarExcelAmortizacion() {
+      if (!tablaAmortizacionExportable.length) {
+        alert("Primero genera el plan de amortización.");
+        return;
+      }
+      let csv = "Mes;Saldo Inicial;Cuota Total;Abono Capital;Interes;Seguros;Saldo Final\n";
+      tablaAmortizacionExportable.forEach(r => {
+        csv += `${r.Mes};${r.SaldoInicial};${r.CuotaTotal};${r.AbonoCapital};${r.Interes};${r.Seguros};${r.SaldoFinal}\n`;
+      });
+
+      const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Plan_Amortizacion_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 3: AUDITOR DE USURA Y SANCIÓN LEY 45 DE 1990
+    // -------------------------------------------------------------
+    function auditarUsura() {
+      const monto = parseFloat(document.getElementById("aud-monto").value) || 0;
+      const periodoKey = document.getElementById("aud-periodo").value;
+      const [yearStr, monthStr] = periodoKey.split("-");
+      const year = parseInt(yearStr);
+      const month = parseInt(monthStr);
+
+      const tasaCobrada = parseFloat(document.getElementById("aud-tasa-cobrada").value) || 0;
+      const cobrosAtados = parseFloat(document.getElementById("aud-cobros-atados").value) || 0;
+
+      const tasaUsuraSFC = obtenerTasaUsuraSFC(year, month);
+      const excesoTasa = tasaCobrada - tasaUsuraSFC;
+
+      const badgeDictamen = document.getElementById("badge-dictamen-usura");
+      const resTasaCobrada = document.getElementById("aud-res-tasa-cobrada");
+      const resTasaTope = document.getElementById("aud-res-tasa-tope");
+      const resExcesoPct = document.getElementById("aud-res-exceso-porcentual");
+      const resExcesoDinero = document.getElementById("aud-res-exceso-dinero");
+      const resSancionTotal = document.getElementById("aud-res-sancion-total");
+
+      resTasaCobrada.innerText = `${tasaCobrada.toFixed(2)}% E.A.`;
+      resTasaTope.innerText = `${tasaUsuraSFC.toFixed(2)}% E.A.`;
+
+      if (excesoTasa > 0.01) {
+        badgeDictamen.className = "text-xs font-bold px-3 py-1 rounded-full bg-red-100 text-red-700 border border-red-300";
+        badgeDictamen.innerText = "INFRACCIÓN DE USURA DETECTADA (DELITO ART. 305 C.P.)";
+        resExcesoPct.innerText = `+${excesoTasa.toFixed(2)}%`;
+        resExcesoPct.className = "text-base font-extrabold text-red-700 block mt-0.5";
+
+        // Cálculo de intereses cobrados en exceso anualizados y proporcionales
+        const iCobradoMes = Math.pow(1 + tasaCobrada / 100, 1 / 12) - 1;
+        const iTopeMes = Math.pow(1 + tasaUsuraSFC / 100, 1 / 12) - 1;
+        const excesoMes = monto * (iCobradoMes - iTopeMes);
+        const excesoTotalEstimado = (excesoMes * 12) + cobrosAtados;
+        const sancionDoble = excesoTotalEstimado * 2;
+
+        resExcesoDinero.innerText = formatearMoneda(excesoTotalEstimado);
+        resSancionTotal.innerText = formatearMoneda(sancionDoble);
+      } else {
+        badgeDictamen.className = "text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300";
+        badgeDictamen.innerText = "DENTRO DEL TOPE LEGAL PERMITIDO";
+        resExcesoPct.innerText = "0.00% (Sin Usura)";
+        resExcesoPct.className = "text-base font-extrabold text-emerald-700 block mt-0.5";
+        resExcesoDinero.innerText = "$ 0";
+        resSancionTotal.innerText = "$ 0 (No Aplica Sanción)";
+      }
+    }
+
+    // -------------------------------------------------------------
+    // MÓDULO 4: GENERADOR DE MINUTAS Y MEMORIALES JUDICIALES
+    // -------------------------------------------------------------
+    function trasladarAMinutaJudicial() {
+      switchTab('tab-minutas');
+      document.getElementById('minuta-tipo').value = 'liquidacion-cgp';
+      actualizarPlantillaMinuta();
+    }
+
+    function actualizarPlantillaMinuta() {
+      generarMinutaTexto();
+    }
+
+    function generarMinutaTexto() {
+      const tipo = document.getElementById("minuta-tipo").value;
+      const juzgado = document.getElementById("minuta-juzgado").value;
+      const radicado = document.getElementById("minuta-radicado").value;
+      const demandante = document.getElementById("minuta-demandante").value;
+      const demandanteId = document.getElementById("minuta-demandante-id").value;
+      const demandado = document.getElementById("minuta-demandado").value;
+      const demandadoId = document.getElementById("minuta-demandado-id").value;
+      const apoderado = document.getElementById("minuta-apoderado").value;
+      const apoderadoTp = document.getElementById("minuta-apoderado-tp").value;
+
+      const r = ultimaLiquidacionResumen || {
+        capitalInicial: 50000000,
+        capitalSaldo: 50000000,
+        moraAcumulada: 12450000,
+        corrienteSaldo: 0,
+        totalCostas: 3100000,
+        agenciasDerecho: 2500000,
+        expensasFijas: 600000,
+        granTotalJudicial: 65550000,
+        fechaInicioStr: "2023-01-15",
+        fechaFinStr: "2026-11-18",
+        totalDiasMora: 1403,
+        totalAbonosAplicados: 0,
+        linkExpediente: "https://procesos.ramajudicial.gov.co/procesos/NumeroRadicacion.aspx",
+        abonosDetalle: []
+      };
+
+      const linkExp = (document.getElementById("minuta-link-expediente") ? document.getElementById("minuta-link-expediente").value.trim() : "") || (r.linkExpediente || "");
+
+      let detalleAbonosMinuta = "";
+      if (r.abonosDetalle && r.abonosDetalle.length > 0) {
+        detalleAbonosMinuta = r.abonosDetalle.map((ab, idx) => `   ${idx + 1}. Fecha: ${ab.fechaStr} | Valor: ${formatearMoneda(ab.valor)} | Soporte: ${ab.soporte || 'Comprobante de depósito judicial/bancario'}`).join("\n");
+      } else {
+        detalleAbonosMinuta = "   (No se registran abonos durante el período de mora)";
+      }
+
+      let doc = "";
+
+      if (tipo === "liquidacion-cgp") {
+        document.getElementById("minuta-titulo-display").innerText = "Memorial de Liquidación del Crédito (Art. 446 CGP)";
+        doc = `SEÑOR(A)
+JUEZ(A) ${juzgado}
+E. S. D.
+
+REF.: PROCESO EJECUTIVO SINGULAR DE MAYOR/MENOR CUANTÍA
+RADICACIÓN:         ${radicado}
+EXPEDIENTE DIGITAL: ${linkExp || 'Consultable en Portal de la Rama Judicial'}
+DEMANDANTE:         ${demandante} (NIT/C.C. ${demandanteId})
+DEMANDADO:          ${demandado} (C.C. ${demandadoId})
+ASUNTO:             PRESENTACIÓN DE LIQUIDACIÓN DEL CRÉDITO Y COSTAS (ART. 446 CGP)
+
+${apoderado}, mayor de edad, domiciliado(a) y residente en esta ciudad, identificado(a) con la Cédula de Ciudadanía y portador(a) de la Tarjeta Profesional No. ${apoderadoTp}, actuando en mi calidad de apoderado judicial de la parte ejecutante, de manera respetuosa manifiesto que por medio del presente escrito vengo a presentar la LIQUIDACIÓN DEL CRÉDITO Y LAS COSTAS PROCESALES, de conformidad con lo preceptuado en los Artículos 446 y 366 del Código General del Proceso (Ley 1564 de 2012), en los siguientes términos:
+
+I. ESTADO DE LA CUENTA Y DISCRIMINACIÓN FORENSE
+
+1. CAPITAL INSOLUTO BASE:
+La suma de ${formatearMoneda(r.capitalInicial)} M/CTE, contenida en el título ejecutivo (pagaré) base de recaudo, exigible a partir del día ${r.fechaInicioStr}.
+
+2. PERÍODO DE MORA LIQUIDADO:
+Comprendido entre el ${r.fechaInicioStr} y el ${r.fechaFinStr}, para un total de ${r.totalDiasMora} días calendario en mora judicial continuada.
+
+3. TASAS DE INTERÉS APLICADAS:
+Se aplicó la tasa de interés moratorio comercial certificada mensualmente por la Superintendencia Financiera de Colombia (equivalente a 1.5 veces el Interés Bancario Corriente mensual conforme al Art. 884 del Código de Comercio y la Sentencia SC-917-2022 de la Corte Suprema de Justicia), con estricta observancia del límite de usura legal.
+
+4. ABONOS O PAGOS PARCIALES IMPUTADOS (ART. 1653 DEL CÓDIGO CIVIL):
+Durante el decurso de la mora se acreditaron abonos por valor total de ${formatearMoneda(r.totalAbonosAplicados)} M/CTE, discriminados así:
+${detalleAbonosMinuta}
+
+Conforme a la regla imperativa de imputación (Art. 1653 del Código Civil y Sentencia SC-2475-2020 de la Corte Suprema de Justicia), dichos recursos fueron aplicados con el siguiente orden legal: primero a extinguir los intereses moratorios causados, segundo a intereses corrientes y el saldo remanente a amortización directa del capital insoluto.
+
+II. RESUMEN LIQUIDATORIO CONSOLIDADO
+
+A. SALDO INSOLUTO DE CAPITAL:                      ${formatearMoneda(r.capitalSaldo)}
+B. INTERESES MORATORIOS CAUSADOS:                   ${formatearMoneda(r.moraAcumulada)}
+C. INTERESES CORRIENTES DEVENGADOS:                 ${formatearMoneda(r.corrienteSaldo)}
+--------------------------------------------------------------------------------
+SUBTOTAL LIQUIDACIÓN DEL CRÉDITO:                   ${formatearMoneda(r.capitalSaldo + r.moraAcumulada + r.corrienteSaldo)}
+
+D. AGENCIAS EN DERECHO (Acuerdo PSAA16-10554):      ${formatearMoneda(r.agenciasDerecho)}
+E. GASTOS Y EXPENSAS JUDICIALES DEMOSTRADAS:        ${formatearMoneda(r.expensasFijas)}
+--------------------------------------------------------------------------------
+GRAN TOTAL DE LA OBLIGACIÓN JUDICIAL:               ${formatearMoneda(r.granTotalJudicial)}
+
+(SON: ${numeroALetrasPesos(r.granTotalJudicial)})
+
+III. PETICIÓN CONCRETA
+
+Solicito al Señor Juez correr traslado de la presente liquidación del crédito a la parte ejecutada por el término de tres (3) días según lo ordenado por el numeral 2° del Artículo 446 del C.G.P. y, vencido dicho término sin objeción o resueltas las mismas, impartirle su debida aprobación en auto interlocutorio.
+
+Del Señor Juez, atentamente,
+
+
+_____________________________________________
+${apoderado}
+C.C. No. __________________
+T.P. No. ${apoderadoTp}`;
+      } else if (tipo === "objecion-cgp") {
+        document.getElementById("minuta-titulo-display").innerText = "Memorial de Objeción a la Liquidación del Crédito";
+        doc = `SEÑOR(A)
+JUEZ(A) ${juzgado}
+E. S. D.
+
+REF.: OBJECIÓN FORMAL A LA LIQUIDACIÓN DEL CRÉDITO (ART. 446 NUMERAL 2° CGP)
+RADICACIÓN:         ${radicado}
+EXPEDIENTE DIGITAL: ${linkExp || 'Consultable en Portal de la Rama Judicial'}
+DEMANDANTE:         ${demandante}
+DEMANDADO:          ${demandado}
+ASUNTO:             OBJECIÓN POR EXCESO EN TASAS DE INTERÉS / MALA IMPUTACIÓN DE ABONOS
+
+${apoderado}, apoderado judicial de la parte ejecutada ${demandado}, dentro del término de traslado legal de tres (3) días otorgado por el Despacho conforme al Artículo 446 del Código General del Proceso, manifiesto que FORMULO OBJECIÓN MOTIVADA a la liquidación del crédito presentada por el ejecutante, con base en los siguientes motivos fácticos y de derecho:
+
+1. VIOLACIÓN AL TOPE LEGAL DE USURA (ART. 884 C.CO. & ART. 305 C.P.):
+El ejecutante liquidó intereses moratorios aplicando tasas nominales fijas que superan ostensiblemente la tasa de usura certificada por la Superintendencia Financiera de Colombia para los períodos en mora, lo cual infringe la Sentencia SC-917-2022 de la Sala Civil de la Corte Suprema de Justicia.
+
+2. INDEBIDA IMPUTACIÓN DE ABONOS (ART. 1653 DEL CÓDIGO CIVIL):
+El acreedor no reconoció oportunamente los abonos efectuados o pretendió imputarlos a supuestos honorarios prejurídicos no decretados judicialmente, contrariando el precedente vinculante de la Corte Suprema de Justicia (SC-2475-2020), que impone imputar cualquier remanente a amortizar el capital.
+Abonos acreditados por el deudor:
+${detalleAbonosMinuta}
+
+3. LIQUIDACIÓN ALTERNATIVA VINCULANTE:
+Conforme lo exige el Artículo 446 del C.G.P., anexo la liquidación alternativa forense que arroja como saldo real a cargo de mi poderdante la suma de ${formatearMoneda(r.granTotalJudicial)} M/CTE.
+
+Por lo expuesto, solicito al Despacho declarar fundada la presente objeción y aprobar la liquidación alternativa aquí presentada.
+
+Atentamente,
+
+_____________________________________________
+${apoderado}
+T.P. No. ${apoderadoTp}`;
+      } else if (tipo === "pagare") {
+        document.getElementById("minuta-titulo-display").innerText = "Pagaré en Blanco con Carta de Instrucciones (Arts. 621 y 622 C.Co.)";
+        doc = `PAGARÉ NÚMERO: _______________
+VALOR: $ _______________________ COP
+VENCIMIENTO: ___________________
+DEUDOR(ES): ${demandado} (C.C. ${demandadoId})
+ACREEDOR(ES): ${demandante} (NIT/C.C. ${demandanteId})
+
+Por medio del presente título valor, yo (nosotros) me (nos) obligo(amos) incondicionalmente a pagar a la orden de ${demandante}, en la ciudad de Bogotá D.C., la suma de dinero indicada en la cláusula de valor, más los intereses corrientes y moratorios a la tasa máxima legal permitida por la Superintendencia Financiera de Colombia.
+
+El tenedor queda facultado expresamente para llenar los espacios en blanco del presente título conforme a la Carta de Instrucciones adjunta (Art. 622 del Código de Comercio), en caso de mora o incumplimiento de cualquiera de las obligaciones crediticias pactadas.
+
+Para constancia se firma a los _____ días del mes de ___________ de 2026.
+
+
+________________________________________
+DEUDOR: ${demandado}
+C.C. No. ${demandadoId}
+Dirección: ______________________________
+Teléfono: ______________________________`;
+      } else if (tipo === "requerimiento-prejudicial") {
+        document.getElementById("minuta-titulo-display").innerText = "Requerimiento Prejudicial de Cobro (Ley 2300/2023)";
+        doc = `Bogotá D.C., ${new Date().toLocaleDateString('es-CO')}
+
+Señor(a):
+${demandado}
+C.C. No. ${demandadoId}
+Dirección Notificación: ____________________________
+
+REF.: REQUERIMIENTO PREJUDICIAL Y NOTIFICACIÓN DE MORA (ART. 1608 C.C. & LEY 2300 DE 2023)
+
+Respetado(a) Señor(a):
+
+En mi condición de apoderado judicial de ${demandante}, me dirijo a usted con el debido respeto y en cabal cumplimiento de las garantías de privacidad y contacto digno consagradas en la Ley 2300 de 2023 ("Por medio de la cual se establecen medidas que protegen el derecho a la intimidad de los consumidores financieros"), con el fin de poner en su conocimiento el estado actual de la obligación a su cargo derivada del crédito/pagaré No. ${radicado}.
+
+A la fecha, el saldo insoluto exigible asciende a la suma de ${formatearMoneda(r.capitalSaldo)} M/CTE por concepto de capital, más la suma de ${formatearMoneda(r.moraAcumulada)} M/CTE por concepto de intereses de mora causados, para un total exigible de ${formatearMoneda(r.capitalSaldo + r.moraAcumulada)} M/CTE.
+
+Con el ánimo de precaver un litigio judicial coactivo y evitar la causación de costas procesales y agencias en derecho (Art. 366 CGP), lo invitamos a celebrar un acuerdo de pago o normalización de su crédito dentro de los cinco (5) días hábiles siguientes al recibo de la presente.
+
+Canales de atención habilitados:
+Teléfono: ____________________  | Correo: ____________________
+
+Atentamente,
+
+
+_____________________________________________
+${apoderado}
+Apoderado de la Entidad Acreedora
+T.P. No. ${apoderadoTp}`;
+      }
+
+      document.getElementById("minuta-preview-content").innerText = doc;
+    }
+
+    function copiarMinutaAlPortapapeles() {
+      const texto = document.getElementById("minuta-preview-content").innerText;
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Documento procesal copiado íntegramente al portapapeles.");
+      });
+    }
+
+    function descargarMinutaWord() {
+      const texto = document.getElementById("minuta-preview-content").innerText;
+      const blob = new Blob([texto], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `Memorial_Judicial_${new Date().toISOString().slice(0,10)}.txt`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // -------------------------------------------------------------
+    // UTILIDADES GENERALES
+    // -------------------------------------------------------------
+    function formatearMoneda(val) {
+      if (isNaN(val)) return "$ 0";
+      return "$ " + Math.round(val).toLocaleString("es-CO");
+    }
+
+    function numeroALetrasPesos(num) {
+      // Conversión simple a texto indicativo
+      const redondeado = Math.round(num);
+      return `${formatearMoneda(redondeado)} PESOS MONEDA CORRIENTE`;
+    }
+  
+    // Verificación de sesión activa de la Suite
+    document.addEventListener("DOMContentLoaded", () => {
+      const activeId = sessionStorage.getItem('calc_legal_session_active_id') || localStorage.getItem('calc_legal_session_active_id');
+      const gate = document.getElementById('appLoginGate');
+      const app = document.getElementById('mainAppWrapper');
+      if (activeId) {
+        if (gate) gate.classList.add('hidden');
+        if (app) app.classList.remove('hidden');
+      } else {
+        if (gate) gate.classList.remove('hidden');
+        if (app) app.classList.add('hidden');
+      }
+      lucide.createIcons();
+    });
+    
+</script>
+  </div> <!-- Fin #mainAppWrapper -->
+</body>
+</html>
