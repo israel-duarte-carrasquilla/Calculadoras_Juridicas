@@ -189,6 +189,7 @@ if ($action === 'login') {
 if ($action === 'register') {
     $name = trim((string)($input['name'] ?? ''));
     $email = mb_strtolower(trim((string)($input['email'] ?? '')), 'UTF-8');
+    $phone = trim((string)($input['phone'] ?? ''));
     $password = (string)($input['password'] ?? '');
     $provider = trim((string)($input['provider'] ?? 'local'));
 
@@ -211,6 +212,7 @@ if ($action === 'register') {
         'name' => $name,
         'username' => $email,
         'email' => $email,
+        'phone' => $phone,
         'password' => $password,
         'role' => 'user',
         'tokens' => 3,
@@ -230,6 +232,51 @@ if ($action === 'register') {
         'user' => $newUser,
         'users' => [$newUser],
         'history' => []
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+if ($action === 'update_profile') {
+    $userId = (string)($input['userId'] ?? '');
+    $email = mb_strtolower(trim((string)($input['email'] ?? '')), 'UTF-8');
+    $phone = trim((string)($input['phone'] ?? ''));
+    $provider = trim((string)($input['authProvider'] ?? 'local'));
+
+    $targetIdx = -1;
+    foreach ($db['users'] as $idx => $u) {
+        if (($u['id'] ?? '') === $userId) {
+            $targetIdx = $idx;
+            break;
+        }
+    }
+    if ($targetIdx === -1) {
+        echo json_encode(['ok' => false, 'error' => 'Usuario no encontrado.']);
+        exit;
+    }
+
+    if ($email !== '') {
+        foreach ($db['users'] as $idx => $u) {
+            if ($idx === $targetIdx) continue;
+            $uName = mb_strtolower(trim((string)($u['username'] ?? '')), 'UTF-8');
+            $uEmail = mb_strtolower(trim((string)($u['email'] ?? '')), 'UTF-8');
+            if ($uName === $email || ($uEmail !== '' && $uEmail === $email)) {
+                echo json_encode(['ok' => false, 'error' => 'Ese correo ya está vinculado a otra cuenta.']);
+                exit;
+            }
+        }
+    }
+
+    $db['users'][$targetIdx]['email'] = $email;
+    $db['users'][$targetIdx]['phone'] = $phone;
+    $db['users'][$targetIdx]['authProvider'] = $provider;
+    saveDb($dbFile, $db);
+
+    $updatedUser = $db['users'][$targetIdx];
+    $isAdmin = in_array($updatedUser['role'] ?? 'user', ['superadmin', 'admin'], true);
+    echo json_encode([
+        'ok' => true,
+        'user' => $updatedUser,
+        'users' => $isAdmin ? $db['users'] : [$updatedUser]
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }

@@ -213,10 +213,17 @@
                        class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] placeholder-slate-400">
               </div>
 
-              <div>
-                <label class="block text-xs font-semibold text-[#111827] mb-1" for="regEmail">Correo Electrónico (Google, Microsoft o Corporativo)</label>
-                <input type="email" id="regEmail" required placeholder="nombre@gmail.com / @outlook.com"
-                       class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] placeholder-slate-400">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-[#111827] mb-1" for="regEmail">Correo (Google, Microsoft o Corporativo)</label>
+                  <input type="email" id="regEmail" required placeholder="nombre@gmail.com"
+                         class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] placeholder-slate-400">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-[#111827] mb-1" for="regPhone">Teléfono / WhatsApp</label>
+                  <input type="tel" id="regPhone" placeholder="Ej: 3001234567"
+                         class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-[#111827] placeholder-slate-400 font-mono">
+                </div>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -414,7 +421,19 @@
           <span id="currentUserTokensDisplay" class="font-bold text-emerald-700 font-mono">∞ Ilimitadas</span>
         </div>
 
-        <button onclick="cerrarSesion()" title="Cerrar sesión y proteger el acceso"
+        <button id="btnLinkEmailAccount" onclick="openLinkEmailModal()" title="Vincular tu usuario con un correo de Google o Microsoft"
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-[#0F1D32] border border-[#D6D0C4] font-semibold transition-colors cursor-pointer">
+          <i data-lucide="link-2" class="w-3.5 h-3.5 text-[#9A6E23]"></i>
+          <span id="btnLinkEmailText">Vincular Google / Microsoft</span>
+        </button>
+
+        <button onclick="openMyProfileModal()" title="Vincular correo de Google/Microsoft y teléfono"
+                class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-[#0F1D32] border border-[#D6D0C4] font-semibold transition-colors cursor-pointer">
+          <i data-lucide="link-2" class="w-3.5 h-3.5 text-[#9A6E23]"></i>
+          <span>Mi Perfil & Vincular</span>
+        </button>
+
+                <button onclick="cerrarSesion()" title="Cerrar sesión y proteger el acceso"
                 class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-red-50 text-red-700 border border-red-200 font-semibold transition-colors cursor-pointer">
           <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
           <span>Cerrar Sesión</span>
@@ -4044,6 +4063,19 @@ C.C. [NÚMERO]
               </div>
             </div>
 
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label for="newUserEmail" class="block font-semibold text-slate-700 mb-1">Correo Electrónico (Opcional)</label>
+                <input type="email" id="newUserEmail" placeholder="correo@gmail.com / @outlook.com"
+                       class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-xs focus:ring-2 focus:ring-indigo-600 focus:bg-white outline-none">
+              </div>
+              <div>
+                <label for="newUserPhone" class="block font-semibold text-slate-700 mb-1">Teléfono / WhatsApp (Opcional)</label>
+                <input type="tel" id="newUserPhone" placeholder="Ej: 3001234567 o 573001234567"
+                       class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-xs focus:ring-2 focus:ring-indigo-600 focus:bg-white outline-none font-mono">
+              </div>
+            </div>
+
             <!-- Rol de Usuario -->
             <div>
               <label class="block font-semibold text-slate-700 mb-1.5">Rol en el Sistema *</label>
@@ -4349,6 +4381,17 @@ C.C. [NÚMERO]
         <div>
           <label for="editUserPassword" class="block font-semibold text-slate-700 mb-1">Contraseña</label>
           <input type="text" id="editUserPassword" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-xs font-mono focus:ring-2 focus:ring-indigo-600 outline-none">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="editUserEmail" class="block font-semibold text-slate-700 mb-1">Correo Vinculado</label>
+            <input type="email" id="editUserEmail" placeholder="correo@gmail.com" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-xs focus:ring-2 focus:ring-indigo-600 outline-none">
+          </div>
+          <div>
+            <label for="editUserPhone" class="block font-semibold text-slate-700 mb-1">Teléfono / WhatsApp</label>
+            <input type="tel" id="editUserPhone" placeholder="3001234567" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-xs font-mono focus:ring-2 focus:ring-indigo-600 outline-none">
+          </div>
         </div>
 
         <div id="editRoleContainer">
@@ -5197,11 +5240,11 @@ C.C. [NÚMERO]
       const metaTextEl = document.getElementById('currentUserMetaText');
       if (metaTextEl) {
         if (user.role === 'superadmin') {
-          metaTextEl.innerText = 'Control total del sistema, creación de usuarios y consultas ilimitadas';
+          metaTextEl.innerText = 'Control total del sistema y consultas ilimitadas' + (user.linkedEmail ? ' • Vinculado: ' + user.linkedEmail + ' (' + (user.authProvider || 'email').toUpperCase() + ')' : '');
         } else if (user.role === 'admin') {
-          metaTextEl.innerText = 'Administrador: Recarga de tokens y consultas autorizadas';
+          metaTextEl.innerText = 'Administrador autorizado' + (user.linkedEmail ? ' • Vinculado: ' + user.linkedEmail + ' (' + (user.authProvider || 'email').toUpperCase() + ')' : '');
         } else {
-          metaTextEl.innerText = `Cuenta de consulta (Saldo: ${user.tokens === 'unlimited' ? 'Ilimitado' : user.tokens + ' tokens restantes'})`;
+          metaTextEl.innerText = `Cuenta de consulta (Saldo: ${user.tokens === 'unlimited' ? 'Ilimitado' : user.tokens + ' tokens'})` + (user.linkedEmail ? ` • Vinculado: ${user.linkedEmail}` : '');
         }
       }
 
@@ -5338,6 +5381,10 @@ C.C. [NÚMERO]
         }
       }
 
+      const btnLinkText = document.getElementById('btnLinkEmailText');
+      if (btnLinkText) {
+        btnLinkText.innerText = user.linkedEmail ? ('Vinculado: ' + user.linkedEmail) : 'Vincular Google / Microsoft';
+      }
       lucide.createIcons();
     }
 
@@ -5670,6 +5717,8 @@ C.C. [NÚMERO]
       const name = document.getElementById('newUserName').value.trim();
       const username = document.getElementById('newUserUsername').value.trim().toLowerCase().replace(/@/g, '');
       const password = document.getElementById('newUserPassword').value.trim();
+      const email = (document.getElementById('newUserEmail') ? document.getElementById('newUserEmail').value : '').trim().toLowerCase();
+      const phone = (document.getElementById('newUserPhone') ? document.getElementById('newUserPhone').value : '').trim();
       const role = document.querySelector('input[name="newUserRole"]:checked').value;
       const isUnlimited = document.getElementById('newUserUnlimited').checked;
       const tokensVal = parseInt(document.getElementById('newUserTokens').value, 10) || 0;
@@ -5690,6 +5739,8 @@ C.C. [NÚMERO]
         id: 'usr_' + Date.now() + Math.random().toString(36).substring(2, 6),
         name: name,
         username: username,
+        email: email,
+        phone: phone,
         password: password,
         role: role,
         tokens: isUnlimited ? 'unlimited' : (tokensVal < 0 ? 0 : tokensVal),
@@ -5726,6 +5777,8 @@ C.C. [NÚMERO]
       document.getElementById('editUserName').value = user.name;
       document.getElementById('editUserUsername').value = user.username;
       document.getElementById('editUserPassword').value = user.password;
+      if (document.getElementById('editUserEmail')) document.getElementById('editUserEmail').value = user.email || '';
+      if (document.getElementById('editUserPhone')) document.getElementById('editUserPhone').value = user.phone || '';
       document.getElementById('editUserRole').value = user.role;
 
       // Si es Israel, no permitir degradar rol
@@ -5753,6 +5806,8 @@ C.C. [NÚMERO]
       const newName = document.getElementById('editUserName').value.trim();
       const newUsername = document.getElementById('editUserUsername').value.trim().toLowerCase().replace(/@/g, '');
       const newPassword = document.getElementById('editUserPassword').value.trim();
+      const newEmail = (document.getElementById('editUserEmail') ? document.getElementById('editUserEmail').value : '').trim().toLowerCase();
+      const newPhone = (document.getElementById('editUserPhone') ? document.getElementById('editUserPhone').value : '').trim();
       const newRole = document.getElementById('editUserRole').value;
 
       // Validar username único si cambió
@@ -5763,6 +5818,11 @@ C.C. [NÚMERO]
 
       user.name = newName;
       user.username = newUsername;
+      user.email = newEmail;
+      user.phone = newPhone;
+      if (user.password !== newPassword) {
+        user.mustChangePassword = true;
+      }
       user.password = newPassword;
       if (user.id !== 'usr_israel') {
         user.role = newRole;
@@ -7160,6 +7220,8 @@ C.C. No. __________________
       // Fallback local (file:// o sin PHP)
       const user = appUsers.find(u => 
         (u.username && u.username.toLowerCase() === usernameInput.toLowerCase()) || 
+        (u.email && u.email.toLowerCase() === usernameInput.toLowerCase()) || 
+        (u.linkedEmail && u.linkedEmail.toLowerCase() === usernameInput.toLowerCase()) || 
         (u.name && u.name.toLowerCase() === usernameInput.toLowerCase()) ||
         (u.id && u.id.toLowerCase() === usernameInput.toLowerCase())
       );
@@ -9734,11 +9796,22 @@ T.P. No. ${apoderadoTp}`;
       });
     }
 
+    function formatWhatsAppPhone(rawPhone) {
+      if (!rawPhone) return '';
+      let digits = rawPhone.replace(/\D/g, '');
+      if (digits.length === 10 && digits.startsWith('3')) {
+        digits = '57' + digits;
+      }
+      return digits;
+    }
+
     function sendUserInvitationWhatsApp(userId) {
       const user = appUsers.find(u => u.id === userId);
       if (!user) return;
       const msg = encodeURIComponent(buildUserInvitationText(user));
-      window.open(`https://wa.me/?text=${msg}`, '_blank', 'noopener,noreferrer');
+      const phoneDigits = formatWhatsAppPhone(user.phone || '');
+      const url = phoneDigits ? `https://wa.me/${phoneDigits}?text=${msg}` : `https://wa.me/?text=${msg}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
 
     function sendUserInvitationEmail(userId) {
@@ -9746,7 +9819,8 @@ T.P. No. ${apoderadoTp}`;
       if (!user) return;
       const subject = encodeURIComponent('Acceso Autorizado — Suite Jurídica Colombia');
       const body = encodeURIComponent(buildUserInvitationText(user).replace(/\*/g, ''));
-      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+      const toEmail = user.email ? encodeURIComponent(user.email) : '';
+      window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
     }
 
     function showLatestInvitationBanner(user) {
@@ -9910,6 +9984,7 @@ T.P. No. ${apoderadoTp}`;
       if (e) e.preventDefault();
       const name = document.getElementById('regFullName').value.trim();
       const email = document.getElementById('regEmail').value.trim().toLowerCase();
+      const phone = (document.getElementById('regPhone') ? document.getElementById('regPhone').value : '').trim();
       const pass = document.getElementById('regPassword').value;
       const passConf = document.getElementById('regPasswordConfirm').value;
       const consent = document.getElementById('regLegalConsent').checked;
@@ -9936,7 +10011,7 @@ T.P. No. ${apoderadoTp}`;
           const resp = await fetch('api_auth.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'register', name, email, password: pass, provider })
+            body: JSON.stringify({ action: 'register', name, email, phone, password: pass, provider })
           });
           const data = await resp.json();
           if (data && data.ok && data.user) {
@@ -9963,6 +10038,7 @@ T.P. No. ${apoderadoTp}`;
         name,
         username: email,
         email,
+        phone,
         password: pass,
         role: 'user',
         tokens: 3,
@@ -10066,7 +10142,7 @@ T.P. No. ${apoderadoTp}`;
         }
       }
 
-      let user = appUsers.find(u => u.username.toLowerCase() === email);
+      let user = appUsers.find(u => u.username.toLowerCase() === email || (u.linkedEmail && u.linkedEmail.toLowerCase() === email) || (u.email && u.email.toLowerCase() === email));
       if (!user) {
         user = {
           id: 'usr_' + Date.now(),
@@ -10111,6 +10187,209 @@ T.P. No. ${apoderadoTp}`;
       renderAuthUI();
       showToast('Bienvenido(a), ' + user.name + '. Acceso habilitado.', 'success');
       lucide.createIcons();
+    }
+
+  
+
+    // =========================================================================
+    // VINCULACIÓN DE CUENTA CON CORREO GOOGLE O MICROSOFT
+    // =========================================================================
+    function openLinkEmailModal() {
+      const user = getCurrentUser();
+      if (!user) return;
+      document.getElementById('linkModalUsernameDisplay').innerText = `${user.name} (@${user.username})`;
+      const statusBox = document.getElementById('linkCurrentStatusBox');
+      const statusLabel = document.getElementById('linkCurrentEmailLabel');
+      const errBox = document.getElementById('linkEmailError');
+      if (errBox) errBox.classList.add('hidden');
+
+      if (user.linkedEmail) {
+        statusLabel.innerText = `${user.linkedEmail} (${(user.authProvider || 'email').toUpperCase()})`;
+        statusBox.classList.remove('hidden');
+        document.getElementById('linkEmailInput').value = user.linkedEmail;
+        const prov = user.authProvider === 'microsoft' ? 'microsoft' : 'google';
+        const rad = document.querySelector(`input[name="linkProviderRadio"][value="${prov}"]`);
+        if (rad) rad.checked = true;
+      } else {
+        statusBox.classList.add('hidden');
+        document.getElementById('linkEmailInput').value = '';
+      }
+
+      document.getElementById('linkEmailModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeLinkEmailModal() {
+      document.getElementById('linkEmailModal').classList.add('hidden');
+    }
+
+    async function handleLinkEmailSubmit(e) {
+      if (e) e.preventDefault();
+      const user = getCurrentUser();
+      if (!user) return;
+
+      const email = document.getElementById('linkEmailInput').value.trim().toLowerCase();
+      const provider = document.querySelector('input[name="linkProviderRadio"]:checked')?.value || 'google';
+      const errBox = document.getElementById('linkEmailError');
+      if (errBox) errBox.classList.add('hidden');
+
+      if (!email || !email.includes('@')) {
+        errBox.innerText = 'Ingresa un correo electrónico válido.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'link_email', userId: user.id, email, provider })
+          });
+          const data = await resp.json();
+          if (data && data.ok && data.user) {
+            const idx = appUsers.findIndex(u => u.id === data.user.id);
+            if (idx !== -1) appUsers[idx] = data.user;
+            if (Array.isArray(data.users)) appUsers = data.users;
+            localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+            closeLinkEmailModal();
+            renderAuthUI();
+            showToast(`✅ Cuenta vinculada a ${email} (${provider.toUpperCase()}). Ya puedes ingresar con este correo.`, 'success');
+            return;
+          } else {
+            errBox.innerText = (data && data.error) ? data.error : 'No fue posible vincular el correo.';
+            errBox.classList.remove('hidden');
+            return;
+          }
+        } catch (err) {
+          console.warn('Link email fallback:', err);
+        }
+      }
+
+      // Fallback local
+      if (appUsers.some(u => u.id !== user.id && (u.username.toLowerCase() === email || (u.linkedEmail && u.linkedEmail.toLowerCase() === email)))) {
+        errBox.innerText = 'Ese correo ya está vinculado a otra cuenta.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+      user.linkedEmail = email;
+      user.email = email;
+      user.authProvider = provider;
+      saveAuthState();
+      closeLinkEmailModal();
+      renderAuthUI();
+      showToast(`✅ Cuenta vinculada a ${email} (${provider.toUpperCase()}).`, 'success');
+    }
+
+    async function unlinkEmailAccount() {
+      const user = getCurrentUser();
+      if (!user) return;
+
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'link_email', userId: user.id, unlink: true })
+          });
+          const data = await resp.json();
+          if (data && data.ok && data.user) {
+            const idx = appUsers.findIndex(u => u.id === data.user.id);
+            if (idx !== -1) appUsers[idx] = data.user;
+            if (Array.isArray(data.users)) appUsers = data.users;
+            localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+            closeLinkEmailModal();
+            renderAuthUI();
+            showToast('Correo desvinculado de tu cuenta.', 'info');
+            return;
+          }
+        } catch (err) {
+          console.warn('Unlink fallback:', err);
+        }
+      }
+
+      user.linkedEmail = '';
+      user.authProvider = 'local';
+      saveAuthState();
+      closeLinkEmailModal();
+      renderAuthUI();
+      showToast('Correo desvinculado de tu cuenta.', 'info');
+    }
+
+  
+
+    // =========================================================================
+    // MI PERFIL & VINCULACIÓN DE CORREO GOOGLE / MICROSOFT + TELÉFONO
+    // =========================================================================
+    function openMyProfileModal() {
+      const user = getCurrentUser();
+      if (!user) return;
+      document.getElementById('myProfileError').classList.add('hidden');
+      document.getElementById('myProfileUsernameDisplay').innerText = '@' + user.username;
+      document.getElementById('myProfileProviderBadge').innerText = (user.authProvider || 'local').toUpperCase();
+      document.getElementById('myProfileEmail').value = user.email || '';
+      document.getElementById('myProfilePhone').value = user.phone || '';
+      const provSelect = document.getElementById('myProfileProvider');
+      if (provSelect) provSelect.value = user.authProvider || 'google';
+      document.getElementById('myProfileModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeMyProfileModal() {
+      document.getElementById('myProfileModal').classList.add('hidden');
+    }
+
+    async function handleSaveMyProfile(e) {
+      if (e) e.preventDefault();
+      const user = getCurrentUser();
+      if (!user) return;
+
+      const email = document.getElementById('myProfileEmail').value.trim().toLowerCase();
+      const phone = document.getElementById('myProfilePhone').value.trim();
+      const provider = document.getElementById('myProfileProvider').value;
+      const errBox = document.getElementById('myProfileError');
+      errBox.classList.add('hidden');
+
+      if (window.location.protocol.startsWith('http')) {
+        try {
+          const resp = await fetch('api_auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              action: 'update_profile',
+              userId: user.id,
+              email: email,
+              phone: phone,
+              authProvider: provider
+            })
+          });
+          const data = await resp.json();
+          if (data && data.ok && data.user) {
+            const idx = appUsers.findIndex(u => u.id === data.user.id);
+            if (idx !== -1) appUsers[idx] = data.user;
+            if (Array.isArray(data.users)) appUsers = data.users;
+            localStorage.setItem('calc_legal_users_v2', JSON.stringify(appUsers));
+            closeMyProfileModal();
+            renderAuthUI();
+            showToast('Perfil actualizado y correo vinculado correctamente.', 'success');
+            return;
+          } else {
+            errBox.innerText = (data && data.error) ? data.error : 'No se pudo actualizar el perfil.';
+            errBox.classList.remove('hidden');
+            return;
+          }
+        } catch (err) {
+          console.warn('Profile API fallback:', err);
+        }
+      }
+
+      user.email = email;
+      user.phone = phone;
+      user.authProvider = provider;
+      saveAuthState();
+      closeMyProfileModal();
+      renderAuthUI();
+      showToast('Perfil actualizado y correo vinculado localmente.', 'success');
     }
 
   </script>
@@ -10232,6 +10511,144 @@ T.P. No. ${apoderadoTp}`;
         <div class="flex justify-end gap-2 pt-2">
           <button type="button" onclick="document.getElementById('socialEmailModal').classList.add('hidden')" class="px-3 py-2 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold cursor-pointer">Cancelar</button>
           <button type="submit" class="px-4 py-2 bg-[#0F1D32] hover:bg-[#1B365D] text-white rounded-lg text-xs font-bold cursor-pointer">Continuar y Acceder</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  <!-- ========================================================================= -->
+  <!-- MODAL: VINCULAR USUARIO CON CORREO DE GOOGLE O MICROSOFT                  -->
+  <!-- ========================================================================= -->
+  <div id="linkEmailModal" role="dialog" aria-modal="true" aria-labelledby="linkEmailModalTitle" class="fixed inset-0 bg-black/70 z-[75] hidden flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl border border-slate-300 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="link-2" class="w-5 h-5 text-[#9A6E23]"></i>
+          <h3 id="linkEmailModalTitle" class="text-sm font-bold text-[#0F1D32] font-serif-legal">Vincular Correo Google / Microsoft</h3>
+        </div>
+        <button type="button" onclick="closeLinkEmailModal()" class="text-slate-400 hover:text-slate-700 cursor-pointer" aria-label="Cerrar">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-[#4B5563] leading-relaxed">
+        Vincula tu cuenta (<strong id="linkModalUsernameDisplay" class="text-[#111827]">@usuario</strong>) a tu correo de <strong>Google</strong> o <strong>Microsoft</strong>. Una vez vinculado, podrás iniciar sesión directamente con ese correo manteniendo tu rol y tus tokens.
+      </p>
+
+      <!-- Estado actual de vinculación -->
+      <div id="linkCurrentStatusBox" class="hidden bg-[#FAF9F6] border border-[#D6D0C4] rounded-lg p-3 text-xs flex items-center justify-between gap-2">
+        <div>
+          <span class="block text-[10px] uppercase tracking-wider text-[#4B5563] font-bold">Correo vinculado actualmente</span>
+          <span id="linkCurrentEmailLabel" class="font-mono font-bold text-[#0F1D32]"></span>
+        </div>
+        <button type="button" onclick="unlinkEmailAccount()" class="px-2.5 py-1 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded font-semibold text-[11px] cursor-pointer">
+          Desvincular
+        </button>
+      </div>
+
+      <div id="linkEmailError" role="alert" class="hidden bg-red-50 border border-red-300 text-red-900 text-xs p-3 rounded-lg font-medium"></div>
+
+      <form onsubmit="handleLinkEmailSubmit(event)" class="space-y-3.5">
+        <div>
+          <span class="block text-xs font-semibold text-[#111827] mb-1.5">Proveedor de Correo:</span>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-300 cursor-pointer hover:bg-slate-50">
+              <input type="radio" name="linkProviderRadio" value="google" checked class="text-[#0F1D32]">
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24z"/>
+                <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14z"/>
+                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96z"/>
+              </svg>
+              <span class="text-xs font-semibold text-[#111827]">Google</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-lg border border-slate-300 cursor-pointer hover:bg-slate-50">
+              <input type="radio" name="linkProviderRadio" value="microsoft" class="text-[#0F1D32]">
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 23 23" aria-hidden="true">
+                <path fill="#f35325" d="M1 1h10v10H1z"/>
+                <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                <path fill="#ffba08" d="M12 12h10v10H12z"/>
+              </svg>
+              <span class="text-xs font-semibold text-[#111827]">Microsoft</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="linkEmailInput" class="block text-xs font-semibold text-[#111827] mb-1">Correo Electrónico a Vincular</label>
+          <input type="email" id="linkEmailInput" required placeholder="ejemplo@gmail.com / @outlook.com"
+                 class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-sm text-[#111827] font-medium">
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t border-slate-200">
+          <button type="button" onclick="closeLinkEmailModal()" class="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold cursor-pointer">
+            Cancelar
+          </button>
+          <button type="submit" class="px-4 py-2 bg-[#0F1D32] hover:bg-[#1B365D] text-white rounded-lg text-xs font-bold cursor-pointer">
+            Guardar Vinculación
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  
+  <!-- ========================================================================= -->
+  <!-- MODAL: MI PERFIL & VINCULAR CORREO GOOGLE / MICROSOFT                     -->
+  <!-- ========================================================================= -->
+  <div id="myProfileModal" role="dialog" aria-modal="true" aria-labelledby="myProfileTitle" class="fixed inset-0 bg-black/70 z-[75] hidden flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-2xl border border-slate-300 space-y-4 text-xs">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="link-2" class="w-5 h-5 text-[#9A6E23]"></i>
+          <div>
+            <h3 id="myProfileTitle" class="text-sm font-bold text-[#0F1D32] font-serif-legal">Mi Perfil y Vinculación</h3>
+            <p id="myProfileSubtitle" class="text-[11px] text-[#4B5563]">Vincula tu usuario a Google, Microsoft y WhatsApp</p>
+          </div>
+        </div>
+        <button type="button" onclick="closeMyProfileModal()" class="text-slate-400 hover:text-slate-700 p-1 cursor-pointer" aria-label="Cerrar">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div id="myProfileError" role="alert" class="hidden bg-red-50 border border-red-300 text-red-900 text-xs p-3 rounded-lg font-medium"></div>
+
+      <form onsubmit="handleSaveMyProfile(event)" class="space-y-3.5">
+        <div class="bg-[#FAF9F6] border border-[#E2DDD5] rounded-lg p-3 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] uppercase tracking-wider text-[#4B5563] block">Usuario Actual</span>
+            <span id="myProfileUsernameDisplay" class="font-bold text-[#0F1D32] text-sm font-mono">@israel</span>
+          </div>
+          <span id="myProfileProviderBadge" class="px-2 py-0.5 rounded bg-slate-200 text-[#0F1D32] font-bold text-[10px] uppercase">LOCAL</span>
+        </div>
+
+        <div>
+          <label for="myProfileProvider" class="block font-semibold text-[#111827] mb-1">Proveedor de Correo a Vincular</label>
+          <select id="myProfileProvider" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-[#111827]">
+            <option value="google">Google (@gmail.com / Google Workspace)</option>
+            <option value="microsoft">Microsoft (@outlook.com / @hotmail.com / Corporativo)</option>
+            <option value="local">Correo Estándar / Otro</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="myProfileEmail" class="block font-semibold text-[#111827] mb-1">Correo Electrónico Vinculado</label>
+          <input type="email" id="myProfileEmail" placeholder="Ej: israel.duarte.carrasquilla@gmail.com"
+                 class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-[#111827]">
+          <span class="text-[10px] text-[#4B5563] block mt-1">Al vincularlo, podrás iniciar sesión usando tanto tu usuario como este correo o los botones de Google/Microsoft.</span>
+        </div>
+
+        <div>
+          <label for="myProfilePhone" class="block font-semibold text-[#111827] mb-1">Teléfono / WhatsApp</label>
+          <input type="tel" id="myProfilePhone" placeholder="Ej: 3001234567 o 573001234567"
+                 class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs text-[#111827] font-mono">
+        </div>
+
+        <div class="pt-2 border-t border-slate-200 flex justify-end gap-2">
+          <button type="button" onclick="closeMyProfileModal()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-lg cursor-pointer">Cancelar</button>
+          <button type="submit" class="px-4 py-2 bg-[#0F1D32] hover:bg-[#1B365D] text-white font-bold rounded-lg cursor-pointer">Guardar y Vincular</button>
         </div>
       </form>
     </div>
